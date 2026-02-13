@@ -1,0 +1,66 @@
+{% comment %}
+  Image Snippet
+  
+  This snippet renders responsive images with optional lazy loading and aspect ratios.
+  It supports wrapping images in links, custom classes, and various image sizing options.
+  The snippet handles lazy loading for performance and can maintain aspect ratios.
+  
+  @param {image} image - The image to be rendered (required)
+  @param {string} url - An optional destination URL for the image
+  @param {string} class - Optional class to be added to the image wrapper
+  @param {number} width - The highest resolution width of the image to be rendered
+  @param {number} height - The highest resolution height of the image to be rendered
+  @param {string} crop - The crop position of the image
+  @param {string} loading - Loading attribute: 'lazy' or 'eager' (default: 'lazy')
+  @param {string} alt - Alt text for the image
+{% endcomment %}
+
+{% comment %}
+  Image Snippet - Optimized for Performance
+  
+  Defaults to lazy loading for below-fold images.
+  Set loading='eager' explicitly for above-fold images (hero banners, etc.)
+{% endcomment %}
+
+{% liquid
+  assign loading = loading | default: 'lazy'
+  assign alt = alt | default: image.alt | default: ''
+  
+  unless height
+    assign width = width | default: image.width
+  endunless
+
+  if url
+    assign wrapper = 'a'
+  else
+    assign wrapper = 'div'
+  endif
+%}
+
+<{{ wrapper }}
+  class="image {{ class }}"
+  {% if url %}
+    href="{{ url }}"
+  {% endif %}
+>
+  {% if width or height %}
+    {{ image | image_url: width: width, height: height, crop: crop | image_tag: loading: loading, alt: alt }}
+  {% else %}
+    {{ image | image_url | image_tag: loading: loading, alt: alt }}
+  {% endif %}
+</{{ wrapper }}>
+
+{% stylesheet %}
+  .image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+  }
+
+  .image > img {
+    width: 100%;
+    height: auto;
+  }
+{% endstylesheet %}

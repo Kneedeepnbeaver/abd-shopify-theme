@@ -1,0 +1,511 @@
+{% comment %}
+  Blog Section
+
+  This section displays a list of blog articles (blog posts) in a blog.
+  It shows the blog title, description, and a paginated list of articles with
+  their images, titles, dates, authors, and excerpts. The section supports
+  multiple layout options (grid, list, masonry) and can override color schemes
+  and spacing to match different design needs.
+
+  Enhanced with:
+  - Better article card styling
+  - Responsive column controls
+  - Improved typography
+  - Article metadata display
+{% endcomment %}
+
+{% liquid
+  assign layout_variation = section.settings.layout_variation | default: 'grid'
+  assign columns_mobile = section.settings.columns_mobile | default: 1
+  assign columns_tablet = section.settings.columns_tablet | default: 2
+  assign columns_desktop = section.settings.columns_desktop | default: 3
+  assign articles_per_page = section.settings.articles_per_page | default: 5
+  assign show_excerpt = section.settings.show_excerpt
+  assign show_date = section.settings.show_date
+  assign show_author = section.settings.show_author
+  assign abd_theme = section.settings.abd_theme
+  assign custom_bg = section.settings.custom_bg
+  assign custom_text = section.settings.custom_text
+  assign custom_accent = section.settings.custom_accent
+  assign custom_link = section.settings.custom_link
+%}
+
+<div class="section-blog section-blog--{{ layout_variation }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
+     style="--columns-mobile: {{ columns_mobile }}; --columns-tablet: {{ columns_tablet }}; --columns-desktop: {{ columns_desktop }}; {% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}">
+  <div class="section-blog__container page-width">
+    {%- if abd_theme contains 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
+    {%- if abd_theme == 'social' -%}<div class="abd-myspace-container">{%- endif -%}
+    
+    <div class="blog-header">
+      <h1 class="blog-header__title abd-title">{{ blog.title }}</h1>
+      
+      {%- if blog.description != blank -%}
+        <div class="blog-header__description">
+          {{ blog.description }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="blog-articles">
+      {% paginate blog.articles by articles_per_page %}
+        {%- if blog.articles.size > 0 -%}
+          <div class="blog-articles__grid">
+            {% for article in blog.articles %}
+              <article class="blog-article">
+                {%- if article.image -%}
+                  <div class="blog-article__image">
+                    <a href="{{ article.url }}" class="blog-article__image-link">
+                      {% render 'image',
+                        image: article.image,
+                        alt: article.title,
+                        class: 'blog-article__img',
+                        loading: 'lazy'
+                      %}
+                    </a>
+                  </div>
+                {%- endif -%}
+
+                <div class="blog-article__content">
+                  <h2 class="blog-article__title">
+                    <a href="{{ article.url }}">{{ article.title }}</a>
+                  </h2>
+
+                  {%- if show_date or show_author -%}
+                    <div class="blog-article__meta">
+                      {%- if show_date -%}
+                        <time class="blog-article__date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+                          {{ article.published_at | date: '%B %d, %Y' }}
+                        </time>
+                      {%- endif -%}
+                      {%- if show_date and show_author -%}
+                        <span class="blog-article__meta-separator">•</span>
+                      {%- endif -%}
+                      {%- if show_author and article.author != blank -%}
+                        <span class="blog-article__author">{{ article.author }}</span>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if show_excerpt and article.excerpt != blank -%}
+                    <div class="blog-article__excerpt">
+                      {{ article.excerpt }}
+                    </div>
+                  {%- elsif show_excerpt and article.summary != blank -%}
+                    <div class="blog-article__excerpt">
+                      {{ article.summary | strip_html | truncate: 150 }}
+                    </div>
+                  {%- endif -%}
+
+                  <a href="{{ article.url }}" class="blog-article__read-more">
+                    {{ 'blog.article.read_more' | t | default: 'Read more' }} →
+                  </a>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+
+          {%- if paginate.pages > 1 -%}
+            <div class="blog-articles__pagination">
+              {{ paginate | default_pagination }}
+            </div>
+          {%- endif -%}
+        {%- else -%}
+          <div class="blog-articles__empty">
+            <p>{{ 'blog.no_articles' | t | default: 'No articles found.' }}</p>
+          </div>
+        {%- endif -%}
+      {% endpaginate %}
+    </div>
+    
+    {%- if abd_theme == 'social' -%}</div>{%- endif -%}
+    {%- if abd_theme contains 'retro' -%}</div>{%- endif -%}
+  </div>
+</div>
+
+{% style %}
+  .section-blog {
+    padding-top: {{ section.settings.padding_top | default: 60 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 60 }}px;
+  }
+
+  .blog-header {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .blog-header__title {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .blog-header__description {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-base);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .blog-articles__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--columns-mobile), 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  @media (min-width: 768px) {
+    .blog-articles__grid {
+      grid-template-columns: repeat(var(--columns-tablet), 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-articles__grid {
+      grid-template-columns: repeat(var(--columns-desktop), 1fr);
+    }
+  }
+
+  .section-blog--list .blog-articles__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-blog--masonry .blog-articles__grid {
+    grid-auto-rows: masonry;
+  }
+
+  .blog-article {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    border-radius: var(--style-border-radius-inputs);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .blog-article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .blog-article__image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+
+  .blog-article__image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .blog-article__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .blog-article:hover .blog-article__img {
+    transform: scale(1.05);
+  }
+
+  .blog-article__content {
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-article__title {
+    font-size: var(--font-size-h3);
+    font-weight: var(--font-weight-heading);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .blog-article__title a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .blog-article__title a:hover {
+    color: var(--color-primary);
+  }
+
+  .blog-article__meta {
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .blog-article__meta-separator {
+    color: var(--color-secondary);
+  }
+
+  .blog-article__excerpt {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    flex: 1;
+  }
+
+  .blog-article__read-more {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    align-self: flex-start;
+  }
+
+  .blog-article__read-more:hover {
+    text-decoration: underline;
+  }
+
+  .blog-articles__pagination {
+    margin-top: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .blog-articles__empty {
+    text-align: center;
+    padding: var(--spacing-xl);
+  }
+{% endstyle %}
+
+{% render 'abd-theme-styles',
+  theme: abd_theme,
+  custom_bg: custom_bg,
+  custom_text: custom_text,
+  custom_accent: custom_accent,
+  custom_link: custom_link
+%}
+
+{% schema %}
+{
+  "name": "t:general.blog",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Options"
+    },
+    {
+      "type": "select",
+      "id": "layout_variation",
+      "label": "Blog Layout",
+      "default": "grid",
+      "options": [
+        { "value": "grid", "label": "Grid" },
+        { "value": "list", "label": "List" },
+        { "value": "masonry", "label": "Masonry" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Columns on Mobile",
+      "default": 1,
+      "min": 1,
+      "max": 3,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "columns_tablet",
+      "label": "Columns on Tablet",
+      "default": 2,
+      "min": 1,
+      "max": 3,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on Desktop",
+      "default": 3,
+      "min": 2,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "articles_per_page",
+      "label": "Articles Per Page",
+      "default": 5,
+      "min": 3,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "type": "header",
+      "content": "Display Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_excerpt",
+      "label": "Show Excerpt",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show Published Date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show Author",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "ABD Theme Styles"
+    },
+    {
+      "type": "select",
+      "id": "abd_theme",
+      "label": "ABD Theme Style",
+      "default": "",
+      "options": [
+        { "value": "", "label": "None (Theme Default)" },
+        { "value": "premium", "label": "Premium Modern - Original" },
+        { "value": "premium-dark", "label": "Premium Modern - Dark" },
+        { "value": "premium-minimal", "label": "Premium Modern - Minimal" },
+        { "value": "premium-bold", "label": "Premium Modern - Bold" },
+        { "value": "historical", "label": "Historical Parchment" },
+        { "value": "culinaria", "label": "Culinaria (Vintage Recipe)" },
+        { "value": "diary", "label": "Editorial Chic (Journal)" },
+        { "value": "portrait", "label": "Biographical Portrait" },
+        { "value": "stpatricks", "label": "St. Patrick's Day" },
+        { "value": "valentines", "label": "Valentine's Day - Original" },
+        { "value": "valentines-his", "label": "Valentine's Day - His" },
+        { "value": "valentines-her", "label": "Valentine's Day - Her" },
+        { "value": "classified", "label": "Government - Classified Document" },
+        { "value": "classified-top-secret", "label": "Government - Top Secret" },
+        { "value": "classified-declassified", "label": "Government - Declassified" },
+        { "value": "classified-official", "label": "Government - Official" },
+        { "value": "briefing", "label": "Government - Intelligence Briefing" },
+        { "value": "retro", "label": "Millennials - 90s Web (Geocities)" },
+        { "value": "retro-bright", "label": "Millennials - 90s Web (Bright)" },
+        { "value": "retro-dark", "label": "Millennials - 90s Web (Dark)" },
+        { "value": "retro-business", "label": "Millennials - 90s Web (Business)" },
+        { "value": "social", "label": "Millennials - MySpace (Pre-2010)" },
+        { "value": "zine", "label": "Gen Z - Campus Zine (Brutalist)" },
+        { "value": "genz-minimal", "label": "Gen Z - Minimalist" },
+        { "value": "genz-maximal", "label": "Gen Z - Maximalist" },
+        { "value": "genz-y2k", "label": "Gen Z - Y2K (Early 2000s)" },
+        { "value": "travel-rome", "label": "Travel - Rome" },
+        { "value": "travel-paris", "label": "Travel - Paris" },
+        { "value": "travel-london", "label": "Travel - London" },
+        { "value": "travel-washingtondc", "label": "Travel - Washington D.C." },
+        { "value": "travel-hollywood", "label": "Travel - Hollywood" },
+        { "value": "travel-sanfrancisco", "label": "Travel - San Francisco" },
+        { "value": "travel-sacramento", "label": "Travel - Sacramento" },
+        { "value": "travel-philadelphia", "label": "Travel - Philadelphia" },
+        { "value": "travel-chicago", "label": "Travel - Chicago" },
+        { "value": "museum-vatican", "label": "Museum - Vatican" },
+        { "value": "museum-louvre", "label": "Museum - Louvre" },
+        { "value": "museum-met", "label": "Museum - MET (NYC)" },
+        { "value": "travel-nyc", "label": "Travel - NYC (Statue of Liberty)" },
+        { "value": "genx", "label": "Gen X - VHS/90s" },
+        { "value": "genx-grunge", "label": "Gen X - Grunge" },
+        { "value": "genx-80s", "label": "Gen X - 80s Synthwave" },
+        { "value": "metal", "label": "Heavy Metal" },
+        { "value": "millennial", "label": "Millennial - Hipster Retro-Social" },
+        { "value": "boomer", "label": "Boomer - Retro Diner" },
+        { "value": "halloween", "label": "Seasonal - Halloween (Spooky)" },
+        { "value": "christmas", "label": "Seasonal - Christmas (Vintage)" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "men's-magazine", "label": "Men'S Magazine" },
+        { "value": "classified-military", "label": "Military Theme" },
+        { "value": "national-parks", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-stripes", "label": "Stars And Stripes" },
+        { "value": "synthwave", "label": "Synthwave" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      ]
+    },
+    {
+      "type": "color",
+      "id": "custom_bg",
+      "label": "Custom Background Color"
+    },
+    {
+      "type": "color",
+      "id": "custom_text",
+      "label": "Custom Text Color",
+      "info": "Overrides the selected ABD theme text color if set."
+    },
+    {
+      "type": "color",
+      "id": "custom_accent",
+      "label": "Custom Accent Color",
+      "info": "Used for highlights, borders, and accent elements."
+    },
+    {
+      "type": "color",
+      "id": "custom_link",
+      "label": "Custom Link Color",
+      "info": "Color for links and interactive elements."
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,21 @@
+<div class="block-featured-product" {{ block.shopify_attributes }}>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "setting_1",
+      "label": "Product",
+      "info": "feature product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product"
+    }
+  ]
+}
+{% endschema %}

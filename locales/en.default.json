@@ -1,0 +1,95 @@
+{
+  "404": {
+    "title": "404",
+    "not_found": "Page not found.",
+    "back_to_shopping": "Back to shopping"
+  },
+  "blog": {
+    "article_comments": "Comments",
+    "article_metadata_html": "{{ date }} by {{ author }}",
+    "comment_form_body": "Comment",
+    "comment_form_email": "Email",
+    "comment_form_name": "Name",
+    "comment_form_submit": "Post",
+    "comment_form_title": "Add a comment"
+  },
+  "cart": {
+    "checkout": "Checkout",
+    "title": "Cart",
+    "update": "Update",
+    "remove": "Remove"
+  },
+  "customers": {
+    "login": {
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "title": "Login"
+    }
+  },
+  "collections": {
+    "title": "Collections"
+  },
+  "gift_card": {
+    "add_to_apple_wallet": "Add to Apple Wallet",
+    "card": "Gift card",
+    "expired": "This gift card has expired",
+    "expires_on": "Expires on {{ expires_on }}",
+    "use_at_checkout": "Use this gift card at checkout"
+  },
+  "password": {
+    "title": "This shop is private",
+    "password": "Password",
+    "enter": "Enter"
+  },
+  "search": {
+    "title": "Search",
+    "placeholder": "Search articles, pages, or products",
+    "submit": "Search",
+    "no_results_html": "No results found for {{ terms }}",
+    "results_for_html": "{{ count }} results found for {{ terms }}"
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "sold_out": "Sold out",
+    "price_range": "From {{ min }} to {{ max }}"
+  },
+  "presets": {
+    "color_scheme": {
+      "light": "Light",
+      "dark": "Dark",
+      "vibrant": "Vibrant",
+      "minimal": "Minimal",
+      "warm": "Warm"
+    },
+    "typography": {
+      "modern": "Modern",
+      "classic": "Classic",
+      "bold": "Bold",
+      "elegant": "Elegant"
+    },
+    "spacing": {
+      "compact": "Compact",
+      "standard": "Standard",
+      "spacious": "Spacious"
+    },
+    "layout": {
+      "centered": "Centered",
+      "left_aligned": "Left Aligned",
+      "full_width": "Full Width"
+    }
+  },
+  "components": {
+    "button": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "outline": "Outline",
+      "ghost": "Ghost"
+    },
+    "badge": {
+      "sale": "Sale",
+      "new": "New",
+      "featured": "Featured"
+    }
+  }
+}

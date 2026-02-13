@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    {% # Inlined CSS Variables %}
+    {% render 'css-variables' %}
+
+    {% comment %}
+      Font preloading:
+      1. Preconnect to font CDN for faster connection
+      2. Preload only the critical font variant (base weight)
+      3. Additional variants load on-demand via @font-face
+    {% endcomment %}
+    {% unless settings.type_primary_font.system? %}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+
+      {% comment %} Preload the base font variant for initial page render {% endcomment %}
+      {{ settings.type_primary_font | font_url | preload_tag: as: 'font', crossorigin: 'anonymous' }}
+    {% endunless %}
+
+    {% comment %} Preconnect to Google Fonts for ABD theme fonts {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    {% # Load and preload the critical CSS %}
+    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+    
+    {% # Load essential theme CSS (non-blocking) %}
+    <link rel="preload" href="{{ 'style-variations.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'style-variations.css' | asset_url }}"></noscript>
+    
+    <link rel="preload" href="{{ 'forms.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'forms.css' | asset_url }}"></noscript>
+    
+    <link rel="preload" href="{{ 'theme-extensions.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'theme-extensions.css' | asset_url }}"></noscript>
+    
+    {% # Load ABD theme CSS %}
+    {% # Load synchronously to ensure styles work in theme editor preview %}
+    {{ 'abd-themes.css' | asset_url | stylesheet_tag }}
+    
+    {% # Lazy load animations CSS (not critical) %}
+    <link rel="preload" href="{{ 'animations.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ 'animations.css' | asset_url }}"></noscript>
+
+    {% # Social, title, etc. %}
+    {% render 'meta-tags' %}
+    
+    {% # Structured Data for SEO %}
+    {% render 'structured-data' %}
+
+    {{ content_for_header }}
+  </head>
+
+  <body>
+    {% sections 'header-group' %}
+
+    {{ content_for_layout }}
+
+    {% sections 'footer-group' %}
+
+    {% # Load theme JavaScript (deferred for better performance) %}
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+    <script src="{{ 'security.js' | asset_url }}" defer></script>
+    {% render 'security-config' %}
+  </body>
+</html>

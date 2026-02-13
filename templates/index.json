@@ -1,0 +1,88 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "show_home": true,
+        "show_current": true,
+        "separator": ">",
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
+    },
+    "main": {
+      "type": "page",
+      "disabled": true,
+      "settings": {
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
+    },
+    "hello_world_KjcKRK": {
+      "type": "hello-world",
+      "name": "Hello World",
+      "settings": {
+        "abd_theme": "retro-business",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
+    },
+    "custom_section_ci7rb6": {
+      "type": "custom-section",
+      "blocks": {
+        "text_V78gCB": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<h1>Arts by Dylan </h1><p>is a custom Shopify theme that—much like the Gibson—is constantly under construction. But recently, I got distracted hacking together something new: a RAG-based AI software designed for the public.<br/><br/>Computer code is a lot like a photograph. The moment the shutter clicks (or the keystroke lands), the artist owns the copyright. It is a captured moment of logic and creativity that belongs entirely to the creator. From there, it’s a choice: lock it down commercially, waive all rights to the public domain, or find a middle ground.</p><p><br/>I’ve spent countless hours vibe-coding this software, debugging it with Cursor and Google's Antigravity, and making unique design choices that give it a soul. But as the saying goes, <em>\"</em><em><strong>Information wants to be free.\" </strong></em>(Stewart Brand at the first Hackers conference in 1984 held in Marin County CA)<br/></p><p><br/>And to quote the classic <strong>Hackers</strong>: <em>\"There is no right and wrong. There's only fun and boring.\"</em><br/></p><p><br/>Keeping this tool to myself would be boring. </p><p>So, I have chosen the <strong>MIT License</strong>. I developed this with the intent that the public could use it, learn from it, and build upon it for free.</p><p><br/><em><strong>Hack the Planet.</strong></em></p><p></p>",
+            "text_style": "text--title",
+            "alignment": "left",
+            "abd_theme": "zine",
+            "custom_bg": "",
+            "custom_text": ""
+          },
+          "blocks": {}
+        },
+        "custom_html_FFYpEb": {
+          "type": "custom-html",
+          "name": "Custom HTML",
+          "settings": {
+            "setting_1": "<meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>C.A.P.I.T.O.L. - Civic Artificial Programming &amp; Intelligence</title>\n    <style>\n        :root {\n            --primary: #2c3e50;\n            --accent: #e74c3c;\n            --bg: #f8f9fa;\n            --text: #333;\n            --card-bg: #ffffff;\n        }\n\n        * {\n            box-sizing: border-box;\n        }\n\n        body {\n            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;\n            line-height: 1.6;\n            margin: 0;\n            padding: 0;\n            background-color: var(--bg);\n            color: var(--text);\n            min-height: 100vh;\n        }\n\n        .container {\n            max-width: 800px;\n            margin: 0 auto;\n            padding: 2rem 2rem 4rem;\n        }\n\n        header {\n            text-align: center;\n            margin-bottom: 4rem;\n        }\n\n        h1 {\n            font-size: 3.5rem;\n            color: var(--primary);\n            margin-bottom: 0.5rem;\n            letter-spacing: -1px;\n        }\n\n        .tagline {\n            font-size: 1.2rem;\n            color: #666;\n            font-style: italic;\n            margin-bottom: 2rem;\n        }\n\n        .hero-desc {\n            font-size: 1.25rem;\n            max-width: 600px;\n            margin: 0 auto 3rem;\n            color: #4a5568;\n        }\n\n        .intro {\n            text-align: center;\n            margin-bottom: 3rem;\n        }\n\n        .cta-button {\n            display: inline-block;\n            background-color: var(--accent);\n            color: white;\n            padding: 1rem 2.5rem;\n            border-radius: 50px;\n            font-weight: 600;\n            text-decoration: none;\n            transition: transform 0.2s, box-shadow 0.2s;\n            box-shadow: 0 4px 6px rgba(231, 76, 60, 0.2);\n            font-size: 1.1rem;\n            margin-bottom: 2rem;\n        }\n\n        .cta-button:hover {\n            transform: translateY(-2px);\n            box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);\n            background-color: #c0392b;\n        }\n\n        .features {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));\n            gap: 2rem;\n            margin-top: 2rem;\n        }\n\n        .feature-card {\n            background: var(--card-bg);\n            padding: 2rem;\n            border-radius: 12px;\n            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);\n            transition: transform 0.2s;\n        }\n\n        .feature-card:hover {\n            transform: translateY(-5px);\n        }\n\n        .feature-card h3 {\n            color: var(--primary);\n            margin-top: 0;\n            font-size: 1.4rem;\n        }\n\n        .feature-card p {\n            color: #666;\n            margin-bottom: 0;\n        }\n\n        footer {\n            text-align: center;\n            margin-top: 5rem;\n            padding: 2rem;\n            color: #888;\n            font-size: 0.9rem;\n        }\n\n        footer a {\n            color: var(--primary);\n            text-decoration: none;\n        }\n\n        /* Ensure button text is white even in footer */\n        footer a.cta-button {\n            color: white;\n        }\n    </style>\n\n\n\n    <div class=\"container\">\n        <header>\n            <h1>C.A.P.I.T.O.L.</h1>\n            <div class=\"tagline\">Civic Artificial Programming &amp; Intelligence for Tracking, Organizing &amp; Lawmaking</div>\n        </header>\n\n        <div class=\"intro\">\n            <p class=\"hero-desc\">\n                A powerful productivity tool designed for Legislative Professionals. Analyze documents, track bills, and\n                generate insights using advanced local RAG technology.\n            </p>\n        </div>\n\n        <div class=\"features\">\n            <div class=\"feature-card\">\n                <h3>📄 Smart Ingestion</h3>\n                <p>Seamlessly import and process legislative PDFs and documents with automated text extraction and\n                    indexing.</p>\n            </div>\n\n            <div class=\"feature-card\">\n                <h3>🔐 The Vault</h3>\n                <p>Securely store, organize, and manage your analyzed documents in a searchable, local database.</p>\n            </div>\n\n            <div class=\"feature-card\">\n                <h3>🔮 The Oracle</h3>\n                <p>Ask complex questions about your bills and receive immediate, citation-backed answers from your local\n                    AI.</p>\n            </div>\n\n            <div class=\"feature-card\">\n                <h3>✍️ Minerva's Forge</h3>\n                <p>Generate executive summaries, press releases, and social media content automatically from your\n                    documents.</p>\n            </div>\n        </div>\n\n        <footer>\n            <a href=\"https://github.com/Kneedeepnbeaver/C.A.P.I.T.O.L./releases\" class=\"cta-button\" target=\"_blank\">\n                ⬇ Download Latest Release\n            </a>\n\n            <p>Built with Electron, React, and Local LLMs.<br>\n                <a href=\"https://github.com/Kneedeepnbeaver/C.A.P.I.T.O.L.\">View Source on GitHub</a>\n            </p>\n        </footer>\n    </div>",
+            "abd_theme": "travel-sacramento",
+            "custom_bg": "",
+            "custom_text": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_V78gCB",
+        "custom_html_FFYpEb"
+      ],
+      "name": "t:general.custom_section",
+      "settings": {
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main",
+    "hello_world_KjcKRK",
+    "custom_section_ci7rb6"
+  ]
+}

@@ -1,0 +1,704 @@
+{% comment %}
+  Article Section
+
+  This section displays a single blog article (blog post) with the article
+  image, title, publication date, author, full content, and optional comments.
+  It's used in the article template to show individual blog posts. The section
+  supports reading layout options (standard, narrow, wide) and typography
+  presets to optimize the reading experience.
+
+  Enhanced with:
+  - Better reading layout options
+  - Improved typography
+  - Better comment form styling
+  - Social sharing options
+  - Related articles support
+{% endcomment %}
+
+{% liquid
+  assign reading_layout = section.settings.reading_layout | default: 'standard'
+  assign show_date = section.settings.show_date
+  assign show_author = section.settings.show_author
+  assign show_tags = section.settings.show_tags
+  assign show_share_buttons = section.settings.show_share_buttons
+%}
+
+{% liquid
+  assign abd_theme = section.settings.abd_theme
+  assign custom_bg = section.settings.custom_bg
+  assign custom_text = section.settings.custom_text
+  assign custom_accent = section.settings.custom_accent
+  assign custom_link = section.settings.custom_link
+%}
+
+<div class="section-article section-article--{{ reading_layout }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
+     style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}">
+  <div class="section-article__container page-width">
+    <article class="article">
+      {%- if article.image -%}
+        <div class="article__image">
+          {% render 'image',
+            image: article.image,
+            alt: article.title,
+            class: 'article__img',
+            loading: 'eager'
+          %}
+        </div>
+      {%- endif -%}
+
+      <header class="article__header">
+        <h1 class="article__title abd-title">{{ article.title }}</h1>
+
+        {%- if abd_theme contains 'retro' -%}
+          <div class="abd-marquee"><div class="abd-marquee-inner">WELCOME TO ARTS BY DYLAN'S AWESOME BLOG!! *** UPDATED: {{ article.published_at | date: '%B %d, %Y' }} *** NEW INSIGHTS ON {{ blog.title }}!</div></div>
+          <div class="abd-construction">
+            <div class="abd-gif-box">[UNDER CONSTRUCTION]</div>
+            <div class="abd-wax-seal" style="background: transparent; border: none; box-shadow: none;">📬</div>
+            <div class="abd-gif-box">[BEST VIEWED IN NETSCAPE]</div>
+          </div>
+          <span class="abd-blink">--- NEW HOT TOPIC: {{ blog.title }} ---</span>
+        {%- endif -%}
+
+        {%- if abd_theme == 'classified' -%}
+          <div class="abd-stamp">PROJECT: {{ blog.title }} // TOP SECRET</div>
+        {%- endif -%}
+
+        {%- if section.settings.custom_summary != blank -%}
+          <div class="abd-summary-box">
+            <div class="abd-summary-text">{{ section.settings.custom_summary }}</div>
+          </div>
+        {%- endif -%}
+
+        {%- if show_date or show_author -%}
+          <div class="article__meta">
+            {%- if show_date -%}
+              <time class="article__date" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+                {{ article.published_at | date: '%B %d, %Y' }}
+              </time>
+            {%- endif -%}
+            {%- if show_date and show_author -%}
+              <span class="article__meta-separator">•</span>
+            {%- endif -%}
+            {%- if show_author and article.author != blank -%}
+              <span class="article__author">{{ article.author }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if show_tags and article.tags.size > 0 -%}
+          <div class="article__tags">
+            {%- for tag in article.tags -%}
+              <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="article__tag">
+                {{ tag }}
+              </a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </header>
+
+      <div class="article__content abd-content">
+        {{ article.content }}
+      </div>
+
+      {%- if section.settings.show_key_takeaways and article.tags.size > 0 -%}
+        <div class="abd-key-points">
+          <h3>Key Takeaways</h3>
+          <ul>
+            {%- for tag in article.tags -%}
+              <li>{{ tag }}</li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+
+      {%- if show_share_buttons -%}
+        <div class="article__share">
+          <h3 class="article__share-title">{{ 'blog.article.share' | t | default: 'Share this article' }}</h3>
+          <div class="article__share-buttons">
+            <a href="https://twitter.com/intent/tweet?url={{ shop.url }}{{ article.url }}&text={{ article.title | url_param_escape }}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="article__share-button article__share-button--twitter">
+              Twitter
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ shop.url }}{{ article.url }}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="article__share-button article__share-button--facebook">
+              Facebook
+            </a>
+            <a href="mailto:?subject={{ article.title | url_param_escape }}&body={{ shop.url }}{{ article.url }}"
+               class="article__share-button article__share-button--email">
+              Email
+            </a>
+          </div>
+        </div>
+      {%- endif -%}
+    </article>
+
+    {%- if blog.comments_enabled? -%}
+      <div class="article-comments" id="comments">
+        <h2 class="article-comments__title">{{ 'blog.article_comments' | t | default: 'Comments' }}</h2>
+
+        {% paginate article.comments by 10 %}
+          {%- if article.comments.size > 0 -%}
+            <div class="article-comments__list">
+              {% for comment in article.comments %}
+                <div class="article-comment">
+                  <div class="article-comment__header">
+                    <strong class="article-comment__author">{{ comment.author }}</strong>
+                    <time class="article-comment__date" datetime="{{ comment.created_at | date: '%Y-%m-%d' }}">
+                      {{ comment.created_at | date: '%B %d, %Y' }}
+                    </time>
+                  </div>
+                  <div class="article-comment__content">
+                    {{ comment.content }}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            {%- if paginate.pages > 1 -%}
+              <div class="article-comments__pagination">
+                {{ paginate | default_pagination: anchor: 'comments' }}
+              </div>
+            {%- endif -%}
+          {%- else -%}
+            <p class="article-comments__empty">{{ 'blog.article.no_comments' | t | default: 'No comments yet.' }}</p>
+          {%- endif -%}
+        {% endpaginate %}
+
+        <div class="article-comments__form">
+          <h3 class="article-comments__form-title">{{ 'blog.comment_form_title' | t | default: 'Leave a comment' }}</h3>
+
+          {% form 'new_comment', article, class: 'comment-form' %}
+            {{ form.errors | default_errors }}
+
+            <div class="comment-form__field">
+              <label for="author" class="comment-form__label">{{ 'blog.comment_form_name' | t | default: 'Name' }}</label>
+              <input type="text"
+                     name="comment[author]"
+                     id="author"
+                     class="comment-form__input"
+                     value="{{ form.author }}"
+                     required>
+            </div>
+
+            <div class="comment-form__field">
+              <label for="email" class="comment-form__label">{{ 'blog.comment_form_email' | t | default: 'Email' }}</label>
+              <input type="email"
+                     name="comment[email]"
+                     id="email"
+                     class="comment-form__input"
+                     value="{{ form.email }}"
+                     required>
+            </div>
+
+            <div class="comment-form__field">
+              <label for="body" class="comment-form__label">{{ 'blog.comment_form_body' | t | default: 'Comment' }}</label>
+              <textarea name="comment[body]"
+                        id="body"
+                        class="comment-form__textarea"
+                        rows="5"
+                        required>{{ form.body }}</textarea>
+            </div>
+
+            <button type="submit" class="comment-form__submit button button--primary">
+              {{ 'blog.comment_form_submit' | t | default: 'Post comment' }}
+            </button>
+          {% endform %}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% style %}
+  .section-article {
+    padding-top: {{ section.settings.padding_top | default: 60 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 60 }}px;
+  }
+
+  .article {
+    max-width: 100%;
+  }
+
+  .section-article--standard .article {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-article--narrow .article {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-article--wide .article {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .article__image {
+    margin-bottom: var(--spacing-lg);
+    border-radius: var(--style-border-radius-inputs);
+    overflow: hidden;
+  }
+
+  .article__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .article__header {
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .article__title {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .article__meta {
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+  }
+
+  .article__meta-separator {
+    color: var(--color-secondary);
+  }
+
+  .article__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    justify-content: center;
+    margin-top: var(--spacing-sm);
+  }
+
+  .article__tag {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--style-border-radius-inputs);
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .article__tag:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+  }
+
+  .article__content {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-base);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .article__content h2,
+  .article__content h3,
+  .article__content h4 {
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .article__content p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .article__content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--style-border-radius-inputs);
+    margin: var(--spacing-lg) 0;
+  }
+
+  .article__share {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-secondary);
+    text-align: center;
+  }
+
+  .article__share-title {
+    font-size: var(--font-size-h3);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .article__share-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .article__share-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--style-border-radius-inputs);
+    font-size: 0.875rem;
+    transition: opacity 0.2s ease;
+  }
+
+  .article__share-button:hover {
+    opacity: 0.8;
+  }
+
+  .article-comments {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-secondary);
+  }
+
+  .article-comments__title {
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .article-comment {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    background-color: var(--color-background);
+    border-radius: var(--style-border-radius-inputs);
+    border: 1px solid var(--color-secondary);
+  }
+
+  .article-comment__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .article-comment__author {
+    font-weight: 600;
+  }
+
+  .article-comment__date {
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+  }
+
+  .article-comment__content {
+    line-height: var(--line-height-base);
+  }
+
+  .article-comments__pagination {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .article-comments__empty {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--color-secondary);
+  }
+
+  .article-comments__form {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-secondary);
+  }
+
+  .article-comments__form-title {
+    font-size: var(--font-size-h3);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .comment-form__field {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .comment-form__label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .comment-form__input,
+  .comment-form__textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--style-border-radius-inputs);
+    font-size: var(--font-size-body);
+    font-family: inherit;
+  }
+
+  .comment-form__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .comment-form__submit {
+    margin-top: var(--spacing-sm);
+  }
+{% endstyle %}
+
+{% render 'abd-theme-styles',
+  theme: abd_theme,
+  custom_bg: custom_bg,
+  custom_text: custom_text,
+  custom_accent: custom_accent,
+  custom_link: custom_link
+%}
+
+{% schema %}
+{
+  "name": "t:general.article",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Reading Layout"
+    },
+    {
+      "type": "select",
+      "id": "reading_layout",
+      "label": "Reading Layout",
+      "default": "standard",
+      "options": [
+        { "value": "standard", "label": "Standard (800px)" },
+        { "value": "narrow", "label": "Narrow (600px)" },
+        { "value": "wide", "label": "Wide (1200px)" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Display Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show Published Date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show Author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "Show Tags",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_buttons",
+      "label": "Show Share Buttons",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "ABD Theme Styles"
+    },
+    {
+      "type": "select",
+      "id": "abd_theme",
+      "label": "ABD Theme Style",
+      "default": "",
+      "options": [
+        { "value": "", "label": "None (Theme Default)" },
+        { "value": "premium", "label": "Premium Modern - Original" },
+        { "value": "premium-dark", "label": "Premium Modern - Dark" },
+        { "value": "premium-minimal", "label": "Premium Modern - Minimal" },
+        { "value": "premium-bold", "label": "Premium Modern - Bold" },
+        { "value": "historical", "label": "Historical Parchment" },
+        { "value": "culinaria", "label": "Culinaria (Vintage Recipe)" },
+        { "value": "diary", "label": "Editorial Chic (Journal)" },
+        { "value": "portrait", "label": "Biographical Portrait" },
+        { "value": "stpatricks", "label": "St. Patrick's Day" },
+        { "value": "valentines", "label": "Valentine's Day - Original" },
+        { "value": "valentines-his", "label": "Valentine's Day - His" },
+        { "value": "valentines-her", "label": "Valentine's Day - Her" },
+        { "value": "classified", "label": "Government - Classified Document" },
+        { "value": "classified-top-secret", "label": "Government - Top Secret" },
+        { "value": "classified-declassified", "label": "Government - Declassified" },
+        { "value": "classified-official", "label": "Government - Official" },
+        { "value": "briefing", "label": "Government - Intelligence Briefing" },
+        { "value": "retro", "label": "Millennials - 90s Web (Geocities)" },
+        { "value": "retro-bright", "label": "Millennials - 90s Web (Bright)" },
+        { "value": "retro-dark", "label": "Millennials - 90s Web (Dark)" },
+        { "value": "retro-business", "label": "Millennials - 90s Web (Business)" },
+        { "value": "social", "label": "Millennials - MySpace (Pre-2010)" },
+        { "value": "zine", "label": "Gen Z - Campus Zine (Brutalist)" },
+        { "value": "genz-minimal", "label": "Gen Z - Minimalist" },
+        { "value": "genz-maximal", "label": "Gen Z - Maximalist" },
+        { "value": "genz-y2k", "label": "Gen Z - Y2K (Early 2000s)" },
+        { "value": "travel-rome", "label": "Travel - Rome" },
+        { "value": "travel-paris", "label": "Travel - Paris" },
+        { "value": "travel-london", "label": "Travel - London" },
+        { "value": "travel-washingtondc", "label": "Travel - Washington D.C." },
+        { "value": "travel-hollywood", "label": "Travel - Hollywood" },
+        { "value": "travel-sanfrancisco", "label": "Travel - San Francisco" },
+        { "value": "travel-sacramento", "label": "Travel - Sacramento" },
+        { "value": "travel-philadelphia", "label": "Travel - Philadelphia" },
+        { "value": "travel-chicago", "label": "Travel - Chicago" },
+        { "value": "museum-vatican", "label": "Museum - Vatican" },
+        { "value": "museum-louvre", "label": "Museum - Louvre" },
+        { "value": "museum-met", "label": "Museum - MET (NYC)" },
+        { "value": "travel-nyc", "label": "Travel - NYC (Statue of Liberty)" },
+        { "value": "genx", "label": "Gen X - VHS/90s" },
+        { "value": "genx-grunge", "label": "Gen X - Grunge" },
+        { "value": "genx-80s", "label": "Gen X - 80s Synthwave" },
+        { "value": "metal", "label": "Heavy Metal" },
+        { "value": "millennial", "label": "Millennial - Hipster Retro-Social" },
+        { "value": "boomer", "label": "Boomer - Retro Diner" },
+        { "value": "halloween", "label": "Seasonal - Halloween (Spooky)" },
+        { "value": "christmas", "label": "Seasonal - Christmas (Vintage)" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "men's-magazine", "label": "Men'S Magazine" },
+        { "value": "classified-military", "label": "Military Theme" },
+        { "value": "national-parks", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-stripes", "label": "Stars And Stripes" },
+        { "value": "synthwave", "label": "Synthwave" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      ]
+    },
+    {
+      "type": "color",
+      "id": "custom_bg",
+      "label": "Custom Background Color",
+      "info": "Overrides the selected ABD theme background if set."
+    },
+    {
+      "type": "color",
+      "id": "custom_text",
+      "label": "Custom Text Color",
+      "info": "Overrides the selected ABD theme text color if set."
+    },
+    {
+      "type": "color",
+      "id": "custom_accent",
+      "label": "Custom Accent Color",
+      "info": "Used for highlights, borders, and accent elements."
+    },
+    {
+      "type": "color",
+      "id": "custom_link",
+      "label": "Custom Link Color",
+      "info": "Color for links and interactive elements."
+    },
+    {
+      "type": "textarea",
+      "id": "custom_summary",
+      "label": "Custom Summary",
+      "info": "Overrides the article excerpt/summary if set."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_key_takeaways",
+      "label": "Show Tags as Key Takeaways",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article - Standard"
+    },
+    {
+      "name": "Article - Premium Modern",
+      "settings": {
+        "abd_theme": "premium",
+        "show_share_buttons": true,
+        "show_key_takeaways": true
+      }
+    },
+    {
+      "name": "Article - Classified Document",
+      "settings": {
+        "abd_theme": "classified",
+        "reading_layout": "narrow"
+      }
+    },
+    {
+      "name": "Article - 90s Web (Geocities)",
+      "settings": {
+        "abd_theme": "retro",
+        "show_date": true,
+        "show_author": false
+      }
+    },
+    {
+      "name": "Article - Editorial Journal",
+      "settings": {
+        "abd_theme": "diary",
+        "reading_layout": "wide"
+      }
+    },
+    {
+      "name": "Article - Intelligence Briefing",
+      "settings": {
+        "abd_theme": "briefing",
+        "show_tags": true
+      }
+    }
+  ]
+}
+{% endschema %}

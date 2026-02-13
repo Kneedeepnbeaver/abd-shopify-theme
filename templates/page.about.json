@@ -1,0 +1,69 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "About Us",
+        "text": "<p>Learn more about our story and mission</p>",
+        "button_text": "Contact Us",
+        "button_link": "/pages/contact"
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main": {
+      "type": "page",
+      "blocks": {},
+      "settings": {}
+    },
+    "feature_grid": {
+      "type": "feature-grid",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "heading": "Our Mission",
+            "content": "<p>Add your mission statement here</p>"
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "heading": "Our Values",
+            "content": "<p>Share your core values</p>"
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "heading": "Our Story",
+            "content": "<p>Tell your brand story</p>"
+          }
+        }
+      },
+      "settings": {
+        "heading": "Who We Are",
+        "columns": 3
+      }
+    },
+    "rich_text_closing": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Get in Touch",
+        "text": "<p>We'd love to hear from you. <a href=\"/pages/contact\">Contact us</a> today!</p>",
+        "text_alignment": "center",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "breadcrumbs",
+    "main",
+    "feature_grid",
+    "rich_text_closing"
+  ]
+}

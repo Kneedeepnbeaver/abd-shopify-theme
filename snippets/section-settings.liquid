@@ -1,0 +1,121 @@
+{% comment %}
+  Section Settings Snippet
+  
+  This snippet provides a reusable pattern for sections to use the theme's
+  preset system. It includes settings for color scheme overrides, spacing
+  overrides, and layout variations. Sections can include these settings in
+  their schema to allow merchants to customize individual sections beyond
+  the global theme presets.
+  
+  This is a reference pattern - copy the settings structure into your section's
+  schema JSON to enable preset customization for that section.
+  
+  Provides reusable settings pattern for sections to use presets and style variations.
+  Include this in section schema to add preset selectors and style variations.
+  
+  Usage: Include these settings in your section schema JSON
+{% endcomment %}
+
+{% comment %}
+  This snippet provides the settings structure that should be included in section schemas.
+  It's a reference pattern - copy these settings into your section's schema.
+  
+  Example usage in section schema:
+  
+  {
+    "settings": [
+      {
+        "type": "header",
+        "content": "Style Presets"
+      },
+      {
+        "type": "select",
+        "id": "color_scheme_override",
+        "label": "Color Scheme Override",
+        "default": "",
+        "options": [
+          { "value": "", "label": "Use theme default" },
+          { "value": "light", "label": "Light" },
+          { "value": "dark", "label": "Dark" },
+          { "value": "vibrant", "label": "Vibrant" },
+          { "value": "minimal", "label": "Minimal" },
+          { "value": "warm", "label": "Warm" }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "spacing_override",
+        "label": "Spacing Override",
+        "default": "",
+        "options": [
+          { "value": "", "label": "Use theme default" },
+          { "value": "compact", "label": "Compact" },
+          { "value": "standard", "label": "Standard" },
+          { "value": "spacious", "label": "Spacious" }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "layout_variation",
+        "label": "Layout Variation",
+        "default": "default",
+        "options": [
+          { "value": "default", "label": "Default" },
+          { "value": "grid", "label": "Grid" },
+          { "value": "list", "label": "List" },
+          { "value": "masonry", "label": "Masonry" },
+          { "value": "centered", "label": "Centered" }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Section Overrides"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 120,
+        "step": 10,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 60
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 120,
+        "step": 10,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 60
+      }
+    ]
+  }
+{% endcomment %}
+
+{% comment %}
+  Helper function to get section style classes based on settings
+{% endcomment %}
+
+{% liquid
+  assign color_scheme = section.settings.color_scheme_override | default: ''
+  assign spacing = section.settings.spacing_override | default: ''
+  assign layout = section.settings.layout_variation | default: 'default'
+  
+  assign section_classes = ''
+  
+  if color_scheme != blank
+    assign section_classes = section_classes | append: ' scheme-' | append: color_scheme
+  endif
+  
+  if spacing != blank
+    assign section_classes = section_classes | append: ' spacing-' | append: spacing
+  endif
+  
+  if layout != 'default'
+    assign section_classes = section_classes | append: ' layout-' | append: layout
+  endif
+%}
+

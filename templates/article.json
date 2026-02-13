@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main": {
+      "type": "article",
+      "settings": {
+        "reading_layout": "standard",
+        "show_date": true,
+        "show_author": true,
+        "show_tags": true,
+        "show_share_buttons": true
+      }
+    },
+    "custom_content": {
+      "type": "custom-section",
+      "blocks": {},
+      "settings": {}
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main",
+    "custom_content"
+  ]
+}

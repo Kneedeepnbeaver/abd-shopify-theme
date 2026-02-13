@@ -1,0 +1,96 @@
+{% comment %}
+  Form Select Component
+  
+  This snippet creates a styled select dropdown menu that matches the theme's
+  form styling. It supports options passed as an array and includes proper
+  label, error handling, and help text. The select is custom-styled to match
+  the theme's design system.
+  
+  Renders a styled select dropdown.
+  
+  @param {string} name - Select name attribute (required)
+  @param {string} id - Select id attribute (optional, defaults to name)
+  @param {string} label - Select label text (optional)
+  @param {array} options - Array of option objects with 'value' and 'label' (required)
+  @param {string} selected_value - Currently selected value (optional)
+  @param {boolean} required - Mark as required (default: false)
+  @param {boolean} disabled - Disable select (default: false)
+  @param {string} error_message - Error message to display (optional)
+  @param {string} help_text - Help text to display (optional)
+  @param {string} class - Additional CSS classes
+  @param {string} placeholder - Placeholder option text (optional)
+  
+  @example
+  {% assign sizes = 'Small,Medium,Large' | split: ',' %}
+  {% render 'form-select', name: 'size', label: 'Size', options: sizes, selected_value: 'Medium' %}
+{% endcomment %}
+
+{% liquid
+  assign name = name | default: ''
+  assign id = id | default: name
+  assign label = label | default: ''
+  assign options = options | default: null
+  assign selected_value = selected_value | default: ''
+  assign required = required | default: false
+  assign disabled = disabled | default: false
+  assign error_message = error_message | default: ''
+  assign help_text = help_text | default: ''
+  assign class = class | default: ''
+  assign placeholder = placeholder | default: ''
+  
+  unless name != blank
+    echo '<!-- Error: name parameter required for form-select snippet -->'
+    break
+  endunless
+  
+  assign select_class = 'form-select'
+  if error_message != blank
+    assign select_class = select_class | append: ' error'
+  endif
+  if class != blank
+    assign select_class = select_class | append: ' ' | append: class
+  endif
+%}
+
+<div class="form-group">
+  {% if label != blank %}
+    <label for="{{ id }}" class="form-label{% if required %} required{% endif %}">
+      {{ label }}
+    </label>
+  {% endif %}
+  
+  <select
+    name="{{ name }}"
+    id="{{ id }}"
+    class="{{ select_class }}"
+    {% if required %}required{% endif %}
+    {% if disabled %}disabled{% endif %}
+  >
+    {% if placeholder != blank %}
+      <option value=""{% if selected_value == blank %} selected{% endif %} disabled>{{ placeholder }}</option>
+    {% endif %}
+    
+    {% if options != null %}
+      {% for option in options %}
+        {% if option.value != blank %}
+          <option value="{{ option.value }}"{% if option.value == selected_value %} selected{% endif %}>
+            {{ option.label | default: option.value }}
+          </option>
+        {% else %}
+          <option value="{{ option }}"{% if option == selected_value %} selected{% endif %}>
+            {{ option }}
+          </option>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </select>
+  
+  {% if error_message != blank %}
+    <span class="form-error-message">{{ error_message }}</span>
+  {% endif %}
+  
+  {% if help_text != blank and error_message == blank %}
+    <span class="form-help-text">{{ help_text }}</span>
+  {% endif %}
+</div>
+

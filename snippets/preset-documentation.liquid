@@ -1,0 +1,73 @@
+{% comment %}
+  Preset Documentation
+  
+  This snippet provides documentation and examples for using the theme's
+  preset system in sections. It explains all available presets (color schemes,
+  typography, spacing, layouts) and shows how to implement them in section
+  schemas and liquid templates. Include this as a comment in your section
+  files for reference when building new sections.
+  
+  This snippet provides documentation for using presets in sections.
+  Include this as a comment in your section files for reference.
+{% endcomment %}
+  
+  Available Presets:
+  
+  Color Schemes:
+  - light: Light color scheme with white background
+  - dark: Dark color scheme with dark background
+  - vibrant: Vibrant colors with bright accents
+  - minimal: Minimal color scheme with neutral tones
+  - warm: Warm color scheme with earth tones
+  
+  Typography Presets:
+  - modern: Modern typography with bold headings
+  - classic: Classic typography with balanced weights
+  - bold: Bold typography with heavy weights
+  - elegant: Elegant typography with refined spacing
+  
+  Spacing Presets:
+  - compact: Tight spacing for dense layouts
+  - standard: Standard spacing for balanced layouts
+  - spacious: Generous spacing for open layouts
+  
+  Layout Variations:
+  - grid: Grid layout for cards/products
+  - list: List layout for vertical content
+  - masonry: Masonry layout for varied heights
+  - centered: Centered layout for hero sections
+  
+  Usage Example:
+  
+  In section schema, add:
+  
+  {
+    "type": "select",
+    "id": "color_scheme_override",
+    "label": "Color Scheme Override",
+    "default": "",
+    "options": [
+      { "value": "", "label": "Use theme default" },
+      { "value": "light", "label": "Light" },
+      { "value": "dark", "label": "Dark" },
+      { "value": "vibrant", "label": "Vibrant" },
+      { "value": "minimal", "label": "Minimal" },
+      { "value": "warm", "label": "Warm" }
+    ]
+  }
+  
+  In section liquid, use:
+  
+  {% liquid
+    assign color_scheme = section.settings.color_scheme_override | default: ''
+    assign section_class = 'my-section'
+    if color_scheme != blank
+      assign section_class = section_class | append: ' scheme-' | append: color_scheme
+    endif
+  %}
+  
+  <div class="{{ section_class }}">
+    <!-- Section content -->
+  </div>
+{% endcomment %}
+

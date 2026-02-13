@@ -1,0 +1,90 @@
+{% comment %}
+  Badge Component
+  
+  This snippet creates small badge or tag elements that can be used to label
+  products or content. Common uses include "Sale", "New", "Featured" badges
+  on products. It supports different color variants and sizes, and uses the
+  theme's color scheme for consistent styling.
+  
+  Renders a badge/tag component for labels like "Sale", "New", "Featured".
+  
+  @param {string} text - Badge text (required)
+  @param {string} variant - Badge style: sale, new, featured, default (default: default)
+  @param {string} class - Additional CSS classes
+  @param {string} size - Badge size: small, medium, large (default: medium)
+  
+  @example
+  {% render 'badge', text: 'Sale', variant: 'sale' %}
+  {% render 'badge', text: 'New', variant: 'new', size: 'small' %}
+{% endcomment %}
+
+{% liquid
+  assign text = text | default: ''
+  assign variant = variant | default: 'default'
+  assign class = class | default: ''
+  assign size = size | default: 'medium'
+  
+  unless text != blank
+    echo '<!-- Error: text parameter required for badge snippet -->'
+    break
+  endunless
+  
+  assign badge_class = 'badge badge--' | append: variant | append: ' badge--' | append: size
+  if class != blank
+    assign badge_class = badge_class | append: ' ' | append: class
+  endif
+%}
+
+<span class="{{ badge_class }}">{{ text }}</span>
+
+{% stylesheet %}
+  .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  
+  /* Variants */
+  .badge--sale {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .badge--new {
+    background-color: var(--color-accent);
+    color: white;
+  }
+  
+  .badge--featured {
+    background-color: #ffc107;
+    color: #333;
+  }
+  
+  .badge--default {
+    background-color: var(--color-secondary);
+    color: var(--color-bg);
+  }
+  
+  /* Sizes */
+  .badge--small {
+    padding: 2px 8px;
+    font-size: 10px;
+  }
+  
+  .badge--medium {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+  
+  .badge--large {
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+{% endstylesheet %}
+

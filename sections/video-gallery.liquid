@@ -1,0 +1,168 @@
+{% liquid
+  assign abd_theme = section.settings.abd_theme
+  assign custom_bg = section.settings.custom_bg
+  assign custom_text = section.settings.custom_text
+  assign custom_accent = section.settings.custom_accent
+  assign custom_link = section.settings.custom_link
+%}
+
+<div class="section-video-gallery {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
+     style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}">
+  <div class="section-video-gallery__container">
+    {%- if abd_theme contains 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
+    {%- if abd_theme == 'social' -%}<div class="abd-myspace-container">{%- endif -%}
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="section-video-gallery__heading abd-title">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.settings.text != blank -%}
+      <div class="section-video-gallery__text abd-content">
+        {{ section.settings.text }}
+      </div>
+    {%- endif -%}
+
+    {%- for block in section.blocks -%}
+      <div class="section-video-gallery__block" {{ block.shopify_attributes }}>
+        {%- case block.type -%}
+          {%- when 'block' -%}
+            <!-- Block content -->
+        {%- endcase -%}
+      </div>
+    {%- endfor -%}
+    
+    {%- if abd_theme == 'social' -%}</div>{%- endif -%}
+    {%- if abd_theme contains 'retro' -%}</div>{%- endif -%}
+  </div>
+</div>
+
+{% style %}
+  .section-video-gallery {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+{% endstyle %}
+
+{% render 'abd-theme-styles',
+  theme: abd_theme,
+  custom_bg: custom_bg,
+  custom_text: custom_text,
+  custom_accent: custom_accent,
+  custom_link: custom_link
+%}
+
+{% schema %}
+{
+  "name": "Video Gallery",
+  "tag": "section",
+  "class": "section-video-gallery",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Columns on Mobile",
+      "default": 1,
+      "min": 1,
+      "max": 3,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on Desktop",
+      "default": 3,
+      "min": 2,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay Videos",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_controls",
+      "label": "Show Video Controls",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Loop Videos",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "video_ratio",
+      "label": "Video Aspect Ratio",
+      "default": "16:9",
+      "options": [
+        {
+          "label": "16:9",
+          "value": "16:9"
+        },
+        {
+          "label": "4:3",
+          "value": "4:3"
+        },
+        {
+          "label": "1:1",
+          "value": "1:1"
+        },
+        {
+          "label": "9:16",
+          "value": "9:16"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Gallery",
+      "settings": {
+        "columns_mobile": 1,
+        "columns_desktop": 3,
+        "autoplay": false,
+        "show_controls": true,
+        "loop": false,
+        "video_ratio": "16:9"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Video URL",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Video"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 1
+}
+{% endschema %}

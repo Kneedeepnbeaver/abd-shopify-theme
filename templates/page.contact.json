@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "Contact Us",
+        "text": "<p>We're here to help. Get in touch with any questions.</p>"
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main": {
+      "type": "page",
+      "blocks": {},
+      "settings": {}
+    },
+    "rich_text_info": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Contact Information",
+        "text": "<p><strong>Email:</strong> info@example.com<br><strong>Phone:</strong> (555) 123-4567<br><strong>Hours:</strong> Monday - Friday, 9am - 5pm</p>",
+        "text_alignment": "center",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "custom_contact_form": {
+      "type": "custom-section",
+      "blocks": {},
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "breadcrumbs",
+    "main",
+    "rich_text_info",
+    "custom_contact_form"
+  ]
+}

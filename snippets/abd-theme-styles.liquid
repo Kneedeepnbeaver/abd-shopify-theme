@@ -1,0 +1,180 @@
+{% comment %}
+  ABD Theme Styles Snippet
+  
+  This snippet generates comprehensive CSS customizations for ABD themes.
+  It applies custom colors with !important to override all theme defaults,
+  ensuring complete customization control.
+  
+  Note: With theme variations, color overrides are optional. Variations
+  provide complete predefined styles, but you can still customize if needed.
+  
+  Usage:
+    {% render 'abd-theme-styles',
+      theme: section.settings.abd_theme,
+      custom_bg: section.settings.custom_bg,
+      custom_text: section.settings.custom_text,
+      custom_accent: section.settings.custom_accent,
+      custom_link: section.settings.custom_link
+    %}
+{% endcomment %}
+
+{% if theme != blank %}
+  {% style %}
+    /* CSS Custom Properties for Theme Customization */
+    .abd-theme-{{ theme }} {
+      {% if custom_bg != blank %}
+        --abd-bg: {{ custom_bg }};
+        background-color: {{ custom_bg }} !important;
+        background-image: none !important;
+      {% endif %}
+      {% if custom_text != blank %}
+        --abd-text: {{ custom_text }};
+        color: {{ custom_text }} !important;
+      {% endif %}
+      {% if custom_accent != blank %}
+        --abd-accent: {{ custom_accent }};
+      {% endif %}
+      {% if custom_link != blank %}
+        --abd-link: {{ custom_link }};
+      {% endif %}
+    }
+    
+    /* Apply custom background to ALL nested containers and elements */
+    {% if custom_bg != blank %}
+      .abd-theme-{{ theme }} .abd-geocities-box,
+      .abd-theme-{{ theme }} .abd-myspace-container,
+      .abd-theme-{{ theme }} .abd-summary-box,
+      .abd-theme-{{ theme }} .abd-key-points,
+      .abd-theme-{{ theme }} .abd-content,
+      .abd-theme-{{ theme }} .abd-header,
+      .abd-theme-{{ theme }} .abd-footer,
+      .abd-theme-{{ theme }} div,
+      .abd-theme-{{ theme }} section {
+        background-color: {{ custom_bg }} !important;
+        background-image: none !important;
+      }
+    {% endif %}
+    
+    /* Apply custom text color to ALL text elements (except headings if accent is set) */
+    {% if custom_text != blank %}
+      .abd-theme-{{ theme }} p,
+      .abd-theme-{{ theme }} span,
+      .abd-theme-{{ theme }} li,
+      .abd-theme-{{ theme }} td,
+      .abd-theme-{{ theme }} th,
+      .abd-theme-{{ theme }} label,
+      .abd-theme-{{ theme }} .abd-content,
+      .abd-theme-{{ theme }} .abd-meta,
+      .abd-theme-{{ theme }} .abd-footer {
+        color: {{ custom_text }} !important;
+      }
+      
+      /* Headings use accent color if set, otherwise use text color */
+      {% if custom_accent != blank %}
+        .abd-theme-{{ theme }} .abd-title,
+        .abd-theme-{{ theme }} .abd-category,
+        .abd-theme-{{ theme }} h1,
+        .abd-theme-{{ theme }} h2,
+        .abd-theme-{{ theme }} h3,
+        .abd-theme-{{ theme }} h4,
+        .abd-theme-{{ theme }} h5,
+        .abd-theme-{{ theme }} h6 {
+          color: {{ custom_accent }} !important;
+        }
+      {% else %}
+        .abd-theme-{{ theme }} .abd-title,
+        .abd-theme-{{ theme }} .abd-category,
+        .abd-theme-{{ theme }} h1,
+        .abd-theme-{{ theme }} h2,
+        .abd-theme-{{ theme }} h3,
+        .abd-theme-{{ theme }} h4,
+        .abd-theme-{{ theme }} h5,
+        .abd-theme-{{ theme }} h6 {
+          color: {{ custom_text }} !important;
+        }
+      {% endif %}
+    {% endif %}
+    
+    /* Apply custom accent color to headings, categories, borders, highlights */
+    {% if custom_accent != blank %}
+      .abd-theme-{{ theme }} .abd-title,
+      .abd-theme-{{ theme }} .abd-category,
+      .abd-theme-{{ theme }} h1,
+      .abd-theme-{{ theme }} h2,
+      .abd-theme-{{ theme }} h3,
+      .abd-theme-{{ theme }} h4,
+      .abd-theme-{{ theme }} h5,
+      .abd-theme-{{ theme }} h6 {
+        color: {{ custom_accent }} !important;
+      }
+      
+      .abd-theme-{{ theme }} .abd-category {
+        background: {{ custom_accent | color_modify: 'alpha', 0.1 }} !important;
+        border-color: {{ custom_accent }} !important;
+      }
+      
+      .abd-theme-{{ theme }} .abd-content h2,
+      .abd-theme-{{ theme }} h2,
+      .abd-theme-{{ theme }} .abd-header {
+        border-color: {{ custom_accent }} !important;
+      }
+      
+      .abd-theme-{{ theme }} .abd-key-points {
+        border-color: {{ custom_accent }} !important;
+      }
+    {% endif %}
+    
+    /* Apply custom link color to ALL links */
+    {% if custom_link != blank %}
+      .abd-theme-{{ theme }} a,
+      .abd-theme-{{ theme }} .abd-link,
+      .abd-theme-{{ theme }} a:link,
+      .abd-theme-{{ theme }} a:visited,
+      .abd-theme-{{ theme }} a:focus {
+        color: {{ custom_link }} !important;
+      }
+      
+      .abd-theme-{{ theme }} a:hover {
+        color: {{ custom_link | color_darken: 10 }} !important;
+      }
+      
+      .abd-theme-{{ theme }} a:active {
+        color: {{ custom_link | color_darken: 20 }} !important;
+      }
+    {% endif %}
+    
+    /* Special handling for retro theme variations - override all nested backgrounds */
+    {% if theme == 'retro' or theme == 'retro-bright' or theme == 'retro-dark' or theme == 'retro-business' %}
+      {% if custom_bg != blank %}
+        .abd-theme-{{ theme }} .abd-geocities-box {
+          background: {{ custom_bg }} !important;
+          background-image: none !important;
+        }
+        .abd-theme-{{ theme }} .abd-key-points {
+          background: {{ custom_bg }} !important;
+        }
+      {% endif %}
+      {% if custom_text != blank %}
+        .abd-theme-{{ theme }} .abd-title,
+        .abd-theme-{{ theme }} h1 {
+          color: {{ custom_accent | default: custom_text }} !important;
+          text-shadow: none !important;
+        }
+        .abd-theme-{{ theme }} .abd-content h2,
+        .abd-theme-{{ theme }} h2 {
+          color: {{ custom_accent | default: custom_text }} !important;
+          border-color: {{ custom_accent | default: custom_text }} !important;
+        }
+      {% endif %}
+    {% endif %}
+    
+    /* Special handling for social theme - override myspace container */
+    {% if theme == 'social' %}
+      {% if custom_bg != blank %}
+        .abd-theme-{{ theme }} .abd-myspace-container {
+          background: {{ custom_bg }} !important;
+        }
+      {% endif %}
+    {% endif %}
+  {% endstyle %}
+{% endif %}

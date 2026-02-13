@@ -1,0 +1,195 @@
+{% comment %}
+  Button Component
+  
+  This snippet creates reusable buttons that can be used anywhere in the theme.
+  It supports multiple styles (primary, secondary, outline, ghost), different
+  sizes (small, medium, large), and can include icons before or after the text.
+  Buttons can be links or form submit buttons, and automatically adapt their
+  styling based on the theme's color scheme presets.
+  
+  Renders a button with customizable variants, sizes, and icons.
+  
+  @param {string} text - Button text (required)
+  @param {string} url - Button link URL (optional)
+  @param {string} variant - Button style: primary, secondary, outline, ghost (default: primary)
+  @param {string} size - Button size: small, medium, large (default: medium)
+  @param {string} icon - Icon name to display before text (optional)
+  @param {string} icon_after - Icon name to display after text (optional)
+  @param {string} class - Additional CSS classes
+  @param {string} type - Button type: button, submit, reset (default: button)
+  @param {boolean} full_width - Make button full width (default: false)
+  @param {boolean} disabled - Disable button (default: false)
+  @param {string} aria_label - Accessibility label (optional)
+  
+  @example
+  {% render 'button', text: 'Add to cart', variant: 'primary', size: 'large' %}
+  {% render 'button', text: 'Learn more', url: '/about', variant: 'outline', icon: 'arrow-right' %}
+{% endcomment %}
+
+{% liquid
+  assign text = text | default: ''
+  assign url = url | default: ''
+  assign variant = variant | default: 'primary'
+  assign size = size | default: 'medium'
+  assign icon = icon | default: ''
+  assign icon_after = icon_after | default: ''
+  assign class = class | default: ''
+  assign type = type | default: 'button'
+  assign full_width = full_width | default: false
+  assign disabled = disabled | default: false
+  assign aria_label = aria_label | default: text
+  
+  unless text != blank
+    echo '<!-- Error: text parameter required for button snippet -->'
+    break
+  endunless
+  
+  assign button_class = 'button'
+  assign button_class = button_class | append: ' button--' | append: variant
+  assign button_class = button_class | append: ' button--' | append: size
+  
+  if full_width
+    assign button_class = button_class | append: ' button--full-width'
+  endif
+  
+  if class != blank
+    assign button_class = button_class | append: ' ' | append: class
+  endif
+%}
+
+{% if url != blank and disabled == false %}
+  <a href="{{ url }}" class="{{ button_class }}"{% if aria_label != blank %} aria-label="{{ aria_label }}"{% endif %}>
+    {% if icon != blank %}
+      {% render 'icon', icon: icon, size: 'small' %}
+    {% endif %}
+    <span>{{ text }}</span>
+    {% if icon_after != blank %}
+      {% render 'icon', icon: icon_after, size: 'small' %}
+    {% endif %}
+  </a>
+{% else %}
+  <button type="{{ type }}" class="{{ button_class }}"{% if disabled %} disabled{% endif %}{% if aria_label != blank %} aria-label="{{ aria_label }}"{% endif %}>
+    {% if icon != blank %}
+      {% render 'icon', icon: icon, size: 'small' %}
+    {% endif %}
+    <span>{{ text }}</span>
+    {% if icon_after != blank %}
+      {% render 'icon', icon: icon_after, size: 'small' %}
+    {% endif %}
+  </button>
+{% endif %}
+
+{% stylesheet %}
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: 12px 24px;
+    font-family: var(--font-primary--family);
+    font-size: var(--font-size-body);
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: var(--style-border-radius-inputs);
+    cursor: pointer;
+    transition: all var(--animation-duration-fast) var(--animation-easing);
+    white-space: nowrap;
+  }
+  
+  .button:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  
+  .button:disabled,
+  .button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  /* Variants */
+  .button--primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    border-color: var(--color-primary);
+  }
+  
+  .button--primary:hover:not(:disabled) {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .button--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-bg);
+    border-color: var(--color-secondary);
+  }
+  
+  .button--secondary:hover:not(:disabled) {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .button--outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+  
+  .button--outline:hover:not(:disabled) {
+    background-color: var(--color-primary);
+    color: var(--color-bg);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .button--ghost {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: transparent;
+  }
+  
+  .button--ghost:hover:not(:disabled) {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--color-primary);
+  }
+  
+  /* Sizes */
+  .button--small {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  .button--medium {
+    padding: 12px 24px;
+    font-size: var(--font-size-body);
+  }
+  
+  .button--large {
+    padding: 16px 32px;
+    font-size: 18px;
+  }
+  
+  /* Full width */
+  .button--full-width {
+    width: 100%;
+  }
+  
+  /* Icon spacing */
+  .button .icon {
+    flex-shrink: 0;
+  }
+  
+  .button span {
+    display: inline-block;
+  }
+{% endstylesheet %}
+

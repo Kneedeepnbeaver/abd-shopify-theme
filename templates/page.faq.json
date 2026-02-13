@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "text": "<p>Find answers to common questions</p>"
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main": {
+      "type": "page",
+      "blocks": {},
+      "settings": {}
+    },
+    "faq_section": {
+      "type": "custom-section",
+      "blocks": {},
+      "settings": {}
+    },
+    "rich_text_help": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Still have questions?",
+        "text": "<p>Can't find what you're looking for? <a href=\"/pages/contact\">Contact our support team</a> and we'll be happy to help!</p>",
+        "text_alignment": "center",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "breadcrumbs",
+    "main",
+    "faq_section",
+    "rich_text_help"
+  ]
+}

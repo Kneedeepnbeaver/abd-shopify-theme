@@ -1,0 +1,67 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "Shipping Information",
+        "text": "<p>Learn about our shipping options and delivery times</p>"
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main": {
+      "type": "page",
+      "blocks": {},
+      "settings": {}
+    },
+    "shipping_options": {
+      "type": "feature-grid",
+      "blocks": {
+        "option_1": {
+          "type": "feature",
+          "settings": {
+            "heading": "Standard Shipping",
+            "content": "<p>5-7 business days<br>Free on orders over $50</p>"
+          }
+        },
+        "option_2": {
+          "type": "feature",
+          "settings": {
+            "heading": "Express Shipping",
+            "content": "<p>2-3 business days<br>Additional charges apply</p>"
+          }
+        },
+        "option_3": {
+          "type": "feature",
+          "settings": {
+            "heading": "Overnight Shipping",
+            "content": "<p>Next business day<br>Available for select areas</p>"
+          }
+        }
+      },
+      "settings": {
+        "heading": "Shipping Options",
+        "columns": 3
+      }
+    },
+    "tracking_info": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Track Your Order",
+        "text": "<p>Once your order ships, you'll receive a tracking number via email. Use it to track your package's journey to you.</p>",
+        "text_alignment": "center",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "breadcrumbs",
+    "main",
+    "shipping_options",
+    "tracking_info"
+  ]
+}

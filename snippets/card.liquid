@@ -1,0 +1,144 @@
+{% comment %}
+  Card Component
+  
+  This snippet creates a flexible card component that can display any type of
+  content. It's perfect for blog posts, content blocks, or any content that
+  needs a card-style layout. The card includes an optional image, title, and
+  content area, with hover effects and proper link handling.
+  
+  A flexible card component for displaying content blocks, blog posts, etc.
+  
+  @param {string} title - Card title (optional)
+  @param {string} content - Card content/description (optional)
+  @param {image} image - Card image (optional)
+  @param {string} url - Card link URL (optional)
+  @param {string} class - Additional CSS classes
+  @param {string} image_alt - Image alt text (optional)
+  @param {boolean} show_image - Show image (default: true if image provided)
+  
+  @example
+  {% render 'card', title: 'Card Title', content: 'Card description', image: section.settings.image %}
+  {% render 'card', title: 'Blog Post', url: article.url, image: article.image %}
+{% endcomment %}
+
+{% liquid
+  assign title = title | default: ''
+  assign content = content | default: ''
+  assign image = image | default: null
+  assign url = url | default: ''
+  assign class = class | default: ''
+  assign image_alt = image_alt | default: title
+  assign show_image = show_image | default: true
+  
+  assign card_class = 'card'
+  if class != blank
+    assign card_class = card_class | append: ' ' | append: class
+  endif
+%}
+
+<div class="{{ card_class }}">
+  {% if image != null and show_image %}
+    <div class="card__image">
+      {% if url != blank %}
+        <a href="{{ url }}" aria-label="{{ title }}">
+      {% endif %}
+      {% render 'image', image: image, alt: image_alt, class: 'card__img' %}
+      {% if url != blank %}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+  
+  <div class="card__content">
+    {% if title != blank %}
+      <h3 class="card__title">
+        {% if url != blank %}
+          <a href="{{ url }}">{{ title }}</a>
+        {% else %}
+          {{ title }}
+        {% endif %}
+      </h3>
+    {% endif %}
+    
+    {% if content != blank %}
+      <div class="card__text">
+        {{ content }}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% stylesheet %}
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform var(--animation-duration-fast) var(--animation-easing),
+                box-shadow var(--animation-duration-fast) var(--animation-easing);
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .card__image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #f5f5f5;
+  }
+  
+  .card__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform var(--animation-duration-normal) var(--animation-easing);
+  }
+  
+  .card:hover .card__img {
+    transform: scale(1.05);
+  }
+  
+  .card__content {
+    padding: var(--spacing-md);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card__title {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
+  }
+  
+  .card__title a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--animation-duration-fast) var(--animation-easing);
+  }
+  
+  .card__title a:hover {
+    color: var(--color-accent);
+  }
+  
+  .card__text {
+    color: var(--color-text);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-base);
+    margin-top: var(--spacing-xs);
+  }
+  
+  .card__text p {
+    margin: 0;
+  }
+  
+  .card__text p + p {
+    margin-top: var(--spacing-xs);
+  }
+{% endstylesheet %}
+

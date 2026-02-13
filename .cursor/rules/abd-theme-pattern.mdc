@@ -1,0 +1,185 @@
+---
+description: Standard pattern for adding ABD theme styles to blocks and sections
+globs: blocks/*.liquid, sections/*.liquid
+alwaysApply: false
+---
+
+# ABD Theme Styles Pattern
+
+Standard pattern for adding ABD theme styling to blocks and sections.
+
+## Liquid Implementation
+
+### 1. Assign Theme Variables
+
+```liquid
+{% liquid
+  assign abd_theme = block.settings.abd_theme
+  assign custom_bg = block.settings.custom_bg
+  assign custom_text = block.settings.custom_text
+%}
+```
+
+### 2. Apply Theme Classes to Container
+
+```liquid
+<div class="block-name {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
+     style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}"
+     {{ block.shopify_attributes }}>
+  {%- if abd_theme == 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
+  {%- if abd_theme == 'social' -%}<div class="abd-myspace-container">{%- endif -%}
+  
+  <!-- Block content -->
+  
+  {%- if abd_theme == 'social' -%}</div>{%- endif -%}
+  {%- if abd_theme == 'retro' -%}</div>{%- endif -%}
+</div>
+```
+
+### 3. Use Semantic Classes
+
+For themes to style content properly, use semantic classes:
+- `.abd-title` or `h1`, `h2`, etc. - for headings
+- `.abd-content` - for body text
+- `.abd-header` - for header sections
+- `.abd-meta` - for metadata
+- `.abd-footer` - for footers
+- `.abd-category` - for category tags
+
+Example:
+```liquid
+{%- if block.settings.heading != blank -%}
+  <div class="block-name__heading abd-title">{{ block.settings.heading }}</div>
+{%- endif -%}
+
+{%- if block.settings.text != blank -%}
+  <div class="block-name__text abd-content">{{ block.settings.text }}</div>
+{%- endif -%}
+```
+
+## Schema Settings
+
+Add these settings to the block/section schema after the block-specific settings:
+
+```json
+{
+  "type": "header",
+  "content": "ABD Theme Styles"
+},
+{
+  "type": "select",
+  "id": "abd_theme",
+  "label": "ABD Theme Style",
+  "default": "",
+  "options": [
+    { "value": "", "label": "None (Theme Default)" },
+    { "value": "premium", "label": "Premium Modern" },
+    { "value": "classified", "label": "Classified Document" },
+    { "value": "historical", "label": "Historical Parchment" },
+    { "value": "social", "label": "MySpace Heritage" },
+    { "value": "retro", "label": "90s Web (Geocities)" },
+    { "value": "culinaria", "label": "Culinaria (Vintage Recipe)" },
+    { "value": "diary", "label": "Editorial Chic (Journal)" },
+    { "value": "briefing", "label": "Intelligence Briefing" },
+    { "value": "zine", "label": "Campus Zine (Brutalist)" },
+    { "value": "portrait", "label": "Biographical Portrait" }
+  ]
+},
+{
+  "type": "color",
+  "id": "custom_bg",
+  "label": "Custom Background Color"
+},
+{
+  "type": "color",
+  "id": "custom_text",
+  "label": "Custom Text Color"
+}
+```
+
+## Complete Block Example
+
+```liquid
+{% liquid
+  assign abd_theme = block.settings.abd_theme
+  assign custom_bg = block.settings.custom_bg
+  assign custom_text = block.settings.custom_text
+%}
+
+<div class="block-example {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
+     style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}"
+     {{ block.shopify_attributes }}>
+  {%- if abd_theme == 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
+  {%- if abd_theme == 'social' -%}<div class="abd-myspace-container">{%- endif -%}
+  
+  {%- if block.settings.heading != blank -%}
+    <div class="block-example__heading abd-title">{{ block.settings.heading }}</div>
+  {%- endif -%}
+  
+  {%- if block.settings.text != blank -%}
+    <div class="block-example__text abd-content">{{ block.settings.text }}</div>
+  {%- endif -%}
+  
+  {%- if abd_theme == 'social' -%}</div>{%- endif -%}
+  {%- if abd_theme == 'retro' -%}</div>{%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Example Block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "ABD Theme Styles"
+    },
+    {
+      "type": "select",
+      "id": "abd_theme",
+      "label": "ABD Theme Style",
+      "default": "",
+      "options": [
+        { "value": "", "label": "None (Theme Default)" },
+        { "value": "premium", "label": "Premium Modern" },
+        { "value": "classified", "label": "Classified Document" },
+        { "value": "historical", "label": "Historical Parchment" },
+        { "value": "social", "label": "MySpace Heritage" },
+        { "value": "retro", "label": "90s Web (Geocities)" },
+        { "value": "culinaria", "label": "Culinaria (Vintage Recipe)" },
+        { "value": "diary", "label": "Editorial Chic (Journal)" },
+        { "value": "briefing", "label": "Intelligence Briefing" },
+        { "value": "zine", "label": "Campus Zine (Brutalist)" },
+        { "value": "portrait", "label": "Biographical Portrait" }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "custom_bg",
+      "label": "Custom Background Color"
+    },
+    {
+      "type": "color",
+      "id": "custom_text",
+      "label": "Custom Text Color"
+    }
+  ]
+}
+{% endschema %}
+```
+
+## Notes
+
+- Always place the theme settings after block-specific settings, separated by a header
+- Use semantic classes (`.abd-title`, `.abd-content`) for theme styling to work properly
+- The retro theme uses `.abd-geocities-box` wrapper
+- The social theme uses `.abd-myspace-container` wrapper
+- Custom colors override theme defaults but work alongside theme styles

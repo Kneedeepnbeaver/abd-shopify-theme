@@ -1,0 +1,600 @@
+{% comment %}
+  Product Section
+
+  This section displays a single product page with product images, title,
+  description, price, variant selection, and add-to-cart functionality. It's
+  used in the product template to show all product details to customers.
+  The section supports layout variations (default, grid, detailed) and can
+  override the theme's color scheme and spacing presets.
+
+  Enhanced with:
+  - Image gallery with thumbnails
+  - Proper variant selection UI
+  - Price component integration
+  - Button component integration
+  - Better responsive layout
+  - Additional product information display
+{% endcomment %}
+
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign layout_variation = section.settings.layout_variation | default: 'default'
+  assign show_vendor = section.settings.show_vendor
+  assign show_sku = section.settings.show_sku
+  assign show_quantity_selector = section.settings.show_quantity_selector
+  assign abd_theme = section.settings.abd_theme
+  assign custom_bg = section.settings.custom_bg
+  assign custom_text = section.settings.custom_text
+  assign custom_accent = section.settings.custom_accent
+  assign custom_link = section.settings.custom_link
+%}
+
+<div class="section-product section-product--{{ layout_variation }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
+     style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}"
+     data-product-id="{{ product.id }}"
+     data-selected-variant-id="{{ current_variant.id }}">
+  <div class="section-product__container page-width">
+    {%- if abd_theme contains 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
+    {%- if abd_theme == 'social' -%}<div class="abd-myspace-container">{%- endif -%}
+    
+    <div class="product">
+      <div class="product__media">
+        {%- if product.images.size > 0 -%}
+          <div class="product__main-image">
+            {%- for image in product.images -%}
+              <div class="product__image-wrapper{% if forloop.first %} product__image-wrapper--active{% endif %}" 
+                   data-image-id="{{ image.id }}">
+                {% render 'image',
+                  image: image,
+                  alt: image.alt | default: product.title,
+                  class: 'product__image',
+                  loading: forloop.first | ternary: 'eager', 'lazy'
+                %}
+              </div>
+            {%- endfor -%}
+          </div>
+
+          {%- if product.images.size > 1 -%}
+            <div class="product__thumbnails">
+              {%- for image in product.images -%}
+                <button class="product__thumbnail{% if forloop.first %} product__thumbnail--active{% endif %}"
+                        data-image-id="{{ image.id }}"
+                        aria-label="View image {{ forloop.index }}">
+                  {% render 'image',
+                    image: image,
+                    alt: image.alt | default: product.title,
+                    class: 'product__thumbnail-image',
+                    width: 100,
+                    height: 100,
+                    loading: 'lazy'
+                  %}
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        {%- else -%}
+          <div class="product__placeholder">
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="product__info">
+        {%- if show_vendor and product.vendor != blank -%}
+          <p class="product__vendor">{{ product.vendor }}</p>
+        {%- endif -%}
+
+        <h1 class="product__title abd-title">{{ product.title }}</h1>
+
+        <div class="product__price" data-product-price>
+          {% render 'price',
+            price: current_variant.price,
+            compare_at_price: current_variant.compare_at_price,
+            size: 'large'
+          %}
+        </div>
+
+        {%- if show_sku and current_variant.sku != blank -%}
+          <p class="product__sku">
+            <span class="product__sku-label">SKU:</span>
+            <span class="product__sku-value">{{ current_variant.sku }}</span>
+          </p>
+        {%- endif -%}
+
+        {%- if product.description != blank -%}
+          <div class="product__description abd-content">
+            {{ product.description }}
+          </div>
+        {%- endif -%}
+
+        <div class="product__form" data-product-form>
+          {% form 'product', product, class: 'product-form', data-validate: true %}
+            <script type="application/json" id="product-data">
+              {
+                "id": {{ product.id | json }},
+                "title": {{ product.title | json }},
+                "variants": [
+                  {% for variant in product.variants %}
+                    {
+                      "id": {{ variant.id }},
+                      "title": {{ variant.title | json }},
+                      "price": {{ variant.price }},
+                      "compare_at_price": {{ variant.compare_at_price | default: 0 }},
+                      "available": {{ variant.available | json }},
+                      "sku": {{ variant.sku | json }},
+                      "options": {{ variant.options | json }}{% if variant.featured_image %},
+                      "featured_image": {
+                        "src": {{ variant.featured_image | image_url: width: 1200 | json }},
+                        "alt": {{ variant.featured_image.alt | default: product.title | json }},
+                        "id": {{ variant.featured_image.id | json }}
+                      }{% endif %}
+                    }{% unless forloop.last %},{% endunless %}
+                  {% endfor %}
+                ]
+              }
+            </script>
+
+            {%- unless product.has_only_default_variant -%}
+              <div class="product__variants">
+                {%- for option in product.options_with_values -%}
+                  <div class="product__variant-option">
+                    <label class="product__variant-label" for="option-{{ forloop.index }}">
+                      {{ option.name }}:
+                    </label>
+                    <select class="product__variant-select"
+                            id="option-{{ forloop.index }}"
+                            name="options[{{ option.name | escape }}]"
+                            data-option-index="{{ forloop.index0 }}">
+                      {%- for value in option.values -%}
+                        <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>
+                          {{ value }}
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endunless -%}
+
+            <input type="hidden" name="id" value="{{ current_variant.id }}" data-variant-id>
+
+            {%- if show_quantity_selector -%}
+              <div class="product__quantity">
+                <label class="product__quantity-label" for="quantity">Quantity:</label>
+                <input type="number"
+                       id="quantity"
+                       name="quantity"
+                       min="1"
+                       value="1"
+                       class="product__quantity-input"
+                       required>
+              </div>
+            {%- else -%}
+              <input type="hidden" name="quantity" value="1">
+            {%- endif -%}
+
+            <div class="product__actions">
+              <button type="submit"
+                      name="add"
+                      class="product__add-to-cart button button--primary button--large"
+                      data-add-to-cart
+                      {% unless current_variant.available %}disabled{% endunless %}>
+                {% if current_variant.available %}
+                  Add to cart
+                {% else %}
+                  Sold out
+                {% endif %}
+              </button>
+              {{ form | payment_button }}
+            </div>
+          {% endform %}
+        </div>
+
+        {%- if section.settings.show_product_meta -%}
+          <div class="product__meta">
+            {%- if product.type != blank -%}
+              <p class="product__meta-item">
+                <span class="product__meta-label">Type:</span>
+                <span class="product__meta-value">{{ product.type }}</span>
+              </p>
+            {%- endif -%}
+            {%- if product.tags.size > 0 -%}
+              <p class="product__meta-item">
+                <span class="product__meta-label">Tags:</span>
+                <span class="product__meta-value">
+                  {%- for tag in product.tags -%}
+                    {{ tag }}{% unless forloop.last %}, {% endunless %}
+                  {%- endfor -%}
+                </span>
+              </p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+    
+    {%- if abd_theme == 'social' -%}</div>{%- endif -%}
+    {%- if abd_theme contains 'retro' -%}</div>{%- endif -%}
+  </div>
+</div>
+
+<script>
+  // Make product data available to JavaScript
+  if (document.getElementById('product-data')) {
+    window.productData = JSON.parse(document.getElementById('product-data').textContent);
+  }
+</script>
+
+{% style %}
+  .section-product {
+    padding-top: {{ section.settings.padding_top | default: 60 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | default: 60 }}px;
+  }
+
+  .product {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  @media (min-width: 768px) {
+    .product {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .section-product--grid .product {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .section-product--grid .product {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .product__media {
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+
+  .product__main-image {
+    position: relative;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .product__image-wrapper {
+    display: none;
+  }
+
+  .product__image-wrapper--active {
+    display: block;
+  }
+
+  .product__image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--style-border-radius-inputs);
+  }
+
+  .product__thumbnails {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+  }
+
+  .product__thumbnail {
+    border: 2px solid transparent;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: var(--style-border-radius-inputs);
+    overflow: hidden;
+  }
+
+  .product__thumbnail--active {
+    border-color: var(--color-primary);
+  }
+
+  .product__thumbnail-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product__vendor {
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .product__title {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-heading);
+    line-height: var(--line-height-heading);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .product__sku {
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .product__description {
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-base);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .product__variants {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .product__variant-option {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .product__variant-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .product__variant-select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--style-border-radius-inputs);
+  }
+
+  .product__quantity {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .product__quantity-label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .product__quantity-input {
+    width: 100px;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--color-secondary);
+    border-radius: var(--style-border-radius-inputs);
+  }
+
+  .product__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .product__meta {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-secondary);
+  }
+
+  .product__meta-item {
+    font-size: 0.875rem;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .product__meta-label {
+    font-weight: 500;
+    margin-right: var(--spacing-xs);
+  }
+{% endstyle %}
+
+{% render 'abd-theme-styles',
+  theme: abd_theme,
+  custom_bg: custom_bg,
+  custom_text: custom_text,
+  custom_accent: custom_accent,
+  custom_link: custom_link
+%}
+
+{% schema %}
+{
+  "name": "t:general.product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout Options"
+    },
+    {
+      "type": "select",
+      "id": "layout_variation",
+      "label": "Product Layout",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "grid", "label": "Grid" },
+        { "value": "detailed", "label": "Detailed" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Display Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Vendor",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sku",
+      "label": "Show SKU",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": "Show Quantity Selector",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_meta",
+      "label": "Show Product Meta (Type, Tags)",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "ABD Theme Styles"
+    },
+    {
+      "type": "select",
+      "id": "abd_theme",
+      "label": "ABD Theme Style",
+      "default": "",
+      "options": [
+        { "value": "", "label": "None (Theme Default)" },
+        { "value": "premium", "label": "Premium Modern - Original" },
+        { "value": "premium-dark", "label": "Premium Modern - Dark" },
+        { "value": "premium-minimal", "label": "Premium Modern - Minimal" },
+        { "value": "premium-bold", "label": "Premium Modern - Bold" },
+        { "value": "historical", "label": "Historical Parchment" },
+        { "value": "culinaria", "label": "Culinaria (Vintage Recipe)" },
+        { "value": "diary", "label": "Editorial Chic (Journal)" },
+        { "value": "portrait", "label": "Biographical Portrait" },
+        { "value": "stpatricks", "label": "St. Patrick's Day" },
+        { "value": "valentines", "label": "Valentine's Day - Original" },
+        { "value": "valentines-his", "label": "Valentine's Day - His" },
+        { "value": "valentines-her", "label": "Valentine's Day - Her" },
+        { "value": "classified", "label": "Government - Classified Document" },
+        { "value": "classified-top-secret", "label": "Government - Top Secret" },
+        { "value": "classified-declassified", "label": "Government - Declassified" },
+        { "value": "classified-official", "label": "Government - Official" },
+        { "value": "briefing", "label": "Government - Intelligence Briefing" },
+        { "value": "retro", "label": "Millennials - 90s Web (Geocities)" },
+        { "value": "retro-bright", "label": "Millennials - 90s Web (Bright)" },
+        { "value": "retro-dark", "label": "Millennials - 90s Web (Dark)" },
+        { "value": "retro-business", "label": "Millennials - 90s Web (Business)" },
+        { "value": "social", "label": "Millennials - MySpace (Pre-2010)" },
+        { "value": "zine", "label": "Gen Z - Campus Zine (Brutalist)" },
+        { "value": "genz-minimal", "label": "Gen Z - Minimalist" },
+        { "value": "genz-maximal", "label": "Gen Z - Maximalist" },
+        { "value": "genz-y2k", "label": "Gen Z - Y2K (Early 2000s)" },
+        { "value": "travel-rome", "label": "Travel - Rome" },
+        { "value": "travel-paris", "label": "Travel - Paris" },
+        { "value": "travel-london", "label": "Travel - London" },
+        { "value": "travel-washingtondc", "label": "Travel - Washington D.C." },
+        { "value": "travel-hollywood", "label": "Travel - Hollywood" },
+        { "value": "travel-sanfrancisco", "label": "Travel - San Francisco" },
+        { "value": "travel-sacramento", "label": "Travel - Sacramento" },
+        { "value": "travel-philadelphia", "label": "Travel - Philadelphia" },
+        { "value": "travel-chicago", "label": "Travel - Chicago" },
+        { "value": "museum-vatican", "label": "Museum - Vatican" },
+        { "value": "museum-louvre", "label": "Museum - Louvre" },
+        { "value": "museum-met", "label": "Museum - MET (NYC)" },
+        { "value": "travel-nyc", "label": "Travel - NYC (Statue of Liberty)" },
+        { "value": "genx", "label": "Gen X - VHS/90s" },
+        { "value": "genx-grunge", "label": "Gen X - Grunge" },
+        { "value": "genx-80s", "label": "Gen X - 80s Synthwave" },
+        { "value": "metal", "label": "Heavy Metal" },
+        { "value": "millennial", "label": "Millennial - Hipster Retro-Social" },
+        { "value": "boomer", "label": "Boomer - Retro Diner" },
+        { "value": "halloween", "label": "Seasonal - Halloween (Spooky)" },
+        { "value": "christmas", "label": "Seasonal - Christmas (Vintage)" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "men's-magazine", "label": "Men'S Magazine" },
+        { "value": "classified-military", "label": "Military Theme" },
+        { "value": "national-parks", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-stripes", "label": "Stars And Stripes" },
+        { "value": "synthwave", "label": "Synthwave" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      ]
+    },
+    {
+      "type": "color",
+      "id": "custom_bg",
+      "label": "Custom Background Color"
+    },
+    {
+      "type": "color",
+      "id": "custom_text",
+      "label": "Custom Text Color",
+      "info": "Overrides the selected ABD theme text color if set."
+    },
+    {
+      "type": "color",
+      "id": "custom_accent",
+      "label": "Custom Accent Color",
+      "info": "Used for highlights, borders, and accent elements."
+    },
+    {
+      "type": "color",
+      "id": "custom_link",
+      "label": "Custom Link Color",
+      "info": "Color for links and interactive elements."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  }
+}
+{% endschema %}

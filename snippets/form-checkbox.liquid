@@ -1,0 +1,86 @@
+{% comment %}
+  Form Checkbox/Radio Component
+  
+  This snippet creates checkbox or radio button inputs with labels. It supports
+  both default browser styling and custom-styled versions. The custom version
+  provides a more polished look that matches the theme's design system while
+  maintaining full accessibility.
+  
+  Renders a checkbox or radio button with label.
+  
+  @param {string} type - Input type: checkbox or radio (default: checkbox)
+  @param {string} name - Input name attribute (required)
+  @param {string} id - Input id attribute (optional, defaults to name)
+  @param {string} value - Input value (optional)
+  @param {string} label - Input label text (optional)
+  @param {boolean} checked - Mark as checked (default: false)
+  @param {boolean} required - Mark as required (default: false)
+  @param {boolean} disabled - Disable input (default: false)
+  @param {string} class - Additional CSS classes
+  @param {boolean} use_custom - Use custom styled checkbox/radio (default: true)
+  
+  @example
+  {% render 'form-checkbox', name: 'agree', label: 'I agree to terms', required: true %}
+  {% render 'form-checkbox', type: 'radio', name: 'size', value: 'large', label: 'Large' %}
+{% endcomment %}
+
+{% liquid
+  assign type = type | default: 'checkbox'
+  assign name = name | default: ''
+  assign id = id | default: name
+  assign value = value | default: ''
+  assign label = label | default: ''
+  assign checked = checked | default: false
+  assign required = required | default: false
+  assign disabled = disabled | default: false
+  assign class = class | default: ''
+  assign use_custom = use_custom | default: true
+  
+  unless name != blank
+    echo '<!-- Error: name parameter required for form-checkbox snippet -->'
+    break
+  endunless
+  
+  assign wrapper_class = type == 'radio' | ternary: 'form-radio', 'form-checkbox'
+  if use_custom
+    assign wrapper_class = wrapper_class | append: '-custom'
+  endif
+  if class != blank
+    assign wrapper_class = wrapper_class | append: ' ' | append: class
+  endif
+%}
+
+<div class="{{ wrapper_class }}">
+  {% if use_custom %}
+    <label>
+      <span class="checkmark"></span>
+      <input
+        type="{{ type }}"
+        name="{{ name }}"
+        id="{{ id }}"
+        {% if value != blank %}value="{{ value }}"{% endif %}
+        {% if checked %}checked{% endif %}
+        {% if required %}required{% endif %}
+        {% if disabled %}disabled{% endif %}
+      >
+      {% if label != blank %}
+        <span class="form-checkbox-label">{{ label }}</span>
+      {% endif %}
+    </label>
+  {% else %}
+    <input
+      type="{{ type }}"
+      name="{{ name }}"
+      id="{{ id }}"
+      class="form-checkbox-input"
+      {% if value != blank %}value="{{ value }}"{% endif %}
+      {% if checked %}checked{% endif %}
+      {% if required %}required{% endif %}
+      {% if disabled %}disabled{% endif %}
+    >
+    {% if label != blank %}
+      <label for="{{ id }}" class="form-checkbox-label">{{ label }}</label>
+    {% endif %}
+  {% endif %}
+</div>
+

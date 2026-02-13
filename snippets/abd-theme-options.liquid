@@ -1,0 +1,25 @@
+{% comment %}
+  ABD Theme Options Registry
+  
+  This is the single source of truth for all ABD theme styles.
+  To add a new theme:
+  1. Add the CSS to assets/abd-themes.css
+  2. Add the theme to the themes array below
+  3. Run the update script to sync to all sections
+  
+  Format: "value|label"
+  Example: "premium|Premium Modern"
+{% endcomment %}
+
+{% liquid
+  assign themes_string = "premium|Premium Modern,classified|Classified Document,historical|Historical Parchment,social|MySpace Heritage,retro|90s Web (Geocities),culinaria|Culinaria (Vintage Recipe),diary|Editorial Chic (Journal),briefing|Intelligence Briefing,zine|Campus Zine (Brutalist),portrait|Biographical Portrait"
+  assign themes_array = themes_string | split: ','
+%}
+
+{% comment %}
+  Usage in sections:
+  {% render 'abd-theme-options' %}
+  
+  This outputs nothing, but the themes_array variable is available
+  for use in generating schema options via scripts.
+{% endcomment %}

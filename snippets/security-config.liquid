@@ -1,0 +1,42 @@
+{% comment %}
+  Security Configuration Snippet
+  
+  This snippet connects the theme's security settings from the Shopify
+  theme customizer to the JavaScript security system. It reads settings
+  from the theme customizer (under "Security Settings") and applies them
+  to the SecurityConfig object used by security.js.
+  
+  This allows merchants to enable/disable security features, customize
+  watermark text, adjust rate limits, and control accessibility options
+  all from the theme customizer without editing code.
+  
+  The snippet is automatically included in theme.liquid and doesn't need
+  to be manually added to templates.
+{% endcomment %}
+
+<script>
+  // Security configuration - modify these settings as needed
+  if (window.SecurityConfig) {
+    // Enable/disable image protection
+    window.SecurityConfig.enableImageProtection = {% if settings.enable_image_protection != blank %}{{ settings.enable_image_protection }}{% else %}true{% endif %};
+    
+    // Enable/disable content protection
+    window.SecurityConfig.enableContentProtection = {% if settings.enable_content_protection != blank %}{{ settings.enable_content_protection }}{% else %}true{% endif %};
+    
+    // Enable/disable bot detection
+    window.SecurityConfig.enableBotDetection = {% if settings.enable_bot_detection != blank %}{{ settings.enable_bot_detection }}{% else %}true{% endif %};
+    
+    // Enable/disable watermarking
+    window.SecurityConfig.enableWatermarking = {% if settings.enable_watermarking != blank %}{{ settings.enable_watermarking }}{% else %}false{% endif %};
+    
+    // Watermark text
+    window.SecurityConfig.watermarkText = {% if settings.watermark_text != blank %}'{{ settings.watermark_text }}'{% else %}'© Arts by Dylan'{% endif %};
+    
+    // Allow text selection for accessibility
+    window.SecurityConfig.allowSelectForAccessibility = {% if settings.allow_text_selection != blank %}{{ settings.allow_text_selection }}{% else %}true{% endif %};
+    
+    // Rate limiting
+    window.SecurityConfig.maxRequestsPerMinute = {% if settings.max_requests_per_minute != blank %}{{ settings.max_requests_per_minute }}{% else %}30{% endif %};
+  }
+</script>
+

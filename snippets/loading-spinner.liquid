@@ -1,0 +1,138 @@
+{% comment %}
+  Loading Spinner Component
+  
+  This snippet creates loading indicators that can be shown while content is
+  being loaded or processed. It supports multiple styles (spinner, pulse, dots)
+  and different sizes. The spinner uses the theme's accent color and includes
+  optional loading text for better user feedback.
+  
+  Renders a loading spinner for async operations.
+  
+  @param {string} size - Spinner size: small, medium, large (default: medium)
+  @param {string} variant - Spinner style: default, pulse, dots (default: default)
+  @param {string} class - Additional CSS classes
+  @param {string} text - Loading text to display (optional)
+  @param {string} aria_label - Accessibility label (default: 'Loading')
+  
+  @example
+  {% render 'loading-spinner' %}
+  {% render 'loading-spinner', size: 'large', text: 'Loading products...' %}
+  {% render 'loading-spinner', variant: 'pulse' %}
+{% endcomment %}
+
+{% liquid
+  assign size = size | default: 'medium'
+  assign variant = variant | default: 'default'
+  assign class = class | default: ''
+  assign text = text | default: ''
+  assign aria_label = aria_label | default: 'Loading'
+  
+  assign spinner_class = 'loading-spinner loading-spinner--' | append: size | append: ' loading-spinner--' | append: variant
+  if class != blank
+    assign spinner_class = spinner_class | append: ' ' | append: class
+  endif
+%}
+
+<div class="{{ spinner_class }}" role="status" aria-label="{{ aria_label }}">
+  {% case variant %}
+    {% when 'pulse' %}
+      <div class="loading-spinner__pulse"></div>
+    {% when 'dots' %}
+      <div class="loading-spinner__dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    {% else %}
+      <div class="loading-spinner__circle"></div>
+  {% endcase %}
+  
+  {% if text != blank %}
+    <span class="loading-spinner__text">{{ text }}</span>
+  {% endif %}
+</div>
+
+{% stylesheet %}
+  .loading-spinner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .loading-spinner__circle {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--color-accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loading-spinner__pulse {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  .loading-spinner__dots {
+    display: flex;
+    gap: 4px;
+  }
+  
+  .loading-spinner__dots span {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    animation: pulse 1.4s ease-in-out infinite;
+  }
+  
+  .loading-spinner__dots span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .loading-spinner__dots span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  .loading-spinner__text {
+    font-size: var(--font-size-body);
+    color: var(--color-text);
+  }
+  
+  /* Sizes */
+  .loading-spinner--small .loading-spinner__circle,
+  .loading-spinner--small .loading-spinner__pulse {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+  }
+  
+  .loading-spinner--small .loading-spinner__dots span {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .loading-spinner--medium .loading-spinner__circle,
+  .loading-spinner--medium .loading-spinner__pulse {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+  }
+  
+  .loading-spinner--large .loading-spinner__circle,
+  .loading-spinner--large .loading-spinner__pulse {
+    width: 60px;
+    height: 60px;
+    border-width: 4px;
+  }
+  
+  .loading-spinner--large .loading-spinner__dots span {
+    width: 12px;
+    height: 12px;
+  }
+{% endstylesheet %}
+

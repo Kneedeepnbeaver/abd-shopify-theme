@@ -1,0 +1,221 @@
+/**
+ * Theme Extensions CSS
+ * 
+ * This file contains additional styles for JavaScript-enhanced features that
+ * work together with theme.js to provide a complete interactive experience.
+ * 
+ * It includes:
+ * - Notifications: Toast-style messages for success, error, info, and warning states
+ * - Mobile Menu: Responsive navigation menu with slide-in animation and overlay
+ * - Loading States: Spinner animations for buttons and async operations
+ * - Enhanced Form States: Visual feedback for form validation (success/error)
+ * - Cart Count Badge: Dynamic badge showing number of items in cart
+ * - Image Watermark: Overlay watermark for protected images
+ * 
+ * All styles use CSS variables from the theme's preset system for consistency.
+ */
+
+/* ============================================
+   Notifications
+   ============================================ */
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  opacity: 0;
+  transform: translateX(400px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  max-width: 400px;
+  font-size: var(--font-size-body);
+  font-weight: 500;
+}
+
+.notification.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.notification--success {
+  background-color: #28a745;
+  color: white;
+}
+
+.notification--error {
+  background-color: #dc3545;
+  color: white;
+}
+
+.notification--info {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.notification--warning {
+  background-color: #ffc107;
+  color: #333;
+}
+
+/* ============================================
+   Mobile Menu
+   ============================================ */
+
+[data-mobile-menu-toggle] {
+  display: none;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--color-foreground);
+}
+
+[data-mobile-menu-toggle] svg {
+  width: 24px;
+  height: 24px;
+}
+
+[data-mobile-menu] {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  [data-mobile-menu-toggle] {
+    display: block;
+  }
+
+  [data-mobile-menu] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: var(--color-bg);
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    padding: 2rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 9999;
+    overflow-y: auto;
+  }
+
+  [data-mobile-menu].is-open {
+    transform: translateX(0);
+  }
+
+  [data-mobile-menu] a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: var(--color-foreground);
+  }
+
+  /* Overlay when menu is open */
+  body.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+  }
+}
+
+/* ============================================
+   Loading States
+   ============================================ */
+
+.button--loading,
+[data-add-to-cart].loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.button--loading::after,
+[data-add-to-cart].loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   Enhanced Form States
+   ============================================ */
+
+.form-input.success,
+.form-select.success,
+.form-textarea.success {
+  border-color: #28a745;
+}
+
+.form-input.success:focus,
+.form-select.success:focus,
+.form-textarea.success:focus {
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+}
+
+/* ============================================
+   Cart Count Badge
+   ============================================ */
+
+[data-cart-count] {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--color-accent);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 20px;
+}
+
+[data-cart-count]:empty {
+  display: none;
+}
+
+/* ============================================
+   Image Watermark
+   ============================================ */
+
+.image-watermark {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 10;
+  user-select: none;
+  border-radius: 4px;
+}
+

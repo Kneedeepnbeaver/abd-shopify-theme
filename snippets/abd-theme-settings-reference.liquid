@@ -1,0 +1,87 @@
+{% comment %}
+  ABD Theme Settings Reference
+  
+  This snippet contains the JSON schema definition for ABD Theme Styles settings.
+  It is intended to be used as a reference for developers when adding theme support
+  to new sections. You can copy the schema block below.
+  
+  Usage:
+  1. Copy the JSON object below
+  2. Paste it into the "settings" array of your section's schema
+{% endcomment %}
+
+{% comment %}
+{
+  "name": "ABD Theme Styles",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Theme Style"
+    },
+    {
+      "type": "paragraph",
+      "content": "Apply a complete visual theme to this section. Each theme includes custom typography, colors, and styling logic."
+    },
+    {
+      "type": "select",
+      "id": "abd_theme",
+      "label": "Theme Style",
+      "default": "",
+      "options": [
+        { "value": "", "label": "None (Theme Default)" },
+        { "value": "premium", "label": "Premium Modern" },
+        { "value": "premium-dark", "label": "Premium Modern - Dark" },
+        { "value": "premium-minimal", "label": "Premium Modern - Minimal" },
+        { "value": "premium-bold", "label": "Premium Modern - Bold" },
+        { "value": "classified", "label": "Classified Document" },
+        { "value": "classified-top-secret", "label": "Classified - Top Secret" },
+        { "value": "classified-declassified", "label": "Classified - Declassified" },
+        { "value": "classified-official", "label": "Classified - Official" },
+        { "value": "historical", "label": "Historical Parchment" },
+        { "value": "social", "label": "MySpace Heritage" },
+        { "value": "retro", "label": "90s Web (Geocities)" },
+        { "value": "retro-bright", "label": "90s Web (Bright)" },
+        { "value": "retro-dark", "label": "90s Web (Dark)" },
+        { "value": "retro-business", "label": "90s Web (Business)" },
+        { "value": "culinaria", "label": "Culinaria (Vintage Recipe)" },
+        { "value": "diary", "label": "Editorial Chic (Journal)" },
+        { "value": "briefing", "label": "Intelligence Briefing" },
+        { "value": "zine", "label": "Campus Zine (Brutalist)" },
+        { "value": "portrait", "label": "Biographical Portrait" },
+        { "value": "stpatricks", "label": "St. Patrick's Day" },
+        { "value": "valentines", "label": "Valentine's Day" },
+        { "value": "valentines-his", "label": "Valentine's Day - His" },
+        { "value": "valentines-her", "label": "Valentine's Day - Her" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Custom Overrides"
+    },
+    {
+      "type": "color",
+      "id": "custom_bg",
+      "label": "Background Color",
+      "info": "Overrides the theme default"
+    },
+    {
+      "type": "color",
+      "id": "custom_text",
+      "label": "Text Color",
+      "info": "Overrides the theme default"
+    },
+    {
+      "type": "color",
+      "id": "custom_accent",
+      "label": "Accent Color",
+      "info": "Used for highlights, borders, and headings"
+    },
+    {
+      "type": "color",
+      "id": "custom_link",
+      "label": "Link Color",
+      "info": "Used for links and buttons"
+    }
+  ]
+}
+{% endcomment %}

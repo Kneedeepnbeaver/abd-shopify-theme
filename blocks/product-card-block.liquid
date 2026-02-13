@@ -1,0 +1,76 @@
+<div class="block-product-card-block" {{ block.shopify_attributes }}>
+</div>
+
+{% schema %}
+{
+  "name": "Product Card Block",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "Show Product Image",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show Product Title",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show Price",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": "Show Vendor",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Show Rating",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_view",
+      "label": "Show Quick View Button",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "label": "Card Style",
+      "default": "default",
+      "options": [
+        {
+          "label": "Default",
+          "value": "default"
+        },
+        {
+          "label": "Minimal",
+          "value": "minimal"
+        },
+        {
+          "label": "Bordered",
+          "value": "bordered"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Card Block"
+    }
+  ]
+}
+{% endschema %}

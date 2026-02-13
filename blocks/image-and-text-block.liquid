@@ -1,0 +1,213 @@
+{% liquid
+  assign abd_theme = block.settings.abd_theme
+  assign custom_bg = block.settings.custom_bg
+  assign custom_text = block.settings.custom_text
+%}
+
+<div class="block-image-and-text-block {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" 
+     style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}"
+     {{ block.shopify_attributes }}>
+  
+  {%- if abd_theme == 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
+  
+  {%- if block.settings.image != blank -%}
+    <div class="block-image-and-text-block__image">
+      {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+    </div>
+  {%- endif -%}
+  {%- if block.settings.heading != blank -%}
+    <div class="block-image-and-text-block__heading abd-title">{{ block.settings.heading }}</div>
+  {%- endif -%}
+  {%- if block.settings.text != blank -%}
+    <div class="block-image-and-text-block__text abd-content">
+      {{ block.settings.text }}
+    </div>
+  {%- endif -%}
+  {%- if block.settings.button_text != blank -%}
+    <div class="block-image-and-text-block__button_text">{{ block.settings.button_text }}</div>
+  {%- endif -%}
+  {%- if block.settings.button_link != blank -%}
+    <a href="{{ block.settings.button_link }}" class="block-image-and-text-block__link">
+      {%- if block.settings.button_text != blank -%}
+        {{ block.settings.button_text }}
+      {%- else -%}
+        Learn More
+      {%- endif -%}
+    </a>
+  {%- endif -%}
+  
+  {%- if abd_theme == 'retro' -%}</div>{%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Image & Text Block",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text Content",
+      "default": "<p>Text content goes here</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "image-left",
+      "options": [
+        {
+          "label": "Image Left",
+          "value": "image-left"
+        },
+        {
+          "label": "Image Right",
+          "value": "image-right"
+        },
+        {
+          "label": "Image Top",
+          "value": "image-top"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "image_ratio",
+      "label": "Image Ratio (%)",
+      "default": 50,
+      "min": 30,
+      "max": 70
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "header",
+      "content": "ABD Theme Styles"
+    },
+    {
+      "type": "select",
+      "id": "abd_theme",
+      "label": "ABD Theme Style",
+      "default": "",
+      "options": [
+        { "value": "", "label": "None (Theme Default)" },
+        { "value": "premium", "label": "Premium Modern - Original" },
+        { "value": "premium-dark", "label": "Premium Modern - Dark" },
+        { "value": "premium-minimal", "label": "Premium Modern - Minimal" },
+        { "value": "premium-bold", "label": "Premium Modern - Bold" },
+        { "value": "historical", "label": "Historical Parchment" },
+        { "value": "culinaria", "label": "Culinaria (Vintage Recipe)" },
+        { "value": "diary", "label": "Editorial Chic (Journal)" },
+        { "value": "portrait", "label": "Biographical Portrait" },
+        { "value": "stpatricks", "label": "St. Patrick's Day" },
+        { "value": "valentines", "label": "Valentine's Day - Original" },
+        { "value": "valentines-his", "label": "Valentine's Day - His" },
+        { "value": "valentines-her", "label": "Valentine's Day - Her" },
+        { "value": "classified", "label": "Government - Classified Document" },
+        { "value": "classified-top-secret", "label": "Government - Top Secret" },
+        { "value": "classified-declassified", "label": "Government - Declassified" },
+        { "value": "classified-official", "label": "Government - Official" },
+        { "value": "briefing", "label": "Government - Intelligence Briefing" },
+        { "value": "retro", "label": "Millennials - 90s Web (Geocities)" },
+        { "value": "retro-bright", "label": "Millennials - 90s Web (Bright)" },
+        { "value": "retro-dark", "label": "Millennials - 90s Web (Dark)" },
+        { "value": "retro-business", "label": "Millennials - 90s Web (Business)" },
+        { "value": "social", "label": "Millennials - MySpace (Pre-2010)" },
+        { "value": "zine", "label": "Gen Z - Campus Zine (Brutalist)" },
+        { "value": "genz-minimal", "label": "Gen Z - Minimalist" },
+        { "value": "genz-maximal", "label": "Gen Z - Maximalist" },
+        { "value": "genz-y2k", "label": "Gen Z - Y2K (Early 2000s)" },
+        { "value": "travel-rome", "label": "Travel - Rome" },
+        { "value": "travel-paris", "label": "Travel - Paris" },
+        { "value": "travel-london", "label": "Travel - London" },
+        { "value": "travel-washingtondc", "label": "Travel - Washington D.C." },
+        { "value": "travel-hollywood", "label": "Travel - Hollywood" },
+        { "value": "travel-sanfrancisco", "label": "Travel - San Francisco" },
+        { "value": "travel-sacramento", "label": "Travel - Sacramento" },
+        { "value": "travel-philadelphia", "label": "Travel - Philadelphia" },
+        { "value": "travel-chicago", "label": "Travel - Chicago" },
+        { "value": "museum-vatican", "label": "Museum - Vatican" },
+        { "value": "museum-louvre", "label": "Museum - Louvre" },
+        { "value": "museum-met", "label": "Museum - MET (NYC)" },
+        { "value": "travel-nyc", "label": "Travel - NYC (Statue of Liberty)" },
+        { "value": "genx", "label": "Gen X - VHS/90s" },
+        { "value": "genx-grunge", "label": "Gen X - Grunge" },
+        { "value": "genx-80s", "label": "Gen X - 80s Synthwave" },
+        { "value": "metal", "label": "Heavy Metal" },
+        { "value": "millennial", "label": "Millennial - Hipster Retro-Social" },
+        { "value": "boomer", "label": "Boomer - Retro Diner" },
+        { "value": "halloween", "label": "Seasonal - Halloween (Spooky)" },
+        { "value": "christmas", "label": "Seasonal - Christmas (Vintage)" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "men's-magazine", "label": "Men'S Magazine" },
+        { "value": "classified-military", "label": "Military Theme" },
+        { "value": "national-parks", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-stripes", "label": "Stars And Stripes" },
+        { "value": "synthwave", "label": "Synthwave" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" }
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      ]
+    },
+    {
+      "type": "color",
+      "id": "custom_bg",
+      "label": "Custom Background Color"
+    },
+    {
+      "type": "color",
+      "id": "custom_text",
+      "label": "Custom Text Color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image & Text Block"
+    }
+  ]
+}
+{% endschema %}

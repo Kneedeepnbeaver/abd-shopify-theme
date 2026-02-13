@@ -1,0 +1,84 @@
+{% comment %}
+  Form Input Component
+  
+  This snippet creates a complete form input field with label, placeholder,
+  error handling, and help text. It supports all standard input types (text,
+  email, password, etc.) and includes validation states. The input styling
+  automatically matches the theme's form system and color scheme.
+  
+  Renders a form input with label, error states, and validation.
+  
+  @param {string} type - Input type: text, email, password, number, tel, url (default: text)
+  @param {string} name - Input name attribute (required)
+  @param {string} id - Input id attribute (optional, defaults to name)
+  @param {string} label - Input label text (optional)
+  @param {string} placeholder - Input placeholder (optional)
+  @param {string} value - Input value (optional)
+  @param {boolean} required - Mark as required (default: false)
+  @param {boolean} disabled - Disable input (default: false)
+  @param {string} error_message - Error message to display (optional)
+  @param {string} help_text - Help text to display (optional)
+  @param {string} class - Additional CSS classes
+  @param {string} autocomplete - Autocomplete attribute (optional)
+  
+  @example
+  {% render 'form-input', type: 'email', name: 'email', label: 'Email', required: true %}
+  {% render 'form-input', name: 'phone', label: 'Phone', error_message: 'Invalid phone number' %}
+{% endcomment %}
+
+{% liquid
+  assign type = type | default: 'text'
+  assign name = name | default: ''
+  assign id = id | default: name
+  assign label = label | default: ''
+  assign placeholder = placeholder | default: ''
+  assign value = value | default: ''
+  assign required = required | default: false
+  assign disabled = disabled | default: false
+  assign error_message = error_message | default: ''
+  assign help_text = help_text | default: ''
+  assign class = class | default: ''
+  assign autocomplete = autocomplete | default: ''
+  
+  unless name != blank
+    echo '<!-- Error: name parameter required for form-input snippet -->'
+    break
+  endunless
+  
+  assign input_class = 'form-input'
+  if error_message != blank
+    assign input_class = input_class | append: ' error'
+  endif
+  if class != blank
+    assign input_class = input_class | append: ' ' | append: class
+  endif
+%}
+
+<div class="form-group">
+  {% if label != blank %}
+    <label for="{{ id }}" class="form-label{% if required %} required{% endif %}">
+      {{ label }}
+    </label>
+  {% endif %}
+  
+  <input
+    type="{{ type }}"
+    name="{{ name }}"
+    id="{{ id }}"
+    class="{{ input_class }}"
+    {% if placeholder != blank %}placeholder="{{ placeholder }}"{% endif %}
+    {% if value != blank %}value="{{ value }}"{% endif %}
+    {% if required %}required{% endif %}
+    {% if disabled %}disabled{% endif %}
+    {% if autocomplete != blank %}autocomplete="{{ autocomplete }}"{% endif %}
+  >
+  
+  {% if error_message != blank %}
+    <span class="form-error-message">{{ error_message }}</span>
+  {% endif %}
+  
+  {% if help_text != blank and error_message == blank %}
+    <span class="form-help-text">{{ help_text }}</span>
+  {% endif %}
+</div>
+
