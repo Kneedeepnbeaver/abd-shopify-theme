@@ -147,6 +147,13 @@
     display: none;
   }
 
+  /* Always hide close button on desktop/widescreen — overrides any theme styles */
+  @media (min-width: 769px) {
+    .header__menu-close {
+      display: none !important;
+    }
+  }
+
   header a {
     position: relative;
     text-decoration: none;
@@ -200,17 +207,20 @@
       color: var(--color-foreground);
     }
 
-    .header__menu-close {
-      display: block;
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      padding: 8px;
-      cursor: pointer;
-      color: var(--color-foreground);
-    }
+  .header__menu-close {
+    display: none; /* Hidden until menu is open */
+  }
+  .header__menu.is-open .header__menu-close {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--color-foreground);
+  }
   }
 
   .header__menu-list {
