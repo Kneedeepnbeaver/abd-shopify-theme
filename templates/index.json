@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "breadcrumbs": {
@@ -28,7 +37,7 @@
       "type": "hello-world",
       "name": "Hello World",
       "settings": {
-        "abd_theme": "retro-business",
+        "abd_theme": "valentines-her",
         "custom_bg": "",
         "custom_text": "",
         "custom_accent": "",
@@ -45,7 +54,7 @@
             "text": "<h1>Arts by Dylan </h1><p>is a custom Shopify theme that—much like the Gibson—is constantly under construction. But recently, I got distracted hacking together something new: a RAG-based AI software designed for the public.<br/><br/>Computer code is a lot like a photograph. The moment the shutter clicks (or the keystroke lands), the artist owns the copyright. It is a captured moment of logic and creativity that belongs entirely to the creator. From there, it’s a choice: lock it down commercially, waive all rights to the public domain, or find a middle ground.</p><p><br/>I’ve spent countless hours vibe-coding this software, debugging it with Cursor and Google's Antigravity, and making unique design choices that give it a soul. But as the saying goes, <em>\"</em><em><strong>Information wants to be free.\" </strong></em>(Stewart Brand at the first Hackers conference in 1984 held in Marin County CA)<br/></p><p><br/>And to quote the classic <strong>Hackers</strong>: <em>\"There is no right and wrong. There's only fun and boring.\"</em><br/></p><p><br/>Keeping this tool to myself would be boring. </p><p>So, I have chosen the <strong>MIT License</strong>. I developed this with the intent that the public could use it, learn from it, and build upon it for free.</p><p><br/><em><strong>Hack the Planet.</strong></em></p><p></p>",
             "text_style": "text--title",
             "alignment": "left",
-            "abd_theme": "zine",
+            "abd_theme": "military-theme",
             "custom_bg": "",
             "custom_text": ""
           },
