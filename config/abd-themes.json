@@ -5,194 +5,6 @@
       "label": "None (Theme Default)"
     },
     {
-      "value": "premium",
-      "label": "Premium Modern - Original"
-    },
-    {
-      "value": "premium-dark",
-      "label": "Premium Modern - Dark"
-    },
-    {
-      "value": "premium-minimal",
-      "label": "Premium Modern - Minimal"
-    },
-    {
-      "value": "premium-bold",
-      "label": "Premium Modern - Bold"
-    },
-    {
-      "value": "historical",
-      "label": "Historical Parchment"
-    },
-    {
-      "value": "culinaria",
-      "label": "Culinaria (Vintage Recipe)"
-    },
-    {
-      "value": "diary",
-      "label": "Editorial Chic (Journal)"
-    },
-    {
-      "value": "portrait",
-      "label": "Biographical Portrait"
-    },
-    {
-      "value": "stpatricks",
-      "label": "St. Patrick's Day"
-    },
-    {
-      "value": "valentines",
-      "label": "Valentine's Day - Original"
-    },
-    {
-      "value": "valentines-his",
-      "label": "Valentine's Day - His"
-    },
-    {
-      "value": "valentines-her",
-      "label": "Valentine's Day - Her"
-    },
-    {
-      "value": "classified",
-      "label": "Government - Classified Document"
-    },
-    {
-      "value": "classified-top-secret",
-      "label": "Government - Top Secret"
-    },
-    {
-      "value": "classified-declassified",
-      "label": "Government - Declassified"
-    },
-    {
-      "value": "classified-official",
-      "label": "Government - Official"
-    },
-    {
-      "value": "briefing",
-      "label": "Government - Intelligence Briefing"
-    },
-    {
-      "value": "retro",
-      "label": "Millennials - 90s Web (Geocities)"
-    },
-    {
-      "value": "retro-bright",
-      "label": "Millennials - 90s Web (Bright)"
-    },
-    {
-      "value": "retro-dark",
-      "label": "Millennials - 90s Web (Dark)"
-    },
-    {
-      "value": "retro-business",
-      "label": "Millennials - 90s Web (Business)"
-    },
-    {
-      "value": "social",
-      "label": "Millennials - MySpace (Pre-2010)"
-    },
-    {
-      "value": "zine",
-      "label": "Gen Z - Campus Zine (Brutalist)"
-    },
-    {
-      "value": "genz-minimal",
-      "label": "Gen Z - Minimalist"
-    },
-    {
-      "value": "genz-maximal",
-      "label": "Gen Z - Maximalist"
-    },
-    {
-      "value": "genz-y2k",
-      "label": "Gen Z - Y2K (Early 2000s)"
-    },
-    {
-      "value": "travel-rome",
-      "label": "Travel - Rome"
-    },
-    {
-      "value": "travel-paris",
-      "label": "Travel - Paris"
-    },
-    {
-      "value": "travel-london",
-      "label": "Travel - London"
-    },
-    {
-      "value": "travel-washingtondc",
-      "label": "Travel - Washington D.C."
-    },
-    {
-      "value": "travel-hollywood",
-      "label": "Travel - Hollywood"
-    },
-    {
-      "value": "travel-sanfrancisco",
-      "label": "Travel - San Francisco"
-    },
-    {
-      "value": "travel-sacramento",
-      "label": "Travel - Sacramento"
-    },
-    {
-      "value": "travel-philadelphia",
-      "label": "Travel - Philadelphia"
-    },
-    {
-      "value": "travel-chicago",
-      "label": "Travel - Chicago"
-    },
-    {
-      "value": "museum-vatican",
-      "label": "Museum - Vatican"
-    },
-    {
-      "value": "museum-louvre",
-      "label": "Museum - Louvre"
-    },
-    {
-      "value": "museum-met",
-      "label": "Museum - MET (NYC)"
-    },
-    {
-      "value": "travel-nyc",
-      "label": "Travel - NYC (Statue of Liberty)"
-    },
-    {
-      "value": "genx",
-      "label": "Gen X - VHS/90s"
-    },
-    {
-      "value": "genx-grunge",
-      "label": "Gen X - Grunge"
-    },
-    {
-      "value": "genx-80s",
-      "label": "Gen X - 80s Synthwave"
-    },
-    {
-      "value": "metal",
-      "label": "Heavy Metal"
-    },
-    {
-      "value": "millennial",
-      "label": "Millennial - Hipster Retro-Social"
-    },
-    {
-      "value": "boomer",
-      "label": "Boomer - Retro Diner"
-    },
-    {
-      "value": "halloween",
-      "label": "Seasonal - Halloween (Spooky)"
-    },
-    {
-      "value": "christmas",
-      "label": "Seasonal - Christmas (Vintage)"
-    },
-    {
       "value": "cable-news",
       "label": "Cable News"
     },
@@ -221,7 +33,7 @@
       "label": "Free Love"
     },
     {
-      "value": "highway-street",
+      "value": "highway-street-photo",
       "label": "Highway Street Photo"
     },
     {
@@ -237,11 +49,15 @@
       "label": "Men'S Magazine"
     },
     {
-      "value": "classified-military",
+      "value": "military-theme",
       "label": "Military Theme"
     },
     {
-      "value": "national-parks",
+      "value": "millennial-myspace",
+      "label": "Millennial Myspace"
+    },
+    {
+      "value": "national-parks-poster",
       "label": "National Parks Poster"
     },
     {
@@ -249,7 +65,7 @@
       "label": "Newspaper"
     },
     {
-      "value": "nineties-graphic",
+      "value": "nineties-graphic-design",
       "label": "Nineties Graphic Design"
     },
     {
@@ -261,20 +77,40 @@
       "label": "Retro Diner"
     },
     {
+      "value": "retro-internet",
+      "label": "Retro Internet"
+    },
+    {
       "value": "retro-tech-polaroid",
       "label": "Retro Tech Polaroid"
     },
     {
-      "value": "stars-stripes",
+      "value": "stars-and-stripes",
       "label": "Stars And Stripes"
+    },
+    {
+      "value": "stpatricks",
+      "label": "Stpatricks"
     },
     {
       "value": "synthwave",
       "label": "Synthwave"
     },
     {
+      "value": "travel-nyc-liberty",
+      "label": "Travel Nyc Liberty"
+    },
+    {
+      "value": "valentines-her",
+      "label": "Valentines Her"
+    },
+    {
       "value": "wayfinding-receipt",
       "label": "Wayfinding Receipt"
+    },
+    {
+      "value": "zine",
+      "label": "Zine"
     }
   ]
 }
