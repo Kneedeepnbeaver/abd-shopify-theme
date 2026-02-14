@@ -49,7 +49,7 @@
       <header class="article__header">
         <h1 class="article__title abd-title">{{ article.title }}</h1>
 
-        {%- if abd_theme contains 'retro' or abd_theme == 'retro-internet' or abd_theme == 'retro-tech-polaroid' or abd_theme == 'nineties-graphic-design' -%}
+        {%- if abd_theme == 'retro-internet' -%}
           <div class="abd-marquee"><div class="abd-marquee-inner">WELCOME TO ARTS BY DYLAN'S AWESOME BLOG!! *** UPDATED: {{ article.published_at | date: '%B %d, %Y' }} *** NEW INSIGHTS ON {{ blog.title }}!</div></div>
           <div class="abd-construction">
             <div class="abd-gif-box">[UNDER CONSTRUCTION]</div>
@@ -59,7 +59,7 @@
           <span class="abd-blink">--- NEW HOT TOPIC: {{ blog.title }} ---</span>
         {%- endif -%}
 
-        {%- if abd_theme == 'classified' or abd_theme == 'military-theme' or abd_theme == 'briefing' -%}
+        {%- if abd_theme == 'military-theme' -%}
           <div class="abd-stamp">PROJECT: {{ blog.title }} // TOP SECRET</div>
         {%- endif -%}
 
@@ -621,44 +621,7 @@
   ],
   "presets": [
     {
-      "name": "Article - Standard"
-    },
-    {
-      "name": "Article - Premium Modern",
-      "settings": {
-        "abd_theme": "premium",
-        "show_share_buttons": true,
-        "show_key_takeaways": true
-      }
-    },
-    {
-      "name": "Article - Classified Document",
-      "settings": {
-        "abd_theme": "classified",
-        "reading_layout": "narrow"
-      }
-    },
-    {
-      "name": "Article - 90s Web (Geocities)",
-      "settings": {
-        "abd_theme": "retro",
-        "show_date": true,
-        "show_author": false
-      }
-    },
-    {
-      "name": "Article - Editorial Journal",
-      "settings": {
-        "abd_theme": "diary",
-        "reading_layout": "wide"
-      }
-    },
-    {
-      "name": "Article - Intelligence Briefing",
-      "settings": {
-        "abd_theme": "briefing",
-        "show_tags": true
-      }
+      "name": "Article"
     }
   ]
 }

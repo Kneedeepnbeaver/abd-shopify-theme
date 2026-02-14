@@ -13,8 +13,137 @@
  * The code uses modern JavaScript (ES6+) and includes error handling.
  */
 
-(function() {
+(function () {
   'use strict';
+
+  // ============================================
+  // Cart Drawer Functionality
+  // ============================================
+
+  /**
+   * Open Cart Drawer
+   */
+  function openCartDrawer() {
+    const drawer = document.getElementById('cart-drawer');
+    const overlay = document.querySelector('[data-cart-drawer-overlay]');
+
+    if (drawer && overlay) {
+      drawer.classList.add('is-open');
+      overlay.classList.add('is-visible');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+  }
+
+  /**
+   * Close Cart Drawer
+   */
+  function closeCartDrawer() {
+    const drawer = document.getElementById('cart-drawer');
+    const overlay = document.querySelector('[data-cart-drawer-overlay]');
+
+    if (drawer && overlay) {
+      drawer.classList.remove('is-open');
+      overlay.classList.remove('is-visible');
+      document.body.style.overflow = '';
+    }
+  }
+
+  /**
+   * Fetch and Render Cart Drawer
+   */
+  async function refreshCartDrawer() {
+    try {
+      const response = await fetch('/?sections=cart-drawer');
+      const data = await response.json();
+
+      const drawer = document.getElementById('cart-drawer');
+      if (drawer && data['cart-drawer']) {
+        // Create a temporary container to parse the returned HTML
+        const div = document.createElement('div');
+        div.innerHTML = data['cart-drawer'];
+
+        // Replace ONLY the inner content, keeping the container if possible, 
+        // OR replace the container but we need to re-bind events.
+        // The section rendering API returns the whole section div usually.
+        // Our section has id="cart-drawer", so we should replace the outer element 
+        // or just its innerHTML if the ID matches.
+
+        // Let's replace the inner HTML of the existing drawer to preserve reference
+        const newContent = div.querySelector('#cart-drawer');
+        if (newContent) {
+          drawer.innerHTML = newContent.innerHTML;
+        } else {
+          // Fallback if ID structure changes
+          drawer.innerHTML = div.innerHTML;
+        }
+
+        // Re-initialize drawer events (remove buttons, inputs)
+        initCartDrawerEvents();
+      }
+    } catch (error) {
+      console.error('Error refreshing cart drawer:', error);
+    }
+  }
+
+  /**
+   * Initialize Cart Drawer Events
+   */
+  function initCartDrawerEvents() {
+    const drawer = document.getElementById('cart-drawer');
+    if (!drawer) return;
+
+    // Close buttons
+    const closeBtns = drawer.querySelectorAll('[data-cart-drawer-close]');
+    closeBtns.forEach(btn => {
+      btn.addEventListener('click', closeCartDrawer);
+    });
+
+    // Quantity inputs
+    const quantityInputs = drawer.querySelectorAll('input[name="updates[]"]');
+    quantityInputs.forEach(input => {
+      input.addEventListener('change', async function () {
+        const key = this.dataset.cartKey;
+        const quantity = parseInt(this.value);
+        if (quantity === 0) {
+          await removeCartItem(key);
+        } else {
+          await updateCartItem(key, quantity);
+        }
+      });
+    });
+
+    // Plus/Minus buttons
+    drawer.querySelectorAll('[data-quantity-plus]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.key;
+        const input = drawer.querySelector(`input[data-cart-key="${key}"]`);
+        if (input) {
+          input.value = parseInt(input.value) + 1;
+          input.dispatchEvent(new Event('change'));
+        }
+      });
+    });
+
+    drawer.querySelectorAll('[data-quantity-minus]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.key;
+        const input = drawer.querySelector(`input[data-cart-key="${key}"]`);
+        if (input && parseInt(input.value) > 0) {
+          input.value = parseInt(input.value) - 1;
+          input.dispatchEvent(new Event('change'));
+        }
+      });
+    });
+
+    // Remove buttons
+    drawer.querySelectorAll('[data-cart-remove]').forEach(btn => {
+      btn.addEventListener('click', async function (e) {
+        e.preventDefault();
+        const key = this.dataset.cartKey;
+        await removeCartItem(key);
+      });
+    });
+  }
 
   // ============================================
   // Cart Functionality
@@ -39,8 +168,11 @@
       }
 
       const item = await response.json();
-      updateCartCount();
-      showNotification('Item added to cart', 'success');
+      await updateCartCount();
+      await refreshCartDrawer(); // Fetch new HTML
+      openCartDrawer(); // Open drawer
+
+      // showNotification('Item added to cart', 'success'); // Optional, drawer opening is feedback enough
       return item;
     } catch (error) {
       showNotification(error.message || 'Error adding item to cart', 'error');
@@ -69,7 +201,8 @@
       }
 
       const cart = await response.json();
-      updateCartUI(cart);
+      await updateCartCount();
+      await refreshCartDrawer(); // Refresh drawer content
       return cart;
     } catch (error) {
       showNotification('Error updating cart', 'error');
@@ -98,7 +231,8 @@
       }
 
       const cart = await response.json();
-      updateCartUI(cart);
+      await updateCartCount();
+      await refreshCartDrawer(); // Refresh drawer content
       showNotification('Item removed from cart', 'success');
       return cart;
     } catch (error) {
@@ -130,7 +264,7 @@
       const cartCountElements = document.querySelectorAll('[data-cart-count]');
       cartCountElements.forEach(el => {
         el.textContent = cart.item_count || 0;
-        el.style.display = cart.item_count > 0 ? 'inline' : 'none';
+        el.style.display = cart.item_count > 0 ? 'inline-flex' : 'none'; // Changed to inline-flex
       });
     }
   }
@@ -156,9 +290,9 @@
    */
   function initVariantSelection() {
     const variantSelects = document.querySelectorAll('[name="id"]');
-    
+
     variantSelects.forEach(select => {
-      select.addEventListener('change', async function() {
+      select.addEventListener('change', async function () {
         const variantId = this.value;
         await updateVariantInfo(variantId);
       });
@@ -167,7 +301,7 @@
     // Handle radio buttons for variant options
     const variantInputs = document.querySelectorAll('input[type="radio"][name^="option"]');
     variantInputs.forEach(input => {
-      input.addEventListener('change', function() {
+      input.addEventListener('change', function () {
         updateVariantFromOptions();
       });
     });
@@ -229,7 +363,7 @@
   }
 
   /**
-   * Update variant from option selections
+   * Update variant from options
    */
   function updateVariantFromOptions() {
     const selectedOptions = {};
@@ -272,29 +406,29 @@
 
     if (!menuToggle || !menu) return;
 
-    menuToggle.addEventListener('click', function(e) {
+    menuToggle.addEventListener('click', function (e) {
       e.preventDefault();
       openMobileMenu();
     });
 
     if (menuClose) {
-      menuClose.addEventListener('click', function(e) {
+      menuClose.addEventListener('click', function (e) {
         e.preventDefault();
         closeMobileMenu();
       });
     }
 
     // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-      if (menu.classList.contains('is-open') && 
-          !menu.contains(e.target) && 
-          !menuToggle.contains(e.target)) {
+    document.addEventListener('click', function (e) {
+      if (menu.classList.contains('is-open') &&
+        !menu.contains(e.target) &&
+        !menuToggle.contains(e.target)) {
         closeMobileMenu();
       }
     });
 
     // Close menu on escape key
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && menu.classList.contains('is-open')) {
         closeMobileMenu();
       }
@@ -330,9 +464,9 @@
    */
   function initFormValidation() {
     const forms = document.querySelectorAll('form[data-validate]');
-    
+
     forms.forEach(form => {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         if (!validateForm(this)) {
           e.preventDefault();
         }
@@ -341,7 +475,7 @@
       // Real-time validation
       const inputs = form.querySelectorAll('input, textarea, select');
       inputs.forEach(input => {
-        input.addEventListener('blur', function() {
+        input.addEventListener('blur', function () {
           validateField(this);
         });
       });
@@ -499,14 +633,14 @@
    */
   function initProductForms() {
     const productForms = document.querySelectorAll('form[action*="/cart/add"]');
-    
+
     productForms.forEach(form => {
-      form.addEventListener('submit', async function(e) {
+      form.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
+
         const submitButton = form.querySelector('button[type="submit"], input[type="submit"]');
         const originalText = submitButton?.textContent;
-        
+
         // Show loading state
         if (submitButton) {
           submitButton.disabled = true;
@@ -535,46 +669,6 @@
   }
 
   // ============================================
-  // Cart Page Handlers
-  // ============================================
-
-  /**
-   * Initialize cart page functionality
-   */
-  function initCartPage() {
-    // Quantity updates
-    const quantityInputs = document.querySelectorAll('[data-cart-quantity]');
-    quantityInputs.forEach(input => {
-      input.addEventListener('change', async function() {
-        const key = this.dataset.cartKey;
-        const quantity = parseInt(this.value);
-        
-        if (quantity < 1) {
-          if (confirm('Remove this item from cart?')) {
-            await removeCartItem(key);
-          } else {
-            this.value = 1;
-          }
-        } else {
-          await updateCartItem(key, quantity);
-        }
-      });
-    });
-
-    // Remove buttons
-    const removeButtons = document.querySelectorAll('[data-cart-remove]');
-    removeButtons.forEach(button => {
-      button.addEventListener('click', async function(e) {
-        e.preventDefault();
-        const key = this.dataset.cartKey;
-        if (confirm('Remove this item from cart?')) {
-          await removeCartItem(key);
-        }
-      });
-    });
-  }
-
-  // ============================================
   // Initialize Everything
   // ============================================
 
@@ -592,13 +686,71 @@
     initMobileMenu();
     initFormValidation();
     initProductForms();
-    
+
+    // Initialize Cart Drawer Events if drawer exists
+    if (document.getElementById('cart-drawer')) {
+      initCartDrawerEvents();
+
+      // Init overlay click
+      const overlay = document.querySelector('[data-cart-drawer-overlay]');
+      if (overlay) {
+        overlay.addEventListener('click', closeCartDrawer);
+      }
+    }
+
+    // Header cart icon click to open drawer
+    const headerCartLink = document.querySelector('.header__cart-link');
+    if (headerCartLink) {
+      headerCartLink.addEventListener('click', function (e) {
+        if (document.getElementById('cart-drawer')) {
+          e.preventDefault();
+          openCartDrawer();
+        }
+      });
+    }
+
     if (window.location.pathname === '/cart') {
       initCartPage();
     }
 
     // Update cart count on load
     updateCartCount();
+  }
+
+  /**
+   * Initialize cart page functionality
+   */
+  function initCartPage() {
+    // Quantity updates
+    const quantityInputs = document.querySelectorAll('[data-cart-quantity]');
+    quantityInputs.forEach(input => {
+      input.addEventListener('change', async function () {
+        const key = this.dataset.cartKey;
+        const quantity = parseInt(this.value);
+
+        if (quantity < 1) {
+          if (confirm('Remove this item from cart?')) {
+            await removeCartItem(key);
+          } else {
+            this.value = 1;
+          }
+        } else {
+          await updateCartItem(key, quantity);
+        }
+      });
+    });
+
+    // Remove buttons
+    const removeButtons = document.querySelectorAll('[data-cart-remove]');
+    removeButtons.forEach(button => {
+      button.addEventListener('click', async function (e) {
+        e.preventDefault();
+        const key = this.dataset.cartKey;
+        if (confirm('Remove this item from cart?')) {
+          await removeCartItem(key);
+        }
+      });
+    });
   }
 
   // Start initialization
@@ -611,7 +763,9 @@
     removeCartItem,
     getCart,
     updateCartCount,
-    showNotification
+    showNotification,
+    openCartDrawer,
+    closeCartDrawer
   };
 
 })();

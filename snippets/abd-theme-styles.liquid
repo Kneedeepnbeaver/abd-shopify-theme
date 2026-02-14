@@ -144,7 +144,7 @@
     {% endif %}
     
     /* Special handling for retro theme variations - override all nested backgrounds */
-    {% if theme == 'retro' or theme == 'retro-bright' or theme == 'retro-dark' or theme == 'retro-business' %}
+    {% if theme == 'retro-internet' %}
       {% if custom_bg != blank %}
         .abd-theme-{{ theme }} .abd-geocities-box {
           background: {{ custom_bg }} !important;
@@ -164,15 +164,6 @@
         .abd-theme-{{ theme }} h2 {
           color: {{ custom_accent | default: custom_text }} !important;
           border-color: {{ custom_accent | default: custom_text }} !important;
-        }
-      {% endif %}
-    {% endif %}
-    
-    /* Special handling for social theme - override myspace container */
-    {% if theme == 'social' %}
-      {% if custom_bg != blank %}
-        .abd-theme-{{ theme }} .abd-myspace-container {
-          background: {{ custom_bg }} !important;
         }
       {% endif %}
     {% endif %}

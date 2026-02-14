@@ -45,8 +45,7 @@
     </div>
   {% endif %}
   
-  {%- if abd_theme contains 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
-  {%- if abd_theme == 'social' -%}<div class="abd-myspace-container">{%- endif -%}
+  {%- if abd_theme == 'retro-internet' -%}<div class="abd-geocities-box">{%- endif -%}
   
   <div class="section-hero-banner__container">
     {%- if section.settings.heading != blank -%}
@@ -72,8 +71,7 @@
     {%- endif %}
   </div>
   
-  {%- if abd_theme == 'social' -%}</div>{%- endif -%}
-  {%- if abd_theme contains 'retro' -%}</div>{%- endif -%}
+  {%- if abd_theme == 'retro-internet' -%}</div>{%- endif -%}
 </div>
 
 {% style %}
@@ -128,6 +126,38 @@
   
   .section-hero-banner.layout-right .section-hero-banner__container {
     text-align: right;
+  }
+  
+  /* Split Layout */
+  .section-hero-banner.layout-split {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 500px;
+  }
+  
+  .section-hero-banner.layout-split .section-hero-banner__image-wrapper {
+    position: relative;
+    width: 50%;
+    height: auto;
+  }
+  
+  .section-hero-banner.layout-split .section-hero-banner__container {
+    width: 50%;
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .section-hero-banner.layout-split {
+      flex-direction: column;
+    }
+    
+    .section-hero-banner.layout-split .section-hero-banner__image-wrapper,
+    .section-hero-banner.layout-split .section-hero-banner__container {
+      width: 100%;
+    }
   }
   
   .section-hero-banner__heading {
@@ -248,6 +278,7 @@
       "default": "centered",
       "options": [
         { "value": "centered", "label": "Centered" },
+        { "value": "split", "label": "Split Layout" },
         { "value": "left", "label": "Left Aligned" },
         { "value": "right", "label": "Right Aligned" }
       ]

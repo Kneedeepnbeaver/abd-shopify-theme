@@ -29,9 +29,86 @@
     <button class="header__menu-close" data-mobile-menu-close aria-label="Close menu">
       {% render 'icon', icon: 'close', size: 'medium' %}
     </button>
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
+    <ul class="header__menu-list">
+      {% for link in section.settings.menu.links %}
+        {% assign is_mega = false %}
+        {% assign mega_block = nil %}
+        
+        {% for block in section.blocks %}
+          {% if block.type == 'mega_menu' and block.settings.menu_item == link.title %}
+            {% assign is_mega = true %}
+            {% assign mega_block = block %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+
+        <li class="header__menu-item {% if is_mega %}header__menu-item--mega{% endif %} {% if link.links != blank %}header__menu-item--has-dropdown{% endif %}">
+          <a href="{{ link.url }}" class="header__menu-link {% if link.active %}header__menu-link--active{% endif %}">
+            {{ link.title }}
+            {% if link.links != blank or is_mega %}
+              {% render 'icon', icon: 'chevron-down', size: 'small' %}
+            {% endif %}
+          </a>
+
+          {% if is_mega %}
+            <div class="header__mega-menu">
+              <div class="page-width">
+                <div class="header__mega-menu-content">
+                  <div class="header__mega-menu-links">
+                    {% if link.links != blank %}
+                      {% for childlink in link.links %}
+                        <div class="header__mega-menu-column">
+                          <a href="{{ childlink.url }}" class="header__mega-menu-title">{{ childlink.title }}</a>
+                          {% if childlink.links != blank %}
+                            <ul>
+                              {% for grandchildlink in childlink.links %}
+                                <li>
+                                  <a href="{{ grandchildlink.url }}" class="header__mega-menu-sublink">{{ grandchildlink.title }}</a>
+                                </li>
+                              {% endfor %}
+                            </ul>
+                          {% endif %}
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                  
+                  {% if mega_block.settings.promo_image != blank %}
+                    <div class="header__mega-menu-promo">
+                      <a href="{{ mega_block.settings.promo_link | default: '#' }}" class="header__mega-menu-promo-link">
+                        {{ mega_block.settings.promo_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'header__mega-menu-promo-image' }}
+                        {% if mega_block.settings.promo_text != blank %}
+                          <span class="header__mega-menu-promo-text">{{ mega_block.settings.promo_text }}</span>
+                        {% endif %}
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% elsif link.links != blank %}
+            <ul class="header__dropdown">
+              {% for childlink in link.links %}
+                <li>
+                  <a href="{{ childlink.url }}" class="header__dropdown-link">
+                    {{ childlink.title }}
+                  </a>
+                  {% if childlink.links != blank %}
+                    <ul class="header__dropdown-nested">
+                      {% for grandchildlink in childlink.links %}
+                        <li>
+                          <a href="{{ grandchildlink.url }}" class="header__dropdown-link">{{ grandchildlink.title }}</a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
   </nav>
 
   <div class="header__icons">
@@ -135,6 +212,162 @@
       color: var(--color-foreground);
     }
   }
+
+  .header__menu-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__menu-item {
+    position: relative;
+  }
+
+  .header__menu-link {
+    text-decoration: none;
+    color: var(--color-foreground);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.5rem 0;
+    font-weight: 500;
+  }
+  
+  .header__menu-link:hover {
+    color: var(--color-primary);
+  }
+
+  /* Dropdown Styles */
+  .header__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    list-style: none;
+    padding: 1rem;
+    min-width: 200px;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 101;
+  }
+
+  .header__menu-item--has-dropdown:hover .header__dropdown {
+    display: block;
+  }
+
+  /* Reveal dropdowns on toggle for mobile */
+  .header__menu-item.is-active .header__dropdown,
+  .header__menu-item.is-active .header__mega-menu {
+    display: block;
+    position: static;
+    box-shadow: none;
+    border: none;
+    padding: 0 0 1rem 1rem;
+    width: 100%;
+    margin: 0;
+  }
+
+  .header__menu-item--has-dropdown:hover .header__dropdown {
+    display: block;
+  }
+
+  .header__dropdown-link {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--color-foreground);
+    text-decoration: none;
+  }
+
+  .header__dropdown-link:hover {
+    color: var(--color-primary);
+  }
+
+  /* Mega Menu Styles */
+  .header__mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%); /* Force full width */
+    background: var(--color-background);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 2rem 0;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+
+  /* Reveal on hover (desktop) or is-active (mobile/toggle) */
+  .header__menu-item--mega:hover .header__mega-menu {
+    display: block;
+  }
+
+  .header__mega-menu-content {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    max-width: var(--layout-max-width);
+    margin: 0 auto;
+    padding: 0 var(--layout-container-padding);
+  }
+
+  .header__mega-menu-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .header__mega-menu-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--color-foreground);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.5rem;
+  }
+
+  .header__mega-menu-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .header__mega-menu-sublink {
+    display: block;
+    padding: 0.25rem 0;
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 0.9em;
+  }
+
+  .header__mega-menu-sublink:hover {
+    color: var(--color-primary);
+  }
+
+  .header__mega-menu-promo {
+    border-left: 1px solid var(--color-border);
+    padding-left: 2rem;
+  }
+  
+  .header__mega-menu-promo-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--style-border-radius-inputs);
+    margin-bottom: 1rem;
+  }
+
+  .header__mega-menu-promo-text {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-primary);
+  }
 {% endstylesheet %}
 
 {% render 'abd-theme-styles',
@@ -230,6 +463,35 @@
       "id": "custom_link",
       "label": "Custom Link Color",
       "info": "Color for links and interactive elements."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mega_menu",
+      "name": "Mega Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_item",
+          "label": "Menu Item Title",
+          "info": "Enter the exact title of the menu item you want to turn into a mega menu."
+        },
+        {
+          "type": "image_picker",
+          "id": "promo_image",
+          "label": "Promo Image"
+        },
+        {
+          "type": "text",
+          "id": "promo_text",
+          "label": "Promo Text"
+        },
+        {
+          "type": "url",
+          "id": "promo_link",
+          "label": "Promo Link"
+        }
+      ]
     }
   ],
   "presets": [

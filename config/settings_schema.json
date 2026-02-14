@@ -245,5 +245,25 @@
         "info": "Rate limit for bot detection"
       }
     ]
+  },
+  {
+    "name": "Checkout",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Checkout Branding"
+      },
+      {
+        "type": "image_picker",
+        "id": "checkout_logo",
+        "label": "Logo"
+      },
+      {
+        "type": "color",
+        "id": "checkout_accent_color",
+        "label": "Accent Color",
+        "default": "#333333"
+      }
+    ]
   }
 ]
