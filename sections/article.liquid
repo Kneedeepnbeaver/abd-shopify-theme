@@ -49,7 +49,7 @@
       <header class="article__header">
         <h1 class="article__title abd-title">{{ article.title }}</h1>
 
-        {%- if abd_theme contains 'retro' -%}
+        {%- if abd_theme contains 'retro' or abd_theme == 'retro-internet' or abd_theme == 'retro-tech-polaroid' or abd_theme == 'nineties-graphic-design' -%}
           <div class="abd-marquee"><div class="abd-marquee-inner">WELCOME TO ARTS BY DYLAN'S AWESOME BLOG!! *** UPDATED: {{ article.published_at | date: '%B %d, %Y' }} *** NEW INSIGHTS ON {{ blog.title }}!</div></div>
           <div class="abd-construction">
             <div class="abd-gif-box">[UNDER CONSTRUCTION]</div>
@@ -59,7 +59,7 @@
           <span class="abd-blink">--- NEW HOT TOPIC: {{ blog.title }} ---</span>
         {%- endif -%}
 
-        {%- if abd_theme == 'classified' -%}
+        {%- if abd_theme == 'classified' or abd_theme == 'military-theme' or abd_theme == 'briefing' -%}
           <div class="abd-stamp">PROJECT: {{ blog.title }} // TOP SECRET</div>
         {%- endif -%}
 
@@ -542,6 +542,7 @@
         { "value": "valentines-her", "label": "Valentines Her" },
         { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
         { "value": "zine", "label": "Zine" }
+      
       
       
       

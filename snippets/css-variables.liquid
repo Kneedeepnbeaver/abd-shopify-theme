@@ -1,187 +1,59 @@
 {% comment %}
   CSS Variables Snippet
   
-  This snippet generates all CSS variables used throughout the theme based on
-  the theme settings and presets. It loads font variations, sets up color
-  schemes (light, dark, vibrant, minimal, warm), typography scales, spacing
-  scales, and layout variables. These variables are then used by all sections
-  and components to maintain consistent styling across the theme.
+  This snippet generates base CSS variables used by critical.css and other global styles.
+  Most styling is now handled by ABD Themes (abd-themes.css) via the class applied to the body.
+  These variables act as fallbacks or integration points.
 {% endcomment %}
 
 {% style %}
-  {% # Loads all font variantions with display: swap %}
-  {{ settings.type_primary_font | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-
-  {% # Color scheme presets %}
-  {% liquid
-    assign color_scheme = settings.color_scheme_preset | default: 'light'
-    
-    case color_scheme
-      when 'light'
-        assign scheme_primary = '#000000'
-        assign scheme_secondary = '#666666'
-        assign scheme_accent = '#0066CC'
-        assign scheme_text = '#333333'
-        assign scheme_bg = '#FFFFFF'
-      when 'dark'
-        assign scheme_primary = '#FFFFFF'
-        assign scheme_secondary = '#CCCCCC'
-        assign scheme_accent = '#4A9EFF'
-        assign scheme_text = '#E0E0E0'
-        assign scheme_bg = '#1A1A1A'
-      when 'vibrant'
-        assign scheme_primary = '#FF3366'
-        assign scheme_secondary = '#FF6699'
-        assign scheme_accent = '#00CCFF'
-        assign scheme_text = '#333333'
-        assign scheme_bg = '#FFFFFF'
-      when 'minimal'
-        assign scheme_primary = '#2C2C2C'
-        assign scheme_secondary = '#808080'
-        assign scheme_accent = '#2C2C2C'
-        assign scheme_text = '#2C2C2C'
-        assign scheme_bg = '#FAFAFA'
-      when 'warm'
-        assign scheme_primary = '#8B4513'
-        assign scheme_secondary = '#D2691E'
-        assign scheme_accent = '#CD853F'
-        assign scheme_text = '#3E2723'
-        assign scheme_bg = '#FFF8DC'
-      else
-        assign scheme_primary = settings.color_primary | default: '#000000'
-        assign scheme_secondary = settings.color_secondary | default: '#666666'
-        assign scheme_accent = settings.color_accent | default: '#0066CC'
-        assign scheme_text = settings.color_text | default: '#333333'
-        assign scheme_bg = settings.background_color | default: '#FFFFFF'
-    endcase
-  %}
-
-  {% # Typography presets %}
-  {% liquid
-    assign typography_preset = settings.typography_preset | default: 'modern'
-    assign heading_scale = settings.heading_scale | default: 1.0
-    assign body_size = settings.body_size | default: 16
-    assign line_height = settings.line_height | default: 1.5
-    
-    case typography_preset
-      when 'modern'
-        assign h1_size = 48
-        assign h2_size = 36
-        assign h3_size = 28
-        assign h4_size = 24
-        assign h5_size = 20
-        assign h6_size = 18
-        assign font_weight_heading = 700
-        assign font_weight_body = 400
-      when 'classic'
-        assign h1_size = 42
-        assign h2_size = 32
-        assign h3_size = 26
-        assign h4_size = 22
-        assign h5_size = 18
-        assign h6_size = 16
-        assign font_weight_heading = 600
-        assign font_weight_body = 400
-      when 'bold'
-        assign h1_size = 52
-        assign h2_size = 40
-        assign h3_size = 32
-        assign h4_size = 26
-        assign h5_size = 22
-        assign h6_size = 20
-        assign font_weight_heading = 800
-        assign font_weight_body = 500
-      when 'elegant'
-        assign h1_size = 44
-        assign h2_size = 34
-        assign h3_size = 28
-        assign h4_size = 24
-        assign h5_size = 20
-        assign h6_size = 18
-        assign font_weight_heading = 500
-        assign font_weight_body = 300
-      else
-        assign h1_size = 48
-        assign h2_size = 36
-        assign h3_size = 28
-        assign h4_size = 24
-        assign h5_size = 20
-        assign h6_size = 18
-        assign font_weight_heading = 700
-        assign font_weight_body = 400
-    endcase
-  %}
-
-  {% # Spacing presets %}
-  {% liquid
-    assign spacing_preset = settings.spacing_preset | default: 'standard'
-    
-    case spacing_preset
-      when 'compact'
-        assign section_padding = 30
-        assign content_gap = 20
-        assign element_gap = 10
-      when 'standard'
-        assign section_padding = 60
-        assign content_gap = 30
-        assign element_gap = 20
-      when 'spacious'
-        assign section_padding = 100
-        assign content_gap = 50
-        assign element_gap = 30
-      else
-        assign section_padding = settings.spacing_section_padding | default: 60
-        assign content_gap = settings.spacing_content_gap | default: 30
-        assign element_gap = 20
-    endcase
-  %}
-
   :root {
-    {% # Base theme variables %}
-    --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
-    --font-primary--style: {{ settings.type_primary_font.style }};
-    --font-primary--weight: {{ settings.type_primary_font.weight }};
-    --page-width: {{ settings.max_page_width }};
-    --page-margin: {{ settings.min_page_margin }}px;
-    --color-background: {{ settings.background_color }};
-    --color-foreground: {{ settings.foreground_color }};
-    --style-border-radius-inputs: {{ settings.input_corner_radius }}px;
+    {% # Base theme variables - Fallbacks %}
+    --font-primary--family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-primary--style: normal;
+    --font-primary--weight: 400;
+    
+    {% # Page Layout %}
+    --page-width: 1400px;
+    --page-margin: 20px;
+    
+    {% # Global Colors - Default to White/Black if no theme selected %}
+    --color-background: {{ settings.abd_custom_bg_default | default: '#FFFFFF' }};
+    --color-foreground: {{ settings.abd_custom_text_default | default: '#000000' }};
+    --style-border-radius-inputs: 0px;
 
-    {% # Color scheme variables %}
-    --color-primary: {{ scheme_primary }};
-    --color-secondary: {{ scheme_secondary }};
-    --color-accent: {{ scheme_accent }};
-    --color-text: {{ scheme_text }};
-    --color-bg: {{ scheme_bg }};
+    {% # Color scheme variables (Fallbacks for legacy code) %}
+    --color-primary: {{ settings.abd_custom_text_default | default: '#000000' }};
+    --color-secondary: {{ settings.abd_custom_text_default | default: '#666666' }};
+    --color-accent: {{ settings.abd_custom_accent_default | default: '#0066CC' }};
+    --color-text: {{ settings.abd_custom_text_default | default: '#000000' }};
+    --color-bg: {{ settings.abd_custom_bg_default | default: '#FFFFFF' }};
 
-    {% # Typography scale variables %}
-    --font-size-h1: {{ h1_size | times: heading_scale }}px;
-    --font-size-h2: {{ h2_size | times: heading_scale }}px;
-    --font-size-h3: {{ h3_size | times: heading_scale }}px;
-    --font-size-h4: {{ h4_size | times: heading_scale }}px;
-    --font-size-h5: {{ h5_size | times: heading_scale }}px;
-    --font-size-h6: {{ h6_size | times: heading_scale }}px;
-    --font-size-body: {{ body_size }}px;
-    --font-weight-heading: {{ font_weight_heading }};
-    --font-weight-body: {{ font_weight_body }};
-    --line-height-base: {{ line_height }};
-    --line-height-heading: {{ line_height | minus: 0.2 }};
+    {% # Typography scale variables - Defaults %}
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.25rem;
+    --font-size-h3: 1.75rem;
+    --font-size-h4: 1.5rem;
+    --font-size-h5: 1.25rem;
+    --font-size-h6: 1rem;
+    --font-size-body: 1rem;
+    --font-weight-heading: 700;
+    --font-weight-body: 400;
+    --line-height-base: 1.5;
+    --line-height-heading: 1.2;
 
     {% # Spacing scale variables %}
-    --spacing-section-padding: {{ section_padding }}px;
-    --spacing-content-gap: {{ content_gap }}px;
-    --spacing-element-gap: {{ element_gap }}px;
-    --spacing-xs: {{ element_gap | divided_by: 2 }}px;
-    --spacing-sm: {{ element_gap }}px;
-    --spacing-md: {{ content_gap }}px;
-    --spacing-lg: {{ section_padding | divided_by: 2 }}px;
-    --spacing-xl: {{ section_padding }}px;
+    --spacing-section-padding: 60px;
+    --spacing-content-gap: 30px;
+    --spacing-element-gap: 20px;
+    --spacing-xs: 10px;
+    --spacing-sm: 20px;
+    --spacing-md: 30px;
+    --spacing-lg: 30px;
+    --spacing-xl: 60px;
 
     {% # Layout variables %}
-    --layout-max-width: {{ settings.max_page_width }};
-    --layout-container-padding: {{ settings.min_page_margin }}px;
+    --layout-max-width: 1400px;
+    --layout-container-padding: 20px;
   }
 {% endstyle %}

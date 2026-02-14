@@ -1,435 +1,249 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Skeleton",
-    "theme_version": "0.1.0",
-    "theme_author": "Shopify",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_name": "Arts by Dylan version 2.0",
+    "theme_version": "2.0.0",
+    "theme_author": "Dylan Carpowich",
+    "theme_documentation_url": "https://github.com/Kneedeepnbeaver/abd-shopify-theme.git",
+    "theme_support_url": "https://github.com/Kneedeepnbeaver/abd-shopify-theme.git"
   },
   {
-    "name": "t:general.typography",
+    "name": "ABD Theme Styles",
     "settings": [
       {
         "type": "header",
-        "content": "t:general.fonts"
+        "content": "Default Theme Style"
       },
       {
-        "type": "font_picker",
-        "id": "type_primary_font",
-        "default": "work_sans_n4",
-        "label": "t:general.primary"
+        "type": "paragraph",
+        "content": "Set default theme style and colors that can be used across all sections. Individual sections can override these settings."
+      },
+      {
+        "type": "select",
+        "id": "abd_theme_default",
+        "label": "Default ABD Theme Style",
+        "default": "",
+        "info": "This will be the default theme style for new sections. You can still customize each section individually.",
+        "options": [
+          {
+            "value": "",
+            "label": "None (Theme Default)"
+          },
+          {
+            "value": "cable-news",
+            "label": "Cable News"
+          },
+          {
+            "value": "california-dreaming",
+            "label": "California Dreaming"
+          },
+          {
+            "value": "california-mission",
+            "label": "California Mission"
+          },
+          {
+            "value": "cubism",
+            "label": "Cubism"
+          },
+          {
+            "value": "disco",
+            "label": "Disco"
+          },
+          {
+            "value": "france",
+            "label": "France"
+          },
+          {
+            "value": "free-love",
+            "label": "Free Love"
+          },
+          {
+            "value": "highway-street-photo",
+            "label": "Highway Street Photo"
+          },
+          {
+            "value": "impressionist",
+            "label": "Impressionist"
+          },
+          {
+            "value": "italy",
+            "label": "Italy"
+          },
+          {
+            "value": "men's-magazine",
+            "label": "Men'S Magazine"
+          },
+          {
+            "value": "military-theme",
+            "label": "Military Theme"
+          },
+          {
+            "value": "millennial-myspace",
+            "label": "Millennial Myspace"
+          },
+          {
+            "value": "national-parks-poster",
+            "label": "National Parks Poster"
+          },
+          {
+            "value": "newspaper",
+            "label": "Newspaper"
+          },
+          {
+            "value": "nineties-graphic-design",
+            "label": "Nineties Graphic Design"
+          },
+          {
+            "value": "renaissance",
+            "label": "Renaissance"
+          },
+          {
+            "value": "retro-diner",
+            "label": "Retro Diner"
+          },
+          {
+            "value": "retro-internet",
+            "label": "Retro Internet"
+          },
+          {
+            "value": "retro-tech-polaroid",
+            "label": "Retro Tech Polaroid"
+          },
+          {
+            "value": "stars-and-stripes",
+            "label": "Stars And Stripes"
+          },
+          {
+            "value": "stpatricks",
+            "label": "Stpatricks"
+          },
+          {
+            "value": "synthwave",
+            "label": "Synthwave"
+          },
+          {
+            "value": "travel-nyc-liberty",
+            "label": "Travel Nyc Liberty"
+          },
+          {
+            "value": "valentines-her",
+            "label": "Valentines Her"
+          },
+          {
+            "value": "wayfinding-receipt",
+            "label": "Wayfinding Receipt"
+          },
+          {
+            "value": "zine",
+            "label": "Zine"
+          }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Default Custom Colors"
+      },
+      {
+        "type": "paragraph",
+        "content": "Set default colors that will be available as starting points when customizing sections. These can be overridden per section."
+      },
+      {
+        "type": "color",
+        "id": "abd_custom_bg_default",
+        "label": "Default Background Color",
+        "info": "Default background color for sections using ABD themes"
+      },
+      {
+        "type": "color",
+        "id": "abd_custom_text_default",
+        "label": "Default Text Color",
+        "info": "Default text color for sections using ABD themes"
+      },
+      {
+        "type": "color",
+        "id": "abd_custom_accent_default",
+        "label": "Default Accent Color",
+        "info": "Default accent color for highlights, borders, and accent elements"
+      },
+      {
+        "type": "color",
+        "id": "abd_custom_link_default",
+        "label": "Default Link Color",
+        "info": "Default color for links and interactive elements"
+      },
+      {
+        "type": "header",
+        "content": "Theme Style Information"
+      },
+      {
+        "type": "paragraph",
+        "content": "ABD Theme Styles provide complete visual presets including colors, typography, and styling. Each theme is a curated design system. You can customize colors per section while keeping the theme's overall aesthetic."
       }
     ]
   },
   {
-    "name": "t:general.layout",
+    "name": "Security Settings",
     "settings": [
       {
-        "type": "select",
-        "id": "max_page_width",
-        "label": "t:labels.page_width",
-        "options": [
-          {
-            "value": "90rem",
-            "label": "t:options.page_width.narrow"
-          },
-          {
-            "value": "110rem",
-            "label": "t:options.page_width.wide"
-          }
-        ],
-        "default": "90rem"
+        "type": "header",
+        "content": "Intellectual Property Protection"
+      },
+      {
+        "type": "paragraph",
+        "content": "Configure security measures to protect your content and images from unauthorized copying."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_image_protection",
+        "label": "Enable Image Protection",
+        "default": true,
+        "info": "Prevents right-click and drag on images"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_content_protection",
+        "label": "Enable Content Protection",
+        "default": true,
+        "info": "Prevents text selection and copying"
+      },
+      {
+        "type": "checkbox",
+        "id": "allow_text_selection",
+        "label": "Allow Text Selection (Accessibility)",
+        "default": true,
+        "info": "Allow text selection for screen readers while maintaining protection"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_bot_detection",
+        "label": "Enable Bot Detection",
+        "default": true,
+        "info": "Detects and limits bot activity"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_watermarking",
+        "label": "Enable Image Watermarking",
+        "default": false,
+        "info": "Adds watermark text to product images"
+      },
+      {
+        "type": "text",
+        "id": "watermark_text",
+        "label": "Watermark Text",
+        "default": "© Arts by Dylan",
+        "info": "Text to display as watermark on images"
       },
       {
         "type": "range",
-        "id": "min_page_margin",
+        "id": "max_requests_per_minute",
+        "label": "Max Requests Per Minute",
         "min": 10,
         "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "t:labels.page_margin",
-        "default": 20
-      }
-    ]
-  },
-  {
-    "name": "t:general.colors",
-    "settings": [
-      {
-        "type": "color",
-        "id": "background_color",
-        "default": "#FFFFFF",
-        "label": "t:labels.background"
-      },
-      {
-        "type": "color",
-        "id": "foreground_color",
-        "default": "#333333",
-        "label": "t:labels.foreground"
-      },
-      {
-        "type": "range",
-        "id": "input_corner_radius",
-        "min": 0,
-        "max": 10,
-        "step": 1,
-        "unit": "px",
-        "label": "t:labels.input_corner_radius",
-        "default": 4
-      }
-    ]
-  },
-  {
-    "name": "t:general.color_schemes",
-    "settings": [
-      {
-        "type": "header",
-        "content": "t:general.color_scheme_presets"
-      },
-      {
-        "type": "select",
-        "id": "color_scheme_preset",
-        "label": "t:labels.color_scheme_preset",
-        "default": "light",
-        "options": [
-          {
-            "value": "light",
-            "label": "t:options.color_scheme.light"
-          },
-          {
-            "value": "dark",
-            "label": "t:options.color_scheme.dark"
-          },
-          {
-            "value": "vibrant",
-            "label": "t:options.color_scheme.vibrant"
-          },
-          {
-            "value": "minimal",
-            "label": "t:options.color_scheme.minimal"
-          },
-          {
-            "value": "warm",
-            "label": "t:options.color_scheme.warm"
-          }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "t:general.custom_colors"
-      },
-      {
-        "type": "color",
-        "id": "color_primary",
-        "default": "#000000",
-        "label": "t:labels.color_primary"
-      },
-      {
-        "type": "color",
-        "id": "color_secondary",
-        "default": "#666666",
-        "label": "t:labels.color_secondary"
-      },
-      {
-        "type": "color",
-        "id": "color_accent",
-        "default": "#0066CC",
-        "label": "t:labels.color_accent"
-      },
-      {
-        "type": "color",
-        "id": "color_text",
-        "default": "#333333",
-        "label": "t:labels.color_text"
-      }
-    ]
-  },
-  {
-    "name": "t:general.typography_presets",
-    "settings": [
-      {
-        "type": "header",
-        "content": "t:general.typography_presets"
-      },
-      {
-        "type": "select",
-        "id": "typography_preset",
-        "label": "t:labels.typography_preset",
-        "default": "modern",
-        "options": [
-          {
-            "value": "modern",
-            "label": "t:options.typography.modern"
-          },
-          {
-            "value": "classic",
-            "label": "t:options.typography.classic"
-          },
-          {
-            "value": "bold",
-            "label": "t:options.typography.bold"
-          },
-          {
-            "value": "elegant",
-            "label": "t:options.typography.elegant"
-          }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "t:general.typography_scale"
-      },
-      {
-        "type": "range",
-        "id": "heading_scale",
-        "min": 0.8,
-        "max": 1.5,
-        "step": 0.1,
-        "default": 1.0,
-        "label": "t:labels.heading_scale"
-      },
-      {
-        "type": "range",
-        "id": "body_size",
-        "min": 14,
-        "max": 20,
-        "step": 1,
-        "unit": "px",
-        "default": 16,
-        "label": "t:labels.body_size"
-      },
-      {
-        "type": "range",
-        "id": "line_height",
-        "min": 1.2,
-        "max": 2.0,
-        "step": 0.1,
-        "default": 1.5,
-        "label": "t:labels.line_height"
-      }
-    ]
-  },
-  {
-    "name": "t:general.spacing_presets",
-    "settings": [
-      {
-        "type": "header",
-        "content": "t:general.spacing_presets"
-      },
-      {
-        "type": "select",
-        "id": "spacing_preset",
-        "label": "t:labels.spacing_preset",
-        "default": "standard",
-        "options": [
-          {
-            "value": "compact",
-            "label": "t:options.spacing.compact"
-          },
-          {
-            "value": "standard",
-            "label": "t:options.spacing.standard"
-          },
-          {
-            "value": "spacious",
-            "label": "t:options.spacing.spacious"
-          }
-        ]
-      },
-      {
-        "type": "header",
-        "content": "t:general.custom_spacing"
-      },
-      {
-        "type": "range",
-        "id": "spacing_section_padding",
-        "min": 20,
-        "max": 120,
-        "step": 10,
-        "unit": "px",
-        "default": 60,
-        "label": "t:labels.section_padding"
-      },
-      {
-        "type": "range",
-        "id": "spacing_content_gap",
-        "min": 10,
-        "max": 60,
         "step": 5,
-        "unit": "px",
         "default": 30,
-        "label": "t:labels.content_gap"
+        "info": "Rate limit for bot detection"
       }
     ]
-  },
-    {
-      "name": "t:general.layout_presets",
-      "settings": [
-        {
-          "type": "header",
-          "content": "t:general.layout_presets"
-        },
-        {
-          "type": "select",
-          "id": "layout_preset",
-          "label": "t:labels.layout_preset",
-          "default": "centered",
-          "options": [
-            {
-              "value": "centered",
-              "label": "t:options.layout.centered"
-            },
-            {
-              "value": "left_aligned",
-              "label": "t:options.layout.left_aligned"
-            },
-            {
-              "value": "full_width",
-              "label": "t:options.layout.full_width"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ABD Theme Styles",
-      "settings": [
-        {
-          "type": "header",
-          "content": "Default Theme Style"
-        },
-        {
-          "type": "paragraph",
-          "content": "Set default theme style and colors that can be used across all sections. Individual sections can override these settings."
-        },
-        {
-          "type": "select",
-          "id": "abd_theme_default",
-          "label": "Default ABD Theme Style",
-          "default": "",
-          "info": "This will be the default theme style for new sections. You can still customize each section individually.",
-          "options": [
-            { "value": "", "label": "None (Theme Default)" },
-            { "value": "premium", "label": "Premium Modern" },
-            { "value": "classified", "label": "Classified Document" },
-            { "value": "historical", "label": "Historical Parchment" },
-            { "value": "social", "label": "MySpace Heritage" },
-            { "value": "retro", "label": "90s Web (Geocities)" },
-            { "value": "culinaria", "label": "Culinaria (Vintage Recipe)" },
-            { "value": "diary", "label": "Editorial Chic (Journal)" },
-            { "value": "briefing", "label": "Intelligence Briefing" },
-            { "value": "zine", "label": "Campus Zine (Brutalist)" },
-            { "value": "portrait", "label": "Biographical Portrait" },
-            { "value": "stpatricks", "label": "St. Patrick's Day" },
-            { "value": "valentines", "label": "Valentine's Day" }
-          ]
-        },
-        {
-          "type": "header",
-          "content": "Default Custom Colors"
-        },
-        {
-          "type": "paragraph",
-          "content": "Set default colors that will be available as starting points when customizing sections. These can be overridden per section."
-        },
-        {
-          "type": "color",
-          "id": "abd_custom_bg_default",
-          "label": "Default Background Color",
-          "info": "Default background color for sections using ABD themes"
-        },
-        {
-          "type": "color",
-          "id": "abd_custom_text_default",
-          "label": "Default Text Color",
-          "info": "Default text color for sections using ABD themes"
-        },
-        {
-          "type": "color",
-          "id": "abd_custom_accent_default",
-          "label": "Default Accent Color",
-          "info": "Default accent color for highlights, borders, and accent elements"
-        },
-        {
-          "type": "color",
-          "id": "abd_custom_link_default",
-          "label": "Default Link Color",
-          "info": "Default color for links and interactive elements"
-        },
-        {
-          "type": "header",
-          "content": "Theme Style Information"
-        },
-        {
-          "type": "paragraph",
-          "content": "ABD Theme Styles provide complete visual presets including colors, typography, and styling. Each theme is a curated design system. You can customize colors per section while keeping the theme's overall aesthetic."
-        }
-      ]
-    },
-    {
-      "name": "Security Settings",
-      "settings": [
-        {
-          "type": "header",
-          "content": "Intellectual Property Protection"
-        },
-        {
-          "type": "paragraph",
-          "content": "Configure security measures to protect your content and images from unauthorized copying."
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_image_protection",
-          "label": "Enable Image Protection",
-          "default": true,
-          "info": "Prevents right-click and drag on images"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_content_protection",
-          "label": "Enable Content Protection",
-          "default": true,
-          "info": "Prevents text selection and copying"
-        },
-        {
-          "type": "checkbox",
-          "id": "allow_text_selection",
-          "label": "Allow Text Selection (Accessibility)",
-          "default": true,
-          "info": "Allow text selection for screen readers while maintaining protection"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_bot_detection",
-          "label": "Enable Bot Detection",
-          "default": true,
-          "info": "Detects and limits bot activity"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_watermarking",
-          "label": "Enable Image Watermarking",
-          "default": false,
-          "info": "Adds watermark text to product images"
-        },
-        {
-          "type": "text",
-          "id": "watermark_text",
-          "label": "Watermark Text",
-          "default": "© Arts by Dylan",
-          "info": "Text to display as watermark on images"
-        },
-        {
-          "type": "range",
-          "id": "max_requests_per_minute",
-          "label": "Max Requests Per Minute",
-          "min": 10,
-          "max": 100,
-          "step": 5,
-          "default": 30,
-          "info": "Rate limit for bot detection"
-        }
-      ]
-    }
+  }
 ]

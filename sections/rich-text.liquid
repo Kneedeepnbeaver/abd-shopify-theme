@@ -83,6 +83,10 @@
   "blocks": [{ "type": "@theme" }],
   "settings": [
     {
+      "type": "header",
+      "content": "Content"
+    },
+    {
       "type": "text",
       "id": "heading",
       "label": "Heading"
@@ -92,6 +96,22 @@
       "id": "text",
       "label": "Content",
       "default": "<p></p>"
+    },
+     {
+      "type": "text",
+      "id": "category",
+      "label": "Category/Tag",
+      "placeholder": "e.g. ANALYSIS or SECRET"
+    },
+    {
+      "type": "textarea",
+      "id": "summary",
+      "label": "Summary/Intro Text",
+      "info": "Display as a summary box or pull quote depending on theme."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
     },
     {
       "type": "select",
@@ -118,7 +138,7 @@
     },
     {
       "type": "header",
-      "content": "ABD Theme Styles"
+      "content": "Theme Style"
     },
     {
       "type": "select",
@@ -154,54 +174,35 @@
         { "value": "valentines-her", "label": "Valentines Her" },
         { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
         { "value": "zine", "label": "Zine" }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       ]
     },
     {
-      "type": "text",
-      "id": "category",
-      "label": "Category/Tag",
-      "placeholder": "e.g. ANALYSIS or SECRET"
+      "type": "header",
+      "content": "Custom Colors (Optional)"
     },
     {
-      "type": "textarea",
-      "id": "summary",
-      "label": "Summary/Intro Text",
-      "info": "Display as a summary box or pull quote depending on theme."
+      "type": "paragraph",
+      "content": "Overrides the selected theme's default colors."
     },
     {
       "type": "color",
       "id": "custom_bg",
-      "label": "Custom Background Color"
+      "label": "Custom Background"
     },
     {
       "type": "color",
       "id": "custom_text",
-      "label": "Custom Text Color"
+      "label": "Custom Text"
     },
     {
       "type": "color",
       "id": "custom_accent",
-      "label": "Custom Accent Color",
-      "info": "Used for highlights, borders, and accent elements."
+      "label": "Custom Accent"
     },
     {
       "type": "color",
       "id": "custom_link",
-      "label": "Custom Link Color",
-      "info": "Color for links and interactive elements."
+      "label": "Custom Link"
     },
     {
       "type": "header",

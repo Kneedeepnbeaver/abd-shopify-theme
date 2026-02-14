@@ -23,6 +23,9 @@
   if abd_theme != blank
     assign section_class = section_class | append: ' abd-theme-' | append: abd_theme
   endif
+  if section.settings.full_width
+    assign section_class = section_class | append: ' full-width-section'
+  endif
   assign image_loading = section.settings.image_loading | default: 'eager'
 %}
 
@@ -145,6 +148,14 @@
   .section-hero-banner__button {
     margin-top: var(--spacing-md);
   }
+  .section-hero-banner.full-width-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
 {% endstyle %}
 
 {% render 'abd-theme-styles',
@@ -161,6 +172,10 @@
   "tag": "section",
   "class": "section-hero-banner",
   "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
     {
       "type": "text",
       "id": "heading",
@@ -195,18 +210,9 @@
       "label": "Image Position",
       "default": "center",
       "options": [
-        {
-          "label": "Top",
-          "value": "top"
-        },
-        {
-          "label": "Center",
-          "value": "center"
-        },
-        {
-          "label": "Bottom",
-          "value": "bottom"
-        }
+        { "label": "Top", "value": "top" },
+        { "label": "Center", "value": "center" },
+        { "label": "Bottom", "value": "bottom" }
       ]
     },
     {
@@ -226,7 +232,58 @@
     },
     {
       "type": "header",
-      "content": "ABD Theme Styles"
+      "content": "Layout Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width Section",
+      "default": false,
+      "info": "Extends the banner to the full width of the screen, breaking out of the container."
+    },
+    {
+      "type": "select",
+      "id": "layout_variation",
+      "label": "Layout Variation",
+      "default": "centered",
+      "options": [
+        { "value": "centered", "label": "Centered" },
+        { "value": "left", "label": "Left Aligned" },
+        { "value": "right", "label": "Right Aligned" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "button_size",
+      "label": "Button Size",
+      "default": "large",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_loading",
+      "label": "Image Loading",
+      "default": "eager",
+      "info": "Hero images should load immediately for best performance",
+      "options": [
+        { "value": "eager", "label": "Eager Load (Recommended)" },
+        { "value": "lazy", "label": "Lazy Load" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_parallax",
+      "label": "Enable Parallax Effect",
+      "default": false,
+      "info": "Adds depth effect on scroll (may impact performance)"
+    },
+    {
+      "type": "header",
+      "content": "Theme Style"
     },
     {
       "type": "select",
@@ -262,95 +319,49 @@
         { "value": "valentines-her", "label": "Valentines Her" },
         { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
         { "value": "zine", "label": "Zine" }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       ]
+    },
+    {
+      "type": "header",
+      "content": "Custom Colors (Optional)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Overrides the selected theme's default colors."
     },
     {
       "type": "color",
       "id": "custom_bg",
-      "label": "Custom Background Color"
+      "label": "Custom Background"
     },
     {
       "type": "color",
       "id": "custom_text",
-      "label": "Custom Text Color",
-      "info": "Overrides the selected ABD theme text color if set."
+      "label": "Custom Text"
     },
     {
       "type": "color",
       "id": "custom_accent",
-      "label": "Custom Accent Color",
-      "info": "Used for highlights, borders, and accent elements."
+      "label": "Custom Accent"
     },
     {
       "type": "color",
       "id": "custom_link",
-      "label": "Custom Link Color",
-      "info": "Color for links and interactive elements."
-    },
-    {
-      "type": "header",
-      "content": "Performance"
-    },
-    {
-      "type": "select",
-      "id": "image_loading",
-      "label": "Image Loading",
-      "default": "eager",
-      "info": "Hero images should load immediately for best performance",
-      "options": [
-        { "value": "eager", "label": "Eager Load (Recommended)" },
-        { "value": "lazy", "label": "Lazy Load" }
-      ]
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_parallax",
-      "label": "Enable Parallax Effect",
-      "default": false,
-      "info": "Adds depth effect on scroll (may impact performance)"
-    },
-    {
-      "type": "select",
-      "id": "layout_variation",
-      "label": "Layout Variation",
-      "default": "centered",
-      "options": [
-        { "value": "centered", "label": "Centered" },
-        { "value": "left", "label": "Left Aligned" },
-        { "value": "right", "label": "Right Aligned" }
-      ]
-    },
-    {
-      "type": "header",
-      "content": "Button Settings"
-    },
-    {
-      "type": "select",
-      "id": "button_size",
-      "label": "Button Size",
-      "default": "large",
-      "options": [
-        { "value": "small", "label": "Small" },
-        { "value": "medium", "label": "Medium" },
-        { "value": "large", "label": "Large" }
-      ]
+      "label": "Custom Link"
     },
     {
       "type": "header",
       "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "min": 200,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Minimum Height",
+      "default": 400
     },
     {
       "type": "range",
@@ -371,16 +382,6 @@
       "unit": "px",
       "label": "Padding Bottom",
       "default": 60
-    },
-    {
-      "type": "range",
-      "id": "min_height",
-      "min": 200,
-      "max": 800,
-      "step": 50,
-      "unit": "px",
-      "label": "Minimum Height",
-      "default": 400
     }
   ],
   "presets": [

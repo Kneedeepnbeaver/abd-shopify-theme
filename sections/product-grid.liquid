@@ -105,6 +105,10 @@
   "class": "section-product-grid",
   "settings": [
     {
+      "type": "header",
+      "content": "Content"
+    },
+    {
       "type": "text",
       "id": "heading",
       "label": "Heading",
@@ -125,13 +129,8 @@
       "step": 1
     },
     {
-      "type": "range",
-      "id": "columns_mobile",
-      "label": "Columns on Mobile",
-      "default": 2,
-      "min": 1,
-      "max": 3,
-      "step": 1
+      "type": "header",
+      "content": "Layout"
     },
     {
       "type": "range",
@@ -140,6 +139,15 @@
       "default": 4,
       "min": 2,
       "max": 5,
+      "step": 1
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Columns on Mobile",
+      "default": 2,
+      "min": 1,
+      "max": 3,
       "step": 1
     },
     {
@@ -156,7 +164,7 @@
     },
     {
       "type": "header",
-      "content": "ABD Theme Styles"
+      "content": "Theme Style"
     },
     {
       "type": "select",
@@ -192,43 +200,59 @@
         { "value": "valentines-her", "label": "Valentines Her" },
         { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
         { "value": "zine", "label": "Zine" }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       ]
+    },
+    {
+      "type": "header",
+      "content": "Custom Colors (Optional)"
+    },
+    {
+      "type": "paragraph",
+      "content": "Overrides the selected theme's default colors."
     },
     {
       "type": "color",
       "id": "custom_bg",
-      "label": "Custom Background Color"
+      "label": "Custom Background"
     },
     {
       "type": "color",
       "id": "custom_text",
-      "label": "Custom Text Color",
-      "info": "Overrides the selected ABD theme text color if set."
+      "label": "Custom Text"
     },
     {
       "type": "color",
       "id": "custom_accent",
-      "label": "Custom Accent Color",
-      "info": "Used for highlights, borders, and accent elements."
+      "label": "Custom Accent"
     },
     {
       "type": "color",
       "id": "custom_link",
-      "label": "Custom Link Color",
-      "info": "Color for links and interactive elements."
+      "label": "Custom Link"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
     }
   ],
   "presets": [

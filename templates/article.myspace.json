@@ -1,0 +1,15 @@
+{
+    "sections": {
+        "main": {
+            "type": "article",
+            "settings": {
+                "abd_theme": "millennial-myspace",
+                "reading_layout": "standard",
+                "show_date": true
+            }
+        }
+    },
+    "order": [
+        "main"
+    ]
+}

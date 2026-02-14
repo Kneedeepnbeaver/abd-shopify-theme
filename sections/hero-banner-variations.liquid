@@ -25,8 +25,11 @@
   if layout_variation != 'default'
     assign section_class = section_class | append: ' layout-' | append: layout_variation
   endif
-      if abd_theme != blank
+  if abd_theme != blank
     assign section_class = section_class | append: ' abd-theme-' | append: abd_theme
+  endif
+  if section.settings.full_width
+    assign section_class = section_class | append: ' full-width-section'
   endif
 %}
 
@@ -118,6 +121,15 @@
       width: 100%;
     }
   }
+
+  .section-hero-banner--variations.full-width-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
 {% endstyle %}
 
 {% render 'abd-theme-styles',
@@ -191,6 +203,17 @@
     },
     {
       "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width Section",
+      "default": false,
+      "info": "Extends the banner to the full width of the screen, breaking out of the container."
+    },
+    {
+      "type": "header",
       "content": "ABD Theme Styles"
     },
     {
@@ -227,6 +250,7 @@
         { "value": "valentines-her", "label": "Valentines Her" },
         { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
         { "value": "zine", "label": "Zine" }
+      
       
       
       
