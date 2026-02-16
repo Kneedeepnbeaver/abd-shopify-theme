@@ -373,10 +373,6 @@
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "Color Scheme"
-    },{ "value": "compact", "label": "Compact" },
-        { "value": "standard", "label": "Standard" },
-        { "value": "spacious", "label": "Spacious" }
-      ]
     },
     {
       "type": "header",
@@ -456,7 +452,15 @@
           "type": "url",
           "id": "button_link",
           "label": "Button Link"
-        },{ "value": "secondary", "label": "Secondary" },
+        },
+        {
+          "type": "select",
+          "id": "button_variant",
+          "label": "Button Variant",
+          "default": "primary",
+          "options": [
+            { "value": "primary", "label": "Primary" },
+            { "value": "secondary", "label": "Secondary" },
             { "value": "outline", "label": "Outline" },
             { "value": "ghost", "label": "Ghost" }
           ]

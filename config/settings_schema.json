@@ -255,12 +255,12 @@
       },
       {
         "type": "image_picker",
-        "id": "checkout_logo",
+        "id": "abd_checkout_logo",
         "label": "Logo"
       },
       {
         "type": "color",
-        "id": "checkout_accent_color",
+        "id": "abd_checkout_accent_color",
         "label": "Accent Color",
         "default": "#333333"
       }
