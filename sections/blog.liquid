@@ -23,7 +23,7 @@
   assign show_excerpt = section.settings.show_excerpt
   assign show_date = section.settings.show_date
   assign show_author = section.settings.show_author
-  assign abd_theme = section.settings.abd_theme
+  assign abd_theme = section.settings.abd_theme | default: settings.abd_theme_default
   assign custom_bg = section.settings.custom_bg
   assign custom_text = section.settings.custom_text
   assign custom_accent = section.settings.custom_accent
@@ -51,7 +51,7 @@
         {%- if blog.articles.size > 0 -%}
           <div class="blog-articles__grid">
             {% for article in blog.articles %}
-              <article class="blog-article">
+              <article class="blog-article card">
                 {%- if article.image -%}
                   <div class="blog-article__image">
                     <a href="{{ article.url }}" class="blog-article__image-link">

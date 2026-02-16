@@ -7,6 +7,18 @@
 
 {% liquid
   assign abd_theme = section.settings.abd_theme
+  
+  if page.metafields.custom.abd_theme != blank
+    assign abd_theme = page.metafields.custom.abd_theme
+  elsif product.metafields.custom.abd_theme != blank
+    assign abd_theme = product.metafields.custom.abd_theme
+  elsif collection.metafields.custom.abd_theme != blank
+    assign abd_theme = collection.metafields.custom.abd_theme
+  elsif article.metafields.custom.abd_theme != blank
+    assign abd_theme = article.metafields.custom.abd_theme
+  elsif blog.metafields.custom.abd_theme != blank
+    assign abd_theme = blog.metafields.custom.abd_theme
+  endif
   assign custom_bg = section.settings.custom_bg
   assign custom_text = section.settings.custom_text
   assign custom_accent = section.settings.custom_accent

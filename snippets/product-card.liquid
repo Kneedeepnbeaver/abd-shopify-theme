@@ -30,6 +30,7 @@
   assign lazy_load = lazy_load | default: true
   assign class = class | default: ''
   assign show_badge = show_badge | default: true
+  assign abd_theme = abd_theme | default: settings.abd_theme_default
   
   unless product != null
     echo '<!-- Error: product parameter required for product-card snippet -->'
@@ -37,6 +38,9 @@
   endunless
   
   assign card_class = 'product-card'
+  if abd_theme != blank
+    assign card_class = card_class | append: ' abd-theme-' | append: abd_theme
+  endif
   if class != blank
     assign card_class = card_class | append: ' ' | append: class
   endif
@@ -61,7 +65,7 @@
           height: 600
         %}
       {% else %}
-        <div class="product-card__image product-card__image--placeholder">
+        <div class="product-card__image-wrapper product-card__image--placeholder">
           {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
         </div>
       {% endif %}
@@ -99,144 +103,14 @@
       </div>
     {% endif %}
     
-    <h3 class="product-card__title">
+    <h3 class="product-card__title product-title abd-title">
       <a href="{{ product.url }}">{{ product.title }}</a>
     </h3>
     
-    <div class="product-card__price">
+    <div class="product-card__price product-price">
       {% render 'price', price: product.price, compare_at_price: product.compare_at_price %}
     </div>
   </div>
 </div>
 
-{% stylesheet %}
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
-  
-  .product-card__image-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    margin-bottom: var(--spacing-sm);
-  }
-  
-  .product-card__link {
-    display: block;
-    position: relative;
-    width: 100%;
-  }
-  
-  .product-card__image {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform var(--animation-duration-normal) var(--animation-easing);
-  }
-  
-  .product-card__image--placeholder {
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5f5f5;
-  }
-  
-  .product-card:hover .product-card__image {
-    transform: scale(1.05);
-  }
-  
-  .product-card__badge {
-    position: absolute;
-    top: var(--spacing-xs);
-    left: var(--spacing-xs);
-    z-index: 1;
-  }
-  
-  .product-card__actions {
-    position: absolute;
-    bottom: var(--spacing-xs);
-    left: var(--spacing-xs);
-    right: var(--spacing-xs);
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity var(--animation-duration-normal) var(--animation-easing),
-                transform var(--animation-duration-normal) var(--animation-easing);
-  }
-  
-  .product-card:hover .product-card__actions {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .product-card__form {
-    width: 100%;
-  }
-  
-  .product-card__quick-add {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-xs);
-    padding: 12px;
-    background-color: var(--color-primary);
-    color: var(--color-bg);
-    border: none;
-    border-radius: 4px;
-    font-size: var(--font-size-body);
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color var(--animation-duration-fast) var(--animation-easing);
-  }
-  
-  .product-card__quick-add:hover:not(:disabled) {
-    background-color: var(--color-secondary);
-  }
-  
-  .product-card__quick-add--disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-  
-  .product-card__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-  }
-  
-  .product-card__vendor {
-    font-size: 14px;
-    color: var(--color-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  
-  .product-card__title {
-    margin: 0;
-    font-size: var(--font-size-h5);
-    font-weight: var(--font-weight-heading);
-    line-height: var(--line-height-heading);
-  }
-  
-  .product-card__title a {
-    color: var(--color-text);
-    text-decoration: none;
-    transition: color var(--animation-duration-fast) var(--animation-easing);
-  }
-  
-  .product-card__title a:hover {
-    color: var(--color-accent);
-  }
-  
-  .product-card__price {
-    font-size: var(--font-size-body);
-    font-weight: 500;
-  }
-{% endstylesheet %}
 

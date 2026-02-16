@@ -1,9 +1,9 @@
 {% liquid
-  assign abd_theme = block.settings.abd_theme
+  assign abd_theme = block.settings.abd_theme | default: section.settings.abd_theme | default: settings.abd_theme_default
   assign product = block.settings.product
 %}
 
-<div class="block-product-card-block {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" {{ block.shopify_attributes }}>
+<div class="block-product-card-block product-card {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" {{ block.shopify_attributes }}>
   {%- if abd_theme == 'retro-internet' -%}<div class="abd-geocities-box">{%- endif -%}
   
   {%- if product != blank -%}
@@ -14,11 +14,11 @@
     {%- endif -%}
 
     {%- if block.settings.show_title -%}
-      <h3 class="block-product-card-block__title abd-title">{{ product.title }}</h3>
+      <h3 class="block-product-card-block__title product-title abd-title">{{ product.title }}</h3>
     {%- endif -%}
 
     {%- if block.settings.show_price -%}
-      <div class="block-product-card-block__price">{{ product.price | money }}</div>
+      <div class="block-product-card-block__price product-price">{{ product.price | money }}</div>
     {%- endif -%}
   {%- else -%}
     <div class="abd-content">Select a product to display card</div>
@@ -71,26 +71,6 @@
       "id": "show_quick_view",
       "label": "Show Quick View Button",
       "default": false
-    },
-    {
-      "type": "select",
-      "id": "card_style",
-      "label": "Card Style",
-      "default": "default",
-      "options": [
-        {
-          "label": "Default",
-          "value": "default"
-        },
-        {
-          "label": "Minimal",
-          "value": "minimal"
-        },
-        {
-          "label": "Bordered",
-          "value": "bordered"
-        }
-      ]
     },
     {
       "type": "header",

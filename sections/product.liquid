@@ -27,6 +27,21 @@
   assign custom_text = section.settings.custom_text
   assign custom_accent = section.settings.custom_accent
   assign custom_link = section.settings.custom_link
+
+  assign theme_radius = 0
+  assign theme_border = '1px solid transparent'
+  
+  case abd_theme
+    when 'california-dreaming', 'california-mission', 'disco', 'france', 'free-love', 'impressionist', 'italy', 'national-parks-poster', 'renaissance', 'retro-diner', 'stpatricks', 'valentines-her'
+      assign theme_radius = 12
+    when 'millennial-myspace', 'retro-tech-polaroid'
+      assign theme_radius = 2
+    when 'retro-internet'
+      assign theme_radius = 0
+      assign theme_border = '2px outset #ccc'
+    else
+      assign theme_radius = 0
+  endcase
 %}
 
 <div class="section-product section-product--{{ layout_variation }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
@@ -218,11 +233,63 @@
   </div>
 </div>
 
+<div id="product-lightbox" class="product-lightbox">
+  <span class="product-lightbox__close">&times;</span>
+  <img class="product-lightbox__image" src="" alt="Zoomed Product Image">
+</div>
+
 <script>
   // Make product data available to JavaScript
   if (document.getElementById('product-data')) {
     window.productData = JSON.parse(document.getElementById('product-data').textContent);
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = document.getElementById('product-lightbox');
+    if (!lightbox) return;
+    
+    const lightboxImg = lightbox.querySelector('.product-lightbox__image');
+    const closeBtn = lightbox.querySelector('.product-lightbox__close');
+
+    // Function to open lightbox
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+
+    // Function to close lightbox
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      setTimeout(() => { lightboxImg.src = ''; }, 300);
+    }
+
+    // Add click event to main images
+    // Use delegation for better stability if DOM changes
+    const productMedia = document.querySelector('.product__media');
+    if (productMedia) {
+        productMedia.addEventListener('click', function(e) {
+            if (e.target.classList.contains('product__image')) {
+                openLightbox(e.target.src);
+            }
+        });
+    }
+
+    // Close events
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  });
 </script>
 
 {% style %}
@@ -275,7 +342,8 @@
   .product__image {
     width: 100%;
     height: auto;
-    border-radius: var(--style-border-radius-inputs);
+    border-radius: {{ theme_radius }}px;
+    border: {{ theme_border }};
   }
 
   .product__thumbnails {
@@ -288,8 +356,9 @@
     border: 2px solid transparent;
     background: none;
     padding: 0;
+    padding: 0;
     cursor: pointer;
-    border-radius: var(--style-border-radius-inputs);
+    border-radius: {{ theme_radius }}px;
     overflow: hidden;
   }
 
@@ -389,6 +458,49 @@
   .product__meta-label {
     font-weight: 500;
     margin-right: var(--spacing-xs);
+  }
+  /* Lightbox */
+  .product-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .product-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .product-lightbox__image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: var(--style-border-radius-inputs);
+  }
+
+  .product-lightbox__close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+    line-height: 1;
+  }
+  
+  .product__image {
+    cursor: zoom-in;
   }
 {% endstyle %}
 

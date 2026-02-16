@@ -20,20 +20,11 @@
         "products_to_show": 4,
         "columns": 4
       }
-    },
-    "recently_viewed": {
-      "type": "recently-viewed",
-      "settings": {
-        "heading": "Recently Viewed",
-        "products_to_show": 4,
-        "columns": 4
-      }
     }
   },
   "order": [
     "breadcrumbs",
     "main",
-    "related_products",
-    "recently_viewed"
+    "related_products"
   ]
 }

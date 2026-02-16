@@ -34,11 +34,11 @@
           </div>
           
           <div class="cart-item__details">
-            <h3><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
-            {% if item.variant.title != 'Default Title' %}
+            <h3 class="product-title abd-title"><a href="{{ item.url }}">{{ item.product.title }}</a></h3>
+             {% if item.variant.title != 'Default Title' %}
               <p class="cart-item__variant">{{ item.variant.title }}</p>
             {% endif %}
-            <p class="cart-item__price">{{ item.final_price | money }}</p>
+            <p class="cart-item__price product-price">{{ item.final_price | money }}</p>
           </div>
           
           <div class="cart-item__quantity">
@@ -78,10 +78,10 @@
       </div>
       
       <div class="cart-actions">
-        <button type="submit" name="update" value="Update" class="button button--secondary">
+        <button type="submit" name="update" value="Update" class="button button--secondary btn">
           {{ 'cart.update' | t }}
         </button>
-        <button type="submit" name="checkout" value="Checkout" class="button button--primary">
+        <button type="submit" name="checkout" value="Checkout" class="button button--primary btn">
           {{ 'cart.checkout' | t }}
         </button>
       </div>

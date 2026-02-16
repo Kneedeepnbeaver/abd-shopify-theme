@@ -23,7 +23,7 @@
   assign products_per_page = section.settings.products_per_page | default: 20
   assign show_vendor = section.settings.show_vendor
   assign show_quick_add = section.settings.show_quick_add
-  assign abd_theme = section.settings.abd_theme
+  assign abd_theme = section.settings.abd_theme | default: settings.abd_theme_default
   assign custom_bg = section.settings.custom_bg
   assign custom_text = section.settings.custom_text
   assign custom_accent = section.settings.custom_accent
@@ -62,7 +62,9 @@
                   product: product,
                   show_vendor: show_vendor,
                   show_quick_add: show_quick_add,
-                  lazy_load: section.settings.image_loading == 'lazy'
+                  show_quick_add: show_quick_add,
+                  lazy_load: section.settings.image_loading == 'lazy',
+                  abd_theme: abd_theme
                 %}
               </div>
             {% endfor %}
