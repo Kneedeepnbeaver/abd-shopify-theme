@@ -13,10 +13,68 @@
         "show_product_meta": true
       }
     },
+    "trust_badges": {
+      "type": "feature-grid",
+      "blocks": {
+        "badge_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "shield",
+            "heading": "Secure Payment",
+            "content": "<p>100% Secure Transaction</p>",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "badge_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "truck",
+            "heading": "Fast Shipping",
+            "content": "<p>Reliable Delivery</p>",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "badge_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "star",
+            "heading": "Quality Guarantee",
+            "content": "<p>Premium Products</p>",
+            "link_text": "",
+            "link_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "badge_1",
+        "badge_2",
+        "badge_3"
+      ],
+      "settings": {
+        "heading": "",
+        "text": "",
+        "columns_mobile": 1,
+        "columns_tablet": 3,
+        "columns_desktop": 3,
+        "text_alignment": "center",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "related_products": {
       "type": "related-products",
       "settings": {
         "heading": "You may also like",
+        "products_to_show": 4,
+        "columns": 4
+      }
+    },
+    "recently_viewed": {
+      "type": "recently-viewed",
+      "settings": {
+        "heading": "Recently Viewed",
         "products_to_show": 4,
         "columns": 4
       }
@@ -25,6 +83,8 @@
   "order": [
     "breadcrumbs",
     "main",
-    "related_products"
+    "trust_badges",
+    "related_products",
+    "recently_viewed"
   ]
 }

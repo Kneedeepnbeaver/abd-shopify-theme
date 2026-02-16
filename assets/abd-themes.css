@@ -25663,6 +25663,7 @@
 
 /* --- stars-and-stripes.css --- */
 /* Stars & Stripes — American Patriotic Pin-Up Theme */
+/* Stars & Stripes — American Patriotic Pin-Up Theme */
 .abd-theme-stars-and-stripes {
 
     /* Shopify Standard Variables (Injected by standardize_css.py) */
@@ -25697,6 +25698,1143 @@
         repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(191, 10, 48, 0.04) 24px, rgba(191, 10, 48, 0.04) 48px),
         repeating-linear-gradient(90deg, transparent, transparent 24px, rgba(0, 40, 104, 0.03) 24px, rgba(0, 40, 104, 0.03) 48px),
         linear-gradient(180deg, var(--slate-bg) 0%, var(--slate-dark) 100%);
+}
+
+.abd-theme-stars-and-stripes * {
+    box-sizing: border-box;
+}
+
+/* Layout — sticker cut-out effect */
+.abd-theme-stars-and-stripes .theme-content {
+    max-width: 960px;
+    margin: 48px auto;
+    padding: 32px;
+    background: var(--paper);
+    border: 6px solid var(--usa-white);
+    box-shadow: 0 0 0 3px var(--ink), 8px 8px 0 var(--usa-blue);
+}
+
+/* Typography */
+.abd-theme-stars-and-stripes h1,
+.abd-theme-stars-and-stripes h2,
+.abd-theme-stars-and-stripes h3,
+.abd-theme-stars-and-stripes h4,
+.abd-theme-stars-and-stripes h5,
+.abd-theme-stars-and-stripes h6 {
+    font-family: "Georgia", "Times New Roman", "Times", serif;
+    color: var(--navy);
+    line-height: 1.15;
+    margin: 24px 0 12px;
+}
+
+.abd-theme-stars-and-stripes h1 {
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom: 4px solid transparent;
+    padding-bottom: 10px;
+    text-shadow: 2px 2px 0 var(--usa-white), 3px 3px 0 var(--ink);
+    background-image: repeating-linear-gradient(
+        135deg,
+        var(--red) 0 6px,
+        var(--usa-white) 6px 12px,
+        var(--navy) 12px 18px
+    );
+    background-size: 100% 4px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+}
+
+.abd-theme-stars-and-stripes h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+    color: var(--red);
+    border-bottom: 3px solid transparent;
+    display: inline-block;
+    padding-bottom: 6px;
+    background-image: repeating-linear-gradient(
+        135deg,
+        var(--red) 0 5px,
+        var(--usa-white) 5px 10px,
+        var(--navy) 10px 15px
+    );
+    background-size: 100% 3px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+}
+
+.abd-theme-stars-and-stripes h3 {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: var(--navy);
+}
+
+.abd-theme-stars-and-stripes p {
+    margin: 0 0 16px;
+    line-height: 1.7;
+}
+
+/* Labels */
+.abd-theme-stars-and-stripes .masthead,
+.abd-theme-stars-and-stripes .kicker,
+.abd-theme-stars-and-stripes .section-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--usa-white);
+    background: var(--navy);
+    padding: 4px 10px;
+    display: inline-block;
+    border: 3px solid var(--ink);
+    box-shadow: 0 3px 0 var(--ink);
+}
+
+.abd-theme-stars-and-stripes .byline,
+.abd-theme-stars-and-stripes .dateline {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--navy);
+}
+
+/* Links */
+.abd-theme-stars-and-stripes a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.abd-theme-stars-and-stripes a:hover {
+    color: var(--red);
+}
+
+/* Blockquotes */
+.abd-theme-stars-and-stripes blockquote {
+    margin: 20px 0;
+    padding: 16px 18px;
+    border-left: 4px solid var(--red);
+    background: rgba(0, 40, 104, 0.08);
+    color: var(--ink);
+}
+
+/* Code */
+.abd-theme-stars-and-stripes code {
+    background: rgba(0, 40, 104, 0.12);
+    color: var(--navy);
+    padding: 2px 6px;
+    border: 1px solid var(--usa-blue);
+    font-family: "Courier New", monospace;
+    font-size: 0.9em;
+}
+
+.abd-theme-stars-and-stripes pre {
+    background: var(--usa-blue);
+    color: var(--usa-white);
+    padding: 16px;
+    border: 3px solid var(--ink);
+    margin: 18px 0;
+    overflow-x: auto;
+}
+
+.abd-theme-stars-and-stripes pre code {
+    background: transparent;
+    border: none;
+    color: inherit;
+    padding: 0;
+}
+
+/* Tables */
+.abd-theme-stars-and-stripes table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    background: var(--usa-white);
+    border: 3px solid var(--ink);
+}
+
+.abd-theme-stars-and-stripes th {
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    background: var(--navy);
+    color: var(--usa-white);
+    padding: 10px;
+}
+
+.abd-theme-stars-and-stripes td {
+    padding: 10px;
+    border-top: 1px solid var(--rule);
+}
+
+.abd-theme-stars-and-stripes tr:nth-child(even) td {
+    background: rgba(191, 10, 48, 0.08);
+}
+
+/* Images */
+.abd-theme-stars-and-stripes img {
+    max-width: 100%;
+    height: auto;
+    border: 4px solid var(--usa-white);
+    box-shadow: 0 0 0 2px var(--ink), 6px 6px 0 var(--usa-blue);
+    margin: 16px 0;
+}
+
+/* Rules */
+.abd-theme-stars-and-stripes hr {
+    border: none;
+    border-top: 3px solid var(--navy);
+    margin: 24px 0;
+    box-shadow: 0 3px 0 var(--red);
+}
+
+/* Highlighted section */
+.abd-theme-stars-and-stripes .highlighted-section {
+    border: 3px solid var(--ink);
+    padding: 16px;
+    margin: 20px 0;
+    background: linear-gradient(90deg, rgba(0, 40, 104, 0.1), var(--paper), rgba(191, 10, 48, 0.1));
+    box-shadow: 0 0 0 2px var(--ink), 6px 6px 0 var(--usa-red);
+    font-weight: 700;
+}
+
+.abd-theme-stars-and-stripes .dek {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin: 8px 0 16px;
+    line-height: 1.5;
+}
+
+.abd-theme-stars-and-stripes .pull-quote {
+    font-size: clamp(1.4rem, 2.8vw, 2rem);
+    border-left: 4px solid var(--navy);
+    padding-left: 16px;
+    margin: 24px 0;
+    color: var(--ink);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.abd-theme-stars-and-stripes .callout,
+.abd-theme-stars-and-stripes .callout-box {
+    border: 4px solid var(--usa-white);
+    padding: 14px 16px;
+    margin: 18px 0;
+    background: var(--paper);
+    box-shadow: 0 0 0 2px var(--ink), 6px 6px 0 var(--usa-blue);
+}
+
+.abd-theme-stars-and-stripes .sidebar {
+    padding: 24px;
+    margin: 20px 0;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--paper);
+    border: 3px solid var(--ink);
+    border-left: 4px solid var(--red);
+    border-radius: 0;
+    box-shadow: 6px 6px 0 var(--usa-blue);
+}
+
+.abd-theme-stars-and-stripes .sidebar h3,
+.abd-theme-stars-and-stripes .sidebar h4 {
+    color: var(--red);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 8px;
+}
+
+.abd-theme-stars-and-stripes .sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.abd-theme-stars-and-stripes .sidebar li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.abd-theme-stars-and-stripes .sidebar li:last-child {
+    border-bottom: none;
+}
+
+/* Cards */
+.abd-theme-stars-and-stripes .card,
+.abd-theme-stars-and-stripes .product-card {
+    background: var(--paper);
+    border: 4px solid var(--usa-white);
+    border-radius: 0;
+    padding: 20px;
+    margin: 16px 0;
+    box-shadow: 0 0 0 2px var(--ink), 6px 6px 0 var(--usa-blue);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.abd-theme-stars-and-stripes .card:hover,
+.abd-theme-stars-and-stripes .product-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 0 0 0 2px var(--ink), 8px 8px 0 var(--usa-red);
+}
+
+/* Grid Layouts */
+.abd-theme-stars-and-stripes .grid {
+    display: grid;
+    gap: 20px;
+    margin: 24px 0;
+}
+
+.abd-theme-stars-and-stripes .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.abd-theme-stars-and-stripes .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.abd-theme-stars-and-stripes .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 768px) {
+    .abd-theme-stars-and-stripes .grid-2,
+    .abd-theme-stars-and-stripes .grid-3,
+    .abd-theme-stars-and-stripes .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form Elements */
+.abd-theme-stars-and-stripes input[type="text"],
+.abd-theme-stars-and-stripes input[type="email"],
+.abd-theme-stars-and-stripes input[type="number"],
+.abd-theme-stars-and-stripes input[type="password"],
+.abd-theme-stars-and-stripes textarea,
+.abd-theme-stars-and-stripes select {
+    width: 100%;
+    padding: 12px;
+    border: 3px solid var(--ink);
+    background: var(--usa-white);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.abd-theme-stars-and-stripes input:focus,
+.abd-theme-stars-and-stripes textarea:focus,
+.abd-theme-stars-and-stripes select:focus {
+    outline: none;
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(191, 10, 48, 0.25);
+}
+
+/* Buttons */
+.abd-theme-stars-and-stripes .btn,
+.abd-theme-stars-and-stripes button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--navy);
+    color: var(--usa-white);
+    border: 3px solid var(--ink);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.abd-theme-stars-and-stripes .btn:hover,
+.abd-theme-stars-and-stripes button:hover {
+    background: var(--red);
+    border-color: var(--red);
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 0 var(--navy);
+}
+
+.abd-theme-stars-and-stripes .btn-secondary {
+    background: transparent;
+    color: var(--navy);
+}
+
+.abd-theme-stars-and-stripes .btn-secondary:hover {
+    background: var(--navy);
+    color: var(--usa-white);
+}
+
+/* Navigation */
+.abd-theme-stars-and-stripes nav,
+.abd-theme-stars-and-stripes .nav {
+    border-bottom: 3px solid var(--navy);
+    padding: 16px 0;
+    margin-bottom: 24px;
+}
+
+.abd-theme-stars-and-stripes .nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.abd-theme-stars-and-stripes .nav a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.abd-theme-stars-and-stripes .nav a:hover {
+    border-bottom-color: var(--red);
+}
+
+.abd-theme-stars-and-stripes .breadcrumb {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+.abd-theme-stars-and-stripes .breadcrumb a {
+    color: var(--navy);
+    text-decoration: none;
+}
+
+.abd-theme-stars-and-stripes .breadcrumb a:hover {
+    color: var(--red);
+}
+
+/* Badges */
+.abd-theme-stars-and-stripes .badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--red);
+    color: var(--usa-white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid var(--navy);
+}
+
+.abd-theme-stars-and-stripes .badge-sale {
+    background: var(--red);
+}
+
+.abd-theme-stars-and-stripes .badge-new {
+    background: var(--navy);
+}
+
+.abd-theme-stars-and-stripes .badge-out-of-stock {
+    background: var(--muted);
+    opacity: 0.6;
+}
+
+/* Enhanced Images */
+.abd-theme-stars-and-stripes figure {
+    margin: 20px 0;
+}
+
+.abd-theme-stars-and-stripes figcaption {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin-top: 8px;
+    text-align: center;
+    font-style: italic;
+}
+
+.abd-theme-stars-and-stripes .image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--ink);
+    margin: 16px 0;
+}
+
+.abd-theme-stars-and-stripes .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.abd-theme-stars-and-stripes .image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+/* Product Elements */
+.abd-theme-stars-and-stripes .product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 12px 0;
+}
+
+.abd-theme-stars-and-stripes .product-price-compare {
+    font-size: 1rem;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-left: 8px;
+}
+
+.abd-theme-stars-and-stripes .product-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 12px 0;
+}
+
+.abd-theme-stars-and-stripes .variant-selector {
+    margin: 16px 0;
+}
+
+.abd-theme-stars-and-stripes .variant-selector label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--navy);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    }
+
+.abd-theme-stars-and-stripes .quantity-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.abd-theme-stars-and-stripes .quantity-input button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.abd-theme-stars-and-stripes .quantity-input input {
+    width: 60px;
+    text-align: center;
+    margin: 0;
+}
+
+/* Cart Elements */
+.abd-theme-stars-and-stripes .cart-item {
+    border-bottom: 2px solid var(--rule);
+    padding: 16px 0;
+    display: flex;
+    gap: 16px;
+}
+
+.abd-theme-stars-and-stripes .cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 3px solid var(--ink);
+}
+
+.abd-theme-stars-and-stripes .cart-total {
+    border-top: 3px solid var(--navy);
+    padding-top: 16px;
+    margin-top: 24px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+/* Modals/Overlays */
+.abd-theme-stars-and-stripes .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.abd-theme-stars-and-stripes .modal {
+    background: var(--usa-white);
+    border: 3px solid var(--ink);
+    padding: 32px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 8px 8px 0 var(--navy);
+    position: relative;
+}
+
+.abd-theme-stars-and-stripes .modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--red);
+    color: var(--usa-white);
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Sidebar Layout */
+@media (min-width: 768px) {
+    .abd-theme-stars-and-stripes .theme-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 32px;
+        max-width: 1200px;
+    }
+    
+    .abd-theme-stars-and-stripes .theme-content > * {
+        grid-column: 1;
+    }
+    
+    .abd-theme-stars-and-stripes .theme-content > .sidebar {
+        grid-column: 2;
+        grid-row: 1 / -1;
+    }
+}
+
+@media (max-width: 767px) {
+    .abd-theme-stars-and-stripes .theme-content {
+        padding: 24px;
+    }
+}
+
+/* ========================================
+   ADDITIONAL SHOPIFY BLOCKS
+   Announcement bar, Newsletter, Accordion, Pagination,
+   Form validation, Empty states, Swatches, Footer extras
+   ======================================== */
+
+/* Form labels - consistent styling */
+.abd-theme-stars-and-stripes form label,
+.abd-theme-stars-and-stripes .newsletter-form label,
+.abd-theme-stars-and-stripes .field__label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+/* Focus-visible for accessibility */
+.abd-theme-stars-and-stripes a:focus-visible,
+.abd-theme-stars-and-stripes button:focus-visible,
+.abd-theme-stars-and-stripes input:focus-visible,
+.abd-theme-stars-and-stripes select:focus-visible,
+.abd-theme-stars-and-stripes textarea:focus-visible {
+    outline: 2px solid var(--accent, var(--color-primary, #0066cc));
+    outline-offset: 2px;
+}
+
+/* Announcement bar */
+.abd-theme-stars-and-stripes .announcement-bar,
+.abd-theme-stars-and-stripes .announcement-bar-section,
+.abd-theme-stars-and-stripes .shopify-section-announcement-bar {
+    background: var(--ink, var(--text, var(--color-foreground, #000)));
+    color: var(--paper, var(--bg, var(--color-background, #fff)));
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.abd-theme-stars-and-stripes .announcement-bar a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.abd-theme-stars-and-stripes .announcement-bar-slider .slider__slide {
+    padding: 0 1rem;
+}
+
+/* Newsletter section */
+.abd-theme-stars-and-stripes .newsletter-form,
+.abd-theme-stars-and-stripes .newsletter__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 400px;
+}
+
+.abd-theme-stars-and-stripes .newsletter-form .field__input,
+.abd-theme-stars-and-stripes .newsletter__form input[type="email"] {
+    flex: 1;
+    min-width: 200px;
+}
+
+.abd-theme-stars-and-stripes .form__message,
+.abd-theme-stars-and-stripes .form__message--error {
+    color: #b22222;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.abd-theme-stars-and-stripes .form__message--success {
+    color: #228b22;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Accordion / collapsible content */
+.abd-theme-stars-and-stripes details.accordion,
+.abd-theme-stars-and-stripes .accordion,
+.abd-theme-stars-and-stripes .collapsible-content__details {
+    border: 1px solid var(--rule, var(--color-border, #e5e5e5));
+    margin-bottom: 0.5rem;
+}
+
+.abd-theme-stars-and-stripes details.accordion summary,
+.abd-theme-stars-and-stripes .accordion__title,
+.abd-theme-stars-and-stripes .collapsible-content__summary {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+}
+
+.abd-theme-stars-and-stripes details.accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.abd-theme-stars-and-stripes details[open] .accordion__content,
+.abd-theme-stars-and-stripes .collapsible-content__content {
+    padding: 0 1rem 1rem;
+    border-top: 1px solid var(--rule, var(--color-border, #e5e5e5));
+}
+
+/* Pagination */
+.abd-theme-stars-and-stripes .pagination,
+.abd-theme-stars-and-stripes .pagination__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    justify-content: center;
+}
+
+.abd-theme-stars-and-stripes .pagination__item {
+    margin: 0;
+}
+
+.abd-theme-stars-and-stripes .pagination__link,
+.abd-theme-stars-and-stripes .pagination__item a {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    min-width: 2.5rem;
+    text-align: center;
+    border: 1px solid var(--rule, var(--color-border, #e5e5e5));
+    text-decoration: none;
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+}
+
+.abd-theme-stars-and-stripes .pagination__link:hover,
+.abd-theme-stars-and-stripes .pagination__item a:hover {
+    background: var(--rule, var(--color-border, #e5e5e5));
+}
+
+.abd-theme-stars-and-stripes .pagination__item--current .pagination__link,
+.abd-theme-stars-and-stripes .pagination__item.is-active a {
+    background: var(--ink, var(--accent, var(--color-primary, #000)));
+    color: var(--paper, var(--bg, var(--color-background, #fff)));
+}
+
+/* Empty states */
+.abd-theme-stars-and-stripes .cart__empty,
+.abd-theme-stars-and-stripes .collection__empty,
+.abd-theme-stars-and-stripes .search__no-results,
+.abd-theme-stars-and-stripes .empty-state {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--muted, var(--color-foreground));
+    opacity: 0.8;
+}
+
+.abd-theme-stars-and-stripes .cart__empty p,
+.abd-theme-stars-and-stripes .collection__empty p,
+.abd-theme-stars-and-stripes .empty-state p {
+    margin-bottom: 1rem;
+}
+
+/* Variant swatches (color/size pills) */
+.abd-theme-stars-and-stripes .product-form__input--dropdown,
+.abd-theme-stars-and-stripes .variant-input-wrap {
+    margin-bottom: 0.75rem;
+}
+
+.abd-theme-stars-and-stripes .product-form__input input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.abd-theme-stars-and-stripes .product-form__input label,
+.abd-theme-stars-and-stripes .variant__label {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    margin: 0 0.25rem 0.25rem 0;
+    border: 2px solid var(--rule, var(--color-border, #e5e5e5));
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.abd-theme-stars-and-stripes .product-form__input input:checked + label,
+.abd-theme-stars-and-stripes .variant__label--active {
+    border-color: var(--ink, var(--accent, var(--color-primary, #000)));
+    font-weight: 600;
+}
+
+.abd-theme-stars-and-stripes .color-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--rule, var(--color-border, #e5e5e5));
+}
+
+/* Footer payment & social */
+.abd-theme-stars-and-stripes .footer__payment,
+.abd-theme-stars-and-stripes .list-payment {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.abd-theme-stars-and-stripes .footer__payment svg,
+.abd-theme-stars-and-stripes .list-payment__item svg {
+    height: 24px;
+    width: auto;
+}
+
+.abd-theme-stars-and-stripes .list-social,
+.abd-theme-stars-and-stripes .footer__social {
+    display: flex;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.abd-theme-stars-and-stripes .list-social__link,
+.abd-theme-stars-and-stripes .footer__social a {
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+}
+
+.abd-theme-stars-and-stripes .list-social__link:hover,
+.abd-theme-stars-and-stripes .footer__social a:hover {
+    opacity: 0.7;
+}
+
+/* Button variants */
+.abd-theme-stars-and-stripes .btn-primary {
+    background: var(--ink, var(--accent, var(--color-primary, #000)));
+    color: var(--paper, var(--bg, var(--color-background, #fff)));
+}
+
+.abd-theme-stars-and-stripes .btn-outline {
+    background: transparent;
+    border: 2px solid var(--ink, var(--accent, var(--color-primary, #000)));
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+}
+
+.abd-theme-stars-and-stripes .btn-ghost {
+    background: transparent;
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+}
+
+/* Image with text / hero layout */
+.abd-theme-stars-and-stripes .image-with-text,
+.abd-theme-stars-and-stripes .hero {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .abd-theme-stars-and-stripes .image-with-text--reverse {
+        direction: rtl;
+    }
+    .abd-theme-stars-and-stripes .image-with-text--reverse > * {
+        direction: ltr;
+    }
+}
+
+/* Product recommendations section */
+.abd-theme-stars-and-stripes .product-recommendations,
+.abd-theme-stars-and-stripes .complementary-products {
+    margin-top: 2rem;
+}
+
+.abd-theme-stars-and-stripes .product-recommendations__heading,
+.abd-theme-stars-and-stripes .complementary-products__heading {
+    margin-bottom: 1rem;
+}
+
+/* Free shipping progress bar */
+.abd-theme-stars-and-stripes .cart__free-shipping,
+.abd-theme-stars-and-stripes .progress-bar-wrapper {
+    margin: 1rem 0;
+}
+
+.abd-theme-stars-and-stripes .progress-bar {
+    height: 6px;
+    background: var(--rule, var(--color-border, #e5e5e5));
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.abd-theme-stars-and-stripes .progress-bar__fill {
+    height: 100%;
+    background: var(--accent, var(--color-primary, #0066cc));
+    transition: width 0.3s ease;
+}
+
+/* Predictive search */
+.abd-theme-stars-and-stripes .predictive-search,
+.abd-theme-stars-and-stripes .search-modal__results {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.abd-theme-stars-and-stripes .predictive-search__item,
+.abd-theme-stars-and-stripes .search-modal__result-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--rule, var(--color-border, #e5e5e5));
+}
+
+.abd-theme-stars-and-stripes .predictive-search__item:hover,
+.abd-theme-stars-and-stripes .search-modal__result-item:hover {
+    background: var(--paper, var(--bg, var(--color-background, #f8f8f8)));
+}
+
+/* Skeleton / loading state */
+.abd-theme-stars-and-stripes .skeleton,
+.abd-theme-stars-and-stripes .loading-skeleton {
+    background: linear-gradient(90deg, var(--rule, #e5e5e5) 25%, #f0f0f0 50%, var(--rule, #e5e5e5) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+
+
+/* ========================================
+   SHOPIFY-SPECIFIC: Header, Menu, Cart, Checkout
+   Targets common Dawn/OS 2.0 theme classes
+   ======================================== */
+
+/* Header wrapper */
+.abd-theme-stars-and-stripes .header-wrapper,
+.abd-theme-stars-and-stripes header.shopify-section-header {
+    background: var(--paper, var(--bg, var(--color-background, #ffffff)));
+    border-bottom: 2px solid var(--ink, var(--text, var(--color-foreground, #000000)));
+    padding: 0.5rem 1rem;
+}
+
+/* Logo / store name */
+.abd-theme-stars-and-stripes .header__heading,
+.abd-theme-stars-and-stripes .header__heading-link {
+    font-family: var(--font-headline, var(--font-heading, var(--font-body, var(--font-family, inherit))));
+    font-weight: 700;
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+    text-decoration: none;
+}
+
+/* Main navigation menu */
+.abd-theme-stars-and-stripes .header__menu,
+.abd-theme-stars-and-stripes .list-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+}
+
+.abd-theme-stars-and-stripes .header__menu-item,
+.abd-theme-stars-and-stripes .list-menu__item {
+    margin: 0;
+    padding: 0;
+}
+
+.abd-theme-stars-and-stripes .header__menu-item a,
+.abd-theme-stars-and-stripes .list-menu__item a,
+.abd-theme-stars-and-stripes .header__menu-item .header__active-menu-item {
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.abd-theme-stars-and-stripes .header__menu-item a:hover,
+.abd-theme-stars-and-stripes .list-menu__item a:hover {
+    text-decoration: underline;
+}
+
+/* Dropdown / megamenu */
+.abd-theme-stars-and-stripes .header__submenu,
+.abd-theme-stars-and-stripes .mega-menu__content,
+.abd-theme-stars-and-stripes .list-menu--dropdown {
+    background: var(--paper, var(--bg, var(--color-background, #fff)));
+    border: 1px solid var(--rule, var(--color-border, #e5e5e5));
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.abd-theme-stars-and-stripes .header__submenu .list-menu__item a,
+.abd-theme-stars-and-stripes .mega-menu__content a {
+    padding: 0.35rem 0.75rem;
+    display: block;
+}
+
+/* Menu drawer (mobile) */
+.abd-theme-stars-and-stripes .menu-drawer,
+.abd-theme-stars-and-stripes .menu-drawer__navigation {
+    background: var(--paper, var(--bg, var(--color-background, #fff)));
+    border-right: 2px solid var(--ink, var(--text, var(--color-foreground, #000)));
+}
+
+.abd-theme-stars-and-stripes .menu-drawer__menu-item,
+.abd-theme-stars-and-stripes .menu-drawer__menu-item .link {
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+    text-decoration: none;
+}
+
+/* Header icons */
+.abd-theme-stars-and-stripes .header__icons,
+.abd-theme-stars-and-stripes .header__icon {
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+}
+
+/* Cart count badge */
+.abd-theme-stars-and-stripes .cart-count-bubble,
+.abd-theme-stars-and-stripes .cart-icon-bubble {
+    background: var(--ink, var(--accent, var(--color-primary, #000)));
+    color: var(--paper, var(--bg, var(--color-background, #fff)));
+    font-size: 0.7rem;
+    font-weight: 700;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cart drawer */
+.abd-theme-stars-and-stripes .cart-drawer,
+.abd-theme-stars-and-stripes .drawer__inner {
+    background: var(--paper, var(--bg, var(--color-background, #fff)));
+    border-left: 2px solid var(--ink, var(--text, var(--color-foreground, #000)));
+}
+
+.abd-theme-stars-and-stripes .cart-drawer .cart-item,
+.abd-theme-stars-and-stripes .cart__item {
+    border-bottom: 1px solid var(--rule, var(--color-border, #e5e5e5));
+    padding: 0.5rem 0;
+}
+
+.abd-theme-stars-and-stripes .cart-drawer .cart-item__title,
+.abd-theme-stars-and-stripes .cart-item__title {
+    font-weight: 700;
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+}
+
+.abd-theme-stars-and-stripes .cart-drawer .cart-item__price,
+.abd-theme-stars-and-stripes .cart-item__price {
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+    font-size: 0.9rem;
+}
+
+/* Cart page */
+.abd-theme-stars-and-stripes .cart__footer,
+.abd-theme-stars-and-stripes .cart__blocks {
+    border-top: 2px solid var(--ink, var(--text, var(--color-foreground, #000)));
+    padding-top: 0.75rem;
+}
+
+.abd-theme-stars-and-stripes .cart__ctas button,
+.abd-theme-stars-and-stripes .cart__checkout-button,
+.abd-theme-stars-and-stripes .shopify-payment-button__button {
+    background: var(--ink, var(--accent, var(--color-primary, #000)));
+    color: var(--paper, var(--bg, var(--color-background, #fff)));
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.abd-theme-stars-and-stripes .cart__ctas button:hover,
+.abd-theme-stars-and-stripes .cart__checkout-button:hover {
+    opacity: 0.9;
+}
+
+/* Footer */
+.abd-theme-stars-and-stripes .footer,
+.abd-theme-stars-and-stripes .footer__content-top {
+    background: var(--paper, var(--bg, var(--color-background, #fff)));
+    border-top: 2px solid var(--ink, var(--text, var(--color-foreground, #000)));
+    padding: 1rem 0;
+}
+
+.abd-theme-stars-and-stripes .footer__link,
+.abd-theme-stars-and-stripes .footer a {
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+    text-decoration: none;
+}
+
+/* Search modal */
+.abd-theme-stars-and-stripes .search-modal,
+.abd-theme-stars-and-stripes .modal__content {
+    background: var(--paper, var(--bg, var(--color-background, #fff)));
+    border: 2px solid var(--ink, var(--text, var(--color-foreground, #000)));
+}
+
+.abd-theme-stars-and-stripes .search-modal__input,
+.abd-theme-stars-and-stripes .search__input {
+    border: 1px solid var(--rule, var(--color-border, #e5e5e5));
+    color: var(--ink, var(--text, var(--color-foreground, #000)));
+    font-family: var(--font-body, var(--font-family, inherit));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .abd-theme-stars-and-stripes a {
+        transition: none;
+    }
+    .abd-theme-stars-and-stripes .card,
+    .abd-theme-stars-and-stripes .product-card,
+    .abd-theme-stars-and-stripes .btn,
+    .abd-theme-stars-and-stripes button,
+    .abd-theme-stars-and-stripes .image-wrapper img {
+        transition: none;
+    }
 }
 
 .abd-theme-stars-and-stripes * {
