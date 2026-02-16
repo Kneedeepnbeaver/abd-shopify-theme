@@ -1,14 +1,8 @@
-{% liquid
   assign abd_theme = block.settings.abd_theme
-  assign custom_bg = block.settings.custom_bg
-  assign custom_text = block.settings.custom_text
-%}
 
 <div class="block-video-block {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" 
-     style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}"
      {{ block.shopify_attributes }}>
-  {%- if abd_theme == 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
-  {%- if abd_theme == 'social' -%}<div class="abd-myspace-container">{%- endif -%}
+  {%- if abd_theme == 'retro-internet' -%}<div class="abd-geocities-box">{%- endif -%}
   
   {%- if block.settings.cover_image != blank -%}
     <div class="block-video-block__cover_image">
@@ -24,8 +18,7 @@
     </div>
   {%- endif -%}
   
-  {%- if abd_theme == 'social' -%}</div>{%- endif -%}
-  {%- if abd_theme == 'retro' -%}</div>{%- endif -%}
+  {%- if abd_theme == 'retro-internet' -%}</div>{%- endif -%}
 </div>
 
 {% schema %}
@@ -130,29 +123,7 @@
         { "value": "valentines-her", "label": "Valentines Her" },
         { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
         { "value": "zine", "label": "Zine" }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       ]
-    },
-    {
-      "type": "color",
-      "id": "custom_bg",
-      "label": "Custom Background Color"
-    },
-    {
-      "type": "color",
-      "id": "custom_text",
-      "label": "Custom Text Color"
     }
   ],
   "presets": [

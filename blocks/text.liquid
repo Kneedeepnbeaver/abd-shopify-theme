@@ -7,22 +7,20 @@
 
 {% liquid
   assign abd_theme = block.settings.abd_theme
-  assign custom_bg = block.settings.custom_bg
-  assign custom_text = block.settings.custom_text
 %}
 
 <div
   class="text {{ block.settings.text_style }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
-  style="--text-align: {{ block.settings.alignment }}; {% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}"
+  style="--text-align: {{ block.settings.alignment }};"
   {{ block.shopify_attributes }}
 >
-  {%- if abd_theme != blank -%}<div class="abd-geocities-box">{%- endif -%}
+  {%- if abd_theme == 'retro-internet' -%}<div class="abd-geocities-box">{%- endif -%}
   {%- if block.settings.text != blank -%}
     <div class="abd-content">
       {{ block.settings.text }}
     </div>
   {%- endif -%}
-  {%- if abd_theme != blank -%}</div>{%- endif -%}
+  {%- if abd_theme == 'retro-internet' -%}</div>{%- endif -%}
 </div>
 
 {% stylesheet %}
@@ -103,29 +101,7 @@
         { "value": "valentines-her", "label": "Valentines Her" },
         { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
         { "value": "zine", "label": "Zine" }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       ]
-    },
-    {
-      "type": "color",
-      "id": "custom_bg",
-      "label": "Custom Background Color"
-    },
-    {
-      "type": "color",
-      "id": "custom_text",
-      "label": "Custom Text Color"
     }
   ],
   "presets": [{ "name": "Text" }]

@@ -23,13 +23,20 @@
   if abd_theme != blank
     assign section_class = section_class | append: ' abd-theme-' | append: abd_theme
   endif
+  
   if section.settings.full_width
-    assign section_class = section_class | append: ' full-width-section'
+    assign section_class = section_class | append: ' full-width'
   endif
+
+  assign horizontal_align = section.settings.content_alignment_horizontal | default: 'center'
+  assign vertical_align = section.settings.content_alignment_vertical | default: 'center'
+  
+  assign section_class = section_class | append: ' align-h-' | append: horizontal_align
+  assign section_class = section_class | append: ' align-v-' | append: vertical_align
   assign image_loading = section.settings.image_loading | default: 'eager'
 %}
 
-<div class="{{ section_class }} full-width"
+<div class="{{ section_class }}"
      style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}">
   {% if section.settings.image != blank %}
     <div class="section-hero-banner__image-wrapper">
@@ -81,9 +88,16 @@
     padding-bottom: {{ section.settings.padding_bottom | default: 60 }}px;
     min-height: {{ section.settings.min_height | default: 400 }}px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
   }
+
+  .section-hero-banner.align-h-left { justify-content: flex-start; }
+  .section-hero-banner.align-h-center { justify-content: center; }
+  .section-hero-banner.align-h-right { justify-content: flex-end; }
+
+  .section-hero-banner.align-v-top { align-items: flex-start; }
+  .section-hero-banner.align-v-center { align-items: center; }
+  .section-hero-banner.align-v-bottom { align-items: flex-end; }
   
   .section-hero-banner__image-wrapper {
     position: absolute;
@@ -114,10 +128,10 @@
   .section-hero-banner__container {
     position: relative;
     z-index: 2;
-    max-width: var(--layout-max-width);
+    max-width: {{ section.settings.content_max_width | default: 800 }}px;
     width: 100%;
-    padding: 0 var(--layout-container-padding);
-    text-align: center;
+    padding: var(--spacing-lg) var(--layout-container-padding);
+    text-align: {{ section.settings.content_alignment_horizontal | default: 'center' }};
   }
   
   .section-hero-banner.layout-left .section-hero-banner__container {
@@ -178,13 +192,10 @@
   .section-hero-banner__button {
     margin-top: var(--spacing-md);
   }
-  .section-hero-banner.full-width-section {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+  .section-hero-banner.full-width {
+    width: 100%;
+    max-width: none;
+    margin: 0;
   }
 {% endstyle %}
 
@@ -244,6 +255,38 @@
         { "label": "Center", "value": "center" },
         { "label": "Bottom", "value": "bottom" }
       ]
+    },
+    {
+      "type": "select",
+      "id": "content_alignment_horizontal",
+      "label": "Content Horizontal Alignment",
+      "default": "center",
+      "options": [
+        { "label": "Left", "value": "left" },
+        { "label": "Center", "value": "center" },
+        { "label": "Right", "value": "right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "content_alignment_vertical",
+      "label": "Content Vertical Alignment",
+      "default": "center",
+      "options": [
+        { "label": "Top", "value": "top" },
+        { "label": "Middle", "value": "center" },
+        { "label": "Bottom", "value": "bottom" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 400,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Content Max Width",
+      "default": 800
     },
     {
       "type": "color",

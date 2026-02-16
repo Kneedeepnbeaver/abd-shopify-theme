@@ -1,11 +1,6 @@
-{% liquid
   assign abd_theme = block.settings.abd_theme
-  assign custom_bg = block.settings.custom_bg
-  assign custom_text = block.settings.custom_text
-%}
 
 <div class="block-button-block block-button-block--{{ block.settings.button_style }} block-button-block--{{ block.settings.button_size }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" 
-     style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}"
      {{ block.shopify_attributes }}>
   {%- if block.settings.button_link != blank -%}
     <a href="{{ block.settings.button_link }}" 
@@ -139,29 +134,7 @@
         { "value": "valentines-her", "label": "Valentines Her" },
         { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
         { "value": "zine", "label": "Zine" }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       ]
-    },
-    {
-      "type": "color",
-      "id": "custom_bg",
-      "label": "Custom Background Color"
-    },
-    {
-      "type": "color",
-      "id": "custom_text",
-      "label": "Custom Text Color"
     }
   ],
   "presets": [
