@@ -29,6 +29,7 @@
         "text": "<p>I'm Dylan, the person behind Arts by Dylan. This site is always under construction and will relaunch and be updated regularly with software I'm building myself—the kind of thing that used to come from small shops and fairground booths, not big tech.</p>",
         "button_text": "Contact Us",
         "button_link": "shopify://pages/contact",
+        "image": "shopify://shop_images/Change__Serf_Report.png",
         "image_opacity": 100,
         "overlay_color": "#000000",
         "overlay_opacity": 0,
@@ -116,7 +117,7 @@
         "feature_KRaPat"
       ],
       "settings": {
-        "heading": "Who We Are",
+        "heading": "About this Shopify Theme",
         "text": "",
         "columns_mobile": 1,
         "columns_tablet": 2,
