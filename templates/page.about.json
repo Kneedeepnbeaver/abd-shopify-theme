@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,46 +15,122 @@
         "heading": "About Us",
         "text": "<p>Learn more about our story and mission</p>",
         "button_text": "Contact Us",
-        "button_link": "/pages/contact"
+        "button_link": "shopify://pages/contact",
+        "image_opacity": 100,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "full_width": true,
+        "layout_variation": "centered",
+        "button_size": "large",
+        "image_loading": "eager",
+        "enable_parallax": false,
+        "abd_theme": "california-mission",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": "",
+        "min_height": 400,
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "breadcrumbs": {
       "type": "breadcrumbs",
-      "settings": {}
+      "settings": {
+        "show_home": true,
+        "show_current": true,
+        "separator": ">",
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
     },
     "main": {
       "type": "page",
-      "blocks": {},
-      "settings": {}
+      "settings": {
+        "abd_theme": "california-mission",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
     },
     "feature_grid": {
       "type": "feature-grid",
       "blocks": {
-        "feature_1": {
+        "feature_KqcJJx": {
           "type": "feature",
           "settings": {
-            "heading": "Our Mission",
-            "content": "<p>Add your mission statement here</p>"
+            "icon": "",
+            "icon_size": "large",
+            "heading": "Feature",
+            "content": "<p></p>",
+            "link_text": "",
+            "link_url": "",
+            "show_link_arrow": true
           }
         },
-        "feature_2": {
+        "feature_jzVkJw": {
           "type": "feature",
           "settings": {
-            "heading": "Our Values",
-            "content": "<p>Share your core values</p>"
+            "icon": "",
+            "icon_size": "large",
+            "heading": "Feature",
+            "content": "<p></p>",
+            "link_text": "",
+            "link_url": "",
+            "show_link_arrow": true
           }
         },
-        "feature_3": {
+        "feature_GRGnNJ": {
           "type": "feature",
           "settings": {
-            "heading": "Our Story",
-            "content": "<p>Tell your brand story</p>"
+            "icon": "",
+            "icon_size": "large",
+            "heading": "Feature",
+            "content": "<p></p>",
+            "link_text": "",
+            "link_url": "",
+            "show_link_arrow": true
+          }
+        },
+        "feature_KRaPat": {
+          "type": "feature",
+          "settings": {
+            "icon": "",
+            "icon_size": "large",
+            "heading": "Feature",
+            "content": "<p></p>",
+            "link_text": "",
+            "link_url": "",
+            "show_link_arrow": true
           }
         }
       },
+      "block_order": [
+        "feature_KqcJJx",
+        "feature_jzVkJw",
+        "feature_GRGnNJ",
+        "feature_KRaPat"
+      ],
       "settings": {
         "heading": "Who We Are",
-        "columns": 3
+        "text": "",
+        "columns_mobile": 1,
+        "columns_tablet": 2,
+        "columns_desktop": 4,
+        "column_gap": 20,
+        "equal_height": false,
+        "text_alignment": "left",
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": "",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "rich_text_closing": {
@@ -53,7 +138,15 @@
       "settings": {
         "heading": "Get in Touch",
         "text": "<p>We'd love to hear from you. <a href=\"/pages/contact\">Contact us</a> today!</p>",
+        "category": "",
+        "summary": "",
         "text_alignment": "center",
+        "content_width": "standard",
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": "",
         "padding_top": 60,
         "padding_bottom": 60
       }
