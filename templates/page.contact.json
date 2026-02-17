@@ -1,42 +1,69 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero-banner",
       "settings": {
-        "heading": "Contact Us",
-        "text": "<p>We're here to help. Get in touch with any questions.</p>"
-      }
-    },
-    "breadcrumbs": {
-      "type": "breadcrumbs",
-      "settings": {}
-    },
-    "main": {
-      "type": "page",
-      "blocks": {},
-      "settings": {}
-    },
-    "rich_text_info": {
-      "type": "rich-text",
-      "settings": {
-        "heading": "Contact Information",
-        "text": "<p><strong>Email:</strong> info@example.com<br><strong>Phone:</strong> (555) 123-4567<br><strong>Hours:</strong> Monday - Friday, 9am - 5pm</p>",
-        "text_alignment": "center",
+        "heading": "Drop me a line",
+        "text": "<p>I would be glad to answer any questions or concerns you may have.</p>",
+        "button_text": "Shop Now",
+        "button_link": "",
+        "image": "shopify://shop_images/Arts_by_Dylan2025-06-06_at_9.48.40_PM_6.jpg",
+        "image_opacity": 100,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "full_width": true,
+        "layout_variation": "centered",
+        "button_size": "large",
+        "image_loading": "eager",
+        "enable_parallax": false,
+        "abd_theme": "retro-internet",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": "",
+        "min_height": 400,
         "padding_top": 60,
         "padding_bottom": 60
       }
     },
-    "custom_contact_form": {
-      "type": "custom-section",
-      "blocks": {},
-      "settings": {}
+    "main": {
+      "type": "page",
+      "blocks": {
+        "text_HC3zCG": {
+          "type": "text",
+          "name": "Text",
+          "settings": {
+            "text": "<p><em>Email the Webmaster: </em>ArtsbyDylan@gmail.com</p><p><em>Dial my number: </em>(530) - 366-5544</p><p>Address Message to: Dylan Carpowich</p>",
+            "text_style": "text--normal",
+            "alignment": "left",
+            "abd_theme": "retro-internet"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_HC3zCG"
+      ],
+      "settings": {
+        "abd_theme": "retro-internet",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
     }
   },
   "order": [
     "hero",
-    "breadcrumbs",
-    "main",
-    "rich_text_info",
-    "custom_contact_form"
+    "main"
   ]
 }

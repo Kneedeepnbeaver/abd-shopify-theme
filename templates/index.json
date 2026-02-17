@@ -49,6 +49,68 @@
         "padding_bottom": 60
       }
     },
+    "multi_column_HEhT6m": {
+      "type": "multi-column",
+      "blocks": {
+        "column_xfEQGm": {
+          "type": "column",
+          "settings": {
+            "heading": "Collections",
+            "content": "<p>Add your content here</p>",
+            "button_text": "View All Collections",
+            "button_link": "shopify://collections",
+            "button_variant": "secondary",
+            "button_size": "large"
+          }
+        },
+        "column_RpVpgk": {
+          "type": "column",
+          "settings": {
+            "heading": "Column 2",
+            "content": "<p>Add your content here</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_variant": "primary",
+            "button_size": "medium"
+          }
+        },
+        "column_wA7TbB": {
+          "type": "column",
+          "settings": {
+            "heading": "Column 3",
+            "content": "<p>Add your content here</p>",
+            "button_text": "",
+            "button_link": "",
+            "button_variant": "primary",
+            "button_size": "medium"
+          }
+        }
+      },
+      "block_order": [
+        "column_xfEQGm",
+        "column_RpVpgk",
+        "column_wA7TbB"
+      ],
+      "name": "Multi-Column Content",
+      "settings": {
+        "heading": "",
+        "text": "",
+        "layout_style": "grid",
+        "columns_mobile": 1,
+        "columns_tablet": 2,
+        "columns_desktop": 3,
+        "column_gap": 20,
+        "equal_height": false,
+        "text_alignment": "left",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "abd_theme": "california-dreaming",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
+    },
     "main": {
       "type": "page",
       "settings": {
@@ -115,6 +177,7 @@
   "order": [
     "breadcrumbs",
     "hero_banner_amahEK",
+    "multi_column_HEhT6m",
     "main",
     "hello_world_KjcKRK",
     "custom_section_ci7rb6"

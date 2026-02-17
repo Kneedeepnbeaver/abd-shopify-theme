@@ -13,10 +13,17 @@
   "sections": {
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "menu": "main-menu",
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
     }
   },
   "order": [
     "header"
-  ],
+  ]
 }
