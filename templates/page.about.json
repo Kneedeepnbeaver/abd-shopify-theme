@@ -66,8 +66,8 @@
           "settings": {
             "icon": "",
             "icon_size": "large",
-            "heading": "Feature",
-            "content": "<p></p>",
+            "heading": "30 Artistic Styles – A Living Gallery",
+            "content": "<p>I've built <strong>30 hand-crafted visual styles</strong> into the ABD theme. Each one is a complete aesthetic experience:<br/><br/><em><strong>- Cable News</strong></em> – Breaking news urgency with ticker-tape energy<br/><br/>- <em><strong>California Mission</strong></em> – Adobe warmth and Spanish colonial elegance  <br/><br/>- <em><strong>Cubism</strong></em> – Fragmented geometry meets Picasso-inspired layouts<br/><br/>- <em><strong>Disco</strong></em> – Glitter, groove, and Studio 54 maximalism<br/><br/>- <em><strong>Impressionist</strong></em> – Monet-soft colors and painterly textures<br/><br/>- <em><strong>Millennial MySpace</strong></em> – Y2K nostalgia with customizable chaos<br/><br/>- <em><strong>Retro Internet </strong></em>– GeoCities boxes, under-construction GIFs, and web 1.0 charm<br/><br/>- <em><strong>Synthwave</strong></em> – Neon grids, outrun aesthetics, and 80s futurism<br/><br/>- <em><strong>Zine</strong></em> – Cut-and-paste punk energy with DIY collage vibes<br/><br/>Instead of generic \"light\" and \"dark\" modes, I wanted <strong>cultural moments as design systems</strong>. The idea is that a store can switch its entire personality in seconds—from Renaissance oil painting to highway street photography.</p>",
             "link_text": "",
             "link_url": "",
             "show_link_arrow": true
@@ -78,8 +78,8 @@
           "settings": {
             "icon": "",
             "icon_size": "large",
-            "heading": "Feature",
-            "content": "<p></p>",
+            "heading": "Art First, Commerce Second",
+            "content": "<p>Most Shopify themes are built for conversion optimization. I built ABD for <strong>creative expression.<br/></strong><em><strong><br/>What makes it different<br/><br/></strong></em><em>No \"</em><em><strong>best practices</strong></em><em>\" constraints</em><br/> Layouts break grids, text overlaps images, colors clash intentionally<br/><br/>- <em><strong>Anti-corporate aesthetic</strong></em> –<br/> I rejected the sterile minimalism of modern e-commerce for bold, opinionated design<br/><br/>- <em><strong>Cultural references over trends</strong></em> – <br/>Drawing from art history, subcultures, and forgotten eras instead of following what's popular<br/><br/>- <em><strong>Personality over polish</strong></em> – <br/>Embracing imperfection, texture, and character<br/><br/>I didn't ask \"will this convert?\" <br/><br/>I asked \"<em><strong>will this be remembered?</strong></em>\"</p>",
             "link_text": "",
             "link_url": "",
             "show_link_arrow": true
@@ -125,7 +125,7 @@
         "column_gap": 20,
         "equal_height": false,
         "text_alignment": "left",
-        "abd_theme": "",
+        "abd_theme": "renaissance",
         "custom_bg": "",
         "custom_text": "",
         "custom_accent": "",
