@@ -1,9 +1,10 @@
+{% liquid
   assign abd_theme = block.settings.abd_theme
   assign custom_bg = block.settings.custom_bg
   assign custom_text = block.settings.custom_text
   assign custom_accent = block.settings.custom_accent
   assign custom_link = block.settings.custom_link
-
+%}
 <div class="block-badge-block {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" 
      {{ block.shopify_attributes }}>
   {%- if block.settings.badge_text != blank -%}

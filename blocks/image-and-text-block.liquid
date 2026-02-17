@@ -1,5 +1,6 @@
+{% liquid
   assign abd_theme = block.settings.abd_theme
-
+%}
 <div class="block-image-and-text-block {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" 
      {{ block.shopify_attributes }}>
   

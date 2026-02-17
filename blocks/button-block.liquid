@@ -1,5 +1,6 @@
+{% liquid
   assign abd_theme = block.settings.abd_theme
-
+%}
 <div class="block-button-block block-button-block--{{ block.settings.button_style }} block-button-block--{{ block.settings.button_size }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" 
      {{ block.shopify_attributes }}>
   {%- if block.settings.button_link != blank -%}

@@ -1,5 +1,6 @@
+{% liquid
   assign abd_theme = block.settings.abd_theme
-
+%}
 <div class="block-social-link-block {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" 
      {{ block.shopify_attributes }}>
   {%- if abd_theme == 'retro-internet' -%}<div class="abd-geocities-box">{%- endif -%}
