@@ -5,6 +5,10 @@
       "label": "None (Theme Default)"
     },
     {
+      "value": "ca-assembly-daily-file",
+      "label": "CA Assembly Daily File"
+    },
+    {
       "value": "cable-news",
       "label": "Cable News"
     },
@@ -45,7 +49,7 @@
       "label": "Italy"
     },
     {
-      "value": "men's-magazine",
+      "value": "mens-magazine",
       "label": "Men'S Magazine"
     },
     {
