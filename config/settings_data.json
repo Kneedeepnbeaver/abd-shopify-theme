@@ -8,5 +8,23 @@
  * ------------------------------------------------------------
  */
 {
-  "current": {}
+  "current": {
+    "abd_theme_default": "",
+    "abd_checkout_logo": "shopify://shop_images/ABD_Logo_Thick_Shadow.png",
+    "sections": {
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {
+          "show_free_shipping_bar": true,
+          "free_shipping_threshold": 100,
+          "abd_theme": "",
+          "custom_bg": "",
+          "custom_text": "",
+          "custom_accent": "",
+          "custom_link": ""
+        }
+      }
+    },
+    "content_for_index": []
+  }
 }
