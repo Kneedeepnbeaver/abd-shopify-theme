@@ -7,15 +7,17 @@
 */
 
 .abd-theme-ca-assembly-daily-file {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
     --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+    --color-primary: var(--accent, var(--primary, #1a365d));
+    --color-secondary: #333333;
+    --color-border: var(--rule, var(--border, #cccccc));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #ffffff);
+    --color-text: var(--ink, #000000);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --ink: #000000;
     --paper: #ffffff;
@@ -404,33 +406,48 @@
 
 /* Buttons */
 .abd-theme-ca-assembly-daily-file .btn,
+.abd-theme-ca-assembly-daily-file .button,
+.abd-theme-ca-assembly-daily-file .button--primary,
+.abd-theme-ca-assembly-daily-file .btn-primary,
 .abd-theme-ca-assembly-daily-file button {
-    display: inline-block;
-    padding: 0.35rem 0.75rem;
-    background: var(--ink);
-    color: var(--paper);
-    border: 1px solid var(--ink);
-    font-family: var(--font-body);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: var(--ink) !important;
+    color: var(--paper) !important;
+    border: 1px solid var(--ink) !important;
+    font-family: var(--font-headline);
     font-size: 10pt;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05em;
     cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .abd-theme-ca-assembly-daily-file .btn:hover,
+.abd-theme-ca-assembly-daily-file .button:hover,
+.abd-theme-ca-assembly-daily-file .button--primary:hover,
+.abd-theme-ca-assembly-daily-file .btn-primary:hover,
 .abd-theme-ca-assembly-daily-file button:hover {
-    opacity: 0.9;
+    background: var(--muted) !important;
+    border-color: var(--muted) !important;
+    transform: translateY(-1px);
 }
 
-.abd-theme-ca-assembly-daily-file .btn-secondary {
-    background: transparent;
-    color: var(--ink);
+.abd-theme-ca-assembly-daily-file .btn-secondary,
+.abd-theme-ca-assembly-daily-file .button--secondary {
+    background: transparent !important;
+    color: var(--ink) !important;
+    border: 1px solid var(--ink) !important;
 }
 
-.abd-theme-ca-assembly-daily-file .btn-secondary:hover {
-    background: var(--ink);
-    color: var(--paper);
+.abd-theme-ca-assembly-daily-file .btn-secondary:hover,
+.abd-theme-ca-assembly-daily-file .button--secondary:hover {
+    background: var(--ink) !important;
+    color: var(--paper) !important;
 }
 
 /* Navigation */
@@ -1223,13 +1240,19 @@
 /* --- cable-news.css --- */
 /* Cable News Theme — Pin-Up Magnet Style (Election / Breaking News) */
 .abd-theme-cable-news {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
     --color-foreground: var(--text, var(--ink, var(--color, #1a1a2e)));
     --color-primary: var(--accent, var(--primary, #dc2626));
-    --color-accent: var(--accent, var(--secondary, #1e40af));
+    --color-secondary: #1e40af;
     --color-border: var(--rule, var(--border, #1a1a2e));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #ffffff);
+    --color-text: var(--ink, #1a1a2e);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #ffffff);
+    --color-text: var(--ink, #1a1a2e);
 
     /* Pin-up news magnet palette */
     --cutout-white: #ffffff;
@@ -2820,15 +2843,17 @@
 
 /* --- california-dreaming.css --- */
 .abd-theme-california-dreaming {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #FFECB3)));
+    --color-foreground: var(--text, var(--ink, var(--color, #006994)));
+    --color-primary: var(--accent, var(--primary, #007BFF));
+    --color-secondary: #FFD700;
+    --color-border: var(--rule, var(--border, #FFC107));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFECB3);
+    --color-text: var(--ink, #006994);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     /* California Dream Color Palette - from beach sunset image */
     --primary-gold: #FFD700;
@@ -4114,17 +4139,19 @@
 /* --- california-mission.css --- */
 /* California Mission — Guacamole Pin-Up Sticker Theme */
 .abd-theme-california-mission {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #6A3A4F)));
     --color-foreground: var(--text, var(--ink, var(--color, #FFF3E0)));
     --color-primary: var(--accent, var(--primary, #F44336));
-    --color-secondary: var(--guac-green, var(--secondary, #8BC34A));
-    --color-border: var(--rule, var(--border, rgba(255, 255, 255, 0.2)));
-
-    /* Ensure standard button variables are mapped */
-    --color-bg: var(--paper, #FFF3E0);
-    --color-text: var(--ink, #212121);
+    --color-secondary: #8BC34A;
+    --color-border: var(--rule, var(--border, #212121));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #6A3A4F);
+    --color-text: var(--ink, #FFF3E0);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #6A3A4F);
+    --color-text: var(--ink, #FFF3E0);
 
     /* Guacamole pin-up + California Mission palette */
     --guac-green: #8BC34A;
@@ -5489,15 +5516,17 @@
 /* --- cubism.css --- */
 /* Cubism Theme — Autumn Landscape (Geometric Color Planes) */
 .abd-theme-cubism {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #6EC4F2)));
     --color-foreground: var(--text, var(--ink, var(--color, #4B3621)));
     --color-primary: var(--accent, var(--primary, #FF9900));
-    --color-accent: var(--accent, var(--secondary, #D2691E));
+    --color-secondary: #D2691E;
     --color-border: var(--rule, var(--border, #4B3621));
-
-    /* Autumn landscape palette — sky, foliage, grass, trunk */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #6EC4F2);
+    --color-text: var(--ink, #4B3621);
+/* Autumn landscape palette — sky, foliage, grass, trunk */
     --sky: #6EC4F2;
     --sky-light: #98D3F9;
     --gold: #FFD700;
@@ -6648,15 +6677,17 @@
 /* --- disco.css --- */
 /* 1970s Disco Theme (Nightclubs / Mirrors / Rhythm) */
 .abd-theme-disco {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #241018)));
+    --color-foreground: var(--text, var(--ink, var(--color, #fff2d9)));
+    --color-primary: var(--accent, var(--primary, #ff4fb2));
+    --color-secondary: #3fe0d0;
+    --color-border: var(--rule, var(--border, #f5c542));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #241018);
+    --color-text: var(--ink, #fff2d9);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --bg: #241018;
     --ink: #fff2d9;
@@ -7811,15 +7842,17 @@
 /* --- france.css --- */
 /* France Theme (Tricolore Editorial / Parisian) */
 .abd-theme-france {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #f7f4ef)));
+    --color-foreground: var(--text, var(--ink, var(--color, #2b2b2b)));
+    --color-primary: var(--accent, var(--primary, #c9232f));
+    --color-secondary: #1f4aa8;
+    --color-border: var(--rule, var(--border, #2b2b2b));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #f7f4ef);
+    --color-text: var(--ink, #2b2b2b);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     /* Variables */
     --paper: #f7f4ef;
@@ -9051,15 +9084,17 @@
 /* --- free-love.css --- */
 /* 1960s Free Love — Pin-Up Flower Power Theme */
 .abd-theme-free-love {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #f7efe0)));
     --color-foreground: var(--text, var(--ink, var(--color, #3b2a1e)));
     --color-primary: var(--accent, var(--primary, #ff6b6b));
-    --color-accent: var(--accent, var(--secondary, #5fbf6a));
+    --color-secondary: #5fbf6a;
     --color-border: var(--rule, var(--border, #3b2a1e));
-
-    /* Pin-up flower power palette */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #f7efe0);
+    --color-text: var(--ink, #3b2a1e);
+/* Pin-up flower power palette */
     --bg: #f7efe0;
     --ink: #3b2a1e;
     --muted: #6a4f3a;
@@ -10190,15 +10225,17 @@
 /* --- highway-street-photo.css --- */
 /* Highway + Street Photo Theme — Street Signs Against Blue Sky */
 .abd-theme-highway-street-photo {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #12285C)));
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #FFFFFF)));
     --color-foreground: var(--text, var(--ink, var(--color, #12285C)));
     --color-primary: var(--accent, var(--primary, #2E8B57));
-    --color-accent: var(--accent, var(--secondary, #1E7E34));
+    --color-secondary: #1E66E0;
     --color-border: var(--rule, var(--border, #B0B0B0));
-
-    /* Street sign + sky palette from image */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFFFFF);
+    --color-text: var(--ink, #12285C);
+/* Street sign + sky palette from image */
     --sky-blue-dark: #0B337F;
     --sky-blue-mid: #1E66E0;
     --sky-blue-light: #3B82F6;
@@ -11468,15 +11505,17 @@
 /* --- impressionist.css --- */
 /* Impressionist Theme — Birth of Venus inspired (Bouguereau) */
 .abd-theme-impressionist {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #F8EDE8)));
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #F5E6DC)));
     --color-foreground: var(--text, var(--ink, var(--color, #5C4A42)));
     --color-primary: var(--accent, var(--primary, #7BA3A8));
-    --color-accent: var(--accent, var(--secondary, #8B6B5C));
+    --color-secondary: #8B6B5C;
     --color-border: var(--rule, var(--border, #C8C0B8));
-
-    /* Birth of Venus palette: sky, ocean, skin, hair, shells */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #F5E6DC);
+    --color-text: var(--ink, #5C4A42);
+/* Birth of Venus palette: sky, ocean, skin, hair, shells */
     --bg: #F5E6DC;
     --paper: #F8EDE8;
     --ink: #5C4A42;
@@ -12650,15 +12689,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&display=swap');
 
 .abd-theme-italy {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #f8fafc)));
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #dde8ed)));
     --color-foreground: var(--text, var(--ink, var(--color, #333333)));
-    --color-primary: var(--accent, var(--primary, #c47734));
-    --color-accent: var(--accent, var(--secondary, #7dc34c));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Colosseo palette from poster */
+    --color-primary: var(--accent, var(--primary, #e88d3e));
+    --color-secondary: #7dc34c;
+    --color-border: var(--rule, var(--border, #333333));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #dde8ed);
+    --color-text: var(--ink, #333333);
+/* Colosseo palette from poster */
     --colosseo-gold: #d5a557;
     --colosseo-orange: #e88d3e;
     --colosseo-terracotta: #a35b3e;
@@ -13862,15 +13903,17 @@
 /* --- men's-magazine.css --- */
 /* Men's Magazine Theme — Pin-Up Illustration Style */
 .abd-theme-mens-magazine {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #f5ebe0)));
     --color-foreground: var(--text, var(--ink, var(--color, #1a1510)));
     --color-primary: var(--accent, var(--primary, #c41e3a));
-    --color-accent: var(--accent, var(--secondary, #c41e3a));
+    --color-secondary: #d4af37;
     --color-border: var(--rule, var(--border, #1a1510));
-
-    /* Pin-up illustration palette (vintage men's mag) */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #f5ebe0);
+    --color-text: var(--ink, #1a1510);
+/* Pin-up illustration palette (vintage men's mag) */
     --paper: #f5ebe0;
     --ink: #1a1510;
     --muted: #5c4a3a;
@@ -15044,15 +15087,17 @@
 
 /* --- military-theme.css --- */
 .abd-theme-military-theme {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #faf8f3)));
+    --color-foreground: var(--text, var(--ink, var(--color, #1a237e)));
+    --color-primary: var(--accent, var(--primary, #d4af37));
+    --color-secondary: #001f3f;
+    --color-border: var(--rule, var(--border, #d4af37));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #faf8f3);
+    --color-text: var(--ink, #1a237e);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     /* Secret Navy Document Color Palette */
     --navy-blue: #001f3f;
@@ -16450,15 +16495,17 @@
 
 /* --- millennial-myspace.css --- */
 .abd-theme-millennial-myspace {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #fafafa)));
+    --color-foreground: var(--text, var(--ink, var(--color, #262626)));
+    --color-primary: var(--accent, var(--primary, #3b5998));
+    --color-secondary: #e95950;
+    --color-border: var(--rule, var(--border, #dbdbdb));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #fafafa);
+    --color-text: var(--ink, #262626);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     font-family: 'Helvetica', 'Arial', sans-serif;
     line-height: 1.6;
@@ -17861,15 +17908,17 @@
 /* --- national-parks-poster.css --- */
 /* National Parks Poster Theme (WPA / Travel Poster) */
 .abd-theme-national-parks-poster {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #FDF5E6)));
     --color-foreground: var(--text, var(--ink, var(--color, #1A1A1A)));
-    --color-primary: var(--accent, var(--primary, #6A7B8C));
-    --color-accent: var(--accent, var(--secondary, #CC8833));
+    --color-primary: var(--accent, var(--primary, #CC8833));
+    --color-secondary: #6A7B8C;
     --color-border: var(--rule, var(--border, #B0B8C8));
-
-    /* Bald eagle / sunrise landscape palette */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #FDF5E6);
+    --color-text: var(--ink, #1A1A1A);
+/* Bald eagle / sunrise landscape palette */
     --sky: #A8BFCC;
     --sun: #FFD700;
     --pine: #6A7B8C;
@@ -19023,15 +19072,17 @@
 /* --- newspaper.css --- */
 /* Newspaper & Literary Magazine Theme */
 .abd-theme-newspaper {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #e9e3d8)));
+    --color-foreground: var(--text, var(--ink, var(--color, #2b2b2b)));
+    --color-primary: var(--accent, var(--primary, #7a6b5a));
+    --color-secondary: #4c4c4c;
+    --color-border: var(--rule, var(--border, #cfc8be));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #e9e3d8);
+    --color-text: var(--ink, #2b2b2b);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --paper: #e9e3d8;
     --ink: #2b2b2b;
@@ -20243,15 +20294,17 @@
 /* --- nineties-graphic-design.css --- */
 /* 1990s Graphic Design Theme (Early Web / Print / Zines) */
 .abd-theme-nineties-graphic-design {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
     --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+    --color-primary: var(--accent, var(--primary, #ffee00));
+    --color-secondary: #00ffff;
+    --color-border: var(--rule, var(--border, #000000));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #ffffff);
+    --color-text: var(--ink, #000000);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --bg: #f3f3f3;
     --ink: #111111;
@@ -21439,15 +21492,17 @@
 /* --- renaissance.css --- */
 /* Renaissance Theme (Humanist / Balanced / Classical) */
 .abd-theme-renaissance {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #f4eddc)));
+    --color-foreground: var(--text, var(--ink, var(--color, #2b2621)));
+    --color-primary: var(--accent, var(--primary, #6b2c2c));
+    --color-secondary: #5a3e2b;
+    --color-border: var(--rule, var(--border, #cdbfa8));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #f4eddc);
+    --color-text: var(--ink, #2b2621);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --paper: #f4eddc;
     --ink: #2b2621;
@@ -22592,15 +22647,17 @@
 /* --- retro-diner.css --- */
 /* 1950s Retro Diner — Pin-Up Magnet Style (Donut / Coffee / Burger) */
 .abd-theme-retro-diner {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #fff7ee)));
     --color-foreground: var(--text, var(--ink, var(--color, #111111)));
     --color-primary: var(--accent, var(--primary, #e53935));
-    --color-accent: var(--accent, var(--secondary, #2bb7b3));
+    --color-secondary: #2bb7b3;
     --color-border: var(--rule, var(--border, #111111));
-
-    /* Pin-up diner magnet palette */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #fff7ee);
+    --color-text: var(--ink, #111111);
+/* Pin-up diner magnet palette */
     --bg: #f7f1e8;
     --ink: #1f1f1f;
     --cream: #fff7ee;
@@ -23727,15 +23784,17 @@
 
 /* --- retro-internet.css --- */
 .abd-theme-retro-internet {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #111111)));
+    --color-foreground: var(--text, var(--ink, var(--color, #ffff00)));
+    --color-primary: var(--accent, var(--primary, #00ffff));
+    --color-secondary: #ff00ff;
+    --color-border: var(--rule, var(--border, #c0c0c0));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #111111);
+    --color-text: var(--ink, #ffff00);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     background-color: #111;
     background-image:
@@ -25021,15 +25080,17 @@
 /* --- retro-tech-polaroid.css --- */
 /* Retro Tech Instagram + Polaroid Theme */
 .abd-theme-retro-tech-polaroid {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+    --color-foreground: var(--text, var(--ink, var(--color, #2b2b2b)));
+    --color-primary: var(--accent, var(--primary, #ff5fa2));
+    --color-secondary: #ff9a3c;
+    --color-border: var(--rule, var(--border, #2b2b2b));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #ffffff);
+    --color-text: var(--ink, #2b2b2b);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --bg: #ffffff;
     --panel: #ffffff;
@@ -26182,15 +26243,17 @@
 /* Stars & Stripes — American Patriotic Pin-Up Theme */
 /* Stars & Stripes — American Patriotic Pin-Up Theme */
 .abd-theme-stars-and-stripes {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #6B7C8A)));
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #FFFAF0)));
     --color-foreground: var(--text, var(--ink, var(--color, #1a1a1a)));
-    --color-primary: var(--accent, var(--primary, #1a2f5b));
-    --color-accent: var(--accent, var(--secondary, #BF0A30));
+    --color-primary: var(--accent, var(--primary, #BF0A30));
+    --color-secondary: #002868;
     --color-border: var(--rule, var(--border, #1a1a1a));
-
-    /* Patriotic pin-up palette */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFFAF0);
+    --color-text: var(--ink, #1a1a1a);
+/* Patriotic pin-up palette */
     --usa-red: #BF0A30;
     --usa-white: #FFFFFF;
     --usa-blue: #002868;
@@ -28514,15 +28577,17 @@
 /* --- stpatricks.css --- */
 /* St. Patrick's Day — Retro Pin-Up Illustration Theme */
 .abd-theme-stpatricks {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #8FA88F)));
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #FFE4C4)));
     --color-foreground: var(--text, var(--ink, var(--color, #1a2e1a)));
     --color-primary: var(--accent, var(--primary, #2D5A27));
-    --color-accent: var(--accent, var(--secondary, #E07C3C));
+    --color-secondary: #E07C3C;
     --color-border: var(--rule, var(--border, #1a2e1a));
-
-    /* Pin-up illustration palette */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFE4C4);
+    --color-text: var(--ink, #1a2e1a);
+/* Pin-up illustration palette */
     --shamrock: #32CD32;
     --forest: #1B4D1B;
     --sage: #8FA88F;
@@ -29855,15 +29920,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500;700&display=swap');
 
 .abd-theme-las-vegas {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
     --color-background: var(--bg, var(--paper, var(--background, #93d0e2)));
     --color-foreground: var(--text, var(--ink, var(--color, #2b1d12)));
-    --color-primary: var(--accent, var(--primary, #2993ae));
-    --color-accent: var(--accent, var(--secondary, #d34e35));
+    --color-primary: var(--accent, var(--primary, #d34e35));
+    --color-secondary: #2993ae;
     --color-border: var(--rule, var(--border, #2993ae));
-
-    /* Las Vegas palette from poster */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #93d0e2);
+    --color-text: var(--ink, #2b1d12);
+/* Las Vegas palette from poster */
     --vegas-sky: #93d0e2;
     --vegas-teal: #2993ae;
     --vegas-rust: #b85b39;
@@ -31033,15 +31100,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .abd-theme-travel-nyc-liberty {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #f0f8ff)));
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #e8f4fc)));
     --color-foreground: var(--text, var(--ink, var(--color, #1a365d)));
-    --color-primary: var(--accent, var(--primary, #00247d));
-    --color-accent: var(--accent, var(--secondary, #cf142b));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Excelsior palette from poster */
+    --color-primary: var(--accent, var(--primary, #cf142b));
+    --color-secondary: #ffd700;
+    --color-border: var(--rule, var(--border, #1a365d));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #e8f4fc);
+    --color-text: var(--ink, #1a365d);
+/* Excelsior palette from poster */
     --excelsior-sky: #e8f4fc;
     --excelsior-teal: #4a9b8e;
     --excelsior-gold: #ffd700;
@@ -32344,15 +32413,17 @@
 /* --- valentines-her.css --- */
 /* Valentine's Day — Retro Pin-Up Illustration Theme */
 .abd-theme-valentines-her {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #8B9CA8)));
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #FFE4C4)));
     --color-foreground: var(--text, var(--ink, var(--color, #3d2914)));
     --color-primary: var(--accent, var(--primary, #C41E3A));
-    --color-accent: var(--accent, var(--secondary, #FFB6C1));
+    --color-secondary: #FFB6C1;
     --color-border: var(--rule, var(--border, #3d2914));
-
-    /* Pin-up illustration palette */
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFE4C4);
+    --color-text: var(--ink, #3d2914);
+/* Pin-up illustration palette */
     --valentine-red: #C41E3A;
     --valentine-red-dark: #8B1538;
     --valentine-pink: #FFB6C1;
@@ -33644,15 +33715,17 @@
 /* --- wayfinding-receipt.css --- */
 /* Wayfinding + Receipt Theme (Navigation + After-the-ride Reflection) */
 .abd-theme-wayfinding-receipt {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #f4f2ee)));
+    --color-foreground: var(--text, var(--ink, var(--color, #1d1d1d)));
+    --color-primary: var(--accent, var(--primary, #2b5da8));
+    --color-secondary: #5a5a5a;
+    --color-border: var(--rule, var(--border, #1d1d1d));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #f4f2ee);
+    --color-text: var(--ink, #1d1d1d);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --paper: #f4f2ee;
     --ink: #1d1d1d;
@@ -34784,15 +34857,17 @@
 
 /* --- zine.css --- */
 .abd-theme-zine {
-
-    /* Shopify Standard Variables (Injected by standardize_css.py) */
-    --color-background: var(--bg, var(--paper, var(--background, #ffffff)));
-    --color-foreground: var(--text, var(--ink, var(--color, #000000)));
-    --color-primary: var(--accent, var(--primary, #000000));
-    --color-accent: var(--accent, var(--secondary, #000000));
-    --color-border: var(--rule, var(--border, #e5e5e5));
-
-    /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
+/* Shopify Standard Variables (Injected by standardize_themes.py) */
+    --color-background: var(--bg, var(--paper, var(--background, #f5f5f5)));
+    --color-foreground: var(--text, var(--ink, var(--color, #111111)));
+    --color-primary: var(--accent, var(--primary, #cf142b));
+    --color-secondary: #00247d;
+    --color-border: var(--rule, var(--border, #111111));
+    
+    /* Variable mapping for buttons */
+    --color-bg: var(--paper, #f5f5f5);
+    --color-text: var(--ink, #111111);
+/* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --paper: #f5f5f5;
     --ink: #111111;
@@ -36127,4 +36202,995 @@
     .abd-theme-zine .image-wrapper img {
         transition: none;
     }
+}
+
+.abd-theme-ca-assembly-daily-file .button,
+.abd-theme-ca-assembly-daily-file .button--primary,
+.abd-theme-ca-assembly-daily-file .btn-primary,
+.abd-theme-ca-assembly-daily-file button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #1a365d !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #000000;
+}
+
+.abd-theme-ca-assembly-daily-file .button:hover,
+.abd-theme-ca-assembly-daily-file .button--primary:hover,
+.abd-theme-ca-assembly-daily-file .btn-primary:hover,
+.abd-theme-ca-assembly-daily-file button:not([class*="quantity"]):hover {
+    background: #333333 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #000000;
+}
+
+
+.abd-theme-cable-news .button,
+.abd-theme-cable-news .button--primary,
+.abd-theme-cable-news .btn-primary,
+.abd-theme-cable-news button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #dc2626 !important;
+    color: #ffffff !important;
+    border: 2px solid #1a1a2e !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #1a1a2e;
+}
+
+.abd-theme-cable-news .button:hover,
+.abd-theme-cable-news .button--primary:hover,
+.abd-theme-cable-news .btn-primary:hover,
+.abd-theme-cable-news button:not([class*="quantity"]):hover {
+    background: #1e40af !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #1a1a2e;
+}
+
+
+.abd-theme-newspaper .button,
+.abd-theme-newspaper .button--primary,
+.abd-theme-newspaper .btn-primary,
+.abd-theme-newspaper button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #7a6b5a !important;
+    color: #ffffff !important;
+    border: 2px solid #2b2b2b !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #2b2b2b;
+}
+
+.abd-theme-newspaper .button:hover,
+.abd-theme-newspaper .button--primary:hover,
+.abd-theme-newspaper .btn-primary:hover,
+.abd-theme-newspaper button:not([class*="quantity"]):hover {
+    background: #4c4c4c !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #2b2b2b;
+}
+
+/* Standard Button Components for ca-assembly-daily-file */
+.abd-theme-ca-assembly-daily-file .button,
+.abd-theme-ca-assembly-daily-file .button--primary,
+.abd-theme-ca-assembly-daily-file .btn-primary,
+.abd-theme-ca-assembly-daily-file button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #1a365d !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #000000;
+}
+
+.abd-theme-ca-assembly-daily-file .button:hover,
+.abd-theme-ca-assembly-daily-file .button--primary:hover,
+.abd-theme-ca-assembly-daily-file .btn-primary:hover,
+.abd-theme-ca-assembly-daily-file button:not([class*="quantity"]):hover {
+    background: #333333 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #000000;
+}
+
+/* Standard Button Components for cable-news */
+.abd-theme-cable-news .button,
+.abd-theme-cable-news .button--primary,
+.abd-theme-cable-news .btn-primary,
+.abd-theme-cable-news button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #dc2626 !important;
+    color: #ffffff !important;
+    border: 2px solid #1a1a2e !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #1a1a2e;
+}
+
+.abd-theme-cable-news .button:hover,
+.abd-theme-cable-news .button--primary:hover,
+.abd-theme-cable-news .btn-primary:hover,
+.abd-theme-cable-news button:not([class*="quantity"]):hover {
+    background: #1e40af !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #1a1a2e;
+}
+
+/* Standard Button Components for newspaper */
+.abd-theme-newspaper .button,
+.abd-theme-newspaper .button--primary,
+.abd-theme-newspaper .btn-primary,
+.abd-theme-newspaper button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #7a6b5a !important;
+    color: #ffffff !important;
+    border: 2px solid #2b2b2b !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #2b2b2b;
+}
+
+.abd-theme-newspaper .button:hover,
+.abd-theme-newspaper .button--primary:hover,
+.abd-theme-newspaper .btn-primary:hover,
+.abd-theme-newspaper button:not([class*="quantity"]):hover {
+    background: #4c4c4c !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #2b2b2b;
+}
+
+/* Standard Button Components for california-dreaming */
+.abd-theme-california-dreaming .button,
+.abd-theme-california-dreaming .button--primary,
+.abd-theme-california-dreaming .btn-primary,
+.abd-theme-california-dreaming button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #007BFF !important;
+    color: #ffffff !important;
+    border: 2px solid #006994 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #006994;
+}
+
+.abd-theme-california-dreaming .button:hover,
+.abd-theme-california-dreaming .button--primary:hover,
+.abd-theme-california-dreaming .btn-primary:hover,
+.abd-theme-california-dreaming button:not([class*="quantity"]):hover {
+    background: #FFD700 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #006994;
+}
+
+/* Standard Button Components for california-mission */
+.abd-theme-california-mission .button,
+.abd-theme-california-mission .button--primary,
+.abd-theme-california-mission .btn-primary,
+.abd-theme-california-mission button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #F44336 !important;
+    color: #ffffff !important;
+    border: 2px solid #FFF3E0 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #FFF3E0;
+}
+
+.abd-theme-california-mission .button:hover,
+.abd-theme-california-mission .button--primary:hover,
+.abd-theme-california-mission .btn-primary:hover,
+.abd-theme-california-mission button:not([class*="quantity"]):hover {
+    background: #8BC34A !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #FFF3E0;
+}
+
+/* Standard Button Components for national-parks-poster */
+.abd-theme-national-parks-poster .button,
+.abd-theme-national-parks-poster .button--primary,
+.abd-theme-national-parks-poster .btn-primary,
+.abd-theme-national-parks-poster button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #CC8833 !important;
+    color: #ffffff !important;
+    border: 2px solid #1A1A1A !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #1A1A1A;
+}
+
+.abd-theme-national-parks-poster .button:hover,
+.abd-theme-national-parks-poster .button--primary:hover,
+.abd-theme-national-parks-poster .btn-primary:hover,
+.abd-theme-national-parks-poster button:not([class*="quantity"]):hover {
+    background: #6A7B8C !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #1A1A1A;
+}
+
+/* Standard Button Components for highway-street-photo */
+.abd-theme-highway-street-photo .button,
+.abd-theme-highway-street-photo .button--primary,
+.abd-theme-highway-street-photo .btn-primary,
+.abd-theme-highway-street-photo button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #2E8B57 !important;
+    color: #ffffff !important;
+    border: 2px solid #12285C !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #12285C;
+}
+
+.abd-theme-highway-street-photo .button:hover,
+.abd-theme-highway-street-photo .button--primary:hover,
+.abd-theme-highway-street-photo .btn-primary:hover,
+.abd-theme-highway-street-photo button:not([class*="quantity"]):hover {
+    background: #1E66E0 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #12285C;
+}
+
+/* Standard Button Components for cubism */
+.abd-theme-cubism .button,
+.abd-theme-cubism .button--primary,
+.abd-theme-cubism .btn-primary,
+.abd-theme-cubism button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #FF9900 !important;
+    color: #ffffff !important;
+    border: 2px solid #4B3621 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #4B3621;
+}
+
+.abd-theme-cubism .button:hover,
+.abd-theme-cubism .button--primary:hover,
+.abd-theme-cubism .btn-primary:hover,
+.abd-theme-cubism button:not([class*="quantity"]):hover {
+    background: #D2691E !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #4B3621;
+}
+
+/* Standard Button Components for zine */
+.abd-theme-zine .button,
+.abd-theme-zine .button--primary,
+.abd-theme-zine .btn-primary,
+.abd-theme-zine button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #cf142b !important;
+    color: #ffffff !important;
+    border: 2px solid #111111 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #111111;
+}
+
+.abd-theme-zine .button:hover,
+.abd-theme-zine .button--primary:hover,
+.abd-theme-zine .btn-primary:hover,
+.abd-theme-zine button:not([class*="quantity"]):hover {
+    background: #00247d !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #111111;
+}
+
+/* Standard Button Components for impressionist */
+.abd-theme-impressionist .button,
+.abd-theme-impressionist .button--primary,
+.abd-theme-impressionist .btn-primary,
+.abd-theme-impressionist button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #7BA3A8 !important;
+    color: #ffffff !important;
+    border: 2px solid #5C4A42 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #5C4A42;
+}
+
+.abd-theme-impressionist .button:hover,
+.abd-theme-impressionist .button--primary:hover,
+.abd-theme-impressionist .btn-primary:hover,
+.abd-theme-impressionist button:not([class*="quantity"]):hover {
+    background: #8B6B5C !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #5C4A42;
+}
+
+/* Standard Button Components for france */
+.abd-theme-france .button,
+.abd-theme-france .button--primary,
+.abd-theme-france .btn-primary,
+.abd-theme-france button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #c9232f !important;
+    color: #ffffff !important;
+    border: 2px solid #2b2b2b !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #2b2b2b;
+}
+
+.abd-theme-france .button:hover,
+.abd-theme-france .button--primary:hover,
+.abd-theme-france .btn-primary:hover,
+.abd-theme-france button:not([class*="quantity"]):hover {
+    background: #1f4aa8 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #2b2b2b;
+}
+
+/* Standard Button Components for italy */
+.abd-theme-italy .button,
+.abd-theme-italy .button--primary,
+.abd-theme-italy .btn-primary,
+.abd-theme-italy button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #e88d3e !important;
+    color: #ffffff !important;
+    border: 2px solid #333333 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #333333;
+}
+
+.abd-theme-italy .button:hover,
+.abd-theme-italy .button--primary:hover,
+.abd-theme-italy .btn-primary:hover,
+.abd-theme-italy button:not([class*="quantity"]):hover {
+    background: #7dc34c !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #333333;
+}
+
+/* Standard Button Components for renaissance */
+.abd-theme-renaissance .button,
+.abd-theme-renaissance .button--primary,
+.abd-theme-renaissance .btn-primary,
+.abd-theme-renaissance button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #6b2c2c !important;
+    color: #ffffff !important;
+    border: 2px solid #2b2621 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #2b2621;
+}
+
+.abd-theme-renaissance .button:hover,
+.abd-theme-renaissance .button--primary:hover,
+.abd-theme-renaissance .btn-primary:hover,
+.abd-theme-renaissance button:not([class*="quantity"]):hover {
+    background: #5a3e2b !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #2b2621;
+}
+
+/* Standard Button Components for free-love */
+.abd-theme-free-love .button,
+.abd-theme-free-love .button--primary,
+.abd-theme-free-love .btn-primary,
+.abd-theme-free-love button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #ff6b6b !important;
+    color: #ffffff !important;
+    border: 2px solid #3b2a1e !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #3b2a1e;
+}
+
+.abd-theme-free-love .button:hover,
+.abd-theme-free-love .button--primary:hover,
+.abd-theme-free-love .btn-primary:hover,
+.abd-theme-free-love button:not([class*="quantity"]):hover {
+    background: #5fbf6a !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #3b2a1e;
+}
+
+/* Standard Button Components for disco */
+.abd-theme-disco .button,
+.abd-theme-disco .button--primary,
+.abd-theme-disco .btn-primary,
+.abd-theme-disco button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #ff4fb2 !important;
+    color: #ffffff !important;
+    border: 2px solid #fff2d9 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #fff2d9;
+}
+
+.abd-theme-disco .button:hover,
+.abd-theme-disco .button--primary:hover,
+.abd-theme-disco .btn-primary:hover,
+.abd-theme-disco button:not([class*="quantity"]):hover {
+    background: #3fe0d0 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #fff2d9;
+}
+
+/* Standard Button Components for retro-diner */
+.abd-theme-retro-diner .button,
+.abd-theme-retro-diner .button--primary,
+.abd-theme-retro-diner .btn-primary,
+.abd-theme-retro-diner button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #e53935 !important;
+    color: #ffffff !important;
+    border: 2px solid #111111 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #111111;
+}
+
+.abd-theme-retro-diner .button:hover,
+.abd-theme-retro-diner .button--primary:hover,
+.abd-theme-retro-diner .btn-primary:hover,
+.abd-theme-retro-diner button:not([class*="quantity"]):hover {
+    background: #2bb7b3 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #111111;
+}
+
+/* Standard Button Components for retro-internet */
+.abd-theme-retro-internet .button,
+.abd-theme-retro-internet .button--primary,
+.abd-theme-retro-internet .btn-primary,
+.abd-theme-retro-internet button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #00ffff !important;
+    color: #000000 !important;
+    border: 2px solid #ffff00 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #ffff00;
+}
+
+.abd-theme-retro-internet .button:hover,
+.abd-theme-retro-internet .button--primary:hover,
+.abd-theme-retro-internet .btn-primary:hover,
+.abd-theme-retro-internet button:not([class*="quantity"]):hover {
+    background: #ff00ff !important;
+    color: #000000 !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #ffff00;
+}
+
+/* Standard Button Components for las-vegas */
+.abd-theme-las-vegas .button,
+.abd-theme-las-vegas .button--primary,
+.abd-theme-las-vegas .btn-primary,
+.abd-theme-las-vegas button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #d34e35 !important;
+    color: #ffffff !important;
+    border: 2px solid #2b1d12 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #2b1d12;
+}
+
+.abd-theme-las-vegas .button:hover,
+.abd-theme-las-vegas .button--primary:hover,
+.abd-theme-las-vegas .btn-primary:hover,
+.abd-theme-las-vegas button:not([class*="quantity"]):hover {
+    background: #2993ae !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #2b1d12;
+}
+
+/* Standard Button Components for retro-tech-polaroid */
+.abd-theme-retro-tech-polaroid .button,
+.abd-theme-retro-tech-polaroid .button--primary,
+.abd-theme-retro-tech-polaroid .btn-primary,
+.abd-theme-retro-tech-polaroid button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #ff5fa2 !important;
+    color: #ffffff !important;
+    border: 2px solid #2b2b2b !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #2b2b2b;
+}
+
+.abd-theme-retro-tech-polaroid .button:hover,
+.abd-theme-retro-tech-polaroid .button--primary:hover,
+.abd-theme-retro-tech-polaroid .btn-primary:hover,
+.abd-theme-retro-tech-polaroid button:not([class*="quantity"]):hover {
+    background: #ff9a3c !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #2b2b2b;
+}
+
+/* Standard Button Components for millennial-myspace */
+.abd-theme-millennial-myspace .button,
+.abd-theme-millennial-myspace .button--primary,
+.abd-theme-millennial-myspace .btn-primary,
+.abd-theme-millennial-myspace button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #3b5998 !important;
+    color: #ffffff !important;
+    border: 2px solid #262626 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #262626;
+}
+
+.abd-theme-millennial-myspace .button:hover,
+.abd-theme-millennial-myspace .button--primary:hover,
+.abd-theme-millennial-myspace .btn-primary:hover,
+.abd-theme-millennial-myspace button:not([class*="quantity"]):hover {
+    background: #e95950 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #262626;
+}
+
+/* Standard Button Components for nineties-graphic-design */
+.abd-theme-nineties-graphic-design .button,
+.abd-theme-nineties-graphic-design .button--primary,
+.abd-theme-nineties-graphic-design .btn-primary,
+.abd-theme-nineties-graphic-design button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #ffee00 !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #000000;
+}
+
+.abd-theme-nineties-graphic-design .button:hover,
+.abd-theme-nineties-graphic-design .button--primary:hover,
+.abd-theme-nineties-graphic-design .btn-primary:hover,
+.abd-theme-nineties-graphic-design button:not([class*="quantity"]):hover {
+    background: #00ffff !important;
+    color: #000000 !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #000000;
+}
+
+/* Standard Button Components for military-theme */
+.abd-theme-military-theme .button,
+.abd-theme-military-theme .button--primary,
+.abd-theme-military-theme .btn-primary,
+.abd-theme-military-theme button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #d4af37 !important;
+    color: #ffffff !important;
+    border: 2px solid #1a237e !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #1a237e;
+}
+
+.abd-theme-military-theme .button:hover,
+.abd-theme-military-theme .button--primary:hover,
+.abd-theme-military-theme .btn-primary:hover,
+.abd-theme-military-theme button:not([class*="quantity"]):hover {
+    background: #001f3f !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #1a237e;
+}
+
+/* Standard Button Components for mens-magazine */
+.abd-theme-mens-magazine .button,
+.abd-theme-mens-magazine .button--primary,
+.abd-theme-mens-magazine .btn-primary,
+.abd-theme-mens-magazine button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #c41e3a !important;
+    color: #ffffff !important;
+    border: 2px solid #1a1510 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #1a1510;
+}
+
+.abd-theme-mens-magazine .button:hover,
+.abd-theme-mens-magazine .button--primary:hover,
+.abd-theme-mens-magazine .btn-primary:hover,
+.abd-theme-mens-magazine button:not([class*="quantity"]):hover {
+    background: #d4af37 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #1a1510;
+}
+
+/* Standard Button Components for stars-and-stripes */
+.abd-theme-stars-and-stripes .button,
+.abd-theme-stars-and-stripes .button--primary,
+.abd-theme-stars-and-stripes .btn-primary,
+.abd-theme-stars-and-stripes button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #BF0A30 !important;
+    color: #ffffff !important;
+    border: 2px solid #1a1a1a !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #1a1a1a;
+}
+
+.abd-theme-stars-and-stripes .button:hover,
+.abd-theme-stars-and-stripes .button--primary:hover,
+.abd-theme-stars-and-stripes .btn-primary:hover,
+.abd-theme-stars-and-stripes button:not([class*="quantity"]):hover {
+    background: #002868 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #1a1a1a;
+}
+
+/* Standard Button Components for stpatricks */
+.abd-theme-stpatricks .button,
+.abd-theme-stpatricks .button--primary,
+.abd-theme-stpatricks .btn-primary,
+.abd-theme-stpatricks button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #2D5A27 !important;
+    color: #ffffff !important;
+    border: 2px solid #1a2e1a !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #1a2e1a;
+}
+
+.abd-theme-stpatricks .button:hover,
+.abd-theme-stpatricks .button--primary:hover,
+.abd-theme-stpatricks .btn-primary:hover,
+.abd-theme-stpatricks button:not([class*="quantity"]):hover {
+    background: #E07C3C !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #1a2e1a;
+}
+
+/* Standard Button Components for travel-nyc-liberty */
+.abd-theme-travel-nyc-liberty .button,
+.abd-theme-travel-nyc-liberty .button--primary,
+.abd-theme-travel-nyc-liberty .btn-primary,
+.abd-theme-travel-nyc-liberty button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #cf142b !important;
+    color: #ffffff !important;
+    border: 2px solid #1a365d !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #1a365d;
+}
+
+.abd-theme-travel-nyc-liberty .button:hover,
+.abd-theme-travel-nyc-liberty .button--primary:hover,
+.abd-theme-travel-nyc-liberty .btn-primary:hover,
+.abd-theme-travel-nyc-liberty button:not([class*="quantity"]):hover {
+    background: #ffd700 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #1a365d;
+}
+
+/* Standard Button Components for valentines-her */
+.abd-theme-valentines-her .button,
+.abd-theme-valentines-her .button--primary,
+.abd-theme-valentines-her .btn-primary,
+.abd-theme-valentines-her button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #C41E3A !important;
+    color: #ffffff !important;
+    border: 2px solid #3d2914 !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #3d2914;
+}
+
+.abd-theme-valentines-her .button:hover,
+.abd-theme-valentines-her .button--primary:hover,
+.abd-theme-valentines-her .btn-primary:hover,
+.abd-theme-valentines-her button:not([class*="quantity"]):hover {
+    background: #FFB6C1 !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #3d2914;
+}
+
+/* Standard Button Components for wayfinding-receipt */
+.abd-theme-wayfinding-receipt .button,
+.abd-theme-wayfinding-receipt .button--primary,
+.abd-theme-wayfinding-receipt .btn-primary,
+.abd-theme-wayfinding-receipt button:not([class*="quantity"]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #2b5da8 !important;
+    color: #ffffff !important;
+    border: 2px solid #1d1d1d !important;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 4px 4px 0 #1d1d1d;
+}
+
+.abd-theme-wayfinding-receipt .button:hover,
+.abd-theme-wayfinding-receipt .button--primary:hover,
+.abd-theme-wayfinding-receipt .btn-primary:hover,
+.abd-theme-wayfinding-receipt button:not([class*="quantity"]):hover {
+    background: #5a5a5a !important;
+    color: #ffffff !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 #1d1d1d;
 }
