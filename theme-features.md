@@ -11,7 +11,7 @@ I've built **30 hand-crafted visual styles** into the ABD theme. Each one is a c
 - **Impressionist** – Monet-soft colors and painterly textures
 - **Millennial MySpace** – Y2K nostalgia with customizable chaos
 - **Retro Internet** – GeoCities boxes, under-construction GIFs, and web 1.0 charm
-- **Synthwave** – Neon grids, outrun aesthetics, and 80s futurism
+- **Las Vegas** – Neon grids, outrun aesthetics, and 80s futurism
 - **Zine** – Cut-and-paste punk energy with DIY collage vibes
 
 Instead of generic "light" and "dark" modes, I wanted **cultural moments as design systems**. The idea is that a store can switch its entire personality in seconds—from Renaissance oil painting to highway street photography.

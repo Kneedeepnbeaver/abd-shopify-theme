@@ -29,7 +29,7 @@ const THEME_ORDER = [
   'retro-tech-polaroid.css',
   'stars-and-stripes.css',
   'stpatricks.css',
-  'synthwave.css',
+  'las-vegas.css',
   'travel-nyc-liberty.css',
   'valentines-her.css',
   'wayfinding-receipt.css',

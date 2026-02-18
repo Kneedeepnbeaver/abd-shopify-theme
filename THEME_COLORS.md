@@ -235,7 +235,7 @@ This document contains the extracted color palettes for all ABD Themes. Use thes
 | :--- | :---: | :--- | :--- |
 | `--accent-gold` | <div style='background-color:#d4af37; width:20px; height:20px; border:1px solid #ccc;'></div> | `#d4af37` |  |
 
-## Synthwave (`synthwave`)
+## Las Vegas (`las-vegas`)
 
 | Variable | Color | Hex/Value | Description |
 | :--- | :---: | :--- | :--- |
