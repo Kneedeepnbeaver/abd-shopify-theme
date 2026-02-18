@@ -1,1 +1,254 @@
-{% comment %}\n  ABD Theme Showcase Section\n  Visual demonstration of the 30 artistic theme styles\n{% endcomment %}\n\n{% liquid\n  assign showcase_themes = 'cable-news,california-dreaming,california-mission,cubism,disco,france,free-love,highway-street-photo,impressionist,italy,mens-magazine,military-theme,millennial-myspace,national-parks-poster,newspaper,nineties-graphic-design,renaissance,retro-diner,retro-internet,retro-tech-polaroid,stars-and-stripes,stpatricks,synthwave,travel-nyc-liberty,valentines-her,wayfinding-receipt,zine' | split: ','\n%}\n\n<section class="abd-theme-showcase full-width" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">\n  <div class="page-width">\n    <header class="showcase-header">\n      <h2 class="abd-title">{{ section.settings.heading }}</h2>\n      {%- if section.settings.intro != blank -%}\n        <div class="showcase-intro abd-content">\n          {{ section.settings.intro }}\n        </div>\n      {%- endif -%}\n    </header>\n\n    <div class="theme-gallery">\n      {%- for theme_id in showcase_themes -%}\n        {%- assign theme_name = theme_id | replace: '-', ' ' | capitalize -%}\n        <div class="theme-sample abd-theme-{{ theme_id }}">\n          <div class="theme-sample__preview">\n            <div class="abd-content">\n              <h3 class="abd-title">{{ theme_name }}</h3>\n              <p>Sample text showing the {{ theme_name }} aesthetic with its unique color palette and typography.</p>\n              <div class="theme-sample__elements">\n                <span class="sample-badge">Badge</span>\n                <a href="#" class="sample-link">Link Style</a>\n              </div>\n            </div>\n          </div>\n          <div class="theme-sample__label">\n            <code>.abd-theme-{{ theme_id }}</code>\n          </div>\n        </div>\n      {%- endfor -%}\n    </div>\n\n    {%- if section.settings.show_cta -%}\n      <div class="showcase-cta">\n        <p>{{ section.settings.cta_text }}</p>\n        {%- if section.settings.cta_button_text != blank and section.settings.cta_button_link != blank -%}\n          {% render 'button',\n            text: section.settings.cta_button_text,\n            url: section.settings.cta_button_link,\n            variant: 'primary',\n            size: 'large'\n          %}\n        {%- endif -%}\n      </div>\n    {%- endif -%}\n  </div>\n</section>\n\n{% stylesheet %}\n  .abd-theme-showcase {\n    background-color: #f6f6f7;\n  }\n\n  .showcase-header {\n    text-align: center;\n    max-width: 800px;\n    margin: 0 auto 3rem;\n  }\n\n  .showcase-header .abd-title {\n    font-size: 2.5rem;\n    margin-bottom: 1rem;\n  }\n\n  .showcase-intro {\n    font-size: 1.125rem;\n    line-height: 1.6;\n    color: #4a5568;\n  }\n\n  .theme-gallery {\n    display: grid;\n    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));\n    gap: 2rem;\n    margin-bottom: 3rem;\n  }\n\n  @media (max-width: 768px) {\n    .theme-gallery {\n      grid-template-columns: 1fr;\n      gap: 1.5rem;\n    }\n  }\n\n  .theme-sample {\n    border-radius: 12px;\n    overflow: hidden;\n    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n    transition: transform 0.3s ease, box-shadow 0.3s ease;\n  }\n\n  .theme-sample:hover {\n    transform: translateY(-4px);\n    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);\n  }\n\n  .theme-sample__preview {\n    padding: 2rem;\n    min-height: 200px;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n  }\n\n  .theme-sample__preview .abd-title {\n    font-size: 1.5rem;\n    margin-bottom: 0.75rem;\n  }\n\n  .theme-sample__preview p {\n    margin-bottom: 1rem;\n    line-height: 1.5;\n  }\n\n  .theme-sample__elements {\n    display: flex;\n    gap: 1rem;\n    align-items: center;\n    flex-wrap: wrap;\n  }\n\n  .sample-badge {\n    padding: 0.25rem 0.75rem;\n    border-radius: 4px;\n    font-size: 0.875rem;\n    font-weight: 600;\n  }\n\n  .sample-link {\n    font-weight: 600;\n    text-decoration: underline;\n  }\n\n  .theme-sample__label {\n    background-color: rgba(0, 0, 0, 0.05);\n    padding: 0.75rem 1rem;\n    text-align: center;\n  }\n\n  .theme-sample__label code {\n    font-family: 'Monaco', 'Courier New', monospace;\n    font-size: 0.875rem;\n    color: #2d3748;\n  }\n\n  .showcase-cta {\n    text-align: center;\n    padding: 3rem 2rem;\n    background-color: #fff;\n    border-radius: 12px;\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\n  }\n\n  .showcase-cta p {\n    font-size: 1.25rem;\n    margin-bottom: 1.5rem;\n    color: #2d3748;\n  }\n{% endstylesheet %}\n\n{% schema %}\n{\n  \"name\": \"ABD Theme Showcase\",\n  \"tag\": \"section\",\n  \"class\": \"section-theme-showcase\",\n  \"settings\": [\n    {\n      \"type\": \"header\",\n      \"content\": \"Content\"\n    },\n    {\n      \"type\": \"text\",\n      \"id\": \"heading\",\n      \"label\": \"Heading\",\n      \"default\": \"30 Artistic Styles\"\n    },\n    {\n      \"type\": \"richtext\",\n      \"id\": \"intro\",\n      \"label\": \"Introduction\",\n      \"default\": \"<p>Each theme is a complete aesthetic experience—from Renaissance oil paintings to GeoCities nostalgia. Switch your entire store's personality in seconds.</p>\"\n    },\n    {\n      \"type\": \"header\",\n      \"content\": \"Call to Action\"\n    },\n    {\n      \"type\": \"checkbox\",\n      \"id\": \"show_cta\",\n      \"label\": \"Show Call to Action\",\n      \"default\": false\n    },\n    {\n      \"type\": \"text\",\n      \"id\": \"cta_text\",\n      \"label\": \"CTA Text\",\n      \"default\": \"Ready to transform your store?\"\n    },\n    {\n      \"type\": \"text\",\n      \"id\": \"cta_button_text\",\n      \"label\": \"Button Text\",\n      \"default\": \"Get Started\"\n    },\n    {\n      \"type\": \"url\",\n      \"id\": \"cta_button_link\",\n      \"label\": \"Button Link\"\n    },\n    {\n      \"type\": \"header\",\n      \"content\": \"Section Spacing\"\n    },\n    {\n      \"type\": \"range\",\n      \"id\": \"padding_top\",\n      \"min\": 0,\n      \"max\": 120,\n      \"step\": 10,\n      \"unit\": \"px\",\n      \"label\": \"Padding Top\",\n      \"default\": 60\n    },\n    {\n      \"type\": \"range\",\n      \"id\": \"padding_bottom\",\n      \"min\": 0,\n      \"max\": 120,\n      \"step\": 10,\n      \"unit\": \"px\",\n      \"label\": \"Padding Bottom\",\n      \"default\": 60\n    }\n  ],\n  \"presets\": [\n    {\n      \"name\": \"ABD Theme Showcase\",\n      \"settings\": {\n        \"heading\": \"30 Artistic Styles\",\n        \"intro\": \"<p>Each theme is a complete aesthetic experience—from Renaissance oil paintings to GeoCities nostalgia. Switch your entire store's personality in seconds.</p>\"\n      }\n    }\n  ]\n}\n{% endschema %}\n
+{% comment %}
+  ABD Theme Showcase Section
+  Visual demonstration of the 30 artistic theme styles
+{% endcomment %}
+
+{% liquid
+  assign showcase_themes = 'cable-news,california-dreaming,california-mission,cubism,disco,france,free-love,highway-street-photo,impressionist,italy,mens-magazine,military-theme,millennial-myspace,national-parks-poster,newspaper,nineties-graphic-design,renaissance,retro-diner,retro-internet,retro-tech-polaroid,stars-and-stripes,stpatricks,synthwave,travel-nyc-liberty,valentines-her,wayfinding-receipt,zine' | split: ','
+%}
+
+<section class="abd-theme-showcase full-width" style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;">
+  <div class="page-width">
+    <header class="showcase-header">
+      <h2 class="abd-title">{{ section.settings.heading }}</h2>
+      {%- if section.settings.intro != blank -%}
+        <div class="showcase-intro abd-content">
+          {{ section.settings.intro }}
+        </div>
+      {%- endif -%}
+    </header>
+
+    <div class="theme-gallery">
+      {%- for theme_id in showcase_themes -%}
+        {%- assign theme_name = theme_id | replace: '-', ' ' | capitalize -%}
+        <div class="theme-sample abd-theme-{{ theme_id }}">
+          <div class="theme-sample__preview">
+            <div class="abd-content">
+              <h3 class="abd-title">{{ theme_name }}</h3>
+              <p>Sample text showing the {{ theme_name }} aesthetic with its unique color palette and typography.</p>
+              <div class="theme-sample__elements">
+                <span class="sample-badge">Badge</span>
+                <a href="#" class="sample-link">Link Style</a>
+              </div>
+            </div>
+          </div>
+          <div class="theme-sample__label">
+            <code>.abd-theme-{{ theme_id }}</code>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_cta -%}
+      <div class="showcase-cta">
+        <p>{{ section.settings.cta_text }}</p>
+        {%- if section.settings.cta_button_text != blank and section.settings.cta_button_link != blank -%}
+          {% render 'button',
+            text: section.settings.cta_button_text,
+            url: section.settings.cta_button_link,
+            variant: 'primary',
+            size: 'large'
+          %}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .abd-theme-showcase {
+    background-color: #f6f6f7;
+  }
+
+  .showcase-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+
+  .showcase-header .abd-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .showcase-intro {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #4a5568;
+  }
+
+  .theme-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (max-width: 768px) {
+    .theme-gallery {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .theme-sample {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .theme-sample:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .theme-sample__preview {
+    padding: 2rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .theme-sample__preview .abd-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .theme-sample__preview p {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .theme-sample__elements {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .sample-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .sample-link {
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .theme-sample__label {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+
+  .theme-sample__label code {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.875rem;
+    color: #2d3748;
+  }
+
+  .showcase-cta {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .showcase-cta p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "ABD Theme Showcase",
+  "tag": "section",
+  "class": "section-theme-showcase",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "30 Artistic Styles"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "<p>Each theme is a complete aesthetic experience—from Renaissance oil paintings to GeoCities nostalgia. Switch your entire store's personality in seconds.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show Call to Action",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Ready to transform your store?"
+    },
+    {
+      "type": "text",
+      "id": "cta_button_text",
+      "label": "Button Text",
+      "default": "Get Started"
+    },
+    {
+      "type": "url",
+      "id": "cta_button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "ABD Theme Showcase",
+      "settings": {
+        "heading": "30 Artistic Styles",
+        "intro": "<p>Each theme is a complete aesthetic experience—from Renaissance oil paintings to GeoCities nostalgia. Switch your entire store's personality in seconds.</p>"
+      }
+    }
+  ]
+}
+{% endschema %}
