@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "breadcrumbs": {
@@ -14,12 +5,7 @@
       "settings": {
         "show_home": true,
         "show_current": true,
-        "separator": ">",
-        "abd_theme": "",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": ""
+        "separator": ">"
       }
     },
     "hero": {
@@ -27,8 +13,6 @@
       "settings": {
         "heading": "Frequently Asked Questions",
         "text": "<p>Find answers to common questions about Print on Demand</p>",
-        "button_text": "Shop Now",
-        "button_link": "",
         "image": "shopify://shop_images/Arts_by_Dylan2025-06-06_at_9.48.40_PM_16.jpg",
         "image_opacity": 100,
         "overlay_color": "#ffffff",
@@ -36,122 +20,95 @@
         "full_width": true,
         "layout_variation": "centered",
         "button_size": "large",
-        "image_loading": "eager",
-        "enable_parallax": false,
         "abd_theme": "nineties-graphic-design",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": "",
         "min_height": 400,
         "padding_top": 60,
         "padding_bottom": 60
       }
     },
-    "custom_section_WRVMA3": {
-      "type": "custom-section",
+    "faq_list": {
+      "type": "accordion-section",
       "blocks": {
-        "accordion_item_block_iycdDW": {
-          "type": "accordion-item-block",
-          "name": "Accordion Item Block",
+        "q1": {
+          "type": "accordion_item",
           "settings": {
             "heading": "How does Print on Demand work?",
             "content": "<p>When you place an order, our system automatically sends the design to our production facility. Your item is printed specially for you, which helps us reduce waste and offer a wider variety of unique designs.</p>",
-            "open_by_default": false,
-            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
-          },
-          "blocks": {}
+          }
         },
-        "accordion_item_block_KkNwpp": {
-          "type": "accordion-item-block",
-          "name": "Accordion Item Block",
+        "q2": {
+          "type": "accordion_item",
           "settings": {
             "heading": "How long does production take?",
             "content": "<p>Typically, items take <em><strong>2–5 business days</strong></em> to be printed and processed before they are shipped. During peak holidays, production times may be slightly longer.</p>",
-            "open_by_default": false,
-            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
-          },
-          "blocks": {}
+          }
         },
-        "accordion_item_block_XLL3D8": {
-          "type": "accordion-item-block",
-          "name": "Accordion Item Block",
+        "q3": {
+          "type": "accordion_item",
           "settings": {
             "heading": "How long will it take to receive my order?",
             "content": "<p>Shipping times depend on your location. <br/><em><strong>Domestic (US)</strong></em>: 3–7 business days after production.</p>",
-            "open_by_default": false,
-            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
-          },
-          "blocks": {}
+          }
         },
-        "accordion_item_block_pMyh7Q": {
-          "type": "accordion-item-block",
-          "name": "Accordion Item Block",
+        "q4": {
+          "type": "accordion_item",
           "settings": {
             "heading": "How do I know which size to pick?",
             "content": "<p>We provide a <strong>Size Guide</strong> on every product page. We recommend measuring a favorite garment you already own and comparing it to our charts for the best fit.</p>",
-            "open_by_default": false,
-            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
-          },
-          "blocks": {}
+          }
         },
-        "accordion_item_block_N4cjew": {
-          "type": "accordion-item-block",
-          "name": "Accordion Item Block",
+        "q5": {
+          "type": "accordion_item",
           "settings": {
             "heading": "What printing method do you use?",
             "content": "<p>Most of our apparel is printed using <strong>DTG </strong><em><strong>(Direct to Garment)</strong></em> technology, which allows for high-detail prints and a soft feel that integrates with the fabric.</p>",
-            "open_by_default": false,
-            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
-          },
-          "blocks": {}
+          }
         },
-        "accordion_item_block_VidWKM": {
-          "type": "accordion-item-block",
-          "name": "Accordion Item Block",
+        "q6": {
+          "type": "accordion_item",
           "settings": {
             "heading": "What is your return policy?",
             "content": "<p>Since every item is made to order, we do not typically accept returns or exchanges for sizing issues. However, if your item arrives <strong>damaged</strong> or with a <strong>printing error</strong>, we will send a replacement at no cost to you.</p>",
-            "open_by_default": false,
-            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
-          },
-          "blocks": {}
+          }
         },
-        "accordion_item_block_b73DAU": {
-          "type": "accordion-item-block",
-          "name": "Accordion Item Block",
+        "q7": {
+          "type": "accordion_item",
           "settings": {
             "heading": "How do I report a problem with my order?",
             "content": "<p>Please email our support team at <em><strong>artsbydylan@gmail.com</strong></em> with your order number and clear photos of the issue within <strong>14 days</strong> of receiving your package.</p>",
-            "open_by_default": false,
-            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
-          },
-          "blocks": {}
+          }
         }
       },
       "block_order": [
-        "accordion_item_block_iycdDW",
-        "accordion_item_block_KkNwpp",
-        "accordion_item_block_XLL3D8",
-        "accordion_item_block_pMyh7Q",
-        "accordion_item_block_N4cjew",
-        "accordion_item_block_VidWKM",
-        "accordion_item_block_b73DAU"
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
       ],
-      "name": "t:general.custom_section",
       "settings": {
-        "abd_theme": "",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": "",
+        "heading": "Questions & Answers",
+        "text": "<p>Learn more about our services and policies.</p>",
+        "abd_theme": "nineties-graphic-design",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "rich_text_help": {
+      "type": "rich-text",
+      "settings": {
+        "heading": "Still have questions?",
+        "text": "<p>Can't find what you're looking for? <a href=\"/pages/contact\">Contact our support team</a> and we'll be happy to help!</p>",
+        "text_alignment": "center",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -160,6 +117,7 @@
   "order": [
     "breadcrumbs",
     "hero",
-    "custom_section_WRVMA3"
+    "faq_list",
+    "rich_text_help"
   ]
 }
