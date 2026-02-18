@@ -17,6 +17,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #ffffff);
     --color-text: var(--ink, #000000);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #ffffff);
+    --color-text: var(--ink, #000000);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --ink: #000000;
@@ -1248,6 +1251,9 @@
     --color-border: var(--rule, var(--border, #1a1a2e));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #ffffff);
+    --color-text: var(--ink, #1a1a2e);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #ffffff);
     --color-text: var(--ink, #1a1a2e);
 /* Variable mapping for buttons */
@@ -2853,6 +2859,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #FFECB3);
     --color-text: var(--ink, #006994);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFECB3);
+    --color-text: var(--ink, #006994);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     /* California Dream Color Palette - from beach sunset image */
@@ -4147,6 +4156,9 @@
     --color-border: var(--rule, var(--border, #212121));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #6A3A4F);
+    --color-text: var(--ink, #FFF3E0);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #6A3A4F);
     --color-text: var(--ink, #FFF3E0);
 /* Variable mapping for buttons */
@@ -5526,6 +5538,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #6EC4F2);
     --color-text: var(--ink, #4B3621);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #6EC4F2);
+    --color-text: var(--ink, #4B3621);
 /* Autumn landscape palette — sky, foliage, grass, trunk */
     --sky: #6EC4F2;
     --sky-light: #98D3F9;
@@ -6685,6 +6700,9 @@
     --color-border: var(--rule, var(--border, #f5c542));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #241018);
+    --color-text: var(--ink, #fff2d9);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #241018);
     --color-text: var(--ink, #fff2d9);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
@@ -7850,6 +7868,9 @@
     --color-border: var(--rule, var(--border, #2b2b2b));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #f7f4ef);
+    --color-text: var(--ink, #2b2b2b);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #f7f4ef);
     --color-text: var(--ink, #2b2b2b);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
@@ -9094,6 +9115,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #f7efe0);
     --color-text: var(--ink, #3b2a1e);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #f7efe0);
+    --color-text: var(--ink, #3b2a1e);
 /* Pin-up flower power palette */
     --bg: #f7efe0;
     --ink: #3b2a1e;
@@ -10233,6 +10257,9 @@
     --color-border: var(--rule, var(--border, #B0B0B0));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFFFFF);
+    --color-text: var(--ink, #12285C);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #FFFFFF);
     --color-text: var(--ink, #12285C);
 /* Street sign + sky palette from image */
@@ -11515,6 +11542,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #F5E6DC);
     --color-text: var(--ink, #5C4A42);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #F5E6DC);
+    --color-text: var(--ink, #5C4A42);
 /* Birth of Venus palette: sky, ocean, skin, hair, shells */
     --bg: #F5E6DC;
     --paper: #F8EDE8;
@@ -12697,6 +12727,9 @@
     --color-border: var(--rule, var(--border, #333333));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #dde8ed);
+    --color-text: var(--ink, #333333);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #dde8ed);
     --color-text: var(--ink, #333333);
 /* Colosseo palette from poster */
@@ -13913,6 +13946,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #f5ebe0);
     --color-text: var(--ink, #1a1510);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #f5ebe0);
+    --color-text: var(--ink, #1a1510);
 /* Pin-up illustration palette (vintage men's mag) */
     --paper: #f5ebe0;
     --ink: #1a1510;
@@ -15095,6 +15131,9 @@
     --color-border: var(--rule, var(--border, #d4af37));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #faf8f3);
+    --color-text: var(--ink, #1a237e);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #faf8f3);
     --color-text: var(--ink, #1a237e);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
@@ -16503,6 +16542,9 @@
     --color-border: var(--rule, var(--border, #dbdbdb));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #fafafa);
+    --color-text: var(--ink, #262626);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #fafafa);
     --color-text: var(--ink, #262626);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
@@ -17918,6 +17960,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #FDF5E6);
     --color-text: var(--ink, #1A1A1A);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #FDF5E6);
+    --color-text: var(--ink, #1A1A1A);
 /* Bald eagle / sunrise landscape palette */
     --sky: #A8BFCC;
     --sun: #FFD700;
@@ -19080,6 +19125,9 @@
     --color-border: var(--rule, var(--border, #cfc8be));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #e9e3d8);
+    --color-text: var(--ink, #2b2b2b);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #e9e3d8);
     --color-text: var(--ink, #2b2b2b);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
@@ -20304,6 +20352,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #ffffff);
     --color-text: var(--ink, #000000);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #ffffff);
+    --color-text: var(--ink, #000000);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --bg: #f3f3f3;
@@ -21502,6 +21553,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #f4eddc);
     --color-text: var(--ink, #2b2621);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #f4eddc);
+    --color-text: var(--ink, #2b2621);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --paper: #f4eddc;
@@ -22657,6 +22711,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #fff7ee);
     --color-text: var(--ink, #111111);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #fff7ee);
+    --color-text: var(--ink, #111111);
 /* Pin-up diner magnet palette */
     --bg: #f7f1e8;
     --ink: #1f1f1f;
@@ -23792,6 +23849,9 @@
     --color-border: var(--rule, var(--border, #c0c0c0));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #111111);
+    --color-text: var(--ink, #ffff00);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #111111);
     --color-text: var(--ink, #ffff00);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
@@ -25090,6 +25150,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #ffffff);
     --color-text: var(--ink, #2b2b2b);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #ffffff);
+    --color-text: var(--ink, #2b2b2b);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --bg: #ffffff;
@@ -26251,6 +26314,9 @@
     --color-border: var(--rule, var(--border, #1a1a1a));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFFAF0);
+    --color-text: var(--ink, #1a1a1a);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #FFFAF0);
     --color-text: var(--ink, #1a1a1a);
 /* Patriotic pin-up palette */
@@ -28587,6 +28653,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #FFE4C4);
     --color-text: var(--ink, #1a2e1a);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFE4C4);
+    --color-text: var(--ink, #1a2e1a);
 /* Pin-up illustration palette */
     --shamrock: #32CD32;
     --forest: #1B4D1B;
@@ -29930,6 +29999,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #93d0e2);
     --color-text: var(--ink, #2b1d12);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #93d0e2);
+    --color-text: var(--ink, #2b1d12);
 /* Las Vegas palette from poster */
     --vegas-sky: #93d0e2;
     --vegas-teal: #2993ae;
@@ -31108,6 +31180,9 @@
     --color-border: var(--rule, var(--border, #1a365d));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #e8f4fc);
+    --color-text: var(--ink, #1a365d);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #e8f4fc);
     --color-text: var(--ink, #1a365d);
 /* Excelsior palette from poster */
@@ -32423,6 +32498,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #FFE4C4);
     --color-text: var(--ink, #3d2914);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #FFE4C4);
+    --color-text: var(--ink, #3d2914);
 /* Pin-up illustration palette */
     --valentine-red: #C41E3A;
     --valentine-red-dark: #8B1538;
@@ -33725,6 +33803,9 @@
     /* Variable mapping for buttons */
     --color-bg: var(--paper, #f4f2ee);
     --color-text: var(--ink, #1d1d1d);
+/* Variable mapping for buttons */
+    --color-bg: var(--paper, #f4f2ee);
+    --color-text: var(--ink, #1d1d1d);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
 
     --paper: #f4f2ee;
@@ -34865,6 +34946,9 @@
     --color-border: var(--rule, var(--border, #111111));
     
     /* Variable mapping for buttons */
+    --color-bg: var(--paper, #f5f5f5);
+    --color-text: var(--ink, #111111);
+/* Variable mapping for buttons */
     --color-bg: var(--paper, #f5f5f5);
     --color-text: var(--ink, #111111);
 /* Ensure these are distinct for accessibility if possible, otherwise fallbacks apply */
@@ -37193,4 +37277,816 @@
     color: #ffffff !important;
     transform: translate(-1px, -1px);
     box-shadow: 6px 6px 0 #1d1d1d;
+}
+
+/* Site-Wide Component Scoping for ca-assembly-daily-file */
+.abd-theme-ca-assembly-daily-file .header-wrapper,
+.abd-theme-ca-assembly-daily-file header.shopify-section-header,
+.abd-theme-ca-assembly-daily-file .footer,
+.abd-theme-ca-assembly-daily-file .footer__content-top,
+.abd-theme-ca-assembly-daily-file .cart-drawer,
+.abd-theme-ca-assembly-daily-file .drawer__inner,
+.abd-theme-ca-assembly-daily-file .search-modal,
+.abd-theme-ca-assembly-daily-file .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-ca-assembly-daily-file .header__heading,
+.abd-theme-ca-assembly-daily-file .header__heading-link,
+.abd-theme-ca-assembly-daily-file .list-menu__item,
+.abd-theme-ca-assembly-daily-file .footer__link,
+.abd-theme-ca-assembly-daily-file .footer a,
+.abd-theme-ca-assembly-daily-file .footer__social a,
+.abd-theme-ca-assembly-daily-file .search-modal__input,
+.abd-theme-ca-assembly-daily-file .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-ca-assembly-daily-file .header-wrapper,
+.abd-theme-ca-assembly-daily-file .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for cable-news */
+.abd-theme-cable-news .header-wrapper,
+.abd-theme-cable-news header.shopify-section-header,
+.abd-theme-cable-news .footer,
+.abd-theme-cable-news .footer__content-top,
+.abd-theme-cable-news .cart-drawer,
+.abd-theme-cable-news .drawer__inner,
+.abd-theme-cable-news .search-modal,
+.abd-theme-cable-news .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-cable-news .header__heading,
+.abd-theme-cable-news .header__heading-link,
+.abd-theme-cable-news .list-menu__item,
+.abd-theme-cable-news .footer__link,
+.abd-theme-cable-news .footer a,
+.abd-theme-cable-news .footer__social a,
+.abd-theme-cable-news .search-modal__input,
+.abd-theme-cable-news .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-cable-news .header-wrapper,
+.abd-theme-cable-news .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for newspaper */
+.abd-theme-newspaper .header-wrapper,
+.abd-theme-newspaper header.shopify-section-header,
+.abd-theme-newspaper .footer,
+.abd-theme-newspaper .footer__content-top,
+.abd-theme-newspaper .cart-drawer,
+.abd-theme-newspaper .drawer__inner,
+.abd-theme-newspaper .search-modal,
+.abd-theme-newspaper .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-newspaper .header__heading,
+.abd-theme-newspaper .header__heading-link,
+.abd-theme-newspaper .list-menu__item,
+.abd-theme-newspaper .footer__link,
+.abd-theme-newspaper .footer a,
+.abd-theme-newspaper .footer__social a,
+.abd-theme-newspaper .search-modal__input,
+.abd-theme-newspaper .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-newspaper .header-wrapper,
+.abd-theme-newspaper .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for california-dreaming */
+.abd-theme-california-dreaming .header-wrapper,
+.abd-theme-california-dreaming header.shopify-section-header,
+.abd-theme-california-dreaming .footer,
+.abd-theme-california-dreaming .footer__content-top,
+.abd-theme-california-dreaming .cart-drawer,
+.abd-theme-california-dreaming .drawer__inner,
+.abd-theme-california-dreaming .search-modal,
+.abd-theme-california-dreaming .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-california-dreaming .header__heading,
+.abd-theme-california-dreaming .header__heading-link,
+.abd-theme-california-dreaming .list-menu__item,
+.abd-theme-california-dreaming .footer__link,
+.abd-theme-california-dreaming .footer a,
+.abd-theme-california-dreaming .footer__social a,
+.abd-theme-california-dreaming .search-modal__input,
+.abd-theme-california-dreaming .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-california-dreaming .header-wrapper,
+.abd-theme-california-dreaming .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for california-mission */
+.abd-theme-california-mission .header-wrapper,
+.abd-theme-california-mission header.shopify-section-header,
+.abd-theme-california-mission .footer,
+.abd-theme-california-mission .footer__content-top,
+.abd-theme-california-mission .cart-drawer,
+.abd-theme-california-mission .drawer__inner,
+.abd-theme-california-mission .search-modal,
+.abd-theme-california-mission .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-california-mission .header__heading,
+.abd-theme-california-mission .header__heading-link,
+.abd-theme-california-mission .list-menu__item,
+.abd-theme-california-mission .footer__link,
+.abd-theme-california-mission .footer a,
+.abd-theme-california-mission .footer__social a,
+.abd-theme-california-mission .search-modal__input,
+.abd-theme-california-mission .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-california-mission .header-wrapper,
+.abd-theme-california-mission .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for national-parks-poster */
+.abd-theme-national-parks-poster .header-wrapper,
+.abd-theme-national-parks-poster header.shopify-section-header,
+.abd-theme-national-parks-poster .footer,
+.abd-theme-national-parks-poster .footer__content-top,
+.abd-theme-national-parks-poster .cart-drawer,
+.abd-theme-national-parks-poster .drawer__inner,
+.abd-theme-national-parks-poster .search-modal,
+.abd-theme-national-parks-poster .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-national-parks-poster .header__heading,
+.abd-theme-national-parks-poster .header__heading-link,
+.abd-theme-national-parks-poster .list-menu__item,
+.abd-theme-national-parks-poster .footer__link,
+.abd-theme-national-parks-poster .footer a,
+.abd-theme-national-parks-poster .footer__social a,
+.abd-theme-national-parks-poster .search-modal__input,
+.abd-theme-national-parks-poster .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-national-parks-poster .header-wrapper,
+.abd-theme-national-parks-poster .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for highway-street-photo */
+.abd-theme-highway-street-photo .header-wrapper,
+.abd-theme-highway-street-photo header.shopify-section-header,
+.abd-theme-highway-street-photo .footer,
+.abd-theme-highway-street-photo .footer__content-top,
+.abd-theme-highway-street-photo .cart-drawer,
+.abd-theme-highway-street-photo .drawer__inner,
+.abd-theme-highway-street-photo .search-modal,
+.abd-theme-highway-street-photo .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-highway-street-photo .header__heading,
+.abd-theme-highway-street-photo .header__heading-link,
+.abd-theme-highway-street-photo .list-menu__item,
+.abd-theme-highway-street-photo .footer__link,
+.abd-theme-highway-street-photo .footer a,
+.abd-theme-highway-street-photo .footer__social a,
+.abd-theme-highway-street-photo .search-modal__input,
+.abd-theme-highway-street-photo .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-highway-street-photo .header-wrapper,
+.abd-theme-highway-street-photo .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for cubism */
+.abd-theme-cubism .header-wrapper,
+.abd-theme-cubism header.shopify-section-header,
+.abd-theme-cubism .footer,
+.abd-theme-cubism .footer__content-top,
+.abd-theme-cubism .cart-drawer,
+.abd-theme-cubism .drawer__inner,
+.abd-theme-cubism .search-modal,
+.abd-theme-cubism .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-cubism .header__heading,
+.abd-theme-cubism .header__heading-link,
+.abd-theme-cubism .list-menu__item,
+.abd-theme-cubism .footer__link,
+.abd-theme-cubism .footer a,
+.abd-theme-cubism .footer__social a,
+.abd-theme-cubism .search-modal__input,
+.abd-theme-cubism .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-cubism .header-wrapper,
+.abd-theme-cubism .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for zine */
+.abd-theme-zine .header-wrapper,
+.abd-theme-zine header.shopify-section-header,
+.abd-theme-zine .footer,
+.abd-theme-zine .footer__content-top,
+.abd-theme-zine .cart-drawer,
+.abd-theme-zine .drawer__inner,
+.abd-theme-zine .search-modal,
+.abd-theme-zine .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-zine .header__heading,
+.abd-theme-zine .header__heading-link,
+.abd-theme-zine .list-menu__item,
+.abd-theme-zine .footer__link,
+.abd-theme-zine .footer a,
+.abd-theme-zine .footer__social a,
+.abd-theme-zine .search-modal__input,
+.abd-theme-zine .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-zine .header-wrapper,
+.abd-theme-zine .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for impressionist */
+.abd-theme-impressionist .header-wrapper,
+.abd-theme-impressionist header.shopify-section-header,
+.abd-theme-impressionist .footer,
+.abd-theme-impressionist .footer__content-top,
+.abd-theme-impressionist .cart-drawer,
+.abd-theme-impressionist .drawer__inner,
+.abd-theme-impressionist .search-modal,
+.abd-theme-impressionist .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-impressionist .header__heading,
+.abd-theme-impressionist .header__heading-link,
+.abd-theme-impressionist .list-menu__item,
+.abd-theme-impressionist .footer__link,
+.abd-theme-impressionist .footer a,
+.abd-theme-impressionist .footer__social a,
+.abd-theme-impressionist .search-modal__input,
+.abd-theme-impressionist .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-impressionist .header-wrapper,
+.abd-theme-impressionist .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for france */
+.abd-theme-france .header-wrapper,
+.abd-theme-france header.shopify-section-header,
+.abd-theme-france .footer,
+.abd-theme-france .footer__content-top,
+.abd-theme-france .cart-drawer,
+.abd-theme-france .drawer__inner,
+.abd-theme-france .search-modal,
+.abd-theme-france .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-france .header__heading,
+.abd-theme-france .header__heading-link,
+.abd-theme-france .list-menu__item,
+.abd-theme-france .footer__link,
+.abd-theme-france .footer a,
+.abd-theme-france .footer__social a,
+.abd-theme-france .search-modal__input,
+.abd-theme-france .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-france .header-wrapper,
+.abd-theme-france .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for italy */
+.abd-theme-italy .header-wrapper,
+.abd-theme-italy header.shopify-section-header,
+.abd-theme-italy .footer,
+.abd-theme-italy .footer__content-top,
+.abd-theme-italy .cart-drawer,
+.abd-theme-italy .drawer__inner,
+.abd-theme-italy .search-modal,
+.abd-theme-italy .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-italy .header__heading,
+.abd-theme-italy .header__heading-link,
+.abd-theme-italy .list-menu__item,
+.abd-theme-italy .footer__link,
+.abd-theme-italy .footer a,
+.abd-theme-italy .footer__social a,
+.abd-theme-italy .search-modal__input,
+.abd-theme-italy .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-italy .header-wrapper,
+.abd-theme-italy .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for renaissance */
+.abd-theme-renaissance .header-wrapper,
+.abd-theme-renaissance header.shopify-section-header,
+.abd-theme-renaissance .footer,
+.abd-theme-renaissance .footer__content-top,
+.abd-theme-renaissance .cart-drawer,
+.abd-theme-renaissance .drawer__inner,
+.abd-theme-renaissance .search-modal,
+.abd-theme-renaissance .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-renaissance .header__heading,
+.abd-theme-renaissance .header__heading-link,
+.abd-theme-renaissance .list-menu__item,
+.abd-theme-renaissance .footer__link,
+.abd-theme-renaissance .footer a,
+.abd-theme-renaissance .footer__social a,
+.abd-theme-renaissance .search-modal__input,
+.abd-theme-renaissance .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-renaissance .header-wrapper,
+.abd-theme-renaissance .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for free-love */
+.abd-theme-free-love .header-wrapper,
+.abd-theme-free-love header.shopify-section-header,
+.abd-theme-free-love .footer,
+.abd-theme-free-love .footer__content-top,
+.abd-theme-free-love .cart-drawer,
+.abd-theme-free-love .drawer__inner,
+.abd-theme-free-love .search-modal,
+.abd-theme-free-love .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-free-love .header__heading,
+.abd-theme-free-love .header__heading-link,
+.abd-theme-free-love .list-menu__item,
+.abd-theme-free-love .footer__link,
+.abd-theme-free-love .footer a,
+.abd-theme-free-love .footer__social a,
+.abd-theme-free-love .search-modal__input,
+.abd-theme-free-love .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-free-love .header-wrapper,
+.abd-theme-free-love .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for disco */
+.abd-theme-disco .header-wrapper,
+.abd-theme-disco header.shopify-section-header,
+.abd-theme-disco .footer,
+.abd-theme-disco .footer__content-top,
+.abd-theme-disco .cart-drawer,
+.abd-theme-disco .drawer__inner,
+.abd-theme-disco .search-modal,
+.abd-theme-disco .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-disco .header__heading,
+.abd-theme-disco .header__heading-link,
+.abd-theme-disco .list-menu__item,
+.abd-theme-disco .footer__link,
+.abd-theme-disco .footer a,
+.abd-theme-disco .footer__social a,
+.abd-theme-disco .search-modal__input,
+.abd-theme-disco .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-disco .header-wrapper,
+.abd-theme-disco .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for retro-diner */
+.abd-theme-retro-diner .header-wrapper,
+.abd-theme-retro-diner header.shopify-section-header,
+.abd-theme-retro-diner .footer,
+.abd-theme-retro-diner .footer__content-top,
+.abd-theme-retro-diner .cart-drawer,
+.abd-theme-retro-diner .drawer__inner,
+.abd-theme-retro-diner .search-modal,
+.abd-theme-retro-diner .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-retro-diner .header__heading,
+.abd-theme-retro-diner .header__heading-link,
+.abd-theme-retro-diner .list-menu__item,
+.abd-theme-retro-diner .footer__link,
+.abd-theme-retro-diner .footer a,
+.abd-theme-retro-diner .footer__social a,
+.abd-theme-retro-diner .search-modal__input,
+.abd-theme-retro-diner .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-retro-diner .header-wrapper,
+.abd-theme-retro-diner .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for retro-internet */
+.abd-theme-retro-internet .header-wrapper,
+.abd-theme-retro-internet header.shopify-section-header,
+.abd-theme-retro-internet .footer,
+.abd-theme-retro-internet .footer__content-top,
+.abd-theme-retro-internet .cart-drawer,
+.abd-theme-retro-internet .drawer__inner,
+.abd-theme-retro-internet .search-modal,
+.abd-theme-retro-internet .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-retro-internet .header__heading,
+.abd-theme-retro-internet .header__heading-link,
+.abd-theme-retro-internet .list-menu__item,
+.abd-theme-retro-internet .footer__link,
+.abd-theme-retro-internet .footer a,
+.abd-theme-retro-internet .footer__social a,
+.abd-theme-retro-internet .search-modal__input,
+.abd-theme-retro-internet .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-retro-internet .header-wrapper,
+.abd-theme-retro-internet .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for las-vegas */
+.abd-theme-las-vegas .header-wrapper,
+.abd-theme-las-vegas header.shopify-section-header,
+.abd-theme-las-vegas .footer,
+.abd-theme-las-vegas .footer__content-top,
+.abd-theme-las-vegas .cart-drawer,
+.abd-theme-las-vegas .drawer__inner,
+.abd-theme-las-vegas .search-modal,
+.abd-theme-las-vegas .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-las-vegas .header__heading,
+.abd-theme-las-vegas .header__heading-link,
+.abd-theme-las-vegas .list-menu__item,
+.abd-theme-las-vegas .footer__link,
+.abd-theme-las-vegas .footer a,
+.abd-theme-las-vegas .footer__social a,
+.abd-theme-las-vegas .search-modal__input,
+.abd-theme-las-vegas .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-las-vegas .header-wrapper,
+.abd-theme-las-vegas .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for retro-tech-polaroid */
+.abd-theme-retro-tech-polaroid .header-wrapper,
+.abd-theme-retro-tech-polaroid header.shopify-section-header,
+.abd-theme-retro-tech-polaroid .footer,
+.abd-theme-retro-tech-polaroid .footer__content-top,
+.abd-theme-retro-tech-polaroid .cart-drawer,
+.abd-theme-retro-tech-polaroid .drawer__inner,
+.abd-theme-retro-tech-polaroid .search-modal,
+.abd-theme-retro-tech-polaroid .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-retro-tech-polaroid .header__heading,
+.abd-theme-retro-tech-polaroid .header__heading-link,
+.abd-theme-retro-tech-polaroid .list-menu__item,
+.abd-theme-retro-tech-polaroid .footer__link,
+.abd-theme-retro-tech-polaroid .footer a,
+.abd-theme-retro-tech-polaroid .footer__social a,
+.abd-theme-retro-tech-polaroid .search-modal__input,
+.abd-theme-retro-tech-polaroid .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-retro-tech-polaroid .header-wrapper,
+.abd-theme-retro-tech-polaroid .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for millennial-myspace */
+.abd-theme-millennial-myspace .header-wrapper,
+.abd-theme-millennial-myspace header.shopify-section-header,
+.abd-theme-millennial-myspace .footer,
+.abd-theme-millennial-myspace .footer__content-top,
+.abd-theme-millennial-myspace .cart-drawer,
+.abd-theme-millennial-myspace .drawer__inner,
+.abd-theme-millennial-myspace .search-modal,
+.abd-theme-millennial-myspace .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-millennial-myspace .header__heading,
+.abd-theme-millennial-myspace .header__heading-link,
+.abd-theme-millennial-myspace .list-menu__item,
+.abd-theme-millennial-myspace .footer__link,
+.abd-theme-millennial-myspace .footer a,
+.abd-theme-millennial-myspace .footer__social a,
+.abd-theme-millennial-myspace .search-modal__input,
+.abd-theme-millennial-myspace .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-millennial-myspace .header-wrapper,
+.abd-theme-millennial-myspace .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for nineties-graphic-design */
+.abd-theme-nineties-graphic-design .header-wrapper,
+.abd-theme-nineties-graphic-design header.shopify-section-header,
+.abd-theme-nineties-graphic-design .footer,
+.abd-theme-nineties-graphic-design .footer__content-top,
+.abd-theme-nineties-graphic-design .cart-drawer,
+.abd-theme-nineties-graphic-design .drawer__inner,
+.abd-theme-nineties-graphic-design .search-modal,
+.abd-theme-nineties-graphic-design .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-nineties-graphic-design .header__heading,
+.abd-theme-nineties-graphic-design .header__heading-link,
+.abd-theme-nineties-graphic-design .list-menu__item,
+.abd-theme-nineties-graphic-design .footer__link,
+.abd-theme-nineties-graphic-design .footer a,
+.abd-theme-nineties-graphic-design .footer__social a,
+.abd-theme-nineties-graphic-design .search-modal__input,
+.abd-theme-nineties-graphic-design .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-nineties-graphic-design .header-wrapper,
+.abd-theme-nineties-graphic-design .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for military-theme */
+.abd-theme-military-theme .header-wrapper,
+.abd-theme-military-theme header.shopify-section-header,
+.abd-theme-military-theme .footer,
+.abd-theme-military-theme .footer__content-top,
+.abd-theme-military-theme .cart-drawer,
+.abd-theme-military-theme .drawer__inner,
+.abd-theme-military-theme .search-modal,
+.abd-theme-military-theme .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-military-theme .header__heading,
+.abd-theme-military-theme .header__heading-link,
+.abd-theme-military-theme .list-menu__item,
+.abd-theme-military-theme .footer__link,
+.abd-theme-military-theme .footer a,
+.abd-theme-military-theme .footer__social a,
+.abd-theme-military-theme .search-modal__input,
+.abd-theme-military-theme .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-military-theme .header-wrapper,
+.abd-theme-military-theme .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for mens-magazine */
+.abd-theme-mens-magazine .header-wrapper,
+.abd-theme-mens-magazine header.shopify-section-header,
+.abd-theme-mens-magazine .footer,
+.abd-theme-mens-magazine .footer__content-top,
+.abd-theme-mens-magazine .cart-drawer,
+.abd-theme-mens-magazine .drawer__inner,
+.abd-theme-mens-magazine .search-modal,
+.abd-theme-mens-magazine .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-mens-magazine .header__heading,
+.abd-theme-mens-magazine .header__heading-link,
+.abd-theme-mens-magazine .list-menu__item,
+.abd-theme-mens-magazine .footer__link,
+.abd-theme-mens-magazine .footer a,
+.abd-theme-mens-magazine .footer__social a,
+.abd-theme-mens-magazine .search-modal__input,
+.abd-theme-mens-magazine .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-mens-magazine .header-wrapper,
+.abd-theme-mens-magazine .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for stars-and-stripes */
+.abd-theme-stars-and-stripes .header-wrapper,
+.abd-theme-stars-and-stripes header.shopify-section-header,
+.abd-theme-stars-and-stripes .footer,
+.abd-theme-stars-and-stripes .footer__content-top,
+.abd-theme-stars-and-stripes .cart-drawer,
+.abd-theme-stars-and-stripes .drawer__inner,
+.abd-theme-stars-and-stripes .search-modal,
+.abd-theme-stars-and-stripes .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-stars-and-stripes .header__heading,
+.abd-theme-stars-and-stripes .header__heading-link,
+.abd-theme-stars-and-stripes .list-menu__item,
+.abd-theme-stars-and-stripes .footer__link,
+.abd-theme-stars-and-stripes .footer a,
+.abd-theme-stars-and-stripes .footer__social a,
+.abd-theme-stars-and-stripes .search-modal__input,
+.abd-theme-stars-and-stripes .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-stars-and-stripes .header-wrapper,
+.abd-theme-stars-and-stripes .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for stpatricks */
+.abd-theme-stpatricks .header-wrapper,
+.abd-theme-stpatricks header.shopify-section-header,
+.abd-theme-stpatricks .footer,
+.abd-theme-stpatricks .footer__content-top,
+.abd-theme-stpatricks .cart-drawer,
+.abd-theme-stpatricks .drawer__inner,
+.abd-theme-stpatricks .search-modal,
+.abd-theme-stpatricks .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-stpatricks .header__heading,
+.abd-theme-stpatricks .header__heading-link,
+.abd-theme-stpatricks .list-menu__item,
+.abd-theme-stpatricks .footer__link,
+.abd-theme-stpatricks .footer a,
+.abd-theme-stpatricks .footer__social a,
+.abd-theme-stpatricks .search-modal__input,
+.abd-theme-stpatricks .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-stpatricks .header-wrapper,
+.abd-theme-stpatricks .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for travel-nyc-liberty */
+.abd-theme-travel-nyc-liberty .header-wrapper,
+.abd-theme-travel-nyc-liberty header.shopify-section-header,
+.abd-theme-travel-nyc-liberty .footer,
+.abd-theme-travel-nyc-liberty .footer__content-top,
+.abd-theme-travel-nyc-liberty .cart-drawer,
+.abd-theme-travel-nyc-liberty .drawer__inner,
+.abd-theme-travel-nyc-liberty .search-modal,
+.abd-theme-travel-nyc-liberty .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-travel-nyc-liberty .header__heading,
+.abd-theme-travel-nyc-liberty .header__heading-link,
+.abd-theme-travel-nyc-liberty .list-menu__item,
+.abd-theme-travel-nyc-liberty .footer__link,
+.abd-theme-travel-nyc-liberty .footer a,
+.abd-theme-travel-nyc-liberty .footer__social a,
+.abd-theme-travel-nyc-liberty .search-modal__input,
+.abd-theme-travel-nyc-liberty .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-travel-nyc-liberty .header-wrapper,
+.abd-theme-travel-nyc-liberty .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for valentines-her */
+.abd-theme-valentines-her .header-wrapper,
+.abd-theme-valentines-her header.shopify-section-header,
+.abd-theme-valentines-her .footer,
+.abd-theme-valentines-her .footer__content-top,
+.abd-theme-valentines-her .cart-drawer,
+.abd-theme-valentines-her .drawer__inner,
+.abd-theme-valentines-her .search-modal,
+.abd-theme-valentines-her .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-valentines-her .header__heading,
+.abd-theme-valentines-her .header__heading-link,
+.abd-theme-valentines-her .list-menu__item,
+.abd-theme-valentines-her .footer__link,
+.abd-theme-valentines-her .footer a,
+.abd-theme-valentines-her .footer__social a,
+.abd-theme-valentines-her .search-modal__input,
+.abd-theme-valentines-her .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-valentines-her .header-wrapper,
+.abd-theme-valentines-her .footer {
+    border-color: var(--color-border) !important;
+}
+
+/* Site-Wide Component Scoping for wayfinding-receipt */
+.abd-theme-wayfinding-receipt .header-wrapper,
+.abd-theme-wayfinding-receipt header.shopify-section-header,
+.abd-theme-wayfinding-receipt .footer,
+.abd-theme-wayfinding-receipt .footer__content-top,
+.abd-theme-wayfinding-receipt .cart-drawer,
+.abd-theme-wayfinding-receipt .drawer__inner,
+.abd-theme-wayfinding-receipt .search-modal,
+.abd-theme-wayfinding-receipt .modal__content {
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-wayfinding-receipt .header__heading,
+.abd-theme-wayfinding-receipt .header__heading-link,
+.abd-theme-wayfinding-receipt .list-menu__item,
+.abd-theme-wayfinding-receipt .footer__link,
+.abd-theme-wayfinding-receipt .footer a,
+.abd-theme-wayfinding-receipt .footer__social a,
+.abd-theme-wayfinding-receipt .search-modal__input,
+.abd-theme-wayfinding-receipt .search__input {
+    color: var(--color-foreground) !important;
+}
+
+.abd-theme-wayfinding-receipt .header-wrapper,
+.abd-theme-wayfinding-receipt .footer {
+    border-color: var(--color-border) !important;
 }

@@ -49,7 +49,47 @@ def standardize_theme(theme_id, palette):
     new_full_block = f".abd-theme-{theme_id} {{{block_content}\n}}"
     content = content.replace(match.group(0), new_full_block)
 
-    # 2. Update/Inject Button Components
+    # 2. Update/Inject Site-Wide Component Scoping
+    site_wide_styles = f"""
+/* Site-Wide Component Scoping for {theme_id} */
+.abd-theme-{theme_id} .header-wrapper,
+.abd-theme-{theme_id} header.shopify-section-header,
+.abd-theme-{theme_id} .footer,
+.abd-theme-{theme_id} .footer__content-top,
+.abd-theme-{theme_id} .cart-drawer,
+.abd-theme-{theme_id} .drawer__inner,
+.abd-theme-{theme_id} .search-modal,
+.abd-theme-{theme_id} .modal__content {{
+    background-color: var(--color-background) !important;
+    color: var(--color-foreground) !important;
+}}
+
+.abd-theme-{theme_id} .header__heading,
+.abd-theme-{theme_id} .header__heading-link,
+.abd-theme-{theme_id} .list-menu__item,
+.abd-theme-{theme_id} .footer__link,
+.abd-theme-{theme_id} .footer a,
+.abd-theme-{theme_id} .footer__social a,
+.abd-theme-{theme_id} .search-modal__input,
+.abd-theme-{theme_id} .search__input {{
+    color: var(--color-foreground) !important;
+}}
+
+.abd-theme-{theme_id} .header-wrapper,
+.abd-theme-{theme_id} .footer {{
+    border-color: var(--color-border) !important;
+}}
+"""
+    # Injection/replacement logic for Site-Wide Components
+    site_comment = f"/* Site-Wide Component Scoping for {theme_id} */"
+    if site_comment in content:
+        # Replace existing block
+        site_pattern = rf"/\* Site-Wide Component Scoping for {theme_id} \*/.*?border-color: var\(--color-border\) !important;\s*\n\}}"
+        content = re.sub(site_pattern, site_wide_styles.strip(), content, flags=re.DOTALL)
+    else:
+        content += site_wide_styles
+
+    # 3. Update/Inject Button Components
     button_styles = f"""
 /* Standard Button Components for {theme_id} */
 .abd-theme-{theme_id} .button,
@@ -62,7 +102,7 @@ def standardize_theme(theme_id, palette):
     padding: 12px 24px;
     background: {palette['accent']} !important;
     color: {palette['btn_text']} !important;
-    border: 2px solid {palette['ink']} !important;
+    border: 2px solid var(--color-foreground) !important;
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -70,7 +110,8 @@ def standardize_theme(theme_id, palette):
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    box-shadow: 4px 4px 0 {palette['ink']};
+    box-shadow: 4px 4px 0 var(--color-foreground);
+    border-radius: 0;
 }}
 
 .abd-theme-{theme_id} .button:hover,
@@ -80,27 +121,35 @@ def standardize_theme(theme_id, palette):
     background: {palette['secondary']} !important;
     color: {palette['btn_text']} !important;
     transform: translate(-1px, -1px);
-    box-shadow: 6px 6px 0 {palette['ink']};
+    box-shadow: 6px 6px 0 var(--color-foreground);
+}}
+
+.abd-theme-{theme_id} .button--secondary,
+.abd-theme-{theme_id} .btn-secondary {{
+    background: {palette['secondary']} !important;
+    color: {palette['btn_text']} !important;
+    border: 2px solid var(--color-foreground) !important;
+    box-shadow: 4px 4px 0 var(--color-foreground);
+}}
+
+.abd-theme-{theme_id} .button--secondary:hover,
+.abd-theme-{theme_id} .btn-secondary:hover {{
+    background: {palette['accent']} !important;
+    transform: translate(-1px, -1px);
+    box-shadow: 6px 6px 0 var(--color-foreground);
 }}
 """
-    # Remove old button style injections if they exist (searching for the comment or selector)
-    comment_tag = f"/* Standard Button Components for {theme_id} */"
-    if comment_tag in content:
-        # We'll replace the block from the comment until the end of the button:hover block
-        # Actually, simpler: replace the whole file-level injection if it exists
-        # But safest is just to grep/replace the specific block
-        pass
-    
-    # Check if we already injected these buttons
-    if f".abd-theme-{theme_id} .button--primary" not in content:
-        content += button_styles
+    # Injection/replacement for buttons
+    btn_comment = f"/* Standard Button Components for {theme_id} */"
+    if btn_comment in content:
+        btn_pattern = rf"/\* Standard Button Components for {theme_id} \*/.*?box-shadow: 6px 6px 0 var\(--color-foreground\);\s*\n\}}"
+        content = re.sub(btn_pattern, button_styles.strip(), content, flags=re.DOTALL)
     else:
-        # If it exists, let's find the existing block and replace it
-        btn_pattern = rf"/\* Standard Button Components for {theme_id} \*/.*?box-shadow: 6px 6px 0 .*?;\n\}}"
-        if re.search(btn_pattern, content, re.DOTALL):
-            content = re.sub(btn_pattern, button_styles.strip(), content, flags=re.DOTALL)
+        # If it was injected without the new box-shadow variable, replace it manually
+        btn_pattern_old = rf"/\* Standard Button Components for {theme_id} \*/.*?box-shadow: 6px 6px 0 .*?;\n\}}"
+        if re.search(btn_pattern_old, content, re.DOTALL):
+            content = re.sub(btn_pattern_old, button_styles.strip(), content, flags=re.DOTALL)
         else:
-            # Fallback append
             content += button_styles
 
     with open(CSS_FILE, 'w') as f:
