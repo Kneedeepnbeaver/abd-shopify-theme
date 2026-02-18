@@ -37,22 +37,6 @@
     },
     "main": {
       "type": "page",
-      "blocks": {
-        "text_HC3zCG": {
-          "type": "text",
-          "name": "Text",
-          "settings": {
-            "text": "<p><em>Email the Webmaster: </em>ArtsbyDylan@gmail.com</p><p><em>Dial my number: </em>(530) - 366-5544</p><p>Address Message to: Dylan Carpowich</p>",
-            "text_style": "text--normal",
-            "alignment": "left",
-            "abd_theme": "retro-internet"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_HC3zCG"
-      ],
       "settings": {
         "abd_theme": "retro-internet",
         "custom_bg": "",
