@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "breadcrumbs": {
@@ -5,23 +14,83 @@
       "settings": {
         "show_home": true,
         "show_current": true,
-        "separator": ">"
+        "separator": ">",
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
       }
     },
-    "hero": {
-      "type": "hero-banner",
+    "pricing_table_DnRCy9": {
+      "type": "pricing-table",
+      "blocks": {
+        "pricing_tier_iy7HVF": {
+          "type": "pricing-tier",
+          "settings": {
+            "featured": false,
+            "heading": "Basic",
+            "price": "$29",
+            "price_period": "month",
+            "description": "<p>Perfect for getting started</p>",
+            "features": "Feature 1, Feature 2, Feature 3",
+            "button_text": "Get Started",
+            "button_link": "",
+            "button_variant": "primary",
+            "button_size": "large"
+          }
+        },
+        "pricing_tier_GeAcxQ": {
+          "type": "pricing-tier",
+          "settings": {
+            "featured": true,
+            "heading": "Pro",
+            "price": "$99",
+            "price_period": "month",
+            "description": "<p>Most popular choice</p>",
+            "features": "All Basic features, Feature 4, Feature 5",
+            "button_text": "Get Started",
+            "button_link": "",
+            "button_variant": "primary",
+            "button_size": "large"
+          }
+        },
+        "pricing_tier_c7ACkU": {
+          "type": "pricing-tier",
+          "settings": {
+            "featured": false,
+            "heading": "Enterprise",
+            "price": "$299",
+            "price_period": "month",
+            "description": "<p>For large teams</p>",
+            "features": "All Pro features, Feature 6, Feature 7, Priority Support",
+            "button_text": "Contact Us",
+            "button_link": "",
+            "button_variant": "primary",
+            "button_size": "large"
+          }
+        }
+      },
+      "block_order": [
+        "pricing_tier_iy7HVF",
+        "pricing_tier_GeAcxQ",
+        "pricing_tier_c7ACkU"
+      ],
+      "name": "Pricing Table",
       "settings": {
-        "heading": "Frequently Asked Questions",
-        "text": "<p>Find answers to common questions about Print on Demand</p>",
-        "image": "shopify://shop_images/Arts_by_Dylan2025-06-06_at_9.48.40_PM_16.jpg",
-        "image_opacity": 100,
-        "overlay_color": "#ffffff",
-        "overlay_opacity": 10,
-        "full_width": true,
-        "layout_variation": "centered",
-        "button_size": "large",
+        "heading": "Choose Your Plan",
+        "text": "",
+        "columns_mobile": 1,
+        "columns_tablet": 2,
+        "columns_desktop": 3,
+        "column_gap": 20,
+        "highlight_featured": true,
         "abd_theme": "nineties-graphic-design",
-        "min_height": 400,
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": "",
+        "color_scheme": "",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -34,6 +103,8 @@
           "settings": {
             "heading": "How does Print on Demand work?",
             "content": "<p>When you place an order, our system automatically sends the design to our production facility. Your item is printed specially for you, which helps us reduce waste and offer a wider variety of unique designs.</p>",
+            "open_by_default": false,
+            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
           }
         },
@@ -42,6 +113,8 @@
           "settings": {
             "heading": "How long does production take?",
             "content": "<p>Typically, items take <em><strong>2–5 business days</strong></em> to be printed and processed before they are shipped. During peak holidays, production times may be slightly longer.</p>",
+            "open_by_default": false,
+            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
           }
         },
@@ -50,6 +123,8 @@
           "settings": {
             "heading": "How long will it take to receive my order?",
             "content": "<p>Shipping times depend on your location. <br/><em><strong>Domestic (US)</strong></em>: 3–7 business days after production.</p>",
+            "open_by_default": false,
+            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
           }
         },
@@ -58,6 +133,8 @@
           "settings": {
             "heading": "How do I know which size to pick?",
             "content": "<p>We provide a <strong>Size Guide</strong> on every product page. We recommend measuring a favorite garment you already own and comparing it to our charts for the best fit.</p>",
+            "open_by_default": false,
+            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
           }
         },
@@ -66,6 +143,8 @@
           "settings": {
             "heading": "What printing method do you use?",
             "content": "<p>Most of our apparel is printed using <strong>DTG </strong><em><strong>(Direct to Garment)</strong></em> technology, which allows for high-detail prints and a soft feel that integrates with the fabric.</p>",
+            "open_by_default": false,
+            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
           }
         },
@@ -74,6 +153,8 @@
           "settings": {
             "heading": "What is your return policy?",
             "content": "<p>Since every item is made to order, we do not typically accept returns or exchanges for sizing issues. However, if your item arrives <strong>damaged</strong> or with a <strong>printing error</strong>, we will send a replacement at no cost to you.</p>",
+            "open_by_default": false,
+            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
           }
         },
@@ -82,6 +163,8 @@
           "settings": {
             "heading": "How do I report a problem with my order?",
             "content": "<p>Please email our support team at <em><strong>artsbydylan@gmail.com</strong></em> with your order number and clear photos of the issue within <strong>14 days</strong> of receiving your package.</p>",
+            "open_by_default": false,
+            "icon": "plus",
             "abd_theme": "nineties-graphic-design"
           }
         }
@@ -96,19 +179,11 @@
         "q7"
       ],
       "settings": {
-        "heading": "Questions & Answers",
-        "text": "<p>Learn more about our services and policies.</p>",
+        "heading": "Frequently Asked Questions",
+        "text": "<p>Find answers to common questions about Print on Demand</p>",
         "abd_theme": "nineties-graphic-design",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "rich_text_help": {
-      "type": "rich-text",
-      "settings": {
-        "heading": "Still have questions?",
-        "text": "<p>Can't find what you're looking for? <a href=\"/pages/contact\">Contact our support team</a> and we'll be happy to help!</p>",
-        "text_alignment": "center",
+        "custom_bg": "",
+        "custom_text": "",
         "padding_top": 60,
         "padding_bottom": 60
       }
@@ -116,8 +191,7 @@
   },
   "order": [
     "breadcrumbs",
-    "hero",
     "faq_list",
-    "rich_text_help"
+    "pricing_table_DnRCy9"
   ]
 }
