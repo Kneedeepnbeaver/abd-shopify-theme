@@ -1,0 +1,31 @@
+{% comment %}
+  Renders one accordion item. Used by sections/accordion-section.liquid.
+  Pass the section block as: {% render 'accordion-item-block', block: block %}
+{% endcomment %}
+{% liquid
+  assign abd_theme = block.settings.abd_theme
+  assign custom_bg = block.settings.custom_bg
+  assign custom_text = block.settings.custom_text
+  assign custom_accent = block.settings.custom_accent
+  assign custom_link = block.settings.custom_link
+%}
+<div class="block-accordion-item-block {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
+     {{ block.shopify_attributes }}>
+  <details class="accordion" {% if block.settings.open_by_default %}open{% endif %}>
+    <summary class="accordion__title abd-title">
+      <span class="accordion__title-text">{{ block.settings.heading | default: 'Question' }}</span>
+      <span class="accordion__icon">
+        {%- if block.settings.icon == 'chevron' -%}
+          {% render 'icon', icon: 'chevron-down', size: 'small' %}
+        {%- elsif block.settings.icon == 'arrow' -%}
+          {% render 'icon', icon: 'arrow-down', size: 'small' %}
+        {%- else -%}
+          {% render 'icon', icon: 'plus', size: 'small' %}
+        {%- endif -%}
+      </span>
+    </summary>
+    <div class="accordion__content abd-content">
+      {{ block.settings.content }}
+    </div>
+  </details>
+</div>
