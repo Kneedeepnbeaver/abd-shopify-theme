@@ -55,8 +55,9 @@
         "column_xfEQGm": {
           "type": "column",
           "settings": {
+            "image": "shopify://shop_images/GGB_Spin_ABD-Custom_Gif_540_Square-ezgif.com-optimize.gif",
             "heading": "From the Studio | Arts by Dylan",
-            "content": "<p>Uncover the Secrets of Art, History, and AI at Arts by Dylan's Studio!</p>",
+            "content": "<p>Art, history, and AI—from the studio.</p><p>Essays and posts are researched and written with AI (RAG + local LLM), then edited and styled in-house with the ABD theme.</p>",
             "button_text": "Latest from the studio",
             "button_link": "shopify://blogs/from-the-studio-arts-by-dylan",
             "button_variant": "secondary",
