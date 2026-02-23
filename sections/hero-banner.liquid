@@ -74,6 +74,12 @@
         %}
       </div>
     {%- endif %}
+
+    {%- if section.settings.custom_html != blank -%}
+      <div class="section-hero-banner__custom-html">
+        {{ section.settings.custom_html }}
+      </div>
+    {%- endif %}
   </div>
   
   {%- if abd_theme == 'retro-internet' -%}</div>{%- endif -%}
@@ -137,6 +143,15 @@
   
   .section-hero-banner.layout-right .section-hero-banner__container {
     text-align: right;
+  }
+
+  .section-hero-banner__custom-html {
+    margin-top: var(--spacing-md);
+  }
+
+  .section-hero-banner__custom-html img {
+    max-width: 100%;
+    height: auto;
   }
   
   /* Split Layout */
@@ -236,6 +251,12 @@
       "type": "url",
       "id": "button_link",
       "label": "Button Link"
+    },
+    {
+      "type": "html",
+      "id": "custom_html",
+      "label": "Custom HTML",
+      "info": "Optional. Rendered after the button. Use for badges, embeds, or extra markup."
     },
     {
       "type": "image_picker",

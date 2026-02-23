@@ -2,7 +2,8 @@
   Multi-Column Content Section
 
   A flexible multi-column layout section that supports:
-  - Custom column blocks with heading, content, image, and button
+  - Custom column blocks with heading, content, image, button, and optional custom HTML
+  - Custom HTML block type for full-column HTML (embeds, creative layouts)
   - Responsive column layouts (mobile, tablet, desktop)
   - Multiple layout options (grid, masonry, equal height)
   - Alignment and spacing controls
@@ -83,6 +84,12 @@
                         variant: block.settings.button_variant | default: 'primary',
                         size: block.settings.button_size | default: 'medium'
                       %}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if block.settings.custom_html != blank -%}
+                    <div class="multi-column-column__custom-html">
+                      {{ block.settings.custom_html }}
                     </div>
                   {%- endif -%}
                 </div>
@@ -216,6 +223,13 @@
                     </div>
                   {%- endif -%}
                 </div>
+
+              {%- when 'custom_html' -%}
+                {%- if block.settings.html != blank -%}
+                  <div class="multi-column-custom-html">
+                    {{ block.settings.html }}
+                  </div>
+                {%- endif -%}
             {%- endcase -%}
           </div>
         {%- endfor -%}
@@ -331,6 +345,25 @@
 
   .multi-column-column__button {
     margin-top: auto;
+  }
+
+  .multi-column-column__custom-html {
+    margin-top: var(--spacing-md);
+  }
+
+  .multi-column-column__custom-html img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .multi-column-custom-html {
+    padding: var(--spacing-md);
+    min-height: 0;
+  }
+
+  .multi-column-custom-html img {
+    max-width: 100%;
+    height: auto;
   }
 
   /* Product Block Styles */
@@ -732,6 +765,12 @@
             { "value": "medium", "label": "Medium" },
             { "value": "large", "label": "Large" }
           ]
+        },
+        {
+          "type": "html",
+          "id": "custom_html",
+          "label": "Custom HTML",
+          "info": "Optional. Rendered after the column content. Use for embeds, custom markup, or creative layouts."
         }
       ]
     },
@@ -862,6 +901,18 @@
           "id": "content",
           "label": "Content",
           "default": "<p></p>"
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "name": "Custom HTML",
+      "settings": [
+        {
+          "type": "html",
+          "id": "html",
+          "label": "HTML",
+          "info": "Full column content. Use for embeds, custom layouts, or any HTML."
         }
       ]
     }

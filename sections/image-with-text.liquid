@@ -42,6 +42,13 @@
     {%- if section.blocks.size > 0 -%}
       <div class="section-image-with-text__blocks">
         {%- for block in section.blocks -%}
+          {%- if block.type == 'custom_html' -%}
+            <div class="section-image-with-text__block section-image-with-text__block--custom-html" {{ block.shopify_attributes }}>
+              <div class="image-with-text-item image-with-text-item--custom-html">
+                {%- if block.settings.html != blank -%}{{ block.settings.html }}{%- endif -%}
+              </div>
+            </div>
+          {%- else -%}
           <div class="section-image-with-text__block section-image-with-text__block--{{ block.settings.image_position | default: image_position }}" {{ block.shopify_attributes }}>
             <div class="image-with-text-item">
               {%- if block.settings.image != blank -%}
@@ -111,9 +118,16 @@
                     %}
                   </div>
                 {%- endif -%}
+
+                {%- if block.settings.custom_html != blank -%}
+                  <div class="image-with-text-item__custom-html">
+                    {{ block.settings.custom_html }}
+                  </div>
+                {%- endif -%}
               </div>
             </div>
           </div>
+          {%- endif -%}
         {%- endfor -%}
       </div>
     {%- elsif section.settings.image != blank -%}
@@ -572,6 +586,24 @@
             { "value": "left", "label": "Left" },
             { "value": "right", "label": "Right" }
           ]
+        },
+        {
+          "type": "html",
+          "id": "custom_html",
+          "label": "Custom HTML",
+          "info": "Optional. Rendered after the button."
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "name": "Custom HTML",
+      "settings": [
+        {
+          "type": "html",
+          "id": "html",
+          "label": "HTML",
+          "info": "Full block content (embeds, custom markup)."
         }
       ]
     }

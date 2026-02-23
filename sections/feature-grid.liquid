@@ -79,6 +79,17 @@
                     </a>
                   </div>
                 {%- endif -%}
+
+                {%- if block.settings.custom_html != blank -%}
+                  <div class="feature-item__custom-html">
+                    {{ block.settings.custom_html }}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+            {%- if block.type == 'custom_html' -%}
+              <div class="feature-item feature-item--custom-html">
+                {%- if block.settings.html != blank -%}{{ block.settings.html }}{%- endif -%}
               </div>
             {%- endif -%}
           </div>
@@ -499,6 +510,24 @@
           "id": "show_link_arrow",
           "label": "Show Arrow on Link",
           "default": true
+        },
+        {
+          "type": "html",
+          "id": "custom_html",
+          "label": "Custom HTML",
+          "info": "Optional. Rendered after the link."
+        }
+      ]
+    },
+    {
+      "type": "custom_html",
+      "name": "Custom HTML",
+      "settings": [
+        {
+          "type": "html",
+          "id": "html",
+          "label": "HTML",
+          "info": "Full grid cell content (embeds, custom markup)."
         }
       ]
     }

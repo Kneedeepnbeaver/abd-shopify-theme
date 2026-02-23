@@ -84,6 +84,12 @@
                     %}
                   </div>
                 {%- endif -%}
+
+                {%- if block.settings.custom_html != blank -%}
+                  <div class="pricing-tier__custom-html">
+                    {{ block.settings.custom_html }}
+                  </div>
+                {%- endif -%}
               </div>
             {%- endif -%}
           </div>
@@ -475,6 +481,12 @@
             { "value": "medium", "label": "Medium" },
             { "value": "large", "label": "Large" }
           ]
+        },
+        {
+          "type": "html",
+          "id": "custom_html",
+          "label": "Custom HTML",
+          "info": "Optional. Rendered after the button (e.g. terms link, disclaimer)."
         }
       ]
     }
