@@ -30,6 +30,7 @@
         "text": "<p>\"I’m building myself—the kind of thing that used to come from small shops and fairground booths, not big tech.\"</p>",
         "button_text": "About Me and this Theme",
         "button_link": "shopify://pages/about-me",
+        "custom_html": "",
         "image": "shopify://shop_images/ABD_Logo_Thick_Shadow.png",
         "image_opacity": 100,
         "overlay_color": "#ffffff",
@@ -61,36 +62,26 @@
             "button_text": "Latest from the studio",
             "button_link": "shopify://blogs/from-the-studio-arts-by-dylan",
             "button_variant": "secondary",
-            "button_size": "large"
+            "button_size": "large",
+            "custom_html": ""
           }
         },
         "column_RpVpgk": {
           "type": "column",
           "settings": {
-            "heading": "Column 2",
-            "content": "<p>Add your content here</p>",
+            "heading": "",
+            "content": "",
             "button_text": "",
             "button_link": "",
             "button_variant": "primary",
-            "button_size": "medium"
-          }
-        },
-        "column_wA7TbB": {
-          "type": "column",
-          "settings": {
-            "heading": "Column 3",
-            "content": "<p>Add your content here</p>",
-            "button_text": "",
-            "button_link": "",
-            "button_variant": "primary",
-            "button_size": "medium"
+            "button_size": "medium",
+            "custom_html": ""
           }
         }
       },
       "block_order": [
         "column_xfEQGm",
-        "column_RpVpgk",
-        "column_wA7TbB"
+        "column_RpVpgk"
       ],
       "name": "Multi-Column Content",
       "settings": {
