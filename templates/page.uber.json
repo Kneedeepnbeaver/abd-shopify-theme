@@ -11,7 +11,13 @@
   "sections": {
     "main": {
       "type": "page",
-      "settings": {}
+      "settings": {
+        "abd_theme": "highway-street-photo",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
     }
   },
   "order": [

@@ -69,13 +69,13 @@
         "column_RpVpgk": {
           "type": "column",
           "settings": {
-            "heading": "",
+            "heading": "The Other Gig",
             "content": "",
             "button_text": "",
             "button_link": "",
             "button_variant": "primary",
             "button_size": "medium",
-            "custom_html": "<h2>The Other Gig</h2>\n<div class=\"callout\">\n  <h3>Artist, Driver</h3>\n  <p>From the studio to the driver’s seat—how I make it work and what I see along the way.</p>\n</div>\n<img src=\"https://cdn.shopify.com/s/files/1/0098/0523/4223/files/2026-02-22_23-24-54_Uber_Driver.jpg?v=1771831624\" alt=\"Person sitting in a car's back seat with a dashboard camera view.\" style=\"max-width: 100%; height: auto;\"><br><a href=\"https://artsbydylan.com/pages/the-other-gig-uber-driver\" class=\"btn\" target=\"_blank\" rel=\"noopener\">From the road to the page</a>"
+            "custom_html": "<div class=\"callout\">\n  <h3>Artist, Driver</h3>\n  <p>From the studio to the driver’s seat—how I make it work and what I see along the way.</p>\n</div>\n<img src=\"https://cdn.shopify.com/s/files/1/0098/0523/4223/files/2026-02-22_23-24-54_Uber_Driver.jpg?v=1771831624\" alt=\"Person sitting in a car's back seat with a dashboard camera view.\" style=\"max-width: 100%; height: auto;\"><br><a href=\"https://artsbydylan.com/pages/the-other-gig-uber-driver\" class=\"btn\" target=\"_blank\" rel=\"noopener\">From the road to the page</a>"
           }
         },
         "column_YfQCVT": {
