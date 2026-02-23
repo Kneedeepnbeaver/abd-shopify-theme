@@ -75,25 +75,38 @@
             "button_link": "",
             "button_variant": "primary",
             "button_size": "medium",
+            "custom_html": "<h2>The Other Gig</h2>\n<div class=\"callout\">\n  <h3>Artist, Driver</h3>\n  <p>From the studio to the driver’s seat—how I make it work and what I see along the way.</p>\n</div>\n<img src=\"https://cdn.shopify.com/s/files/1/0098/0523/4223/files/2026-02-22_23-24-54_Uber_Driver.jpg?v=1771831624\" alt=\"Person sitting in a car's back seat with a dashboard camera view.\" style=\"max-width: 100%; height: auto;\"><br><a href=\"https://artsbydylan.com/pages/the-other-gig-uber-driver\" class=\"btn\" target=\"_blank\" rel=\"noopener\">From the road to the page</a>"
+          }
+        },
+        "column_YfQCVT": {
+          "type": "column",
+          "settings": {
+            "heading": "Column",
+            "content": "<p></p>",
+            "button_text": "",
+            "button_link": "",
+            "button_variant": "primary",
+            "button_size": "medium",
             "custom_html": ""
           }
         }
       },
       "block_order": [
         "column_xfEQGm",
-        "column_RpVpgk"
+        "column_RpVpgk",
+        "column_YfQCVT"
       ],
       "name": "Multi-Column Content",
       "settings": {
         "heading": "",
         "text": "",
-        "layout_style": "grid",
+        "layout_style": "masonry",
         "columns_mobile": 1,
         "columns_tablet": 2,
         "columns_desktop": 3,
         "column_gap": 20,
-        "equal_height": false,
-        "text_alignment": "left",
+        "equal_height": true,
+        "text_alignment": "center",
         "padding_top": 60,
         "padding_bottom": 60,
         "abd_theme": "california-dreaming",
