@@ -69,7 +69,7 @@
         "show_home": true,
         "show_current": true,
         "separator": ">",
-        "abd_theme": "",
+        "abd_theme": "ca-assembly-daily-file",
         "custom_bg": "",
         "custom_text": "",
         "custom_accent": "",
