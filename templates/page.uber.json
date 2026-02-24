@@ -1,18 +1,48 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "show_home": true,
+        "show_current": true,
+        "separator": ">",
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
+    },
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "heading": "The Other Gig: Uber Driver",
+        "text": "<p>When I'm not in the studio, I'm on the road. Same person behind the art and the wheel.</p>",
+        "button_text": "",
+        "button_link": "",
+        "image": "",
+        "image_opacity": 100,
+        "overlay_color": "#000000",
+        "overlay_opacity": 0,
+        "full_width": true,
+        "layout_variation": "centered",
+        "button_size": "large",
+        "image_loading": "eager",
+        "enable_parallax": false,
+        "abd_theme": "highway-street-photo",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": "",
+        "min_height": 300,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
     "main": {
       "type": "page",
       "settings": {
-        "abd_theme": "highway-street-photo",
+        "abd_theme": "",
         "custom_bg": "",
         "custom_text": "",
         "custom_accent": "",
@@ -21,6 +51,8 @@
     }
   },
   "order": [
+    "breadcrumbs",
+    "hero",
     "main"
   ]
 }
