@@ -26,6 +26,7 @@
       "type": "hero-banner",
       "name": "Hero Banner",
       "settings": {
+        "show_only_for_handle": "",
         "heading": "Welcome to Arts by Dylan",
         "text": "<p>\"I’m building myself—the kind of thing that used to come from small shops and fairground booths, not big tech.\"</p>",
         "button_text": "About Me and this Theme",
@@ -75,14 +76,14 @@
             "button_link": "",
             "button_variant": "primary",
             "button_size": "medium",
-            "custom_html": "<div class=\"callout\">\n  <h3>Artist, Driver</h3>\n  <p>From the studio to the driver’s seat—how I make it work and what I see along the way.</p>\n</div>\n<img src=\"https://cdn.shopify.com/s/files/1/0098/0523/4223/files/2026-02-22_23-24-54_Uber_Driver.jpg?v=1771831624\" alt=\"Person sitting in a car's back seat with a dashboard camera view.\" style=\"max-width: 100%; height: auto;\"><br><a href=\"https://artsbydylan.com/pages/the-other-gig-uber-driver\" class=\"btn\" target=\"_blank\" rel=\"noopener\">From the road to the page</a>"
+            "custom_html": "<article class=\"card homepage-column-card\" style=\"overflow: hidden; border-radius: 12px;\">\n  \n  <div class=\"callout callout-box\" style=\"margin: 0.75rem 0;\">\n    <h3 style=\"margin-top: 0;\">Artist, Driver</h3>\n    <p>From the studio to the driver's seat—how I make it work and what I see along the way.</p>\n  </div>\n  <div class=\"image-wrapper\" style=\"border-radius: 8px; overflow: hidden; margin-bottom: 1rem;\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0098/0523/4223/files/2026-02-22_23-24-54_Uber_Driver.jpg?v=1771831624\" alt=\"Person sitting in a car's back seat with a dashboard camera view.\" style=\"max-width: 100%; height: auto; display: block;\">\n  </div>\n  <a href=\"https://artsbydylan.com/pages/the-other-gig-uber-driver\" class=\"btn btn-primary\" target=\"_blank\" rel=\"noopener\">From the road to the page</a>\n</article>"
           }
         },
         "column_YfQCVT": {
           "type": "column",
           "settings": {
             "heading": "Column",
-            "content": "<p></p>",
+            "content": "",
             "button_text": "",
             "button_link": "",
             "button_variant": "primary",
@@ -98,6 +99,7 @@
       ],
       "name": "Multi-Column Content",
       "settings": {
+        "show_only_for_handle": "",
         "heading": "",
         "text": "",
         "layout_style": "masonry",
