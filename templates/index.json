@@ -82,10 +82,11 @@
         "column_YfQCVT": {
           "type": "column",
           "settings": {
-            "heading": "Column",
-            "content": "",
-            "button_text": "",
-            "button_link": "",
+            "image": "shopify://shop_images/Downloads2025-05-25.jpg",
+            "heading": "Coding & Government",
+            "content": "<p><em><strong>From Excel to AI</strong></em></p><p>I didn't start as a programmer. </p><p>I started in a legislative office, logging mail in Excel—and that spreadsheet taught me the same structured thinking that powers AI today.</p><p></p>",
+            "button_text": "Read the story",
+            "button_link": "shopify://pages/from-excel-to-ai",
             "button_variant": "primary",
             "button_size": "medium",
             "custom_html": ""
