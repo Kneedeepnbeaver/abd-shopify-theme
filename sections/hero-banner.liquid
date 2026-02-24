@@ -32,8 +32,10 @@
   assign image_opacity = section.settings.image_opacity | default: 100
   assign overlay_color = section.settings.overlay_color
   assign overlay_opacity = section.settings.overlay_opacity | default: 0
+  assign show_only_handle = section.settings.show_only_for_handle | strip
 %}
 
+{% if show_only_handle == blank or page.handle == show_only_handle %}
 <div class="{{ section_class }}"
      style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}">
   {% if section.settings.image != blank %}
@@ -218,6 +220,7 @@
   custom_accent: custom_accent,
   custom_link: custom_link
 %}
+{% endif %}
 
 {% schema %}
 {
@@ -225,6 +228,16 @@
   "tag": "section",
   "class": "section-hero-banner",
   "settings": [
+    {
+      "type": "header",
+      "content": "Visibility"
+    },
+    {
+      "type": "text",
+      "id": "show_only_for_handle",
+      "label": "Show only on page handle",
+      "info": "Leave blank to show everywhere. Use the page handle (e.g. shipping, returns) to show this section only on that legal page."
+    },
     {
       "type": "header",
       "content": "Content"

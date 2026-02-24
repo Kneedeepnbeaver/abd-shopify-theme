@@ -28,8 +28,10 @@
   assign custom_text = section.settings.custom_text
   assign custom_accent = section.settings.custom_accent
   assign custom_link = section.settings.custom_link
+  assign show_only_handle = section.settings.show_only_for_handle | strip
 %}
 
+{% if show_only_handle == blank or page.handle == show_only_handle %}
 <div class="section-multi-column section-multi-column--{{ layout_style }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
      style="--columns-mobile: {{ columns_mobile }}; --columns-tablet: {{ columns_tablet }}; --columns-desktop: {{ columns_desktop }}; --column-gap: {{ column_gap }}px; {% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}">
   <div class="section-multi-column__container page-width">
@@ -518,6 +520,7 @@
   custom_accent: custom_accent,
   custom_link: custom_link
 %}
+{% endif %}
 
 {% schema %}
 {
@@ -525,6 +528,16 @@
   "tag": "section",
   "class": "section-multi-column",
   "settings": [
+    {
+      "type": "header",
+      "content": "Visibility"
+    },
+    {
+      "type": "text",
+      "id": "show_only_for_handle",
+      "label": "Show only on page handle",
+      "info": "Leave blank to show everywhere. Use the page handle (e.g. shipping, returns) to show this section only on that legal page."
+    },
     {
       "type": "text",
       "id": "heading",
