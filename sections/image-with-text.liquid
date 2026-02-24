@@ -27,13 +27,14 @@
     {%- if abd_theme contains 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
     {%- if abd_theme == 'social' -%}<div class="abd-myspace-container">{%- endif -%}
     
-    {%- if section.settings.heading != blank -%}
+    {%- comment -%} Section title (heading + text) only when using blocks; when single image+text, heading/text appear beside image only. {%- endcomment -%}
+    {%- if section.blocks.size > 0 and section.settings.heading != blank -%}
       <h2 class="section-image-with-text__heading section-image-with-text__heading--{{ text_alignment }} abd-title">
         {{ section.settings.heading }}
       </h2>
     {%- endif -%}
 
-    {%- if section.settings.text != blank -%}
+    {%- if section.blocks.size > 0 and section.settings.text != blank -%}
       <div class="section-image-with-text__text section-image-with-text__text--{{ text_alignment }} abd-content">
         {{ section.settings.text }}
       </div>
