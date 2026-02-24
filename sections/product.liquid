@@ -39,7 +39,8 @@
   {% if section.settings.theme_tag_name != blank and section.settings.theme_when_tag_present != blank %}
     {% assign theme_tag_handle = section.settings.theme_tag_name | strip | handle %}
     {% for tag in product.tags %}
-      {% if tag | handle == theme_tag_handle %}
+      {% assign current_tag_handle = tag | handle %}
+      {% if current_tag_handle == theme_tag_handle %}
         {% assign tag_matched = true %}
         {% assign abd_theme = section.settings.theme_when_tag_present %}
       {% endif %}
