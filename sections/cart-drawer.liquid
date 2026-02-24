@@ -30,6 +30,7 @@
 <div class="cart-drawer {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}" 
      id="cart-drawer"
      data-section-id="{{ section.id }}" 
+     data-remaining-amount="{{ remaining_amount }}"
      style="{% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}">
      
   {%- if abd_theme contains 'retro' -%}<div class="abd-geocities-box">{%- endif -%}

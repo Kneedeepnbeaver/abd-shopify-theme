@@ -31,7 +31,9 @@
 %}
 
 <div class="section-collection section-collection--{{ layout_variation }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
-     style="--columns-mobile: {{ columns_mobile }}; --columns-tablet: {{ columns_tablet }}; --columns-desktop: {{ columns_desktop }}; {% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}">
+     style="--columns-mobile: {{ columns_mobile }}; --columns-tablet: {{ columns_tablet }}; --columns-desktop: {{ columns_desktop }}; {% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}"
+     data-show-vendor="{{ show_vendor }}"
+     data-show-quick-add="{{ show_quick_add }}">
   <div class="section-collection__container page-width">
     {%- if abd_theme contains 'retro' -%}<div class="abd-geocities-box">{%- endif -%}
     {%- if abd_theme == 'social' -%}<div class="abd-myspace-container">{%- endif -%}

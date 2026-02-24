@@ -5,6 +5,12 @@
     "back_to_shopping": "Back to shopping"
   },
   "blog": {
+    "article": {
+      "share": "Share this article",
+      "no_comments": "No comments yet.",
+      "read_more": "Read more"
+    },
+    "no_articles": "No articles found.",
     "article_comments": "Comments",
     "article_metadata_html": "{{ date }} by {{ author }}",
     "comment_form_body": "Comment",
@@ -14,6 +20,10 @@
     "comment_form_title": "Add a comment"
   },
   "cart": {
+    "general": {
+      "title": "Your Cart",
+      "close": "Close"
+    },
     "checkout": "Checkout",
     "title": "Cart",
     "update": "Update",
@@ -28,6 +38,9 @@
     }
   },
   "collections": {
+    "general": {
+      "no_products": "No products found in this collection."
+    },
     "title": "Collections"
   },
   "gift_card": {
