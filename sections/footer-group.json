@@ -14,8 +14,18 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "menu": "",
-        "show_payment_icons": true
+        "menu": "footer",
+        "show_payment_icons": true,
+        "abd_theme": "american-wave",
+        "theme_for_index": "travel-nyc-liberty",
+        "theme_for_product": "american-wave",
+        "theme_for_collection": "impressionist",
+        "theme_for_blog": "las-vegas",
+        "theme_for_page": "ca-assembly-daily-file",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
       }
     }
   },
