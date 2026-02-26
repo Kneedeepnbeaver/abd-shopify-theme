@@ -15,7 +15,12 @@
       "type": "header",
       "settings": {
         "menu": "main-menu",
-        "abd_theme": "",
+        "abd_theme": "ca-assembly-daily-file",
+        "theme_for_index": "italy",
+        "theme_for_product": "france",
+        "theme_for_collection": "nineties-graphic-design",
+        "theme_for_blog": "wayfinding-receipt",
+        "theme_for_page": "ca-assembly-daily-file",
         "custom_bg": "",
         "custom_text": "",
         "custom_accent": "",
