@@ -30,7 +30,7 @@
         "show_author": true,
         "show_tags": true,
         "show_share_buttons": true,
-        "theme_tag_name": "top secret",
+        "theme_tag_name": "top secret, {{ article.metafields.custom.select_abd_theme.value.select_theme | metafield_text }}",
         "theme_when_tag_present": "military-theme",
         "theme_tag_name_2": "",
         "theme_when_tag_present_2": "",
