@@ -335,6 +335,12 @@
     margin-bottom: var(--spacing-xl);
   }
 
+  /* Ensure article body is a single full-width column even when ABD themes add grid/sidebars */
+  .section-article .abd-content {
+    display: block;
+    max-width: 100%;
+  }
+
   .article__content h2,
   .article__content h3,
   .article__content h4 {

@@ -528,6 +528,12 @@
   .product__image {
     cursor: zoom-in;
   }
+  
+  /* Ensure product description body is a single full-width column even when ABD themes add grid/sidebars */
+  .section-product .abd-content {
+    display: block;
+    max-width: 100%;
+  }
 {% endstyle %}
 
 {% render 'abd-theme-styles',

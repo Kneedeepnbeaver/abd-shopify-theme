@@ -34,6 +34,14 @@
   </div>
 </div>
 
+{% style %}
+  /* Ensure page content is a single full-width column even when ABD themes add grid/sidebars */
+  .section-page .abd-content {
+    display: block;
+    max-width: 100%;
+  }
+{% endstyle %}
+
 {% schema %}
 {
   "name": "Page",

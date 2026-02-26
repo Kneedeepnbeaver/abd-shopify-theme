@@ -43,6 +43,12 @@
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+
+  /* Ensure about-me body is a single full-width column even when ABD themes add grid/sidebars */
+  .section-about-me .abd-content {
+    display: block;
+    max-width: 100%;
+  }
 {% endstyle %}
 
 {% render 'abd-theme-styles',
