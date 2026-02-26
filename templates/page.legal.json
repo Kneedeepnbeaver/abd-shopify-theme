@@ -9,60 +9,6 @@
  */
 {
   "sections": {
-    "hero_shipping": {
-      "type": "hero-banner",
-      "settings": {
-        "show_only_for_handle": "shipping",
-        "heading": "Shipping Information",
-        "text": "<p>Learn about our shipping options and delivery times</p>",
-        "button_text": "Shop Now",
-        "button_link": "",
-        "custom_html": "",
-        "image_opacity": 100,
-        "overlay_color": "#000000",
-        "overlay_opacity": 0,
-        "full_width": false,
-        "layout_variation": "centered",
-        "button_size": "large",
-        "image_loading": "eager",
-        "enable_parallax": false,
-        "abd_theme": "",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": "",
-        "min_height": 400,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "hero_returns": {
-      "type": "hero-banner",
-      "settings": {
-        "show_only_for_handle": "returns",
-        "heading": "Returns & Exchanges",
-        "text": "<p>Our return and exchange policy</p>",
-        "button_text": "Shop Now",
-        "button_link": "",
-        "custom_html": "",
-        "image_opacity": 100,
-        "overlay_color": "#000000",
-        "overlay_opacity": 0,
-        "full_width": false,
-        "layout_variation": "centered",
-        "button_size": "large",
-        "image_loading": "eager",
-        "enable_parallax": false,
-        "abd_theme": "",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": "",
-        "min_height": 400,
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "breadcrumbs": {
       "type": "breadcrumbs",
       "settings": {
@@ -85,97 +31,10 @@
         "custom_accent": "",
         "custom_link": ""
       }
-    },
-    "shipping_options": {
-      "type": "feature-grid",
-      "settings": {
-        "show_only_for_handle": "shipping",
-        "heading": "Shipping Options",
-        "text": "<p></p>",
-        "columns_mobile": 1,
-        "columns_tablet": 2,
-        "columns_desktop": 3,
-        "column_gap": 20,
-        "equal_height": false,
-        "text_alignment": "left",
-        "abd_theme": "",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": "",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "tracking_info": {
-      "type": "rich-text",
-      "settings": {
-        "show_only_for_handle": "shipping",
-        "heading": "Track Your Order",
-        "text": "<p>Once your order ships, you'll receive a tracking number via email. Use it to track your package's journey to you.</p>",
-        "category": "",
-        "summary": "",
-        "text_alignment": "center",
-        "content_width": "standard",
-        "abd_theme": "",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": "",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
-    "policy_details": {
-      "type": "multi-column",
-      "settings": {
-        "show_only_for_handle": "returns",
-        "heading": "Policy Details",
-        "text": "<p></p>",
-        "layout_style": "grid",
-        "columns_mobile": 1,
-        "columns_tablet": 2,
-        "columns_desktop": 3,
-        "column_gap": 20,
-        "equal_height": false,
-        "text_alignment": "left",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "abd_theme": "",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": ""
-      }
-    },
-    "contact_support": {
-      "type": "rich-text",
-      "settings": {
-        "show_only_for_handle": "returns",
-        "heading": "Need Help?",
-        "text": "<p>Questions about returns or exchanges? <a href=\"/pages/contact\">Contact our customer service team</a>.</p>",
-        "category": "",
-        "summary": "",
-        "text_alignment": "center",
-        "content_width": "standard",
-        "abd_theme": "",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": "",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
     }
   },
   "order": [
-    "hero_shipping",
-    "hero_returns",
     "breadcrumbs",
-    "main",
-    "shipping_options",
-    "tracking_info",
-    "policy_details",
-    "contact_support"
+    "main"
   ]
 }
