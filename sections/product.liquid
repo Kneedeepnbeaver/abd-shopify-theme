@@ -46,16 +46,37 @@
 {% comment %} Tag and collection-handle theme rules when no theme from product/collection metafields. {% endcomment %}
 {% if abd_theme == section.settings.abd_theme %}
   {% assign tag_matched = false %}
-  {% if section.settings.theme_tag_name != blank and section.settings.theme_when_tag_present != blank %}
-    {% assign theme_tag_handle = section.settings.theme_tag_name | strip | handle %}
-    {% for tag in product.tags %}
-      {% assign current_tag_handle = tag | handle %}
+  {% for tag in product.tags %}
+    {% assign current_tag_handle = tag | handle %}
+    {% if tag_matched == false and section.settings.theme_tag_name != blank and section.settings.theme_when_tag_present != blank %}
+      {% assign theme_tag_handle = section.settings.theme_tag_name | strip | handle %}
       {% if current_tag_handle == theme_tag_handle %}
         {% assign tag_matched = true %}
         {% assign abd_theme = section.settings.theme_when_tag_present %}
       {% endif %}
-    {% endfor %}
-  {% endif %}
+    {% endif %}
+    {% if tag_matched == false and section.settings.theme_tag_name_2 != blank and section.settings.theme_when_tag_present_2 != blank %}
+      {% assign theme_tag_handle_2 = section.settings.theme_tag_name_2 | strip | handle %}
+      {% if current_tag_handle == theme_tag_handle_2 %}
+        {% assign tag_matched = true %}
+        {% assign abd_theme = section.settings.theme_when_tag_present_2 %}
+      {% endif %}
+    {% endif %}
+    {% if tag_matched == false and section.settings.theme_tag_name_3 != blank and section.settings.theme_when_tag_present_3 != blank %}
+      {% assign theme_tag_handle_3 = section.settings.theme_tag_name_3 | strip | handle %}
+      {% if current_tag_handle == theme_tag_handle_3 %}
+        {% assign tag_matched = true %}
+        {% assign abd_theme = section.settings.theme_when_tag_present_3 %}
+      {% endif %}
+    {% endif %}
+    {% if tag_matched == false and section.settings.theme_tag_name_4 != blank and section.settings.theme_when_tag_present_4 != blank %}
+      {% assign theme_tag_handle_4 = section.settings.theme_tag_name_4 | strip | handle %}
+      {% if current_tag_handle == theme_tag_handle_4 %}
+        {% assign tag_matched = true %}
+        {% assign abd_theme = section.settings.theme_when_tag_present_4 %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
   {% if tag_matched == false and section.settings.theme_collection_handle != blank and section.settings.theme_for_collection_handle != blank and collection != blank %}
     {% assign collection_handle_setting = section.settings.theme_collection_handle | strip %}
     {% if collection.handle == collection_handle_setting %}
@@ -632,13 +653,142 @@
     {
       "type": "text",
       "id": "theme_tag_name",
-      "label": "Theme when product has tag",
-      "info": "Leave blank to ignore. If the product has this tag, the theme below is used (unless a metafield is set). Use one tag (e.g. premium, seasonal) to style products without separate templates."
+      "label": "Theme when product has tag (1)",
+      "info": "First tag → theme rule. Leave blank to skip. If product has multiple matching tags, rule 1 wins, then 2, 3, 4."
     },
     {
       "type": "select",
       "id": "theme_when_tag_present",
-      "label": "ABD theme when this tag is present",
+      "label": "ABD theme when tag 1 is present",
+      "default": "",
+      "options": [
+        { "value": "", "label": "None" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "ca-assembly-daily-file", "label": "CA Assembly Daily File" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street-photo", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "american-wave", "label": "American Wave" },
+        { "value": "military-theme", "label": "Military Theme" },
+        { "value": "millennial-myspace", "label": "Millennial Myspace" },
+        { "value": "national-parks-poster", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic-design", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-internet", "label": "Retro Internet" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-and-stripes", "label": "Stars And Stripes" },
+        { "value": "stpatricks", "label": "Stpatricks" },
+        { "value": "las-vegas", "label": "Las Vegas" },
+        { "value": "travel-nyc-liberty", "label": "Travel Nyc Liberty" },
+        { "value": "pink-yellow", "label": "Pink-Yellow" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
+        { "value": "zine", "label": "Zine" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "theme_tag_name_2",
+      "label": "Theme when product has tag (2)",
+      "info": "Second tag → theme rule. Leave blank to skip."
+    },
+    {
+      "type": "select",
+      "id": "theme_when_tag_present_2",
+      "label": "ABD theme when tag 2 is present",
+      "default": "",
+      "options": [
+        { "value": "", "label": "None" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "ca-assembly-daily-file", "label": "CA Assembly Daily File" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street-photo", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "american-wave", "label": "American Wave" },
+        { "value": "military-theme", "label": "Military Theme" },
+        { "value": "millennial-myspace", "label": "Millennial Myspace" },
+        { "value": "national-parks-poster", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic-design", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-internet", "label": "Retro Internet" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-and-stripes", "label": "Stars And Stripes" },
+        { "value": "stpatricks", "label": "Stpatricks" },
+        { "value": "las-vegas", "label": "Las Vegas" },
+        { "value": "travel-nyc-liberty", "label": "Travel Nyc Liberty" },
+        { "value": "pink-yellow", "label": "Pink-Yellow" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
+        { "value": "zine", "label": "Zine" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "theme_tag_name_3",
+      "label": "Theme when product has tag (3)",
+      "info": "Third tag → theme rule. Leave blank to skip."
+    },
+    {
+      "type": "select",
+      "id": "theme_when_tag_present_3",
+      "label": "ABD theme when tag 3 is present",
+      "default": "",
+      "options": [
+        { "value": "", "label": "None" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "ca-assembly-daily-file", "label": "CA Assembly Daily File" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street-photo", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "american-wave", "label": "American Wave" },
+        { "value": "military-theme", "label": "Military Theme" },
+        { "value": "millennial-myspace", "label": "Millennial Myspace" },
+        { "value": "national-parks-poster", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic-design", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-internet", "label": "Retro Internet" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-and-stripes", "label": "Stars And Stripes" },
+        { "value": "stpatricks", "label": "Stpatricks" },
+        { "value": "las-vegas", "label": "Las Vegas" },
+        { "value": "travel-nyc-liberty", "label": "Travel Nyc Liberty" },
+        { "value": "pink-yellow", "label": "Pink-Yellow" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
+        { "value": "zine", "label": "Zine" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "theme_tag_name_4",
+      "label": "Theme when product has tag (4)",
+      "info": "Fourth tag → theme rule. Leave blank to skip."
+    },
+    {
+      "type": "select",
+      "id": "theme_when_tag_present_4",
+      "label": "ABD theme when tag 4 is present",
       "default": "",
       "options": [
         { "value": "", "label": "None" },
