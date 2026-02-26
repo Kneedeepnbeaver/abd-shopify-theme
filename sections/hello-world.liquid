@@ -107,10 +107,12 @@
     margin-bottom: 0;
   }
 
-  /* Ensure intro and card descriptions stay single-column even when ABD themes add grid/sidebars */
+  /* Ensure intro and card descriptions use full container width (no theme max-width or grid) */
   .downloads-section .abd-content {
     display: block;
+    width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
   }
 
   .downloads-section__grid {
