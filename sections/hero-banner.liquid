@@ -94,11 +94,10 @@
     padding-bottom: {{ section.settings.padding_bottom | default: 60 }}px;
     min-height: {{ section.settings.min_height | default: 400 }}px;
     display: flex;
-    overflow: hidden;
-  }
-
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
   
   .section-hero-banner__image-wrapper {
@@ -137,6 +136,12 @@
     width: 100%;
     padding: var(--spacing-lg) var(--layout-container-padding);
     text-align: center;
+  }
+
+  /* Keep hero text single-column when ABD themes add grid/sidebars to .abd-content */
+  .section-hero-banner .abd-content {
+    display: block;
+    max-width: 100%;
   }
   
   .section-hero-banner.layout-left .section-hero-banner__container {
