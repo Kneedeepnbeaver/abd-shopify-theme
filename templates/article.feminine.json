@@ -1,0 +1,93 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "show_home": true,
+        "show_current": true,
+        "separator": ">",
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
+    },
+    "main": {
+      "type": "article",
+      "settings": {
+        "reading_layout": "wide",
+        "show_date": true,
+        "show_author": true,
+        "show_tags": true,
+        "show_share_buttons": true,
+        "theme_tag_name": "top secret",
+        "theme_when_tag_present": "military-theme",
+        "theme_tag_name_2": "",
+        "theme_when_tag_present_2": "",
+        "theme_tag_name_3": "",
+        "theme_when_tag_present_3": "",
+        "theme_blog_handle": "",
+        "theme_for_blog_handle": "",
+        "abd_theme": "",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": "",
+        "custom_summary": "",
+        "show_key_takeaways": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "hello_world_qPb63h": {
+      "type": "hello-world",
+      "blocks": {
+        "program_zVp8XV": {
+          "type": "program",
+          "settings": {
+            "title": "RAG TEMPLATE",
+            "description": "<p>My Blog Post Writer program is a custom-built software solution that leverages advanced coding techniques to streamline content creation. By vibe coded, I've crafted a unique tool that empowers users to easily import and organize credible sources into a searchable database.<br/><br/>The program allows users to upload their preferred materials – books, articles, or any other digital content they'd like to store – and breaks them down into manageable chunks. This enables the incorporation of metadata, making it simple for Local Large Language Models (LLLMs) to locate specific sections within the database. (Ollama powered)</p><p>One of the key features of this program is its semantic search functionality. When a user searches their library, the search query is applied not just to individual words or phrases but to the entire text of each document. This advanced search feature allows users to quickly and efficiently find relevant information within their curated content collection.</p><p> Anyone can download this program, put into Cursor, Antigravity, or any other AI coding platform, and have the AI recode it to whatever specific purpose the user needs, creative writing, research assistant, social media generation, whatever.  </p><p>A customizable, production-ready template for building RAG (Retrieval-Augmented Generation) desktop applications using Electron, React, and Python.</p>",
+            "github_url": "https://github.com/Kneedeepnbeaver/rag-template",
+            "releases_url": "",
+            "download_button_text": "Download / Releases",
+            "repo_button_text": "View on GitHub"
+          }
+        }
+      },
+      "block_order": [
+        "program_zVp8XV"
+      ],
+      "name": "Downloads",
+      "settings": {
+        "heading": "Github Repo",
+        "intro": "<p>RAG Template</p>",
+        "columns_mobile": 1,
+        "columns_tablet": 1,
+        "columns_desktop": 1,
+        "button_size": "large",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "abd_theme": "retro-internet",
+        "custom_bg": "",
+        "custom_text": "",
+        "custom_accent": "",
+        "custom_link": ""
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main",
+    "hello_world_qPb63h"
+  ]
+}
