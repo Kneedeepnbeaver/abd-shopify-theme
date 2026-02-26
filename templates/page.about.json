@@ -25,10 +25,12 @@
     "hero": {
       "type": "hero-banner",
       "settings": {
+        "show_only_for_handle": "",
         "heading": "About Me",
         "text": "<p>I'm Dylan, the person behind Arts by Dylan. This site is always under construction and will relaunch and be updated regularly with software I'm building myself—the kind of thing that used to come from small shops and fairground booths, not big tech.</p>",
         "button_text": "Contact Us",
         "button_link": "shopify://pages/contact",
+        "custom_html": "",
         "image": "shopify://shop_images/Change__Serf_Report.png",
         "image_opacity": 100,
         "overlay_color": "#000000",
@@ -68,9 +70,10 @@
             "icon_size": "large",
             "heading": "A Living Gallery",
             "content": "<p>I've built <strong>30 hand-crafted visual styles</strong> into the ABD theme. Each one is a complete aesthetic experience:<br/><br/><em><strong>- Cable News</strong></em> – Breaking news urgency with ticker-tape energy<br/><br/>- <em><strong>California Mission</strong></em> – Adobe warmth and Spanish colonial elegance  <br/><br/>- <em><strong>Cubism</strong></em> – Fragmented geometry meets Picasso-inspired layouts<br/><br/>- <em><strong>Disco</strong></em> – Glitter, groove, and Studio 54 maximalism<br/><br/>- <em><strong>Impressionist</strong></em> – Monet-soft colors and painterly textures<br/><br/>- <em><strong>Millennial MySpace</strong></em> – Y2K nostalgia with customizable chaos<br/><br/>- <em><strong>Retro Internet </strong></em>– GeoCities boxes, under-construction GIFs, and web 1.0 charm<br/><br/>- <em><strong>Las Vegas</strong></em> – Neon grids, outrun aesthetics, and 80s futurism<br/><br/>- <em><strong>Zine</strong></em> – Cut-and-paste punk energy with DIY collage vibes<br/><br/>Instead of generic \"light\" and \"dark\" modes, I wanted <strong>cultural moments as design systems</strong>. The idea is that a store can switch its entire personality in seconds—from Renaissance oil painting to highway street photography.</p>",
-            "link_text": "",
-            "link_url": "",
-            "show_link_arrow": true
+            "link_text": "Terms of Service",
+            "link_url": "shopify://pages/terms-of-service",
+            "show_link_arrow": true,
+            "custom_html": ""
           }
         },
         "feature_jzVkJw": {
@@ -80,9 +83,10 @@
             "icon_size": "large",
             "heading": "Art First, Commerce Second",
             "content": "<p>Most Shopify themes are built for conversion optimization. I built ABD for <strong>creative expression.<br/></strong><em><strong><br/>What makes it different<br/><br/></strong></em><em>No \"</em><em><strong>best practices</strong></em><em>\" constraints</em><br/> Layouts break grids, text overlaps images, colors clash intentionally<br/><br/>- <em><strong>Anti-corporate aesthetic</strong></em> –<br/> I rejected the sterile minimalism of modern e-commerce for bold, opinionated design<br/><br/>- <em><strong>Cultural references over trends</strong></em> – <br/>Drawing from art history, subcultures, and forgotten eras instead of following what's popular<br/><br/>- <em><strong>Personality over polish</strong></em> – <br/>Embracing imperfection, texture, and character<br/><br/>I didn't ask \"will this convert?\" <br/><br/>I asked \"<em><strong>will this be remembered?</strong></em>\"</p>",
-            "link_text": "",
-            "link_url": "",
-            "show_link_arrow": true
+            "link_text": "Privacy Policy",
+            "link_url": "shopify://pages/privacy",
+            "show_link_arrow": true,
+            "custom_html": ""
           }
         },
         "feature_GRGnNJ": {
@@ -92,9 +96,10 @@
             "icon_size": "large",
             "heading": "Build Like an Artist",
             "content": "<p>The block architecture lets me <strong>compose pages like collages</strong>:<br/><br/><em><strong>Feature Blocks</strong></em><br/> Icon + text combinations with theme-specific styling<br/><br/><em><strong>Image & Text Blocks</strong></em><br/>Asymmetric layouts that break the 50/50 grid<br/><br/><em><strong>Badge Blocks</strong></em><br/>Stickers, stamps, and labels with retro positioning<br/><br/><em><strong>Custom HTML Blocks</strong></em><br/>Full creative freedom for experimental layouts<br/><br/><em><strong>Accordion Blocks</strong></em><br/>Expandable content with theme-aware animations<br/><br/>Each block inherits the active ABD style, so a \"Disco\" button looks completely different from a \"California Mission\" button—<strong>same content, 30 different artistic interpretations</strong>.<br/><br/>I wanted pages that feel hand-designed, not template-generated.</p>",
-            "link_text": "",
-            "link_url": "",
-            "show_link_arrow": true
+            "link_text": "Return and Refund Policy",
+            "link_url": "shopify://pages/return-and-refund-policy",
+            "show_link_arrow": true,
+            "custom_html": ""
           }
         },
         "feature_KRaPat": {
@@ -104,9 +109,10 @@
             "icon_size": "large",
             "heading": "Cultural Time Travel",
             "content": "<p>ABD doesn't just style a store it <strong>transports it to another era or movement</strong>.<br/><br/><em><strong>Examples of what I built:<br/></strong></em><br/>- <em>Renaissance</em> – Ornate borders, classical typography, museum-quality presentation<br/><br/>- <em>Newspaper</em> – Columns, mastheads, and print journalism layouts<br/><br/>- <em>National Parks Poster</em> – WPA-era screen printing and vintage travel aesthetics<br/><br/>- <em>Free Love</em> – Psychedelic swirls, peace signs, and 60s counterculture<br/><br/>- <em>Military Theme</em> – Stenciled fonts, olive drab, and utilitarian design<br/><br/>-<em>Valentines</em> – Romantic pinks, hearts, and love letter elegance<br/><br/>Each style isn't just a color palette—it's a <strong>complete design language</strong> with custom fonts, layout rules, and decorative elements that make a store feel like it belongs in a specific time and place.<br/><br/>This is the only Shopify theme where a store can look like a 1950s diner menu, a 1990s GeoCities page, or a French Impressionist painting—<br/><br/><em><strong>all from the same codebase</strong></em>.</p>",
-            "link_text": "",
-            "link_url": "",
-            "show_link_arrow": true
+            "link_text": "E-mail Marketing Policy",
+            "link_url": "shopify://pages/e-mail-marketing-policy",
+            "show_link_arrow": true,
+            "custom_html": ""
           }
         }
       },
@@ -117,6 +123,7 @@
         "feature_KRaPat"
       ],
       "settings": {
+        "show_only_for_handle": "",
         "heading": "About this Shopify Theme",
         "text": "",
         "columns_mobile": 1,
@@ -137,7 +144,16 @@
     "theme_color_guide_LyKRD9": {
       "type": "theme-color-guide",
       "name": "Theme Color Guide",
-      "settings": {}
+      "settings": {
+        "heading": "30 Artistic Styles",
+        "intro": "<p>Each theme is a complete aesthetic experience—from Renaissance oil paintings to GeoCities nostalgia. Switch your entire store's personality in seconds.</p>",
+        "show_cta": false,
+        "cta_text": "Ready to transform your store?",
+        "cta_button_text": "Get Started",
+        "cta_button_link": "",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
