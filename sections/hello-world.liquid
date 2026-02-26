@@ -78,13 +78,14 @@
 {% stylesheet %}
   .downloads-section {
     display: grid;
-    grid-template-columns: var(--content-grid, 1fr);
+    grid-template-columns: 1fr;
     background-color: #f6f6f7;
   }
 
   .downloads-section__inner {
-    grid-column: 2;
+    grid-column: 1;
     width: 100%;
+    max-width: 100%;
     padding: 0 24px;
   }
 
