@@ -58,7 +58,7 @@ ABD doesn't just style a store—it **transports it to another era or movement**
 - **National Parks Poster** – WPA-era screen printing and vintage travel aesthetics
 - **Free Love** – Psychedelic swirls, peace signs, and 60s counterculture
 - **Military Theme** – Stenciled fonts, olive drab, and utilitarian design
-- **Valentines Her** – Romantic pinks, hearts, and love letter elegance
+- **Pink-Yellow** – Vibrant pink, yellow, and white marbled palette
 
 Each style isn't just a color palette—it's a **complete design language** with custom fonts, layout rules, and decorative elements that make a store feel like it belongs in a specific time and place.
 

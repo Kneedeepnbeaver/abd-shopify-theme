@@ -169,7 +169,7 @@ palettes = {
     "highway-street-photo": {"bg": "#FFFFFF", "ink": "#12285C", "accent": "#2E8B57", "secondary": "#1E66E0", "border": "#B0B0B0", "btn_text": "#ffffff"},
     
     # Batch 3: Artistic
-    "cubism": {"bg": "#6EC4F2", "ink": "#4B3621", "accent": "#FF9900", "secondary": "#D2691E", "border": "#4B3621", "btn_text": "#ffffff"},
+    "cubism": {"bg": "#1a0a2e", "ink": "#FFFFFF", "accent": "#FF0096", "secondary": "#00C8FF", "border": "#9600FF", "btn_text": "#ffffff"},
     "zine": {"bg": "#f5f5f5", "ink": "#111111", "accent": "#cf142b", "secondary": "#00247d", "border": "#111111", "btn_text": "#ffffff"},
     "impressionist": {"bg": "#F5E6DC", "ink": "#5C4A42", "accent": "#7BA3A8", "secondary": "#8B6B5C", "border": "#C8C0B8", "btn_text": "#ffffff"},
     "france": {"bg": "#f7f4ef", "ink": "#2b2b2b", "accent": "#c9232f", "secondary": "#1f4aa8", "border": "#2b2b2b", "btn_text": "#ffffff"},
@@ -188,11 +188,11 @@ palettes = {
     
     # Final Batch: Misc
     "military-theme": {"bg": "#faf8f3", "ink": "#1a237e", "accent": "#d4af37", "secondary": "#001f3f", "border": "#d4af37", "btn_text": "#ffffff"},
-    "mens-magazine": {"bg": "#f5ebe0", "ink": "#1a1510", "accent": "#c41e3a", "secondary": "#d4af37", "border": "#1a1510", "btn_text": "#ffffff"},
+    "american-wave": {"bg": "#FFFFFF", "ink": "#0a1628", "accent": "#E4002B", "secondary": "#007FFF", "border": "#0066CC", "btn_text": "#ffffff"},
     "stars-and-stripes": {"bg": "#FFFAF0", "ink": "#1a1a1a", "accent": "#BF0A30", "secondary": "#002868", "border": "#1a1a1a", "btn_text": "#ffffff"},
     "stpatricks": {"bg": "#FFE4C4", "ink": "#1a2e1a", "accent": "#2D5A27", "secondary": "#E07C3C", "border": "#1a2e1a", "btn_text": "#ffffff"},
     "travel-nyc-liberty": {"bg": "#e8f4fc", "ink": "#1a365d", "accent": "#cf142b", "secondary": "#ffd700", "border": "#1a365d", "btn_text": "#ffffff"},
-    "valentines-her": {"bg": "#FFE4C4", "ink": "#3d2914", "accent": "#C41E3A", "secondary": "#FFB6C1", "border": "#3d2914", "btn_text": "#ffffff"},
+    "pink-yellow": {"bg": "#FFFFFF", "ink": "#3d1a2e", "accent": "#E00080", "secondary": "#FFD700", "border": "#E00080", "btn_text": "#ffffff"},
     "wayfinding-receipt": {"bg": "#f4f2ee", "ink": "#1d1d1d", "accent": "#2b5da8", "secondary": "#5a5a5a", "border": "#1d1d1d", "btn_text": "#ffffff"},
 }
 

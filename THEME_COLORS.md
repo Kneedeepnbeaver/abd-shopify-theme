@@ -248,7 +248,7 @@ This document contains the extracted color palettes for all ABD Themes. Use thes
 | `--blue` | <div style='background-color:#2e7cff; width:20px; height:20px; border:1px solid #ccc;'></div> | `#2e7cff` |  |
 | `--grid` | <div style='background-color:rgba(57, 233, 255, 0.25); width:20px; height:20px; border:1px solid #ccc;'></div> | `rgba(57, 233, 255, 0.25)` |  |
 
-## Valentines Her (`valentines-her`)
+## Pink-Yellow (`pink-yellow`)
 
 | Variable | Color | Hex/Value | Description |
 | :--- | :---: | :--- | :--- |

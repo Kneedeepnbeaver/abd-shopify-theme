@@ -11,7 +11,7 @@ Create these in **Shopify Admin → Settings → Custom data** (or **Content →
 | **custom.abd_theme** | Page, Product, Collection, Article, Blog | **Single line text** or **Metaobject reference** | ABD theme for that resource. When set, header and footer (and product/article/blog sections) use this theme instead of the section default or “theme by page type.” |
 
 **Allowed theme key values (use exactly one):**  
-`cable-news`, `ca-assembly-daily-file`, `california-dreaming`, `california-mission`, `cubism`, `disco`, `france`, `free-love`, `highway-street-photo`, `impressionist`, `italy`, `men's-magazine`, `military-theme`, `millennial-myspace`, `national-parks-poster`, `newspaper`, `nineties-graphic-design`, `renaissance`, `retro-diner`, `retro-internet`, `retro-tech-polaroid`, `stars-and-stripes`, `stpatricks`, `las-vegas`, `travel-nyc-liberty`, `valentines-her`, `wayfinding-receipt`, `zine`
+`cable-news`, `ca-assembly-daily-file`, `california-dreaming`, `california-mission`, `cubism`, `disco`, `france`, `free-love`, `highway-street-photo`, `impressionist`, `italy`, `american-wave`, `military-theme`, `millennial-myspace`, `national-parks-poster`, `newspaper`, `nineties-graphic-design`, `renaissance`, `retro-diner`, `retro-internet`, `retro-tech-polaroid`, `stars-and-stripes`, `stpatricks`, `las-vegas`, `travel-nyc-liberty`, `pink-yellow`, `wayfinding-receipt`, `zine`
 
 **Where it’s used:**
 - **Header** – per-page header theme

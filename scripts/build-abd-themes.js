@@ -17,7 +17,7 @@ const THEME_ORDER = [
   'highway-street-photo.css',
   'impressionist.css',
   'italy.css',
-  "men's-magazine.css",
+  "american-wave.css",
   'military-theme.css',
   'millennial-myspace.css',
   'national-parks-poster.css',
@@ -31,7 +31,7 @@ const THEME_ORDER = [
   'stpatricks.css',
   'las-vegas.css',
   'travel-nyc-liberty.css',
-  'valentines-her.css',
+  'pink-yellow.css',
   'wayfinding-receipt.css',
   'zine.css'
 ];
