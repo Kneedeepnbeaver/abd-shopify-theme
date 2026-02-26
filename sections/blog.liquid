@@ -24,22 +24,27 @@
   assign show_date = section.settings.show_date
   assign show_author = section.settings.show_author
   assign abd_theme = section.settings.abd_theme
-  if blog.metafields.custom.abd_theme != blank
-    assign abd_theme = blog.metafields.custom.abd_theme
-  elsif section.settings.theme_blog_handle != blank and section.settings.theme_for_blog_handle != blank
-    assign blog_handle_setting = section.settings.theme_blog_handle | strip
-    if blog.handle == blog_handle_setting
-      assign abd_theme = section.settings.theme_for_blog_handle
-    endif
-  endif
-  if abd_theme == blank
-    assign abd_theme = settings.abd_theme_default
-  endif
   assign custom_bg = section.settings.custom_bg
   assign custom_text = section.settings.custom_text
   assign custom_accent = section.settings.custom_accent
   assign custom_link = section.settings.custom_link
 %}
+{% comment %} Resolve theme from blog metafield (metaobject reference or single-line text), then blog handle, then default. {% endcomment %}
+{% assign _m = blog.metafields.custom.abd_theme %}
+{% if _m != blank %}
+  {% capture _t %}{% render 'abd-theme-from-metafield', metafield: _m %}{% endcapture %}
+  {% assign _t = _t | strip %}
+  {% if _t != blank %}{% assign abd_theme = _t %}{% endif %}
+{% endif %}
+{% if abd_theme == section.settings.abd_theme and section.settings.theme_blog_handle != blank and section.settings.theme_for_blog_handle != blank %}
+  {% assign blog_handle_setting = section.settings.theme_blog_handle | strip %}
+  {% if blog.handle == blog_handle_setting %}
+    {% assign abd_theme = section.settings.theme_for_blog_handle %}
+  {% endif %}
+{% endif %}
+{% if abd_theme == blank %}
+  {% assign abd_theme = settings.abd_theme_default %}
+{% endif %}
 
 <div class="section-blog section-blog--{{ layout_variation }} {% if abd_theme != blank %}abd-theme-{{ abd_theme }}{% endif %}"
      style="--columns-mobile: {{ columns_mobile }}; --columns-tablet: {{ columns_tablet }}; --columns-desktop: {{ columns_desktop }}; {% if custom_bg != blank %}background-color: {{ custom_bg }};{% endif %} {% if custom_text != blank %}color: {{ custom_text }};{% endif %}">

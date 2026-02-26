@@ -5,20 +5,70 @@
   It includes mobile menu functionality and dynamic cart count updates via JavaScript.
 {% endcomment %}
 
+{% comment %}
+  Priority 1: Resource metafield (page, product, collection, article, blog).
+  Supports metaobject reference (entry with field "theme", "theme_key", or "value") or single-line text.
+{% endcomment %}
+{% assign abd_theme = section.settings.abd_theme %}
+{% assign _m = page.metafields.custom.abd_theme %}
+{% if _m != blank %}
+  {% capture _t %}{% render 'abd-theme-from-metafield', metafield: _m %}{% endcapture %}
+  {% assign _t = _t | strip %}
+  {% if _t != blank %}{% assign abd_theme = _t %}{% endif %}
+{% endif %}
+{% if abd_theme == section.settings.abd_theme %}
+  {% assign _m = product.metafields.custom.abd_theme %}
+  {% if _m != blank %}
+    {% capture _t %}{% render 'abd-theme-from-metafield', metafield: _m %}{% endcapture %}
+    {% assign _t = _t | strip %}
+    {% if _t != blank %}{% assign abd_theme = _t %}{% endif %}
+  {% endif %}
+{% endif %}
+{% if abd_theme == section.settings.abd_theme %}
+  {% assign _m = collection.metafields.custom.abd_theme %}
+  {% if _m != blank %}
+    {% capture _t %}{% render 'abd-theme-from-metafield', metafield: _m %}{% endcapture %}
+    {% assign _t = _t | strip %}
+    {% if _t != blank %}{% assign abd_theme = _t %}{% endif %}
+  {% endif %}
+{% endif %}
+{% if abd_theme == section.settings.abd_theme %}
+  {% assign _m = article.metafields.custom.abd_theme %}
+  {% if _m != blank %}
+    {% capture _t %}{% render 'abd-theme-from-metafield', metafield: _m %}{% endcapture %}
+    {% assign _t = _t | strip %}
+    {% if _t != blank %}{% assign abd_theme = _t %}{% endif %}
+  {% endif %}
+{% endif %}
+{% if abd_theme == section.settings.abd_theme %}
+  {% assign _m = blog.metafields.custom.abd_theme %}
+  {% if _m != blank %}
+    {% capture _t %}{% render 'abd-theme-from-metafield', metafield: _m %}{% endcapture %}
+    {% assign _t = _t | strip %}
+    {% if _t != blank %}{% assign abd_theme = _t %}{% endif %}
+  {% endif %}
+{% endif %}
+
 {% liquid
-  assign abd_theme = section.settings.abd_theme
-  
-  if page.metafields.custom.abd_theme != blank
-    assign abd_theme = page.metafields.custom.abd_theme
-  elsif product.metafields.custom.abd_theme != blank
-    assign abd_theme = product.metafields.custom.abd_theme
-  elsif collection.metafields.custom.abd_theme != blank
-    assign abd_theme = collection.metafields.custom.abd_theme
-  elsif article.metafields.custom.abd_theme != blank
-    assign abd_theme = article.metafields.custom.abd_theme
-  elsif blog.metafields.custom.abd_theme != blank
-    assign abd_theme = blog.metafields.custom.abd_theme
+  comment
+    Priority 2: Template-based theme (when no metafield was set). Use theme by page type.
+  endcomment
+  if abd_theme == section.settings.abd_theme
+    if template.name == 'index' and section.settings.theme_for_index != blank
+      assign abd_theme = section.settings.theme_for_index
+    elsif template.name == 'product' and section.settings.theme_for_product != blank
+      assign abd_theme = section.settings.theme_for_product
+    elsif template.name == 'collection' and section.settings.theme_for_collection != blank
+      assign abd_theme = section.settings.theme_for_collection
+    elsif template.name == 'blog' or template.name == 'article'
+      if section.settings.theme_for_blog != blank
+        assign abd_theme = section.settings.theme_for_blog
+      endif
+    elsif template.name == 'page' and section.settings.theme_for_page != blank
+      assign abd_theme = section.settings.theme_for_page
+    endif
   endif
+
   assign custom_bg = section.settings.custom_bg
   assign custom_text = section.settings.custom_text
   assign custom_accent = section.settings.custom_accent
@@ -414,9 +464,13 @@
       "content": "ABD Theme Styles"
     },
     {
+      "type": "paragraph",
+      "content": "Default theme applies everywhere. Override per page type below, or set metafield custom.abd_theme on a page/product/collection/article/blog for that resource only."
+    },
+    {
       "type": "select",
       "id": "abd_theme",
-      "label": "ABD Theme Style",
+      "label": "Default ABD Theme",
       "default": "",
       "options": [
         { "value": "", "label": "None (Theme Default)" },
@@ -448,20 +502,195 @@
         { "value": "valentines-her", "label": "Valentines Her" },
         { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
         { "value": "zine", "label": "Zine" }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Theme by page type (optional)"
+    },
+    {
+      "type": "select",
+      "id": "theme_for_index",
+      "label": "Homepage",
+      "default": "",
+      "options": [
+        { "value": "", "label": "Use default" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "ca-assembly-daily-file", "label": "CA Assembly Daily File" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street-photo", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "men's-magazine", "label": "Men'S Magazine" },
+        { "value": "military-theme", "label": "Military Theme" },
+        { "value": "millennial-myspace", "label": "Millennial Myspace" },
+        { "value": "national-parks-poster", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic-design", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-internet", "label": "Retro Internet" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-and-stripes", "label": "Stars And Stripes" },
+        { "value": "stpatricks", "label": "Stpatricks" },
+        { "value": "las-vegas", "label": "Las Vegas" },
+        { "value": "travel-nyc-liberty", "label": "Travel Nyc Liberty" },
+        { "value": "valentines-her", "label": "Valentines Her" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
+        { "value": "zine", "label": "Zine" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "theme_for_product",
+      "label": "Product pages",
+      "default": "",
+      "options": [
+        { "value": "", "label": "Use default" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "ca-assembly-daily-file", "label": "CA Assembly Daily File" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street-photo", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "men's-magazine", "label": "Men'S Magazine" },
+        { "value": "military-theme", "label": "Military Theme" },
+        { "value": "millennial-myspace", "label": "Millennial Myspace" },
+        { "value": "national-parks-poster", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic-design", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-internet", "label": "Retro Internet" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-and-stripes", "label": "Stars And Stripes" },
+        { "value": "stpatricks", "label": "Stpatricks" },
+        { "value": "las-vegas", "label": "Las Vegas" },
+        { "value": "travel-nyc-liberty", "label": "Travel Nyc Liberty" },
+        { "value": "valentines-her", "label": "Valentines Her" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
+        { "value": "zine", "label": "Zine" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "theme_for_collection",
+      "label": "Collection pages",
+      "default": "",
+      "options": [
+        { "value": "", "label": "Use default" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "ca-assembly-daily-file", "label": "CA Assembly Daily File" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street-photo", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "men's-magazine", "label": "Men'S Magazine" },
+        { "value": "military-theme", "label": "Military Theme" },
+        { "value": "millennial-myspace", "label": "Millennial Myspace" },
+        { "value": "national-parks-poster", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic-design", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-internet", "label": "Retro Internet" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-and-stripes", "label": "Stars And Stripes" },
+        { "value": "stpatricks", "label": "Stpatricks" },
+        { "value": "las-vegas", "label": "Las Vegas" },
+        { "value": "travel-nyc-liberty", "label": "Travel Nyc Liberty" },
+        { "value": "valentines-her", "label": "Valentines Her" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
+        { "value": "zine", "label": "Zine" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "theme_for_blog",
+      "label": "Blog & article pages",
+      "default": "",
+      "options": [
+        { "value": "", "label": "Use default" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "ca-assembly-daily-file", "label": "CA Assembly Daily File" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street-photo", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "men's-magazine", "label": "Men'S Magazine" },
+        { "value": "military-theme", "label": "Military Theme" },
+        { "value": "millennial-myspace", "label": "Millennial Myspace" },
+        { "value": "national-parks-poster", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic-design", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-internet", "label": "Retro Internet" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-and-stripes", "label": "Stars And Stripes" },
+        { "value": "stpatricks", "label": "Stpatricks" },
+        { "value": "las-vegas", "label": "Las Vegas" },
+        { "value": "travel-nyc-liberty", "label": "Travel Nyc Liberty" },
+        { "value": "valentines-her", "label": "Valentines Her" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
+        { "value": "zine", "label": "Zine" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "theme_for_page",
+      "label": "Other pages (e.g. About, Contact)",
+      "default": "",
+      "options": [
+        { "value": "", "label": "Use default" },
+        { "value": "cable-news", "label": "Cable News" },
+        { "value": "ca-assembly-daily-file", "label": "CA Assembly Daily File" },
+        { "value": "california-dreaming", "label": "California Dreaming" },
+        { "value": "california-mission", "label": "California Mission" },
+        { "value": "cubism", "label": "Cubism" },
+        { "value": "disco", "label": "Disco" },
+        { "value": "france", "label": "France" },
+        { "value": "free-love", "label": "Free Love" },
+        { "value": "highway-street-photo", "label": "Highway Street Photo" },
+        { "value": "impressionist", "label": "Impressionist" },
+        { "value": "italy", "label": "Italy" },
+        { "value": "men's-magazine", "label": "Men'S Magazine" },
+        { "value": "military-theme", "label": "Military Theme" },
+        { "value": "millennial-myspace", "label": "Millennial Myspace" },
+        { "value": "national-parks-poster", "label": "National Parks Poster" },
+        { "value": "newspaper", "label": "Newspaper" },
+        { "value": "nineties-graphic-design", "label": "Nineties Graphic Design" },
+        { "value": "renaissance", "label": "Renaissance" },
+        { "value": "retro-diner", "label": "Retro Diner" },
+        { "value": "retro-internet", "label": "Retro Internet" },
+        { "value": "retro-tech-polaroid", "label": "Retro Tech Polaroid" },
+        { "value": "stars-and-stripes", "label": "Stars And Stripes" },
+        { "value": "stpatricks", "label": "Stpatricks" },
+        { "value": "las-vegas", "label": "Las Vegas" },
+        { "value": "travel-nyc-liberty", "label": "Travel Nyc Liberty" },
+        { "value": "valentines-her", "label": "Valentines Her" },
+        { "value": "wayfinding-receipt", "label": "Wayfinding Receipt" },
+        { "value": "zine", "label": "Zine" }
       ]
     },
     {

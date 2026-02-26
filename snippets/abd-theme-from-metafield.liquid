@@ -1,0 +1,24 @@
+{% comment %}
+  Resolves the ABD theme key from metafield custom.abd_theme.
+  Supports:
+  - Metaobject reference: reads the theme key from the referenced entry.
+    Looks for a single-line field named "theme", "theme_key", or "value" on the metaobject.
+  - Single line text: uses the metafield value as the theme key (legacy).
+  Usage: {% render 'abd-theme-from-metafield', metafield: resource.metafields.custom.abd_theme %}
+  Output: the theme key string, or nothing if blank.
+{% endcomment %}
+{% if metafield == blank %}
+{% else %}
+  {% assign v = metafield.value %}
+  {% if v != blank %}
+    {% if v.theme != blank %}
+      {{ v.theme }}
+    {% elsif v.theme_key != blank %}
+      {{ v.theme_key }}
+    {% elsif v.value != blank %}
+      {{ v.value }}
+    {% else %}
+      {{ v }}
+    {% endif %}
+  {% endif %}
+{% endif %}

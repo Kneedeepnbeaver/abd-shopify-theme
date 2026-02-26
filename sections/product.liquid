@@ -23,18 +23,28 @@
   assign show_sku = section.settings.show_sku
   assign show_quantity_selector = section.settings.show_quantity_selector
   assign abd_theme = section.settings.abd_theme
-  if product.metafields.custom.abd_theme != blank
-    assign abd_theme = product.metafields.custom.abd_theme
-  elsif collection.metafields.custom.abd_theme != blank
-    assign abd_theme = collection.metafields.custom.abd_theme
-  endif
   assign custom_bg = section.settings.custom_bg
   assign custom_text = section.settings.custom_text
   assign custom_accent = section.settings.custom_accent
   assign custom_link = section.settings.custom_link
 %}
-{% comment %} Tag and collection-handle theme rules (outside liquid block so tag | handle parses) {% endcomment %}
-{% if product.metafields.custom.abd_theme == blank and collection.metafields.custom.abd_theme == blank %}
+{% comment %} Resolve theme from product or collection metafield (metaobject reference or single-line text). {% endcomment %}
+{% assign _m = product.metafields.custom.abd_theme %}
+{% if _m != blank %}
+  {% capture _t %}{% render 'abd-theme-from-metafield', metafield: _m %}{% endcapture %}
+  {% assign _t = _t | strip %}
+  {% if _t != blank %}{% assign abd_theme = _t %}{% endif %}
+{% endif %}
+{% if abd_theme == section.settings.abd_theme %}
+  {% assign _m = collection.metafields.custom.abd_theme %}
+  {% if _m != blank %}
+    {% capture _t %}{% render 'abd-theme-from-metafield', metafield: _m %}{% endcapture %}
+    {% assign _t = _t | strip %}
+    {% if _t != blank %}{% assign abd_theme = _t %}{% endif %}
+  {% endif %}
+{% endif %}
+{% comment %} Tag and collection-handle theme rules when no theme from product/collection metafields. {% endcomment %}
+{% if abd_theme == section.settings.abd_theme %}
   {% assign tag_matched = false %}
   {% if section.settings.theme_tag_name != blank and section.settings.theme_when_tag_present != blank %}
     {% assign theme_tag_handle = section.settings.theme_tag_name | strip | handle %}
