@@ -74,7 +74,7 @@
         "columns_mobile": 1,
         "columns_tablet": 1,
         "columns_desktop": 1,
-        "button_size": "medium",
+        "button_size": "large",
         "padding_top": 70,
         "padding_bottom": 70,
         "abd_theme": "retro-internet",
