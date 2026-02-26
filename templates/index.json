@@ -119,47 +119,6 @@
         "custom_link": ""
       }
     },
-    "featured_collection_KgbLDn": {
-      "type": "featured-collection",
-      "name": "Featured Collection",
-      "settings": {
-        "heading": "Featured Collection",
-        "collection": "",
-        "products_to_show": 4,
-        "columns": 4,
-        "show_view_all": true,
-        "abd_theme": "california-dreaming",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": ""
-      }
-    },
-    "image_with_text_8eC4PY": {
-      "type": "image-with-text",
-      "name": "Image with Text",
-      "settings": {
-        "heading": "idsfhlaskjfhaskjdfh",
-        "text": "<p>sagdgasdfasdf</p>",
-        "image": "shopify://shop_images/Arts_by_Dylan2025-06-06_at_9.48.40_PM_18.jpg",
-        "button_text": "",
-        "button_link": "",
-        "button_variant": "primary",
-        "button_size": "medium",
-        "image_position": "left",
-        "layout": "split",
-        "mobile_layout": "stacked",
-        "text_alignment": "center",
-        "abd_theme": "california-dreaming",
-        "custom_bg": "",
-        "custom_text": "",
-        "custom_accent": "",
-        "custom_link": "",
-        "color_scheme": "",
-        "padding_top": 60,
-        "padding_bottom": 60
-      }
-    },
     "image_with_text_wp4jFE": {
       "type": "image-with-text",
       "name": "Image with Text",
@@ -189,8 +148,6 @@
     "breadcrumbs",
     "hero_banner_amahEK",
     "multi_column_HEhT6m",
-    "featured_collection_KgbLDn",
-    "image_with_text_8eC4PY",
     "image_with_text_wp4jFE"
   ]
 }
