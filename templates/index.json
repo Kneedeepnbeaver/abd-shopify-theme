@@ -37,7 +37,7 @@
         "overlay_color": "#ffffff",
         "overlay_opacity": 15,
         "full_width": true,
-        "layout_variation": "left",
+        "layout_variation": "split",
         "button_size": "medium",
         "image_loading": "eager",
         "enable_parallax": false,
