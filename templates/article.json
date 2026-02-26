@@ -52,11 +52,22 @@
     "hello_world_qPb63h": {
       "type": "hello-world",
       "blocks": {
+        "program_ChKYKb": {
+          "type": "program",
+          "settings": {
+            "title": "RAG Template",
+            "description": "<p>My Blog Post Writer program is a custom-built software solution that leverages advanced coding techniques to streamline content creation. By vibe coded, I've crafted a unique tool that empowers users to easily import and organize credible sources into a searchable database.<br/><br/>The program allows users to upload their preferred materials – books, articles, or any other digital content they'd like to store – and breaks them down into manageable chunks. This enables the incorporation of metadata, making it simple for Local Large Language Models (LLLMs) to locate specific sections within the database. (Ollama powered)</p>",
+            "github_url": "",
+            "releases_url": "",
+            "download_button_text": "Download / Releases",
+            "repo_button_text": "View on GitHub"
+          }
+        },
         "program_zVp8XV": {
           "type": "program",
           "settings": {
             "title": "RAG TEMPLATE",
-            "description": "<p>My Blog Post Writer program is a custom-built software solution that leverages advanced coding techniques to streamline content creation. By vibe coded, I've crafted a unique tool that empowers users to easily import and organize credible sources into a searchable database.<br/><br/>The program allows users to upload their preferred materials – books, articles, or any other digital content they'd like to store – and breaks them down into manageable chunks. This enables the incorporation of metadata, making it simple for Local Large Language Models (LLLMs) to locate specific sections within the database. (Ollama powered)<br/><br/>One of the key features of this program is its semantic search functionality. When a user searches their library, the search query is applied not just to individual words or phrases but to the entire text of each document. This advanced search feature allows users to quickly and efficiently find relevant information within their curated content collection.</p><p> Anyone can download this program, put into Cursor, Antigravity, or any other AI coding platform, and have the AI recode it to whatever specific purpose the user needs, creative writing, research assistant, social media generation, whatever.  </p><p>A customizable, production-ready template for building RAG (Retrieval-Augmented Generation) desktop applications using Electron, React, and Python.</p>",
+            "description": "<p>One of the key features of this program is its semantic search functionality. When a user searches their library, the search query is applied not just to individual words or phrases but to the entire text of each document. This advanced search feature allows users to quickly and efficiently find relevant information within their curated content collection.</p><p> Anyone can download this program, put into Cursor, Antigravity, or any other AI coding platform, and have the AI recode it to whatever specific purpose the user needs, creative writing, research assistant, social media generation, whatever.  </p><p>A customizable, production-ready template for building RAG (Retrieval-Augmented Generation) desktop applications using Electron, React, and Python.</p>",
             "github_url": "https://github.com/Kneedeepnbeaver/rag-template",
             "releases_url": "",
             "download_button_text": "Download / Releases",
@@ -65,6 +76,7 @@
         }
       },
       "block_order": [
+        "program_ChKYKb",
         "program_zVp8XV"
       ],
       "name": "Downloads",
@@ -75,8 +87,8 @@
         "columns_tablet": 1,
         "columns_desktop": 1,
         "button_size": "large",
-        "padding_top": 70,
-        "padding_bottom": 70,
+        "padding_top": 60,
+        "padding_bottom": 60,
         "abd_theme": "retro-internet",
         "custom_bg": "",
         "custom_text": "",
