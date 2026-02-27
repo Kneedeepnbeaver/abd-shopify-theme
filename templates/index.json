@@ -142,12 +142,54 @@
         "padding_top": 60,
         "padding_bottom": 60
       }
+    },
+    "1772164598c03d7f9e": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_d6fa407_cMxh8T": {
+          "type": "ai_gen_block_d6fa407",
+          "settings": {
+            "heading": "Download Resources",
+            "content": "<p>Access our collection of downloadable resources, guides, and materials. Click the button below to get started.</p>",
+            "button_text": "Download Now",
+            "button_link": "",
+            "show_download_icon": true,
+            "open_in_new_tab": false,
+            "button_alignment": "flex-start",
+            "desktop_width_percent": 100,
+            "content_max_width": 800,
+            "section_padding": 40,
+            "spacing": 25,
+            "text_alignment": "left",
+            "background_color": "#f9f9f9",
+            "heading_color": "#000000",
+            "text_color": "#333333",
+            "button_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_hover_color": "#333333",
+            "button_hover_text_color": "#ffffff",
+            "heading_size": 32,
+            "text_size": 16,
+            "button_text_size": 16,
+            "button_padding_vertical": 14,
+            "button_padding_horizontal": 30,
+            "button_border_radius": 4,
+            "border_radius": 8
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_d6fa407_cMxh8T"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "breadcrumbs",
     "hero_banner_amahEK",
     "multi_column_HEhT6m",
-    "image_with_text_wp4jFE"
+    "image_with_text_wp4jFE",
+    "1772164598c03d7f9e"
   ]
 }
