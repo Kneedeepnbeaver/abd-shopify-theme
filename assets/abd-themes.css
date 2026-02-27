@@ -2921,8 +2921,9 @@
     margin: 0 auto;
 }
 
-/* Header styles */
-.abd-theme-california-dreaming header {
+/* Header styles (scoped to article content to prevent overriding global header) */
+.abd-theme-california-dreaming .theme-content header,
+.abd-theme-california-dreaming .abd-content header {
     background: linear-gradient(135deg, var(--ocean-blue) 0%, var(--ocean-blue-light) 50%, var(--primary-gold-light) 100%);
     color: #fff;
     padding: var(--spacing-medium);
@@ -2935,7 +2936,8 @@
     transition: var(--transition-smooth);
 }
 
-.abd-theme-california-dreaming header:hover {
+.abd-theme-california-dreaming .theme-content header:hover,
+.abd-theme-california-dreaming .abd-content header:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
 }
@@ -2967,8 +2969,9 @@
     transform: translateY(-2px);
 }
 
-/* Footer styles */
-.abd-theme-california-dreaming footer {
+/* Footer styles (scoped to article content) */
+.abd-theme-california-dreaming .theme-content footer,
+.abd-theme-california-dreaming .abd-content footer {
     background: linear-gradient(135deg, var(--primary-gold-light) 0%, var(--sand-beige) 100%);
     color: var(--ocean-blue-dark);
     padding: var(--spacing-medium);
@@ -3387,15 +3390,18 @@
     color: #ffffff;
 }
 
-/* Navigation */
-.abd-theme-california-dreaming nav,
-.abd-theme-california-dreaming .nav {
+/* Navigation (scoped) */
+.abd-theme-california-dreaming .theme-content nav,
+.abd-theme-california-dreaming .abd-content nav,
+.abd-theme-california-dreaming .theme-content .nav,
+.abd-theme-california-dreaming .abd-content .nav {
     border-bottom: 3px solid var(--primary-gold);
     padding: 16px 0;
     margin-bottom: 24px;
 }
 
-.abd-theme-california-dreaming .nav ul {
+.abd-theme-california-dreaming .theme-content .nav ul,
+.abd-theme-california-dreaming .abd-content .nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -3404,7 +3410,8 @@
     flex-wrap: wrap;
 }
 
-.abd-theme-california-dreaming .nav a {
+.abd-theme-california-dreaming .theme-content .nav a,
+.abd-theme-california-dreaming .abd-content .nav a {
     color: var(--ocean-blue-dark);
     text-decoration: none;
     font-weight: 600;
@@ -3413,7 +3420,8 @@
     transition: border-color 0.2s ease;
 }
 
-.abd-theme-california-dreaming .nav a:hover {
+.abd-theme-california-dreaming .theme-content .nav a:hover,
+.abd-theme-california-dreaming .abd-content .nav a:hover {
     border-bottom-color: var(--primary-gold);
 }
 
